@@ -1,0 +1,10 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(10, 30) scale(0.58)">
+    <path d="M250 40L60 150.2V361.8L250 472V40Z" fill="#3BB3D9"/>
+    <path d="M262 40V472L452 361.8V150.2L262 40Z" fill="#EDEDED" fill-opacity="0.9"/>
+  </g>
+  <text x="310" y="178" style="font-family: 'Inter', sans-serif; font-size: 104px; font-weight: 800; text-transform: uppercase;">
+    <tspan fill="#3BB3D9">DUAL</tspan><tspan fill="#EDEDED" dx="-2">CORE</tspan>
+  </text>
+  <text x="315" y="224" fill="#3BB3D9" style="font-family: 'Inter', sans-serif; font-size: 42px; font-weight: 600; letter-spacing: 12px; text-transform: uppercase;">GAMES</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dual Contrast Icon (Integrated Weight) -->
+  <g transform="translate(40, 50) scale(0.44)">
+    <path d="M250 50L60 160.2V351.8L250 462V50Z" fill="#4FB3D8"/>
+    <path d="M262 50V462L452 351.8V160.2L262 50Z" fill="#1F2A33"/>
+  </g>
+
+  <!-- Wordmark: DUALCORE (Off-White #EDEDED) -->
+  <!-- Increased weight, cap-height aligned with icon -->
+  <text x="260" y="178" fill="#EDEDED" style="font-family: 'Inter', sans-serif; font-size: 112px; font-weight: 850; text-transform: uppercase;">
+    <tspan dx="0">DUA</tspan><tspan dx="-2">L</tspan><tspan dx="-6">C</tspan><tspan dx="-3">O</tspan><tspan dx="-3">RE</tspan>
+  </text>
+  
+  <!-- Sub-label: GAMES (Muted Gray #9AA4AD, tracking) -->
+  <text x="266" y="240" fill="#9AA4AD" style="font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 600; letter-spacing: 14px; text-transform: uppercase;">GAMES</text>
+</svg>
