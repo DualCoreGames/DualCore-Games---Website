@@ -85,7 +85,7 @@
 
 <body>
 
-        <header>
+    <header>
         <div class="container header-inner">
             <a href="index.html" class="logo">
                 <img loading="lazy" src="assets/images/dualcore-logo.svg" alt="DualCore Games Logo"
@@ -108,7 +108,8 @@
                         </ul>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="work/index.html" class="nav-link dropdown-toggle">Work <span class="dropdown-icon">▼</span></a>
+                        <a href="work/index.html" class="nav-link dropdown-toggle">Work <span
+                                class="dropdown-icon">▼</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="work/game-development/index.html" class="dropdown-link">Game Development</a>
                             </li>
@@ -200,6 +201,63 @@
             </div>
         </section>
 
+        <!-- Core Engineering Capabilities -->
+        <section class="section-padding" style="background-color: var(--color-bg);">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 6.25rem;">Core Engineering Capabilities</h2>
+                <div class="grid" style="gap: 3rem;">
+                    <div class="card pillar-card"
+                        style="display: flex; flex-direction: column; text-align: center; padding: 3.5rem 2rem;">
+                        <span class="pillar-icon"
+                            style="color: var(--color-accent); margin-bottom: 2rem; font-size: 2rem;">🎮</span>
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem;">Gameplay Engineering</h3>
+                        <p class="text-muted" style="line-height: 1.6; font-size: 0.95rem;">Building stable core loops,
+                            complex character controllers, and satisfying game mechanics tuned for player feel.</p>
+                    </div>
+                    <div class="card pillar-card"
+                        style="display: flex; flex-direction: column; text-align: center; padding: 3.5rem 2rem;">
+                        <span class="pillar-icon"
+                            style="color: var(--color-accent); margin-bottom: 2rem; font-size: 2rem;">👁️</span>
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem;">Rendering Systems</h3>
+                        <p class="text-muted" style="line-height: 1.6; font-size: 0.95rem;">Developing optimized visual
+                            pipelines, custom shaders, and lighting architectures for mobile and PC platforms.</p>
+                    </div>
+                    <div class="card pillar-card"
+                        style="display: flex; flex-direction: column; text-align: center; padding: 3.5rem 2rem;">
+                        <span class="pillar-icon"
+                            style="color: var(--color-accent); margin-bottom: 2rem; font-size: 2rem;">🌐</span>
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem;">Multiplayer Infrastructure</h3>
+                        <p class="text-muted" style="line-height: 1.6; font-size: 0.95rem;">Integrating robust
+                            networking solutions, authoritative servers, and low-latency synchronization protocols.</p>
+                    </div>
+                    <div class="card pillar-card"
+                        style="display: flex; flex-direction: column; text-align: center; padding: 3.5rem 2rem;">
+                        <span class="pillar-icon"
+                            style="color: var(--color-accent); margin-bottom: 2rem; font-size: 2rem;">🥽</span>
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem;">VR/XR Interaction Systems</h3>
+                        <p class="text-muted" style="line-height: 1.6; font-size: 0.95rem;">Creating highly immersive
+                            spatial computing experiences utilizing OpenXR and advanced hand tracking frameworks.</p>
+                    </div>
+                    <div class="card pillar-card"
+                        style="display: flex; flex-direction: column; text-align: center; padding: 3.5rem 2rem;">
+                        <span class="pillar-icon"
+                            style="color: var(--color-accent); margin-bottom: 2rem; font-size: 2rem;">⚡</span>
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem;">Performance Optimization</h3>
+                        <p class="text-muted" style="line-height: 1.6; font-size: 0.95rem;">Profiling and eliminating
+                            bottlenecks, deep memory management, and multi-threading for rock-solid framerates.</p>
+                    </div>
+                    <div class="card pillar-card"
+                        style="display: flex; flex-direction: column; text-align: center; padding: 3.5rem 2rem;">
+                        <span class="pillar-icon"
+                            style="color: var(--color-accent); margin-bottom: 2rem; font-size: 2rem;">☁️</span>
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem;">LiveOps & Backend Architecture</h3>
+                        <p class="text-muted" style="line-height: 1.6; font-size: 0.95rem;">Deploying cloud-based
+                            analytics, scalable player databases, and dynamic content delivery systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Philosophy Section -->
         <section class="section-padding"
             style="background-color: #141414; padding-top: 130px; padding-bottom: 130px; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
@@ -221,13 +279,33 @@
         <!-- Selected Work -->
         <section id="work-section" class="section-padding" style="background-color: var(--color-bg);">
             <div class="container">
-                <h2 style="text-align: center; margin-bottom: 1rem;">Selected Work</h2>
+                <h2 style="text-align: center; margin-bottom: 1rem;">Featured Projects</h2>
                 <p
                     style="text-align: center; margin-bottom: 5.25rem; color: var(--color-text-muted); font-size: 1.1rem; max-width: 860px; margin-left: auto; margin-right: auto;">
-                    Beyond our flagship IP, DualCore collaborates on commercial builds, immersive XR platforms, and
-                    performance-driven technical projects. Each project reflects our approach: stable systems first,
-                    creative clarity second, scalability always.</p>
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+                    A selection of original IP, technical benchmarks, and cross-platform collaborations.</p>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                    <!-- Card 1: Reclairos -->
+                    <div class="card"
+                        style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+                        <div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(145deg, #181818 0%,
+                            #0a0a0a 100%); display: flex; align-items: center; justify-content: center; border-bottom:
+                            1px solid rgba(255,255,255,0.02);">
+                            <span class="text-muted">Reclairos Visual</span>
+                        </div>
+                        <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+                            <span class="text-accent"
+                                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">GAME
+                                DEVELOPMENT / ORIGINAL IP</span>
+                            <h3 style="margin-bottom: 1rem;">Reclairos</h3>
+                            <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
+                                High-fidelity rendering benchmark for mobile devices showcasing custom engine
+                                integration and systems engineering.</p>
+                            <div style="margin-top: auto; display: flex; justify-content: flex-start;">
+                                <a href="work/reclairos/index.html" class="btn btn-secondary"
+                                    style="padding: 0.75rem 1.5rem; font-size: 0.8rem; width: auto;">View Project</a>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Card 2: Mayaaverse -->
                     <div class="card"
                         style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
@@ -238,15 +316,15 @@
                         </div>
                         <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
                             <span class="text-accent"
-                                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Meta
-                                Quest 3 deployment</span>
+                                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">VR/XR
+                                SIMULATION</span>
                             <h3 style="margin-bottom: 1rem;">Mayaaverse</h3>
                             <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
-                                Immersive VR experience featuring temple simulation, mediation systems, and AI-powered
-                                real estate integration.</p>
+                                Temple simulation and meditation platform built for Meta Quest featuring spatial audio
+                                and AI-driven real estate systems.</p>
                             <div style="margin-top: auto; display: flex; justify-content: flex-start;">
-                                <a href="work/index.html" class="btn btn-secondary"
-                                    style="padding: 0.75rem 1.5rem; font-size: 0.8rem; width: auto;">View Case Study</a>
+                                <a href="work/mayaaverse/index.html" class="btn btn-secondary"
+                                    style="padding: 0.75rem 1.5rem; font-size: 0.8rem; width: auto;">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -261,14 +339,14 @@
                         <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
                             <span class="text-accent"
                                 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">VR
-                                experience for JioImmerse</span>
+                                / COMMERCIAL PLATFORM</span>
                             <h3 style="margin-bottom: 1rem;">ShemarooVerse</h3>
                             <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
-                                Commercial VR platform with JMR SDK integration, Photon Fusion multiplayer, and AVPro
-                                360° streaming systems.</p>
+                                Multiplayer VR media platform integrated with JioImmerse using Photon Fusion networking.
+                            </p>
                             <div style="margin-top: auto; display: flex; justify-content: flex-start;">
-                                <a href="work/index.html" class="btn btn-secondary"
-                                    style="padding: 0.75rem 1.5rem; font-size: 0.8rem; width: auto;">View Case Study</a>
+                                <a href="work/shemarooverse/index.html" class="btn btn-secondary"
+                                    style="padding: 0.75rem 1.5rem; font-size: 0.8rem; width: auto;">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -282,14 +360,15 @@
                         </div>
                         <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
                             <span class="text-accent"
-                                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">8,000+
-                                downloads (PC)</span>
+                                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">PC
+                                / HORROR</span>
                             <h3 style="margin-bottom: 1rem;">Never Open The Door</h3>
                             <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
-                                Adaptive horror mini-game built for rapid tension loops and iterative live updates.</p>
+                                Atmospheric horror prototype built with a focus on tension loops and systemic AI
+                                behavior.</p>
                             <div style="margin-top: auto; display: flex; justify-content: flex-start;">
-                                <a href="work/index.html" class="btn btn-secondary"
-                                    style="padding: 0.75rem 1.5rem; font-size: 0.8rem; width: auto;">View Case Study</a>
+                                <a href="work/game-development/never-open-the-door/index.html" class="btn btn-secondary"
+                                    style="padding: 0.75rem 1.5rem; font-size: 0.8rem; width: auto;">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -303,32 +382,37 @@
                         </div>
                         <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
                             <span class="text-accent"
-                                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">1,000+
-                                downloads (Mobile)</span>
+                                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">MOBILE
+                                / ARCADE</span>
                             <h3 style="margin-bottom: 1rem;">Crazy Planet</h3>
                             <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
-                                Fast-paced arcade gameplay optimized for a wide range of mobile devices.</p>
+                                Hyper-casual physics arcade prototype exploring dynamic gravity mechanics.</p>
                             <div style="margin-top: auto; display: flex; justify-content: flex-start;">
-                                <a href="work/index.html" class="btn btn-secondary"
-                                    style="padding: 0.75rem 1.5rem; font-size: 0.8rem; width: auto;">View Case Study</a>
+                                <a href="work/game-development/crazy-planet/index.html" class="btn btn-secondary"
+                                    style="padding: 0.75rem 1.5rem; font-size: 0.8rem; width: auto;">View Project</a>
                             </div>
                         </div>
                     </div>
-                    <!-- Placeholder 1 -->
-                    <div class="work-placeholder-premium"
-                        style="display: flex; flex-direction: column; height: 100%; align-items: center; justify-content: center; text-align: center; min-height: 400px; pointer-events: none;">
-                        <h3 style="color: var(--color-text-muted); margin-bottom: 0.5rem;">More Projects Coming</h3>
-                        <p class="text-muted"
-                            style="font-size: 0.85rem; color: rgba(255,255,255,0.4) !important; text-transform: uppercase; letter-spacing: 0.1em;">
-                            Unannounced original IP</p>
-                    </div>
-                    <!-- Placeholder 2 -->
-                    <div class="work-placeholder-premium"
-                        style="display: flex; flex-direction: column; height: 100%; align-items: center; justify-content: center; text-align: center; min-height: 400px; pointer-events: none;">
-                        <h3 style="color: var(--color-text-muted); margin-bottom: 0.5rem;">More Projects Coming</h3>
-                        <p class="text-muted"
-                            style="font-size: 0.85rem; color: rgba(255,255,255,0.4) !important; text-transform: uppercase; letter-spacing: 0.1em;">
-                            Commercial integrations</p>
+                    <!-- Card 6: Papi Gudia PC -->
+                    <div class="card"
+                        style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+                        <div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(145deg, #181818 0%,
+                            #0a0a0a 100%); display: flex; align-items: center; justify-content: center; border-bottom:
+                            1px solid rgba(255,255,255,0.02);">
+                            <span class="text-muted">Papi Gudia Visual</span>
+                        </div>
+                        <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+                            <span class="text-accent"
+                                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">PC
+                                / SHOOTER</span>
+                            <h3 style="margin-bottom: 1rem;">Papi Gudia PC</h3>
+                            <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
+                                WebGL-optimized shooter experience adapted for low-end PC hardware.</p>
+                            <div style="margin-top: auto; display: flex; justify-content: flex-start;">
+                                <a href="work/game-development/papi-gudia-pc/index.html" class="btn btn-secondary"
+                                    style="padding: 0.75rem 1.5rem; font-size: 0.8rem; width: auto;">View Project</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 4rem;">
@@ -353,8 +437,8 @@
                         alt="Demon Throne Reclairos Cinematic Feature" width="1920" height="1080" loading="lazy"
                         class="flagship-image" />
                     <!-- Cinematic Logo Overlay -->
-                    <img src="assets/images/reclairislogooverlay.png" alt="Reclairos Logo"
-                        class="flagship-logo-overlay" loading="lazy" />
+                    <img src="assets/images/reclairislogooverlay.png" alt="Reclairos Logo" class="flagship-logo-overlay"
+                        loading="lazy" />
                     <div class="flagship-overlay">
                         <div class="flagship-overlay-content">
                             <span class="flagship-overlay-title"><span class="accent-arrow"
@@ -493,7 +577,41 @@
                 </div>
                 <p
                     style="margin-top: 4rem; text-align: center; color: rgba(255,255,255,0.8); font-size: 0.95rem; letter-spacing: 0.05em; font-weight: 600; text-transform: uppercase;">
-                    Production-ready pipelines across PC, mobile, and immersive platforms.</p>
+                    Production-ready pipelines across PC, mobile, VR/XR, and real-time rendering engines.</p>
+            </div>
+        </section>
+
+        <!-- Production Experience -->
+        <section class="section-padding"
+            style="background-color: var(--color-bg); border-bottom: 1px solid var(--color-border);">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 4rem;">Production Experience</h2>
+                <div class="metric-grid">
+                    <div class="metric-card" style="padding: 1.5rem; text-align: center;">
+                        <strong>10+ Interactive Experiences Shipped</strong>
+                        <span>Across PC, mobile, and immersive XR platforms.</span>
+                    </div>
+                    <div class="metric-card" style="padding: 1.5rem; text-align: center;">
+                        <strong>Cross-Platform Production</strong>
+                        <span>PC, Mobile, VR, and WebGL deployments.</span>
+                    </div>
+                    <div class="metric-card" style="padding: 1.5rem; text-align: center;">
+                        <strong>Multiplayer Infrastructure</strong>
+                        <span>Real-time networking using Photon and custom backend systems.</span>
+                    </div>
+                    <div class="metric-card" style="padding: 1.5rem; text-align: center;">
+                        <strong>High-Performance Rendering</strong>
+                        <span>Optimized pipelines targeting 60–90 FPS across platforms.</span>
+                    </div>
+                    <div class="metric-card" style="padding: 1.5rem; text-align: center;">
+                        <strong>Spatial Computing Development</strong>
+                        <span>Enterprise-grade VR/XR simulations and immersive experiences.</span>
+                    </div>
+                    <div class="metric-card" style="padding: 1.5rem; text-align: center;">
+                        <strong>Remote-First Production Workflow</strong>
+                        <span>Global distributed development pipelines and collaboration.</span>
+                    </div>
+                </div>
             </div>
         </section>
 

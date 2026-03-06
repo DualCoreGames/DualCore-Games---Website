@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShemarooVerse Technical Case Study | VR Media Engineering | DualCore</title>
+    <meta name="description"
+        content="Technical breakdown of ShemarooVerse, focusing on high-definition video decoding, spatial UI design, and platform integration.">
+    <link rel="canonical" href="https://dualcoregames.com/work/shemarooverse/case-study.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="ShemarooVerse Technical Case Study | VR Media Engineering | DualCore Games">
+    <meta property="og:description"
+        content="Technical breakdown of ShemarooVerse, focusing on high-definition video decoding, spatial UI design, and platform integration.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dualcoregames.com/work/shemarooverse/case-study.html">
+
+    <!-- Fonts & CSS Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+    </noscript>
+
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="icon" href="../../assets/images/dualcore-icon.svg" type="image/svg+xml">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://dualcoregames.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Work",
+        "item": "https://dualcoregames.com/work/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Shemarooverse",
+        "item": "https://dualcoregames.com/work/shemarooverse/"
+      },{
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Case Study",
+        "item": "https://dualcoregames.com/work/shemarooverse/case-study.html"
+      }]
+    }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="../../index.html" class="logo">
+                <img loading="lazy" src="../../assets/images/dualcore-logo.svg" alt="DualCore Games Logo"
+                    style="height: 48px; width: auto; display: block;">
+            </a>
+            <nav>
+                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+                <ul class="nav-menu">
+                    <button class="nav-close" aria-label="Close navigation">✕</button>
+                    <li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item has-dropdown">
+                        <a href="../../services/index.html" class="nav-link dropdown-toggle">Services <span
+                                class="dropdown-icon">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../../services/game-development/index.html" class="dropdown-link">Game
+                                    Development</a></li>
+                            <li><a href="../../services/game-art/index.html" class="dropdown-link">Game Art</a></li>
+                            <li><a href="../../services/vr-xr-simulation/index.html" class="dropdown-link">VR/XR
+                                    Simulation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="../../work/index.html" class="nav-link dropdown-toggle">Work <span
+                                class="dropdown-icon">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../../work/game-development/index.html" class="dropdown-link">Game
+                                    Development</a>
+                            </li>
+                            <li><a href="../../work/game-art/index.html" class="dropdown-link">Game Art</a></li>
+                            <li><a href="../../work/vr-xr/index.html" class="dropdown-link">VR/XR</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="../../about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="../../blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="../../contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="../../contact.html" class="btn btn-primary"
+                            style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="section-padding" style="padding-top: 10rem;">
+            <div class="container">
+                <span class="text-accent"
+                    style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 1rem;">Technical
+                    Deep Dive</span>
+                <h1 class="text-accent">Engineering Shemarooverse: Next-Gen Content Delivery</h1>
+                <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin-top: 1.5rem;">Constructing a
+                    high-end, immersive content consumption and social platform in VR for a major entertainment network.
+                </p>
+            </div>
+        </section>
+
+        <!-- Project Image -->
+        <section class="container" style="margin-bottom: 4rem;">
+            <div
+                style="width: 100%; height: 500px; background-color: var(--color-border); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                <span class="text-muted">Shemarooverse Visual Demo</span>
+            </div>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="section-padding" style="background-color: #0c0c0c;">
+            <div class="container">
+                <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
+                    <div>
+                        <h2 style="margin-bottom: 2rem;">Project Overview</h2>
+                        <p class="text-muted" style="margin-bottom: 2rem;">Shemarooverse represents a strategic shift in
+                            media consumption, moving a colossal, legacy media library into an interactive, spatial
+                            environment. We partnered with Shemaroo Entertainment to build a branded virtual world where
+                            users can consume licensed content, interact with proprietary IP, and engage in shared
+                            social viewing experiences.</p>
+
+                        <h2 style="margin-bottom: 2rem;">Technical Challenges</h2>
+                        <p class="text-muted" style="margin-bottom: 2rem;">Delivering high-definition, DRM-protected
+                            video inside a 3D environment on mobile-class VR hardware (Meta Quest) introduces severe
+                            decoding bottlenecks. Traditional 2D UI paradigms also fail in spatial mediums, requiring a
+                            complete redesign of the content discovery UX.</p>
+
+                        <h2 style="margin-bottom: 2rem;">Architecture & Systems</h2>
+                        <p class="text-muted" style="margin-bottom: 2rem;">We developed a custom media pipeline
+                            integrated directly into Unity's rendering loop, utilizing hardware-accelerated decoding.
+                            The backend interfaces with Shemaroo's existing CMS via a bespoke GraphQL layer, ensuring
+                            content updates in the VR world reflect their web platforms in real-time.</p>
+
+                        <h2 style="margin-bottom: 2rem;">Performance Engineering</h2>
+                        <p class="text-muted" style="margin-bottom: 2rem;">To maintain 72-90hz while decoding 4K video
+                            streams, we offloaded UI rendering to independent render targets and utilized asynchronous
+                            stereoscopic timewarp. The environmental assets were optimized using aggressive texture
+                            atlasing and pre-computed localized light probes to keep graphic overhead minimal.</p>
+
+                        <h2 style="margin-bottom: 2rem;">Platforms</h2>
+                        <p class="text-muted">Meta Quest 2, Meta Quest Pro, JioDive AR.</p>
+                    </div>
+                    <div class="card" style="height: fit-content;">
+                        <h4 style="margin-bottom: 1.5rem;">Project Details</h4>
+                        <ul class="bullet-list" style="font-size: 0.9rem;">
+                            <li><strong>Platform:</strong> Meta Quest, Mobile AR</li>
+                            <li><strong>Engine:</strong> Unity (URP)</li>
+                            <li><strong>Service:</strong> <a href="../../services/vr-xr-simulation/index.html"
+                                    class="text-accent" style="text-decoration: underline;">VR/XR Simulation</a></li>
+                            <li><strong>Category:</strong> <a href="../../work/vr-xr/index.html" class="text-accent"
+                                    style="text-decoration: underline;">VR/XR Portfolio</a></li>
+                            <li><strong>Status:</strong> Technical Case Study</li>
+                            <li><strong>Focus:</strong> Media Delivery & Spatial UX</li>
+                        </ul>
+                        <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Tech Applied</h4>
+                        <div class="tech-grid"
+                            style="grid-template-columns: 1fr; display: grid; gap: 0.5rem; font-size: 0.8rem;">
+                            <span>Hardware Video Decoding</span>
+                            <span>GraphQL API Integration</span>
+                            <span>Spatial UI/UX Design</span>
+                            <span>Unity Render Target Opt.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outcome -->
+        <section class="section-padding">
+            <div class="container" style="text-align: center;">
+                <h2 style="margin-bottom: 2rem;">Outcome</h2>
+                <p class="text-muted" style="max-width: 800px; margin: 0 auto 4rem;">The platform provides a blueprint
+                    for how traditional entertainment conglomerates can transition into spatial computing, offering
+                    users a stable, high-fidelity viewing experience combined with interactive social features.</p>
+                <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                    <div class="card">
+                        <span class="text-accent" style="font-size: 2.5rem; font-weight: 800;">4K</span>
+                        <p>In-VR Video Streaming</p>
+                    </div>
+                    <div class="card">
+                        <span class="text-accent" style="font-size: 2.5rem; font-weight: 800;">Real-time</span>
+                        <p>CMS Synchronization</p>
+                    </div>
+                    <div class="card">
+                        <span class="text-accent" style="font-size: 2.5rem; font-weight: 800;">72+ FPS</span>
+                        <p>Performance Baseline</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section-padding" style="text-align: center;">
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">Ready to build your next project?</h2>
+                <a href="../../contact.html" class="btn btn-primary">Start a Project</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+                <div class="footer-brand">
+                    <img src="../../assets/images/dualcore-logo.svg" alt="DualCore Games Logo"
+                        style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" loading="lazy">
+                    <p>Game development studio building original IP and production-ready interactive systems.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../services/index.html">Services</a></li>
+                        <li><a href="../../work/index.html">Work</a></li>
+                        <li><a href="../../about.html">About</a></li>
+                        <li><a href="../../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul class="footer-links social-links">
+                        <li><a href="https://www.linkedin.com/company/dual-core-games/" target="_blank"
+                                rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://x.com/DualCore53111" target="_blank" rel="noopener">X (Twitter)</a></li>
+                        <li><a href="https://www.instagram.com/dualcoregames/" target="_blank"
+                                rel="noopener">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DualCore Games. All rights reserved.</p>
+                <p>Designed for Performance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/main.js" defer></script>
+</body>
+
+</html>
