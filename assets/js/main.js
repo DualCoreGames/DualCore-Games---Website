@@ -40,6 +40,31 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-menu .dropdown-link, .nav-menu .btn').forEach(link => {
             link.addEventListener('click', () => toggleMenu(false));
         });
+
+        // Dynamic Active State Logic
+        const setNavActive = () => {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link, .dropdown-link');
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkPath = link.getAttribute('href');
+
+                // Handle various path styles (absolute, relative, index)
+                if (linkPath) {
+                    const normalizedLinkPath = linkPath.replace(/\.\.\//g, '').replace(/^\//, '');
+                    const normalizedCurrentPath = currentPath.replace(/^\//, '');
+
+                    // Exact match or logical parent match
+                    if (normalizedLinkPath === normalizedCurrentPath ||
+                        (normalizedCurrentPath === '' && normalizedLinkPath === 'index.html') ||
+                        (normalizedCurrentPath.includes(normalizedLinkPath.replace('/index.html', '')) && normalizedLinkPath !== 'index.html')) {
+                        link.classList.add('active');
+                    }
+                }
+            });
+        };
+        setNavActive();
     }
 
     // FAQ Accordion
