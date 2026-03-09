@@ -1,35 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayaaverse Technical Case Study | VR Infrastructure | DualCore</title>
-    <meta name="description"
-        content="Technical breakdown of Mayaaverse, focusing on scalable multiplayer infrastructure,IK latency, and cross-platform VR systems.">
-    <link rel="canonical" href="https://dualcoregames.com/work/vr-xr/mayaaverse/case-study.html">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Mayaaverse Technical Case Study | VR Infrastructure | DualCore Games">
-    <meta property="og:description"
-        content="Technical breakdown of Mayaaverse, focusing on scalable multiplayer infrastructure, IK latency, and cross-platform VR systems.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dualcoregames.com/work/vr-xr/mayaaverse/case-study.html">
-
-    <!-- Fonts & CSS Preload -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-    </noscript>
-
-    <link rel="stylesheet" href="../../../assets/css/style.css">
-    <link rel="icon" href="../../../assets/images/dualcore-icon.svg" type="image/svg+xml">
-
-    <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mayaaverse Technical Case Study | VR Infrastructure | DualCore</title>
+<meta content="Technical breakdown of Mayaaverse, focusing on scalable multiplayer infrastructure,IK latency, and cross-platform VR systems." name="description"/>
+<link href="https://dualcoregames.com/work/vr-xr/mayaaverse/case-study.html" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="Mayaaverse Technical Case Study | VR Infrastructure | DualCore Games" property="og:title"/>
+<meta content="Technical breakdown of Mayaaverse, focusing on scalable multiplayer infrastructure, IK latency, and cross-platform VR systems." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://dualcoregames.com/work/vr-xr/mayaaverse/case-study.html" property="og:url"/>
+<!-- Fonts & CSS Preload -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+</noscript>
+<link href="../../../assets/css/style.css" rel="stylesheet"/>
+<link href="../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -62,204 +54,178 @@
     }
     </script>
 </head>
-
 <body>
-
-    <header>
-        <div class="container header-inner">
-            <a href="../../../index.html" class="logo">
-                <img loading="lazy" src="../../../assets/images/dualcore-logo.svg" alt="DualCore Games Logo"
-                    style="height: 48px; width: auto; display: block;">
-            </a>
-            <nav>
-                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-                <ul class="nav-menu">
-                    <button class="nav-close" aria-label="Close navigation">✕</button>
-                    <li class="nav-item"><a href="../../../index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item has-dropdown">
-                        <a href="../../../services/index.html" class="nav-link dropdown-toggle">Services <span
-                                class="dropdown-icon">▼</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="../../../services/game-development/index.html" class="dropdown-link">Game
+<header>
+<div class="container header-inner">
+<a class="logo" href="../../../index.html">
+<img alt="DualCore Games Logo" src="../../../assets/images/dualcore-logo.svg" style="height: 48px; width: auto; display: block;"/>
+</a>
+<nav>
+<button aria-label="Toggle navigation" class="nav-toggle">☰</button>
+<ul class="nav-menu">
+<button aria-label="Close navigation" class="nav-close">✕</button>
+<li class="nav-item"><a class="nav-link" href="../../../index.html">Home</a></li>
+<li class="nav-item has-dropdown">
+<a class="nav-link dropdown-toggle" href="../../../services/index.html">Services <span class="dropdown-icon">▼</span></a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-link" href="../../../services/game-development/index.html">Game
                                     Development</a></li>
-                            <li><a href="../../../services/game-art/index.html" class="dropdown-link">Game Art</a></li>
-                            <li><a href="../../../services/vr-xr-simulation/index.html" class="dropdown-link">VR/XR
+<li><a class="dropdown-link" href="../../../services/game-art/index.html">Game Art</a></li>
+<li><a class="dropdown-link" href="../../../services/vr-xr-simulation/index.html">VR/XR
                                     Simulation</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-dropdown">
-                        <a href="../../../work/index.html" class="nav-link dropdown-toggle active">Work <span
-                                class="dropdown-icon">▼</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="../../../work/game-development/index.html" class="dropdown-link">Game
+</ul>
+</li>
+<li class="nav-item has-dropdown">
+<a class="nav-link dropdown-toggle active" href="../../../work/index.html">Work <span class="dropdown-icon">▼</span></a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-link" href="../../../work/game-development/index.html">Game
                                     Development</a>
-                            </li>
-                            <li><a href="../../../work/game-art/index.html" class="dropdown-link">Game Art</a></li>
-                            <li><a href="../../../work/vr-xr/index.html" class="dropdown-link">VR/XR</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a href="../../../about.html" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="../../../blog.html" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="../../../contact.html" class="nav-link">Contact</a></li>
-                    <li class="nav-item"><a href="../../../contact.html" class="btn btn-primary"
-                            style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="section-padding" style="padding-top: 10rem;">
-            <div class="container">
-                <span class="text-accent"
-                    style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 1rem;">Technical
+</li>
+<li><a class="dropdown-link" href="../../../work/game-art/index.html">Game Art</a></li>
+<li><a class="dropdown-link" href="../../../work/vr-xr/index.html">VR/XR</a></li>
+</ul>
+</li>
+<li class="nav-item"><a class="nav-link" href="../../../about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="../../../blog.html">Blog</a></li>
+<li class="nav-item"><a class="nav-link" href="../../../contact.html">Contact</a></li>
+<li class="nav-item"><a class="btn btn-primary" href="../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="section-padding" style="padding-top: 10rem;">
+<div class="container">
+<span class="text-accent" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 1rem;">Technical
                     Deep Dive</span>
-                <h1 class="text-accent">Engineering Mayaaverse: Scalable VR Infrastructure</h1>
-                <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin-top: 1.5rem;">A deep dive into
+<h1 class="text-accent">Engineering Mayaaverse: Scalable VR Infrastructure</h1>
+<p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin-top: 1.5rem;">A deep dive into
                     constructing a persistent virtual universe capable of handling massive concurrency and complex
                     social interactions in VR.</p>
-            </div>
-        </section>
-
-        <!-- Project Image -->
-        <section class="container" style="margin-bottom: 4rem;">
-            <div
-                style="width: 100%; height: 500px; background-color: var(--color-border); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                <span class="text-muted">Mayaaverse Technical Infrastructure Visual</span>
-            </div>
-        </section>
-
-        <!-- Project Overview -->
-        <section class="section-padding" style="background-color: #0c0c0c;">
-            <div class="container">
-                <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
-                    <div>
-                        <h2 style="margin-bottom: 2rem;">Project Overview</h2>
-                        <p class="text-muted" style="margin-bottom: 2rem;">Mayaaverse is an ambitious, scalable virtual
+</div>
+</section>
+<!-- Project Image -->
+<section class="container" style="margin-bottom: 4rem;">
+<div style="width: 100%; height: 500px; background-color: var(--color-border); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+<span class="text-muted">Mayaaverse Technical Infrastructure Visual</span>
+</div>
+</section>
+<!-- Project Overview -->
+<section class="section-padding" style="background-color: #0c0c0c;">
+<div class="container">
+<div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
+<div>
+<h2 style="margin-bottom: 2rem;">Project Overview</h2>
+<p class="text-muted" style="margin-bottom: 2rem;">Mayaaverse is an ambitious, scalable virtual
                             reality platform designed to push the boundaries of concurrent networking and real-time
                             state synchronization across diverse hardware profiles. From high-end VR tethered headsets
                             down to mobile AR companions, the world remains persistent and reactive.</p>
-
-                        <h2 style="margin-bottom: 2rem;">Technical Challenges</h2>
-                        <p class="text-muted" style="margin-bottom: 2rem;">Synchronizing complex physics, voice streams,
+<h2 style="margin-bottom: 2rem;">Technical Challenges</h2>
+<p class="text-muted" style="margin-bottom: 2rem;">Synchronizing complex physics, voice streams,
                             and IK data across a massive shard without rubber-banding or server collapse is historically
                             the hardest problem in multiplayer VR. Traditional authoritative server models introduce
                             unacceptable latency in VR, leading to motion sickness and disjointed interactions.</p>
-
-                        <h2 style="margin-bottom: 2rem;">Architecture & Systems</h2>
-                        <p class="text-muted" style="margin-bottom: 2rem;">We implemented a hybrid distributed
+<h2 style="margin-bottom: 2rem;">Architecture &amp; Systems</h2>
+<p class="text-muted" style="margin-bottom: 2rem;">We implemented a hybrid distributed
                             simulation model. Core physics and validation run authoritatively on scalable cloud nodes,
                             while localized IK and aesthetic physics are handled client-side with aggressive latency
                             compensation techniques and predicted state interpolation.</p>
-
-                        <h2 style="margin-bottom: 2rem;">Performance Engineering</h2>
-                        <p class="text-muted" style="margin-bottom: 2rem;">Our network payload was compressed heavily
+<h2 style="margin-bottom: 2rem;">Performance Engineering</h2>
+<p class="text-muted" style="margin-bottom: 2rem;">Our network payload was compressed heavily
                             using custom bit-packing and delta-compression schemes, minimizing bandwidth overhead.
                             Server instances were dockerized and automatically managed by Kubernetes, spinning up and
                             down based on player density, ensuring high availability while optimizing operational costs.
                         </p>
-
-                        <h2 style="margin-bottom: 2rem;">Platforms</h2>
-                        <p class="text-muted">Meta Quest 2/3, PC VR (SteamVR), iOS (Companion App), Android (Companion
+<h2 style="margin-bottom: 2rem;">Platforms</h2>
+<p class="text-muted">Meta Quest 2/3, PC VR (SteamVR), iOS (Companion App), Android (Companion
                             App).</p>
-                    </div>
-                    <div class="card" style="height: fit-content;">
-                        <h4 style="margin-bottom: 1.5rem;">Project Details</h4>
-                        <ul class="bullet-list" style="font-size: 0.9rem;">
-                            <li><strong>Platform:</strong> Meta Quest, SteamVR, Mobile</li>
-                            <li><strong>Engine:</strong> Unreal Engine 5</li>
-                            <li><strong>Service:</strong> <a href="../../services/vr-xr-simulation/index.html"
-                                    class="text-accent" style="text-decoration: underline;">VR/XR Simulation</a></li>
-                            <li><strong>Category:</strong> <a href="../../work/vr-xr/index.html" class="text-accent"
-                                    style="text-decoration: underline;">VR/XR Portfolio</a></li>
-                            <li><strong>Status:</strong> Technical Case Study</li>
-                            <li><strong>Focus:</strong> Scalable Networking</li>
-                        </ul>
-                        <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Tech Applied</h4>
-                        <div class="tech-grid"
-                            style="grid-template-columns: 1fr; display: grid; gap: 0.5rem; font-size: 0.8rem;">
-                            <span>Kubernetes / Docker</span>
-                            <span>Custom UDP Protocol</span>
-                            <span>Unreal Engine Networking</span>
-                            <span>Client-Side Prediction</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Outcome -->
-        <section class="section-padding">
-            <div class="container" style="text-align: center;">
-                <h2 style="margin-bottom: 2rem;">Outcome</h2>
-                <p class="text-muted" style="max-width: 800px; margin: 0 auto 4rem;">Mayaaverse successfully launched as
+</div>
+<div class="card" style="height: fit-content;">
+<h4 style="margin-bottom: 1.5rem;">Project Details</h4>
+<ul class="bullet-list" style="font-size: 0.9rem;">
+<li><strong>Platform:</strong> Meta Quest, SteamVR, Mobile</li>
+<li><strong>Engine:</strong> Unreal Engine 5</li>
+<li><strong>Service:</strong> <a class="text-accent" href="../../services/vr-xr-simulation/index.html" style="text-decoration: underline;">VR/XR Simulation</a></li>
+<li><strong>Category:</strong> <a class="text-accent" href="../../work/vr-xr/index.html" style="text-decoration: underline;">VR/XR Portfolio</a></li>
+<li><strong>Status:</strong> Technical Case Study</li>
+<li><strong>Focus:</strong> Scalable Networking</li>
+</ul>
+<h4 style="margin-top: 2rem; margin-bottom: 1rem;">Tech Applied</h4>
+<div class="tech-grid" style="grid-template-columns: 1fr; display: grid; gap: 0.5rem; font-size: 0.8rem;">
+<span>Kubernetes / Docker</span>
+<span>Custom UDP Protocol</span>
+<span>Unreal Engine Networking</span>
+<span>Client-Side Prediction</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Outcome -->
+<section class="section-padding">
+<div class="container" style="text-align: center;">
+<h2 style="margin-bottom: 2rem;">Outcome</h2>
+<p class="text-muted" style="max-width: 800px; margin: 0 auto 4rem;">Mayaaverse successfully launched as
                     a seamless, persistent universe, proving that high-concurrency VR interactions can be achieved
                     without compromising fidelity or latency through smart architectural planning.</p>
-                <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-                    <div class="card">
-                        <span class="text-accent" style="font-size: 2.5rem; font-weight: 800;">500+</span>
-                        <p>Concurrent Users per Shard</p>
-                    </div>
-                    <div class="card">
-                        <span class="text-accent" style="font-size: 2.5rem; font-weight: 800;">&lt; 50ms</span>
-                        <p>Average IK Latency</p>
-                    </div>
-                    <div class="card">
-                        <span class="text-accent" style="font-size: 2.5rem; font-weight: 800;">99.9%</span>
-                        <p>Server Uptime</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="section-padding" style="text-align: center;">
-            <div class="container">
-                <h2 style="margin-bottom: 2rem;">Ready to build your virtual future?</h2>
-                <a href="../../../contact.html" class="btn btn-primary">Start a Project</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Unified Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
-                <div class="footer-brand">
-                    <img src="../../../assets/images/dualcore-logo.svg" alt="DualCore Games Logo"
-                        style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" loading="lazy">
-                    <p>Game development studio building original IP and production-ready interactive systems.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul class="footer-links">
-                        <li><a href="../../../index.html">Home</a></li>
-                        <li><a href="../../../services/index.html">Services</a></li>
-                        <li><a href="../../../work/index.html">Work</a></li>
-                        <li><a href="../../../about.html">About</a></li>
-                        <li><a href="../../../blog.html">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <ul class="footer-links social-links">
-                        <li><a href="https://www.linkedin.com/company/dual-core-games/" target="_blank"
-                                rel="noopener">LinkedIn</a></li>
-                        <li><a href="https://x.com/DualCore53111" target="_blank" rel="noopener">X (Twitter)</a></li>
-                        <li><a href="https://www.instagram.com/dualcoregames/" target="_blank"
-                                rel="noopener">Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 DualCore Games. All rights reserved.</p>
-                <p>Designed for Performance.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../../../assets/js/main.js" defer></script>
+<div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+<div class="card">
+<span class="text-accent" style="font-size: 2.5rem; font-weight: 800;">500+</span>
+<p>Concurrent Users per Shard</p>
+</div>
+<div class="card">
+<span class="text-accent" style="font-size: 2.5rem; font-weight: 800;">&lt; 50ms</span>
+<p>Average IK Latency</p>
+</div>
+<div class="card">
+<span class="text-accent" style="font-size: 2.5rem; font-weight: 800;">99.9%</span>
+<p>Server Uptime</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="section-padding" style="text-align: center;">
+<div class="container">
+<h2 style="margin-bottom: 2rem;">Ready to build your virtual future?</h2>
+<a class="btn btn-primary" href="../../../contact.html">Start a Project</a>
+</div>
+</section>
+</main>
+<!-- Unified Footer -->
+<footer>
+<div class="container">
+<div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+<div class="footer-brand">
+<img alt="DualCore Games Logo" loading="lazy" src="../../../assets/images/dualcore-logo.svg" style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;"/>
+<p>Game development studio building original IP and production-ready interactive systems.</p>
+</div>
+<div class="footer-col">
+<h4>Navigation</h4>
+<ul class="footer-links">
+<li><a href="../../../index.html">Home</a></li>
+<li><a href="../../../services/index.html">Services</a></li>
+<li><a href="../../../work/index.html">Work</a></li>
+<li><a href="../../../about.html">About</a></li>
+<li><a href="../../../blog.html">Blog</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Connect</h4>
+<ul class="footer-links social-links">
+<li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a></li>
+<li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
+<li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 DualCore Games. All rights reserved.</p>
+<p>Designed for Performance.</p>
+</div>
+</div>
+</footer>
+<script defer="" src="../../../assets/js/main.js"></script>
 </body>
-
 </html>
