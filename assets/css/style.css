@@ -594,214 +594,107 @@ header.scrolled {
 
 /* Hero */
 .hero {
-    min-height: 90vh;
+    position: relative;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 115px;
-    /* Shifted down for optical centering */
-    padding-bottom: 35px;
-    /* Complements optical centering shift */
-    position: relative;
-    background-color: #0a0a0a;
+    justify-content: center;
     overflow: hidden;
-    box-shadow: inset 150px 0 150px -50px rgba(0, 0, 0, 0.9), inset -150px 0 150px -50px rgba(0, 0, 0, 0.9);
-    transition: box-shadow 400ms ease;
 }
 
-.hero.is-ignited {
-    box-shadow: inset 150px 0 150px -50px rgba(0, 0, 0, 0.8), inset -150px 0 150px -50px rgba(0, 0, 0, 0.8);
-}
-
-@keyframes heroBreathing {
-    0% {
-        opacity: 0.85;
-        filter: saturate(100%);
-    }
-
-    50% {
-        opacity: 1;
-        filter: saturate(103%);
-    }
-
-    100% {
-        opacity: 0.85;
-        filter: saturate(100%);
-    }
-}
-
-/* Base Parallax Layer Structure */
-.hero-parallax-layer {
-    position: absolute;
-    top: -20px;
-    /* Oversized bounds to prevent edge cropping during translation */
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    pointer-events: none;
-    z-index: 0;
-    transition: opacity 400ms ease, filter 400ms ease;
-    will-change: transform;
-}
-
-/* Layer Far: subtle noise, left core, right core */
-.layer-far {
-    background:
-        /* High-resolution ultra-subtle noise texture (1.5% opacity) */
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E"),
-        /* Left Core: cool blue */
-        radial-gradient(circle at 0% 50%, rgba(59, 179, 217, 0.08) 0%, transparent 60%),
-        /* Right Core: warmer dark cyan tone */
-        radial-gradient(circle at 100% 50%, rgba(0, 160, 180, 0.07) 0%, transparent 60%);
-    opacity: 0.6;
-    animation: heroBreathing 8s ease-in-out infinite;
-}
-
-/* Layer Mid: subtle center glow and right edge ambient */
-.layer-mid {
-    background:
-        /* Original Center light emphasis (behind text, low opacity) */
-        radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.015) 0%, transparent 60%),
-        /* Far right edge Accent: Vertical Cyan light beam (reduced to 2-3% opacity) fading inward */
-        linear-gradient(to left, rgba(0, 210, 255, 0.025) 0%, transparent 15%);
-    opacity: 0.6;
-}
-
-/* Layer Near: H1 specific depth glow */
-.layer-near {
-    background:
-        /* H1 Depth Glow: Soft off-center radial glow */
-        radial-gradient(circle at 30% 45%, rgba(0, 210, 255, 0.05) 0%, transparent 60%);
-    opacity: 0.6;
-}
-
-/* Ignition State for Layers */
-.hero.is-ignited .layer-far,
-.hero.is-ignited .layer-mid,
-.hero.is-ignited .layer-near {
-    opacity: 1;
-    /* Drives to 0.18 equivalent ambient */
-    filter: saturate(103%);
-}
-
-.hero.hero-fast-breath .layer-far {
-    animation: heroBreathing 3s ease-in-out infinite;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Upgrade: Live Energy Field Dual-Layer Glow (via Lerped variables) */
-    background:
-        radial-gradient(circle 800px at var(--mouse-x, -2000px) var(--mouse-y, -2000px), rgba(0, 210, 255, 0.08), transparent 100%),
-        radial-gradient(circle 400px at var(--mouse-x-inner, -2000px) var(--mouse-y-inner, -2000px), rgba(0, 210, 255, 0.12), transparent 100%);
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-}
-
-@media (min-width: 1024px) {
-    .hero:hover::after {
-        opacity: 1;
-    }
-}
-
-/* Mouse-Reactive Energy Ripple */
-.hero-ripple {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(0, 210, 255, 0.05) 0%, transparent 60%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0.1);
-    pointer-events: none;
-    z-index: 0;
-    filter: blur(25px);
-    animation: energyRipple 900ms cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
-}
-
-@keyframes energyRipple {
-    0% {
-        transform: translate(-50%, -50%) scale(0.2);
-        opacity: 0.8;
-    }
-
-    100% {
-        transform: translate(-50%, -50%) scale(3);
-        opacity: 0;
-    }
-}
-
-.hero-particles {
+/* --- Hero Video Background --- */
+.hero-video-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    pointer-events: none;
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    background: radial-gradient(
+        circle at center,
+        rgba(0,0,0,0.25) 0%,
+        rgba(0,0,0,0.55) 50%,
+        rgba(0,0,0,0.85) 100%
+    );
     z-index: 2;
-    background: radial-gradient(circle at center,
-            rgba(0, 212, 255, 0.12),
-            rgba(0, 0, 0, 0.85) 70%);
     pointer-events: none;
 }
 
+/* Mobile Performance & Overlay Constraints */
+@media (max-width: 768px) {
+    .hero-overlay {
+        background: radial-gradient(circle at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.9) 100%);
+    }
+}
+
 .hero-content {
-    width: 100%;
     position: relative;
     z-index: 3;
-    margin: 0 auto;
     text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    transform: translateY(30px);
 }
 
 .hero-title {
     font-size: clamp(44px, 5vw, 64px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
-    margin-left: auto;
-    margin-right: auto;
-    word-break: keep-all;
-    overflow-wrap: normal;
-    transition: transform 300ms ease, letter-spacing 300ms ease, text-shadow 300ms ease;
+    margin-bottom: 18px;
+    text-align: center;
+    text-shadow:
+        0 0 10px rgba(0,212,255,0.15),
+        0 0 20px rgba(0,212,255,0.1);
 }
 
 .hero-title span {
     display: block;
-    line-height: 1.05;
 }
 
-.hero.is-ignited .hero-title {
-    transform: translateY(-3px);
-    letter-spacing: -0.5px;
-    text-shadow: 0 4px 20px rgba(0, 210, 255, 0.15);
+.hero-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0.9;
+    color: #e6f3ff;
+    margin-bottom: 26px;
+    text-align: center;
 }
 
 .hero-description {
-    max-width: 620px;
+    max-width: 640px;
     margin: 0 auto 36px auto;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.7;
-    opacity: 0.85;
+    opacity: 0.75;
+    text-align: center;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 16px;
+    gap: 20px;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 28px;
 }
 
 .hero-actions {
@@ -838,16 +731,24 @@ header.scrolled {
     filter: brightness(0.9);
 }
 
-.hero.is-ignited .hero-actions .btn-secondary {
-    border-color: rgba(255, 255, 255, 0.3);
+.hero-buttons .btn-secondary {
+    border: 1.5px solid rgba(0,212,255,0.6);
+    color: #e6f3ff;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(4px);
+    border-radius: 2px;
+}
+
+.hero-buttons .btn-secondary:hover {
+    border-color: #00d4ff;
+    background: rgba(0,212,255,0.12);
+    color: #ffffff;
+    transition: all 0.25s ease;
+    transform: translateY(-2px);
 }
 
 .hero-actions .btn {
     transition: transform 300ms ease, background-color 300ms ease, border-color 300ms ease, color 300ms ease, box-shadow 300ms ease, filter 300ms ease;
-}
-
-.hero-actions .btn-secondary:hover {
-    transform: translateY(-2px);
 }
 
 .hero-actions .btn-secondary:active {

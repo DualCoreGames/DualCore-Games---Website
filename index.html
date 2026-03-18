@@ -125,26 +125,32 @@
   <main>
     <!-- Hero Section -->
     <section class="hero" id="home">
-      <div class="hero-parallax-layer layer-far"></div>
-      <div class="hero-parallax-layer layer-mid"></div>
-      <div class="hero-parallax-layer layer-near"></div>
-      <div id="tsparticles" class="hero-particles"></div>
-      <div class="hero-overlay"></div>
+      <div class="hero-video-bg" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+          <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
       <div class="container hero-content">
         <h1 class="hero-title">
           <span>Engineering</span>
-          <span>Interactive Worlds</span>
-          <span>Through Advanced</span>
-          <span>Game Development</span>
+          <span>Interactive Game</span>
+          <span>Worlds</span>
         </h1>
-        <p class="hero-description">DualCore Games is a game development studio specializing in scalable gameplay
-          systems, real-time rendering, and immersive VR/XR experiences for PC and mobile platforms.</p>
-        <div class="hero-actions hero-buttons">
-          <a class="btn btn-primary" href="work/index.html">View Our Work</a>
+        
+        <h2 class="hero-subtitle">
+          Game Development Studio for PC, Mobile & VR/XR
+        </h2>
+        
+        <p class="hero-description">
+          DualCore builds scalable gameplay systems and immersive real-time experiences for studios and publishers.
+        </p>
+        
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="work/index.html">Explore Projects</a>
           <a class="btn btn-secondary" href="#services">Our Expertise</a>
         </div>
       </div>
-      <div class="hero-fade"></div>
     </section>
     <!-- What We Do (Services) -->
     <section id="services" class="section-padding"
@@ -698,54 +704,23 @@
     </div>
   </footer>
   <script defer="" src="assets/js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@3/tsparticles.slim.bundle.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      if (typeof tsParticles !== 'undefined') {
-        let options = {
-          particles: {
-            number: { value: 70 },
-            color: { value: "#00d4ff" },
-            links: {
-              enable: true,
-              distance: 140,
-              color: "#00d4ff",
-              opacity: 0.25,
-              width: 1
-            },
-            move: {
-              enable: true,
-              speed: 0.6
-            },
-            size: {
-              value: 2.5
-            },
-            opacity: {
-              value: 0.55
-            }
-          },
-          interactivity: {
-            events: {
-              onHover: { enable: true, mode: "grab" }
-            },
-            modes: {
-              grab: {
-                distance: 220,
-                links: { opacity: 0.4 }
-              }
-            }
-          },
-          detectRetina: false
-        };
+      const heroSection = document.querySelector('.hero');
+      const networkAnimation = document.querySelector('.hero-network-animation');
 
-        if (window.innerWidth < 768) {
-          options.particles.number.value = 30;
-          options.particles.links.enable = false;
-        }
+      if (heroSection && networkAnimation && window.innerWidth >= 768) {
+        // Subtle parallax effect on mouse move for the network mesh
+        networkAnimation.style.transition = 'transform 0.1s ease-out';
+        heroSection.addEventListener('mousemove', function (e) {
+          const rect = heroSection.getBoundingClientRect();
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          // Max translation is ~10px depending on screen width
+          const moveX = ((e.clientX - centerX) / centerX) * -10;
+          const moveY = ((e.clientY - centerY) / centerY) * -10;
 
-        tsParticles.load({
-          id: "tsparticles",
-          options: options
+          networkAnimation.style.transform = `translate(${moveX}px, ${moveY}px)`;
         });
       }
     });
