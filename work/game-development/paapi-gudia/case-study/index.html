@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Paapi Gudia Case Study | Cross-Platform Engineering | DualCore</title>
+    <meta content="Technical breakdown of Paapi Gudia, focusing on cross-platform Unity architecture, optimized URP rendering, and unified input systems." name="description"/>
+    <link href="../../../../assets/css/style.css" rel="stylesheet"/>
+    <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+</head>
+<body>
+<header>
+    <div class="container header-inner">
+        <a class="logo" href="../../../../index.html">
+            <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg" style="height: 48px; width: auto; display: block;"/>
+        </a>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-link" href="../../../../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="../../../../work/index.html">Work</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <!-- HERO -->
+    <section class="section-padding" style="padding-top: 10rem;">
+        <div class="container">
+            <span class="text-accent" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 1rem;">Technical Deep Dive</span>
+            <h1 class="text-accent">Paapi Gudia — Case Study</h1>
+            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin-top: 1.5rem;">Managing high-fidelity atmosphere in standalone VR through optimized architectural pipelines.</p>
+        </div>
+    </section>
+
+    <!-- 01 Project Overview -->
+    <section class="section-padding" style="background-color: #0c0c0c;">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">01 Project Overview</h2>
+            <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
+                <div style="max-width: 800px;">
+                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">Paapi Gudia is a cross-platform horror shooter designed to deliver intensive combat and atmospheric tension while maintaining hardware stability on both PCs and Meta Quest headsets.</p>
+                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">The project required a "bottom-up" optimization approach where assets were built for the lowest common denominator (standalone VR) while utilizing scalable shaders to enhance visuals on high-end hardware.</p>
+                </div>
+                <div class="card" style="height: fit-content; padding: 2rem;">
+                    <h4 style="margin-bottom: 1rem;">Technical Goals</h4>
+                    <ul class="bullet-list text-muted" style="font-size: 0.9rem;">
+                        <li>Unified VR/PC IO</li>
+                        <li>Low Draw Call Count</li>
+                        <li>Scalable Atmospherics</li>
+                        <li>Dynamic AI Pacing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 Gameplay Loop / Experience Flow -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">02 Gameplay Loop / Experience Flow</h2>
+            <div style="max-width: 800px;">
+                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">The gameplay experience centers on a tight loop of exploration, threat escalation, and tactical resolution.</p>
+                <div class="grid" style="grid-template-columns: 1fr; gap: 1rem;">
+                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
+                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">01</span>
+                        <p class="text-muted" style="margin: 0;"><strong>Infiltration</strong>: Procedural audio-visual cues guide the player through non-linear zones.</p>
+                    </div>
+                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
+                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">02</span>
+                        <p class="text-muted" style="margin: 0;"><strong>Encounter</strong>: Wave combat triggers based on the player's spatial discovery rate.</p>
+                    </div>
+                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
+                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">03</span>
+                        <p class="text-muted" style="margin: 0;"><strong>Exfiltration</strong>: Post-combat resource gathering and zone traversal to the next hub.</p>
+                    </div>
+                </div>
+                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
+                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 System Architecture -->
+    <section class="section-padding" style="background-color: #0c0c0c;">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">03 System Architecture</h2>
+            <div style="max-width: 800px;">
+                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2.5rem;">A unified cross-platform pipeline that handles input and rendering abstraction.</p>
+                <div class="card" style="padding: 3rem; margin-bottom: 2.5rem; text-align: center;">
+                    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; font-weight: 700; color: var(--color-accent); font-family: monospace; font-size: 1.1rem;">
+                        <div>Unified Input Abstraction</div>
+                        <div style="color: var(--text-muted);">↓</div>
+                        <div>Platform-Specific Proxy Controllers</div>
+                        <div style="color: var(--text-muted);">↓</div>
+                        <div>URP Scalable Rendering Engine</div>
+                    </div>
+                </div>
+                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
+                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 Technical Challenges -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 style="margin-bottom: 3rem;">04 Technical Challenges</h2>
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
+                <div class="card" style="padding: 2rem;">
+                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">VRAM Management</h4>
+                    <p class="text-muted" style="font-size: 0.95rem;">Packing atmospheric textures into tight atlases for Meta Quest memory limits.</p>
+                </div>
+                <div class="card" style="padding: 2rem;">
+                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">Latency Parity</h4>
+                    <p class="text-muted" style="font-size: 0.95rem;">Synchronizing physical interactions across high-latency desktop and low-latency VR.</p>
+                </div>
+                <div class="card" style="padding: 2rem;">
+                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">Lighting Costs</h4>
+                    <p class="text-muted" style="font-size: 0.95rem;">Simulating horror lighting without expensive real-time shadows on mobile chips.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 Technical Solutions -->
+    <section class="section-padding" style="background-color: #0c0c0c;">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">05 Technical Solutions</h2>
+            <div style="max-width: 800px;">
+                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">We developed a <strong>Custom URP Lit Shader</strong> that includes baked occlusion and fake-specular highlights to simulate depth at near-zero runtime cost.</p>
+                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">A <strong>Universal Input Wrapper</strong> was implemented, mapping VR motion vectors to normalized mouse/gamepad fields for consistent combat feel.</p>
+                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
+                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06 Systems Architecture -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">06 Systems Architecture</h2>
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 4rem;">
+                <div class="card" style="padding: 2.5rem;">
+                    <h4 class="text-accent" style="margin-bottom: 1rem;">Cross-Platform I/O</h4>
+                    <p class="text-muted" style="font-size: 0.95rem; margin: 0;">Event-driven input layer that decouples physical controller data from gameplay actions.</p>
+                </div>
+                <div class="card" style="padding: 2.5rem;">
+                    <h4 class="text-accent" style="margin-bottom: 1rem;">Asset Scaler</h4>
+                    <p class="text-muted" style="font-size: 0.95rem; margin: 0;">Automated pipeline that adjusts texture resolution and LOD bias based on the target platform detected at runtime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07 Key Engineering Takeaways -->
+    <section class="section-padding" style="background-color: #0c0c0c;">
+        <div class="container">
+            <h2 style="margin-bottom: 4rem;">07 Key Engineering Takeaways</h2>
+            <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
+                <div>
+                    <ul class="bullet-list text-muted" style="font-size: 1.1rem;">
+                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">Mobile-First Rendering:</strong> Building for the lowest hardware constraints first ensures stable performance on all targets.</li>
+                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">Unified Abstraction:</strong> Input models should be functional, not hardware-dependent, to allow rapid platform porting.</li>
+                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">Shader-Driven Fidelity:</strong> Visual quality on low-end hardware should come from smart shader logic rather than raw texture size.</li>
+                    </ul>
+                </div>
+                <div class="card" style="height: fit-content; padding: 2rem;">
+                    <h4 style="margin-bottom: 1.5rem;">Outcomes</h4>
+                    <ul class="bullet-list text-muted" style="font-size: 0.9rem;">
+                        <li>Stable VR framerates</li>
+                        <li>High technical authority</li>
+                        <li>Scalable asset pipeline</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standardized CTA -->
+    <section class="section-padding" style="background-color: #0c0c0c; border-top: 1px solid var(--color-border); text-align: center;">
+        <div class="container" style="max-width: 900px;">
+            <h2 style="margin-bottom: 1rem; font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em;">ENGINEERED FOR PERFORMANCE. DESIGNED FOR SCALE. BUILT FOR PRODUCTION.</h2>
+            <p class="text-muted" style="margin-bottom: 3rem; font-size: 1.1rem;">Performance-first systems. Production-ready pipelines.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1rem 2rem; font-weight: 700;">Start a Project</a>
+                <a href="../overview/index.html" class="btn btn-secondary" style="padding: 1rem 2rem; font-weight: 600; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">View Overview</a>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg" style="height: 40px; width: auto; margin-bottom: 1.5rem;"/>
+                <p>Game development studio building original IP and production-ready interactive systems.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 DualCore Games. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

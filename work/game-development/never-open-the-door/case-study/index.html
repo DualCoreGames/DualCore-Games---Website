@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Never Open The Door Case Study | Horror Narrative Engineering | DualCore</title>
+    <meta content="Technical breakdown of Never Open The Door, focusing on narrative-triggered systems, environmental state management, and psychological pacing." name="description"/>
+    <link href="../../../../assets/css/style.css" rel="stylesheet"/>
+    <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+</head>
+<body>
+<header>
+    <div class="container header-inner">
+        <a class="logo" href="../../../../index.html">
+            <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg" style="height: 48px; width: auto; display: block;"/>
+        </a>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-link" href="../../../../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="../../../../work/index.html">Work</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <!-- HERO -->
+    <section class="section-padding" style="padding-top: 10rem;">
+        <div class="container">
+            <span class="text-accent" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 1rem;">Technical Deep Dive</span>
+            <h1 class="text-accent">Never Open The Door — Case Study</h1>
+            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin-top: 1.5rem;">Engineering psychological tension through narrative-state environmental controllers.</p>
+        </div>
+    </section>
+
+    <!-- 01 Project Overview -->
+    <section class="section-padding" style="background-color: #0c0c0c;">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">01 Project Overview</h2>
+            <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
+                <div style="max-width: 800px;">
+                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">Never Open The Door explores the intersection of narrative progression and environmental reaction. The project goal was to create a horror experience where tension is a byproduct of discovery rather than timing.</p>
+                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">By building a centralized state-discovery system, we ensured that every story fragment found by the player serves as a technical trigger for world distortion.</p>
+                </div>
+                <div class="card" style="height: fit-content; padding: 2rem;">
+                    <h4 style="margin-bottom: 1rem;">Design Pillars</h4>
+                    <ul class="bullet-list text-muted" style="font-size: 0.9rem;">
+                        <li>Atmospheric Depth</li>
+                        <li>Narrative Interaction</li>
+                        <li>Dynamic Distortion</li>
+                        <li>Systemic Pacing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 Gameplay Loop / Experience Flow -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">02 Gameplay Loop / Experience Flow</h2>
+            <div style="max-width: 800px;">
+                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">The loop is structured as a feedback system where player investigation drives technical state changes.</p>
+                <div class="grid" style="grid-template-columns: 1fr; gap: 1rem;">
+                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
+                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">01</span>
+                        <p class="text-muted" style="margin: 0;"><strong>Active Search</strong>: Interaction with environmental props to find "Diary Fragments".</p>
+                    </div>
+                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
+                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">02</span>
+                        <p class="text-muted" style="margin: 0;"><strong>State Evaluation</strong>: Data collection updates the "Distortion Metadata" in real-time.</p>
+                    </div>
+                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
+                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">03</span>
+                        <p class="text-muted" style="margin: 0;"><strong>Event Resolution</strong>: Supernatural phenomena priority-queue triggers based on current state.</p>
+                    </div>
+                </div>
+                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
+                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 System Architecture -->
+    <section class="section-padding" style="background-color: #0c0c0c;">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">03 System Architecture</h2>
+            <div style="max-width: 800px;">
+                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2.5rem;">A decoupled architecture separates narrative logic from environmental visual assets.</p>
+                <div class="card" style="padding: 3rem; margin-bottom: 2.5rem; text-align: center;">
+                    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; font-weight: 700; color: var(--color-accent); font-family: monospace; font-size: 1.1rem;">
+                        <div>Discovery Registry (Flags)</div>
+                        <div style="color: var(--text-muted);">↓</div>
+                        <div>Narrative State Controller</div>
+                        <div style="color: var(--text-muted);">↓</div>
+                        <div>Environmental FX / Animation Manager</div>
+                    </div>
+                </div>
+                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
+                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 Technical Challenges -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 style="margin-bottom: 3rem;">04 Technical Challenges</h2>
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
+                <div class="card" style="padding: 2rem;">
+                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">State Synchronization</h4>
+                    <p class="text-muted" style="font-size: 0.95rem;">Ensuring environmental changes won't break if player discovers items out of order.</p>
+                </div>
+                <div class="card" style="padding: 2rem;">
+                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">Atmospheric Lighting</h4>
+                    <p class="text-muted" style="font-size: 0.95rem;">Maintaining high performance while using complex volumetric lighting for tension.</p>
+                </div>
+                <div class="card" style="padding: 2rem;">
+                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">Procedural Cues</h4>
+                    <p class="text-muted" style="font-size: 0.95rem;">Synchronizing audio spatialization with visual distortions dynamically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 Technical Solutions -->
+    <section class="section-padding" style="background-color: #0c0c0c;">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">05 Technical Solutions</h2>
+            <div style="max-width: 800px;">
+                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">We implemented a <strong>Discovery Flag Registry</strong> that uses bitwise comparison to evaluate narrative progress without heavy string matching.</p>
+                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">A custom <strong>Environmental Pacing Controller</strong> was built to monitor player proximity and discovery rate, adjusting the "Terror Metric" dynamically.</p>
+                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
+                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06 Systems Architecture -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">06 Systems Architecture</h2>
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 4rem;">
+                <div class="card" style="padding: 2.5rem;">
+                    <h4 class="text-accent" style="margin-bottom: 1rem;">Narrative State Machine</h4>
+                    <p class="text-muted" style="font-size: 0.95rem; margin: 0;">Centralized engine that manages dependencies between story fragments and world events.</p>
+                </div>
+                <div class="card" style="padding: 2.5rem;">
+                    <h4 class="text-accent" style="margin-bottom: 1rem;">Environmental Mixer</h4>
+                    <p class="text-muted" style="font-size: 0.95rem; margin: 0;">Layered component that blends animations, sound, and shaders based on the "Terror Metric".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07 Key Engineering Takeaways -->
+    <section class="section-padding" style="background-color: #0c0c0c;">
+        <div class="container">
+            <h2 style="margin-bottom: 4rem;">07 Key Engineering Takeaways</h2>
+            <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
+                <div>
+                    <ul class="bullet-list text-muted" style="font-size: 1.1rem;">
+                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">Data-Driven Tension:</strong> Pacing should be a result of player data, not fixed timelines.</li>
+                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">Bitwise Evaluation:</strong> For large dependency chains, bitwise flag comparison is the most performant state evaluation.</li>
+                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">Asset Modularity:</strong> Decoupling FX from triggers allows for unlimited scalability in environmental storytelling.</li>
+                    </ul>
+                </div>
+                <div class="card" style="height: fit-content; padding: 2rem;">
+                    <h4 style="margin-bottom: 1.5rem;">Outcomes</h4>
+                    <ul class="bullet-list text-muted" style="font-size: 0.9rem;">
+                        <li>Zero-script scalability</li>
+                        <li>High player immersion</li>
+                        <li>Stable 60 FPS performance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standardized CTA -->
+    <section class="section-padding" style="background-color: #0c0c0c; border-top: 1px solid var(--color-border); text-align: center;">
+        <div class="container" style="max-width: 900px;">
+            <h2 style="margin-bottom: 1rem; font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em;">ENGINEERED FOR PERFORMANCE. DESIGNED FOR SCALE. BUILT FOR PRODUCTION.</h2>
+            <p class="text-muted" style="margin-bottom: 3rem; font-size: 1.1rem;">Performance-first systems. Production-ready pipelines.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1rem 2rem; font-weight: 700;">Start a Project</a>
+                <a href="../overview/index.html" class="btn btn-secondary" style="padding: 1rem 2rem; font-weight: 600; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">View Overview</a>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg" style="height: 40px; width: auto; margin-bottom: 1.5rem;"/>
+                <p>Game development studio building original IP and production-ready interactive systems.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 DualCore Games. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

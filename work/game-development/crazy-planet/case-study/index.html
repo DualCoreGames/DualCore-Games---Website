@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crazy Planet Case Study | DualCore Games</title>
+    <meta name="description" content="A technical breakdown of modular platformer systems and scalable gameplay design.">
+    <!-- Fonts & CSS Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+    </noscript>
+    <link rel="stylesheet" href="../../../../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../../../../assets/images/dualcore-icon.svg">
+</head>
+<body>
+<header>
+    <div class="container header-inner">
+        <a href="../../../../index.html" class="logo">
+            <img src="../../../../assets/images/dualcore-logo.svg" alt="DualCore Games Logo" style="height: 48px; width: auto; display: block;">
+        </a>
+        <nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-menu">
+                <button class="nav-close" aria-label="Close navigation">✕</button>
+                <li class="nav-item"><a href="../../../../index.html" class="nav-link">Home</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="../../../../services/index.html" class="nav-link dropdown-toggle">Services <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../../../services/game-development/index.html" class="dropdown-link">Game Development</a></li>
+                        <li><a href="../../../../services/game-art/index.html" class="dropdown-link">Game Art</a></li>
+                        <li><a href="../../../../services/vr-xr-simulation/index.html" class="dropdown-link">VR/XR Simulation</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="../../../../work/index.html" class="nav-link dropdown-toggle active">Work <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../../../work/game-development/index.html" class="dropdown-link">Game Development</a></li>
+                        <li><a href="../../../../work/game-art/index.html" class="dropdown-link">Game Art</a></li>
+                        <li><a href="../../../../work/vr-xr/index.html" class="dropdown-link">VR/XR</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="../../../../about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../../../../blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="../../../../contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="../../../../contact.html" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <!-- HERO SECTION -->
+    <section class="section-padding" style="padding-top: 10rem;">
+        <div class="container">
+            <span class="text-accent" style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem;">Case Study</span>
+            <h1 style="margin-top: 1rem; margin-bottom: 1.5rem;">Crazy Planet</h1>
+            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin-bottom: 2rem;">A technical breakdown of modular platformer systems and scalable gameplay design.</p>
+            <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+                <div class="card" style="padding: 1.2rem;">
+                    <span class="text-accent" style="font-size: 0.7rem; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.5rem;">Engine</span>
+                    <strong>Unity</strong>
+                </div>
+                <div class="card" style="padding: 1.2rem;">
+                    <span class="text-accent" style="font-size: 0.7rem; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.5rem;">Focus</span>
+                    <strong>Modular Systems</strong>
+                </div>
+                <div class="card" style="padding: 1.2rem;">
+                    <span class="text-accent" style="font-size: 0.7rem; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.5rem;">Target</span>
+                    <strong>PC + Web</strong>
+                </div>
+                <div class="card" style="padding: 1.2rem;">
+                    <span class="text-accent" style="font-size: 0.7rem; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.5rem;">Goal</span>
+                    <strong>High Scalability</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+    <section class="section-padding" style="background-color: var(--color-card-bg);">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: start;">
+                <div>
+                    <h2 style="margin-bottom: 2rem;">Project Overview</h2>
+                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                        Crazy Planet was designed as a lightweight platformer system focused on accessibility, modular gameplay architecture, and performance efficiency.
+                    </p>
+                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                        The project emphasizes simplicity in player interaction while maintaining depth through level design and enemy behavior systems. The primary objective was to create a scalable platformer framework where new levels, enemies, and mechanics could be introduced without modifying core gameplay systems.
+                    </p>
+                </div>
+                <div class="card" style="padding: 2.5rem;">
+                    <h4 style="margin-bottom: 1.5rem;">Design Pillars</h4>
+                    <ul class="bullet-list text-muted" style="font-size: 1rem;">
+                        <li style="margin-bottom: 0.75rem;">Accessibility</li>
+                        <li style="margin-bottom: 0.75rem;">Responsiveness</li>
+                        <li style="margin-bottom: 0.75rem;">Modularity</li>
+                        <li style="margin-bottom: 0.75rem;">Performance Efficiency</li>
+                        <li style="margin-bottom: 0;">Gameplay Clarity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYSTEM ARCHITECTURE -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 5rem;">System Architecture</h2>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="grid" style="grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; text-align: center;">
+                    <div class="card" style="padding: 1.5rem;">Player Input</div>
+                    <div class="text-accent" style="font-size: 1.5rem;">&darr;</div>
+                    <div class="card" style="padding: 1.5rem;">Movement System</div>
+                    
+                    <div class="card" style="padding: 1.5rem;">Platform Interaction System</div>
+                    <div class="text-accent" style="font-size: 1.5rem;">&darr;</div>
+                    <div class="card" style="padding: 1.5rem;">Enemy Behavior System</div>
+                    
+                    <div class="card" style="padding: 1.5rem;">Collectible & Key System</div>
+                    <div class="text-accent" style="font-size: 1.5rem;">&darr;</div>
+                    <div class="card" style="padding: 1.5rem;">Level Progression Manager</div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <div class="text-accent" style="font-size: 1.5rem; margin-bottom: 1rem;">&darr;</div>
+                    <div class="card" style="padding: 1.5rem; max-width: 400px; margin: 0 auto;">Rendering & Animation Systems</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNICAL CHALLENGES & SOLUTIONS -->
+    <section class="section-padding" style="background-color: #0c0c0c;">
+        <div class="container">
+            <h2 style="margin-bottom: 4rem; text-align: center;">Technical Deep-Dive</h2>
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
+                <div class="card" style="border-left: 4px solid var(--color-accent);">
+                    <h4 style="margin-bottom: 1.5rem;">Technical Challenges</h4>
+                    <ul class="bullet-list text-muted">
+                        <li style="margin-bottom: 1rem;"><strong>Designing for Accessibility:</strong> Ensuring mechanics remain simple yet engaging.</li>
+                        <li style="margin-bottom: 1rem;"><strong>Maintaining Gameplay Variety:</strong> Avoiding repetition while keeping systems minimal.</li>
+                        <li style="margin-bottom: 1rem;"><strong>Performance Optimization:</strong> Ensuring smooth performance on low-end hardware.</li>
+                        <li style="margin-bottom: 0;"><strong>Visual Readability:</strong> Maintaining clarity in fast-paced gameplay.</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-left: 4px solid var(--color-success);">
+                    <h4 style="margin-bottom: 1.5rem;">Technical Solutions</h4>
+                    <ul class="bullet-list text-muted">
+                        <li style="margin-bottom: 1rem;"><strong>Modular Enemy Behavior System:</strong> Enemies defined through reusable behavior patterns.</li>
+                        <li style="margin-bottom: 1rem;"><strong>Reusable Environment Assets:</strong> Assets reused across levels to reduce memory usage.</li>
+                        <li style="margin-bottom: 1rem;"><strong>Lightweight Animation System:</strong> Efficient sprite animations for smooth performance.</li>
+                        <li style="margin-bottom: 0;"><strong>Performance-First Level Design:</strong> Minimal complexity with optimized asset usage.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Placeholder -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="card" style="height: 320px; display: flex; align-items: center; justify-content: center; text-align: center;">
+                <span class="text-muted">Technical Implementation Visual</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAMEPLAY SYSTEMS -->
+    <section class="section-padding" style="background-color: var(--color-card-bg);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 4rem;">Gameplay Systems</h2>
+            <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <div class="card">
+                    <h4 style="margin-bottom: 0.5rem;">Movement System</h4>
+                    <p class="text-muted" style="font-size: 0.95rem;">Responsive controls with precise platforming behavior.</p>
+                </div>
+                <div class="card">
+                    <h4 style="margin-bottom: 0.5rem;">Enemy System</h4>
+                    <p class="text-muted" style="font-size: 0.95rem;">Distinct enemy behaviors (charge, ranged, patrol).</p>
+                </div>
+                <div class="card">
+                    <h4 style="margin-bottom: 0.5rem;">Collectible System</h4>
+                    <p class="text-muted" style="font-size: 0.95rem;">Coins and keys driving exploration and progression.</p>
+                </div>
+                <div class="card">
+                    <h4 style="margin-bottom: 0.5rem;">Level System</h4>
+                    <p class="text-muted" style="font-size: 0.95rem;">Structured progression using Teach → Test → Reward model.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAKEAWAYS & OUTCOME -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 4rem;">
+                <div>
+                    <h2 style="margin-bottom: 2rem;">Engineering Takeaways</h2>
+                    <ul class="bullet-list text-muted" style="font-size: 1.1rem;">
+                        <li style="margin-bottom: 1.5rem;"><strong>Simplicity improves accessibility</strong>: Clean mechanics reach a wider audience.</li>
+                        <li style="margin-bottom: 1.5rem;"><strong>Modular systems support scalability</strong>: Reusable logic speeds up content production.</li>
+                        <li style="margin-bottom: 1.5rem;"><strong>Performance-first design ensures stability</strong>: Optimization is part of the feature set.</li>
+                        <li style="margin-bottom: 0;"><strong>Level design drives engagement</strong>: Systems are validated through structured level flow.</li>
+                    </ul>
+                </div>
+                <div class="card" style="padding: 3rem; background: linear-gradient(145deg, #121212 0%, #0a0a0a 100%);">
+                    <h4 style="margin-bottom: 2rem;">What This Project Demonstrates</h4>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-accent);"></div>
+                            <span class="text-muted">Scalable platformer architecture</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-accent);"></div>
+                            <span class="text-muted">Modular gameplay systems</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-accent);"></div>
+                            <span class="text-muted">Performance-focused development</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-accent);"></div>
+                            <span class="text-muted">Accessible game design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section-padding" style="text-align: center; border-top: 1px solid var(--color-border);">
+        <div class="container">
+            <h3 style="margin-bottom: 2rem;">Building scalable gameplay systems or lightweight game experiences?</h3>
+            <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Start a Project</a>
+            <p class="text-muted" style="margin-top: 1.5rem; font-size: 0.9rem;">Building high-authority systems since 2016.</p>
+        </div>
+    </section>
+</main>
+<section class="section-padding" style="background-color: var(--color-card-bg); border-top: 1px solid var(--color-border); text-align: center;">
+    <div class="container">
+        <h2 style="margin-bottom: 1rem;">Stay Updated</h2>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto 2rem;">Join our newsletter to receive our latest insights and studio news directly in your inbox.</p>
+        <form class="newsletter-form" style="max-width: 400px; margin: 0 auto;">
+            <input type="email" class="newsletter-input" placeholder="Email Address" required>
+            <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1.5rem;">Subscribe</button>
+        </form>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+            <div class="footer-brand">
+                <img src="../../../../assets/images/dualcore-logo.svg" alt="DualCore Games Logo" loading="lazy" style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;">
+                <p>Game development studio building original IP and production-ready interactive systems.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="../../../../index.html">Home</a></li>
+                    <li><a href="../../../../services/index.html">Services</a></li>
+                    <li><a href="../../../../work/index.html">Work</a></li>
+                    <li><a href="../../../../about.html">About</a></li>
+                    <li><a href="../../../../blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul class="footer-links social-links">
+                    <li><a href="https://www.linkedin.com/company/dual-core-games/" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="https://x.com/DualCore53111" target="_blank" rel="noopener">X (Twitter)</a></li>
+                    <li><a href="https://www.instagram.com/dualcoregames/" target="_blank" rel="noopener">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 DualCore Games. All rights reserved.</p>
+            <p>Designed for Performance.</p>
+        </div>
+    </div>
+</footer>
+<script src="../../../../assets/js/main.js" defer></script>
+</body>
+</html>
