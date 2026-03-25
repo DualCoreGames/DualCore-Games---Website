@@ -1,466 +1,855 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Reclairos | Dark Strategy Game | DualCore Games</title>
-<meta content="Experience Reclairos, a system-driven strategy game where tactical combat encounters and evolving enemy behaviors shape every battle." name="description"/>
-<link href="https://dualcoregames.com/work/game-development/reclairos/" rel="canonical"/>
-<!-- Open Graph -->
-<meta content="Reclairos | Dark Strategy Game | DualCore Games" property="og:title"/>
-<meta content="Experience Reclairos, a system-driven strategy game where tactical combat encounters and evolving enemy behaviors shape every battle." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://dualcoregames.com/work/game-development/reclairos/" property="og:url"/>
-<!-- Twitter -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Reclairos | Dark Strategy Game | DualCore Games" name="twitter:title"/>
-<meta content="Experience Reclairos, a system-driven strategy game where tactical combat encounters and evolving enemy behaviors shape every battle." name="twitter:description"/>
-<!-- Fonts & CSS Preload -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
-<noscript>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-</noscript>
-<link href="../../../../assets/css/style.css" rel="stylesheet"/>
-<link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
-<script type="application/ld+json">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reclairos | Mobile Tower Defense Game Development | DualCore Games</title>
+    <meta
+        content="Experience Reclairos, a flagship mobile tower defense game built with Unity URP, featuring system-driven strategy and scalable game architecture."
+        name="description" />
+    <link href="https://dualcoregames.com/work/game-development/reclairos/" rel="canonical" />
+    <meta content="Reclairos | Mobile Tower Defense Game Development | DualCore Games" property="og:title" />
+    <meta
+        content="Experience Reclairos, a flagship mobile tower defense game built with Unity URP, featuring system-driven strategy and scalable game architecture."
+        property="og:description" />
+    <meta content="website" property="og:type" />
+    <meta content="https://dualcoregames.com/work/game-development/reclairos/" property="og:url" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="Reclairos | Mobile Tower Defense Game Development | DualCore Games" name="twitter:title" />
+    <meta
+        content="Experience Reclairos, a flagship mobile tower defense game built with Unity URP, featuring system-driven strategy and scalable game architecture."
+        name="twitter:description" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'" rel="preload" />
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet" />
+    </noscript>
+    <link href="../../../../assets/css/style.css" rel="stylesheet" />
+    <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml" />
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://dualcoregames.com/"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Work",
-        "item": "https://dualcoregames.com/work/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Game Development",
-        "item": "https://dualcoregames.com/work/game-development/index.html"
-      },{
-        "@type": "ListItem",
-        "position": 4,
-        "name": "Reclairos",
-        "item": "https://dualcoregames.com/work/game-development/reclairos/"
-      }]
+      "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://dualcoregames.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://dualcoregames.com/work/index.html"},{"@type":"ListItem","position":3,"name":"Game Development","item":"https://dualcoregames.com/work/game-development/index.html"},{"@type":"ListItem","position":4,"name":"Reclairos","item":"https://dualcoregames.com/work/game-development/reclairos/"}]
     }
     </script>
-<meta content="https://dualcoregames.com/assets/images/dualcore-logo.svg" property="og:image"/>
+    <meta content="https://dualcoregames.com/assets/images/dualcore-logo.svg" property="og:image" />
 </head>
+
 <body>
-<header>
-<div class="container header-inner">
-<a class="logo" href="../../../../index.html">
-<img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg" style="height: 48px; width: auto; display: block;"/>
-</a>
-<nav>
-<button aria-label="Toggle navigation" class="nav-toggle">☰</button>
-<ul class="nav-menu">
-<button aria-label="Close navigation" class="nav-close">✕</button>
-<li class="nav-item"><a class="nav-link" href="../../../../index.html">Home</a></li>
-<li class="nav-item has-dropdown">
-<a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span class="dropdown-icon">▼</span></a>
-<ul class="dropdown-menu">
-<li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game
+    <header>
+        <div class="container header-inner">
+            <a class="logo" href="../../../../index.html">
+                <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg"
+                    style="height: 48px; width: auto; display: block;" />
+            </a>
+            <nav>
+                <button aria-label="Toggle navigation" class="nav-toggle">☰</button>
+                <ul class="nav-menu">
+                    <button aria-label="Close navigation" class="nav-close">✕</button>
+                    <li class="nav-item"><a class="nav-link" href="../../../../index.html">Home</a></li>
+                    <li class="nav-item has-dropdown">
+                        <a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span
+                                class="dropdown-icon">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game
                                     Development</a></li>
-<li><a class="dropdown-link" href="../../../../services/game-art/index.html">Game Art</a></li>
-<li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR
+                            <li><a class="dropdown-link" href="../../../../services/game-art/index.html">Game Art</a>
+                            </li>
+                            <li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR
                                     Simulation</a></li>
-</ul>
-</li>
-<li class="nav-item has-dropdown">
-<a class="nav-link dropdown-toggle active" href="../../../../work/index.html">Work <span class="dropdown-icon">▼</span></a>
-<ul class="dropdown-menu">
-<li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game
-                                    Development</a>
-</li>
-<li><a class="dropdown-link" href="../../../../work/game-art/index.html">Game Art</a></li>
-<li><a class="dropdown-link" href="../../../../work/vr-xr/index.html">VR/XR</a></li>
-</ul>
-</li>
-<li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
-<li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
-<li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-<li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
-</ul>
-</nav>
-</div>
-</header>
-<main>
-<!-- Hero Section -->
-<section class="reclairos-hero section-padding">
-    <div class="container">
-        <h1 style="color: var(--core-tech);">Reclairos</h1>
-        <p style="color: var(--core-art); font-size: 1.5rem; font-weight: 600; margin-top: 1rem;">A Dark Strategy Experience Where Systems Shape the Battle.</p>
-        <div style="max-width: 800px; margin-top: 2rem;">
-            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">Reclairos is a system-driven strategy game built around tactical combat encounters, evolving enemy behaviors, and performance-first design.</p>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a class="nav-link dropdown-toggle active" href="../../../../work/index.html">Work <span
+                                class="dropdown-icon">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game
+                                    Development</a></li>
+                            <li><a class="dropdown-link" href="../../../../work/game-art/index.html">Game Art</a></li>
+                            <li><a class="dropdown-link" href="../../../../work/vr-xr/index.html">VR/XR</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html"
+                            style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+                </ul>
+            </nav>
         </div>
-        <!-- Hero Image -->
-        <div class="hero-image" style="margin-top: 40px; display: flex; justify-content: flex-start;">
-            <img alt="Reclairos The Forgotten War Key Art" loading="eager" src="../assets/reclairos-hero.webp" style="max-width: 1100px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);"/>
-        </div>
-    </div>
-</section>
-<!-- Experience Pillars -->
-<section style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); padding: 3rem 0;">
-<div class="container">
-<div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 2rem;">
-<div class="card" style="padding: 1.5rem; border-left: 2px solid var(--core-art);">
-<span style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 0.5rem;">Strategic Combat</span>
-<p style="font-size: 0.8rem; margin: 0;">Tactical positioning and turn-based depth.</p>
-</div>
-<div class="card" style="padding: 1.5rem; border-left: 2px solid var(--core-art);">
-<span style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 0.5rem;">Distinct Roles</span>
-<p style="font-size: 0.8rem; margin: 0;">Unique hero archetypes and synergistic loops.</p>
-</div>
-<div class="card" style="padding: 1.5rem; border-left: 2px solid var(--core-tech);">
-<span style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 0.5rem;">Systemic AI</span>
-<p style="font-size: 0.8rem; margin: 0;">Evolving enemy behaviors and adaptive scaling.</p>
-</div>
-<div class="card" style="padding: 1.5rem; border-left: 2px solid var(--core-tech);">
-<span style="display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 0.5rem;">Performance-First</span>
-<p style="font-size: 0.8rem; margin: 0;">Optimized for high-fidelity standalone mobile.</p>
-</div>
-</div>
-</div>
-</section>
+    </header>
+    <main>
 
-<!-- 01 Project Overview -->
-<section class="section-padding">
-<div class="container">
-<div style="max-width: 800px;">
-<h2 style="margin-bottom: 2rem;">Project Overview</h2>
-<p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">Reclairos is a system-driven strategy game built around tactical combat encounters, evolving enemy behaviors, and performance-first design.</p>
-<p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">Rather than relying on scripted sequences, Reclairos utilizes a modular architecture where exploration, narrative triggers, and environmental systems operate in a tightly connected loop.</p>
-</div>
-</div>
-</section>
-<!-- Core Experience -->
-<section class="section-padding">
-<div class="container">
-<div class="grid" style="grid-template-columns: 2fr 1fr; gap: 4rem;">
-<div>
-<h2 style="margin-bottom: 2rem;">Core Experience</h2>
-<p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">Reclairos delivers tactical combat encounters where strategy emerges from the interaction between characters, enemy archetypes, and encounter design.</p>
-<div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
-<div class="card" style="padding: 1.5rem;">
-<h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Tactical Deployment</h4>
-<p class="text-muted" style="font-size: 0.9rem;">Positioning and role-based synergy.</p>
-</div>
-<div class="card" style="padding: 1.5rem;">
-<h4 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Systemic Combat</h4>
-<p class="text-muted" style="font-size: 0.9rem;">Turn-based depth and AI behaviors.</p>
-</div>
-</div>
-</div>
-<div class="card" style="height: fit-content;">
-<h4 style="margin-bottom: 1.5rem;">Key Features</h4>
-<ul class="bullet-list text-muted" style="font-size: 0.9rem;">
-<li>Strategic combat encounters</li>
-<li>Distinct hero combat roles</li>
-<li>Enemy archetypes with unique behaviors</li>
-<li>System-driven progression</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
+        <!-- ═══ HERO ═══ -->
+        <section class="rc-hero">
+            <div class="container rc-hero__inner">
+                <span class="rc-label">Flagship Project</span>
+                <h1 class="rc-hero__title">Reclairos</h1>
+                <p class="rc-hero__tagline">A System-Driven Strategy Experience Where Architecture Shapes Combat.</p>
+                <div class="rc-hero__desc">
+                    <p>A flagship project in <strong>Mobile Tower Defense Game Development</strong>, rebuilt for mobile
+                        using <strong>Unity URP</strong>. Featuring modular systems, escort-based mechanics, and
+                        performance-first design.</p>
+                </div>
+                <div class="rc-hero__img-wrap">
+                    <img alt="Reclairos The Forgotten War Key Art" loading="eager" src="../assets/reclairos-hero.webp"
+                        class="rc-hero__img" />
+                </div>
+            </div>
+        </section>
 
-<!-- Gameplay Loop / Experience Flow -->
-<section class="section-padding" style="background-color: #0c0c0c;">
-<div class="container">
-<div style="max-width: 800px;">
-<h2 style="margin-bottom: 2rem;">Gameplay Loop / Experience Flow</h2>
-<div class="grid" style="grid-template-columns: 1fr; gap: 1rem;">
-<div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
-<span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">01</span>
-<p class="text-muted" style="margin: 0;"><strong>Deployment</strong>: Position units based on tactical terrain advantages.</p>
-</div>
-<div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
-<span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">02</span>
-<p class="text-muted" style="margin: 0;"><strong>Engagement</strong>: Resolve combat turns using role-specific abilities.</p>
-</div>
-<div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
-<span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">03</span>
-<p class="text-muted" style="margin: 0;"><strong>Evolution</strong>: Adapt to shifting enemy behaviors and encounter states.</p>
-</div>
-</div>
+        <!-- ═══ PROJECT SNAPSHOT ═══ -->
+        <section class="rc-snapshot">
+            <div class="container">
+                <div class="rc-snapshot__grid">
+                    <div class="rc-snap-card rc-snap-card--hi">
+                        <span class="rc-snap-card__label">Platform</span>
+                        <p class="rc-snap-card__value">Android • iOS</p>
+                    </div>
+                    <div class="rc-snap-card rc-snap-card--hi">
+                        <span class="rc-snap-card__label">Engine</span>
+                        <p class="rc-snap-card__value">Unity (URP)</p>
+                    </div>
+                    <div class="rc-snap-card">
+                        <span class="rc-snap-card__label">Genre</span>
+                        <p class="rc-snap-card__value">2D TD + RPG</p>
+                    </div>
+                    <div class="rc-snap-card">
+                        <span class="rc-snap-card__label">Perspective</span>
+                        <p class="rc-snap-card__value">Lane-Based</p>
+                    </div>
+                    <div class="rc-snap-card">
+                        <span class="rc-snap-card__label">Core Loop</span>
+                        <p class="rc-snap-card__value" style="font-size: 0.9rem;">Escort • Tactical • Narrative</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<!-- Gameplay Flow Visual (replacing placeholder) -->
-<div style="width: 100%; border-radius: 14px; border: 1px solid var(--border-subtle); background: linear-gradient(135deg, #05070a 0%, #0a0f14 100%); overflow: hidden; margin-top: 3rem; padding: 3rem 2rem;">
-  <div style="max-width: 600px; margin: 0 auto;">
-    <!-- Node 01 -->
-    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
-      <div style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--core-art); display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(255,122,24,0.08);"><span style="color: var(--core-art); font-weight: 800; font-size: 0.85rem;">01</span></div>
-      <div style="flex: 1; padding: 1rem 1.5rem; background: rgba(255,122,24,0.06); border: 1px solid rgba(255,122,24,0.15); border-radius: 8px;"><strong style="color: #fff; font-size: 0.92rem;">DEPLOYMENT</strong><p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0.25rem 0 0;">Position units based on tactical terrain advantages</p></div>
-    </div>
-    <!-- Arrow -->
-    <div style="text-align: center; color: var(--core-tech); font-size: 1.2rem; margin-bottom: 1.5rem; opacity: 0.6;">↓</div>
-    <!-- Node 02 -->
-    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
-      <div style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--core-art); display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(255,122,24,0.08);"><span style="color: var(--core-art); font-weight: 800; font-size: 0.85rem;">02</span></div>
-      <div style="flex: 1; padding: 1rem 1.5rem; background: rgba(255,122,24,0.06); border: 1px solid rgba(255,122,24,0.15); border-radius: 8px;"><strong style="color: #fff; font-size: 0.92rem;">ENGAGEMENT</strong><p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0.25rem 0 0;">Resolve combat turns using role-specific abilities</p></div>
-    </div>
-    <!-- Arrow -->
-    <div style="text-align: center; color: var(--core-tech); font-size: 1.2rem; margin-bottom: 1.5rem; opacity: 0.6;">↓</div>
-    <!-- Node 03 -->
-    <div style="display: flex; align-items: center; gap: 1.5rem;">
-      <div style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--core-tech); display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(0,210,255,0.08);"><span style="color: var(--core-tech); font-weight: 800; font-size: 0.85rem;">03</span></div>
-      <div style="flex: 1; padding: 1rem 1.5rem; background: rgba(0,210,255,0.05); border: 1px solid rgba(0,210,255,0.12); border-radius: 8px;"><strong style="color: #fff; font-size: 0.92rem;">EVOLUTION</strong><p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0.25rem 0 0;">Adapt to shifting enemy behaviors and encounter states</p></div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-<!-- Gameplay Systems Section -->
-<section class="gameplay-systems section-padding" style="background-color: var(--bg-secondary);">
-<div class="container">
-<span class="img-label" style="text-align: center; display: block; margin-bottom: 0.5rem;">Gameplay — Combat &amp; Systems</span>
-<h2 style="margin-bottom: 3rem; text-align: center;">Gameplay Systems</h2>
-<div class="horizontal-gallery-wrapper">
-<div class="horizontal-gallery">
-<img alt="Reclairos combat gameplay encounter" loading="lazy" src="../assets/reclairos-gameplay-01.webp"/>
-<img alt="Reclairos boss encounter" loading="lazy" src="../assets/reclairos-gameplay-02.webp"/>
-<img alt="Reclairos spellcasting combat system" loading="lazy" src="../assets/reclairos-gameplay-03.webp"/>
-<img alt="Reclairos enemy archetype battle" loading="lazy" src="../assets/reclairos-gameplay-04.webp"/>
-<img alt="Reclairos tactical combat gameplay" loading="lazy" src="../assets/reclairos-gameplay-05.webp"/>
-</div>
-</div>
-</div>
-</section>
-<!-- World & Environment Section -->
-<section class="environment-gallery-section section-padding">
-<div class="container">
-<span class="img-label" style="text-align: center; display: block; margin-bottom: 0.5rem;">World Environment</span>
-<h2 style="margin-bottom: 3rem; text-align: center;">World &amp; Environment</h2>
-<div class="horizontal-gallery-wrapper">
-<div class="horizontal-gallery">
-<img alt="Reclairos burning battlefield environment" loading="lazy" src="../assets/reclairos-environment-01.webp"/>
-<img alt="Reclairos medieval village environment" loading="lazy" src="../assets/reclairos-environment-02.webp"/>
-<img alt="Reclairos environmental destruction scene" loading="lazy" src="../assets/reclairos-environment-03.webp"/>
-<img alt="Reclairos level design environment" loading="lazy" src="../assets/reclairos-environment-04.webp"/>
-</div>
-</div>
-</div>
-</section>
-<!-- World Exploration Section -->
-<section class="section-padding" style="background-color: #0c0c0c;">
-<div class="container" style="text-align: center;">
-<h2 style="margin-bottom: 3rem;">World Exploration</h2>
-<div style="max-width: 1000px; margin: 0 auto;">
-<img alt="Detailed world map of Reclairos showing various regions and encounter zones" loading="lazy" src="../assets/reclairos-map.webp" style="width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--color-border);"/>
-<p class="text-muted" style="margin-top: 2rem; font-size: 1.1rem; line-height: 1.7; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <!-- ═══ GAMEPLAY IN ACTION (new section) ═══ -->
+        <section class="rc-section">
+            <div class="container">
+                <span class="rc-img-label">GAMEPLAY – WAVE DEFENSE</span>
+                <div class="rc-full-img-wrap">
+                    <img alt="Reclairos wave defense gameplay in action" loading="lazy"
+                        src="../assets/reclairos-mood-01.webp" class="rc-full-img" />
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ PROJECT OVERVIEW ═══ -->
+        <section class="rc-section rc-section--alt">
+            <div class="container">
+                <div class="rc-text-center">
+                    <h2>Project Overview</h2>
+                    <p class="rc-body">Reclairos is a system-driven mobile strategy game built around escort-based
+                        combat and narrative progression.</p>
+                    <p class="rc-body">Instead of defending a static base, players manage a moving objective — requiring
+                        continuous repositioning, unit coordination, and real-time threat prioritization.</p>
+                    <p class="rc-body" style="margin-bottom: 0;">Each encounter is constructed through modular gameplay
+                        systems, enabling scalable enemy behaviors, dynamic encounter variation, and stable performance
+                        across mobile hardware.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ WHAT MAKES THIS DIFFERENT ═══ -->
+        <section class="rc-section">
+            <div class="container">
+                <h2 class="rc-section__title">What Makes This Different</h2>
+                <div class="rc-grid-4">
+                    <div class="rc-card">
+                        <h4 class="rc-card__title">Escort-Based Combat</h4>
+                        <p class="rc-card__body">A moving objective transforms traditional tower defense into a dynamic
+                            system.</p>
+                    </div>
+                    <div class="rc-card">
+                        <h4 class="rc-card__title">Class-Based Strategy</h4>
+                        <p class="rc-card__body">Units are built around functional roles requiring composition-based
+                            decisions.</p>
+                    </div>
+                    <div class="rc-card">
+                        <h4 class="rc-card__title">Modular Encounters</h4>
+                        <p class="rc-card__body">Encounters are generated from data-driven systems, not hardcoded logic.
+                        </p>
+                    </div>
+                    <div class="rc-card">
+                        <h4 class="rc-card__title">Mobile-First</h4>
+                        <p class="rc-card__body">Built for stable performance across mid-range mobile devices.</p>
+                    </div>
+                </div>
+
+                <!-- Gameplay Screenshot after Cards -->
+                <div style="margin-top: 6rem;">
+                    <span class="rc-img-label">GAMEPLAY – ABILITY EXECUTION</span>
+                    <div class="rc-full-img-wrap">
+                        <img alt="Reclairos ability execution and combat detail" loading="lazy"
+                            src="../assets/reclairos-detail-01.webp" class="rc-full-img" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ CORE EXPERIENCE ═══ -->
+        <section class="rc-section rc-section--alt">
+            <div class="container">
+                <h2 class="rc-section__title">Core Experience</h2>
+                <div class="rc-grid-3">
+                    <div class="rc-card">
+                        <div class="rc-card__num" style="opacity: 0.15;">01</div>
+                        <h4 class="rc-card__title">Tactical Deployment</h4>
+                        <p class="rc-card__body">Position units through strategic lane-based mechanics.</p>
+                    </div>
+                    <div class="rc-card rc-card--featured">
+                        <div class="rc-card__num" style="color: var(--color-accent);">02</div>
+                        <h4 class="rc-card__title">Escort-Based Combat</h4>
+                        <p class="rc-card__body">Protect and manage a moving objective in real-time.</p>
+                    </div>
+                    <div class="rc-card">
+                        <div class="rc-card__num" style="opacity: 0.15;">03</div>
+                        <h4 class="rc-card__title">Systemic Encounters</h4>
+                        <p class="rc-card__body">Combat difficulty scales via modular enemy behaviors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ GAMEPLAY LOOP ═══ -->
+        <section class="rc-section">
+            <div class="container">
+                <h2 class="rc-section__title">Gameplay Loop</h2>
+                <div class="rc-grid-4">
+                    <div class="rc-card">
+                        <span class="rc-card__step">01</span>
+                        <h4 class="rc-card__title">Plan</h4>
+                        <p class="rc-card__body">Analyze lane threats and resource availability.</p>
+                    </div>
+                    <div class="rc-card">
+                        <span class="rc-card__step">02</span>
+                        <h4 class="rc-card__title">Deploy</h4>
+                        <p class="rc-card__body">Position units to maximize synergistic coverage.</p>
+                    </div>
+                    <div class="rc-card">
+                        <span class="rc-card__step">03</span>
+                        <h4 class="rc-card__title">Adapt</h4>
+                        <p class="rc-card__body">Reposition units as the escort moves through the lane.</p>
+                    </div>
+                    <div class="rc-card">
+                        <span class="rc-card__step">04</span>
+                        <h4 class="rc-card__title">Resolve</h4>
+                        <p class="rc-card__body">Neutralize threats and clear the path for the objective.</p>
+                    </div>
+                </div>
+
+                <!-- Gameplay Flow Visual -->
+                <div style="margin-top: 6rem;">
+                    <span class="rc-img-label">GAMEPLAY FLOW</span>
+                    <div class="rc-full-img-wrap">
+                        <img alt="Reclairos gameplay loop flow diagram" loading="lazy"
+                            src="../assets/reclairos-flow-loop.webp" class="rc-full-img" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ GAMEPLAY SYSTEMS GALLERY ═══ -->
+        <section class="rc-section rc-section--alt">
+            <div class="container">
+                <h2 class="rc-section__title">Gameplay Systems</h2>
+                <span class="rc-img-label" style="margin-bottom: 2rem;">GAMEPLAY – COMBAT ENCOUNTERS</span>
+                <div class="rc-gallery">
+                    <div class="rc-gallery__item">
+                        <img alt="Reclairos combat gameplay encounter" loading="lazy"
+                            src="../assets/reclairos-gameplay-01.webp" />
+                    </div>
+                    <div class="rc-gallery__item">
+                        <img alt="Reclairos boss encounter" loading="lazy" src="../assets/reclairos-gameplay-02.webp" />
+                    </div>
+                    <div class="rc-gallery__item">
+                        <img alt="Reclairos spellcasting combat system" loading="lazy"
+                            src="../assets/reclairos-gameplay-03.webp" />
+                    </div>
+                </div>
+
+                <!-- Combat Detail -->
+                <div style="margin-top: 5rem;">
+                    <span class="rc-img-label">GAMEPLAY – SPELL EFFECTS</span>
+                    <div class="rc-full-img-wrap">
+                        <img alt="Reclairos combat effects and spells" loading="lazy"
+                            src="../assets/reclairos-detail-02.webp" class="rc-full-img" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ WORLD & ENVIRONMENT ═══ -->
+        <section class="rc-section">
+            <div class="container">
+                <h2 class="rc-section__title">World &amp; Environment</h2>
+                <span class="rc-img-label" style="margin-bottom: 2rem;">WORLD ENVIRONMENT</span>
+                <div class="rc-gallery">
+                    <div class="rc-gallery__item">
+                        <img alt="Reclairos burning battlefield environment" loading="lazy"
+                            src="../assets/reclairos-environment-01.webp" />
+                    </div>
+                    <div class="rc-gallery__item">
+                        <img alt="Reclairos medieval village environment" loading="lazy"
+                            src="../assets/reclairos-environment-02.webp" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ WORLD MAP ═══ -->
+        <section class="rc-section rc-section--alt">
+            <div class="container rc-text-center">
+                <h2>World Exploration</h2>
+                <span class="rc-img-label" style="margin-bottom: 3rem;">WORLD MAP – EXPLORATION ZONES</span>
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <img alt="Detailed world map of Reclairos showing various regions and encounter zones"
+                        loading="lazy" src="../assets/reclairos-map.webp" class="rc-map-img" />
+                    <p class="rc-body" style="margin-top: 3rem; margin-bottom: 0;">
                         The world of Reclairos features exploration-based progression, taking players through dense
                         villages, ancient ruins, and high-tension encounter zones across a fractured landscape.
                     </p>
-</div>
-</div>
-</section>
-<style>
-            .reclairos-hero {
-                text-align: left;
-                padding-top: 120px;
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ KEY FEATURES ═══ -->
+        <section class="rc-section">
+            <div class="container">
+                <h2 class="rc-section__title">Key Features</h2>
+                <div class="rc-grid-2 rc-grid-2--narrow">
+                    <div class="rc-feature-card">
+                        <span class="rc-feature-card__dot"></span>
+                        <p>Escort-based dynamic combat</p>
+                    </div>
+                    <div class="rc-feature-card">
+                        <span class="rc-feature-card__dot"></span>
+                        <p>Modular encounter architecture</p>
+                    </div>
+                    <div class="rc-feature-card">
+                        <span class="rc-feature-card__dot"></span>
+                        <p>Class-based unit composition</p>
+                    </div>
+                    <div class="rc-feature-card">
+                        <span class="rc-feature-card__dot"></span>
+                        <p>Data-driven enemy behaviors</p>
+                    </div>
+                    <div class="rc-feature-card rc-feature-card--full">
+                        <span class="rc-feature-card__dot"></span>
+                        <p style="text-align: center;">Performance-optimized mobile systems</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ BOTTOM CTA ═══ -->
+        <section class="rc-cta">
+            <div class="container rc-cta__inner">
+                <img alt="Reclairos Logo" src="../assets/reclairos-logo.webp" class="rc-cta__logo" />
+                <h2 class="rc-cta__headline">ENGINEERED FOR PERFORMANCE.<br>DESIGNED FOR SCALE.</h2>
+                <p class="rc-cta__sub">BUILT FOR PRODUCTION</p>
+                <div class="rc-cta__btns">
+                    <a class="btn btn-primary" href="../case-study/index.html"
+                        style="padding: 1.2rem 3rem; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;">View
+                        Case Study</a>
+                    <a class="btn btn-outline" href="../../../../contact.html"
+                        style="padding: 1.2rem 3rem; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; border: 1px solid rgba(255,255,255,0.2);">Build
+                        Your Game</a>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* ── Base ── */
+            .rc-section {
+                padding: 10rem 0;
+            }
+
+            .rc-section--alt {
                 background-color: #0c0c0c;
             }
 
-            .hero-image {
-                margin-top: 40px;
+            .rc-text-center {
+                max-width: 760px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .rc-body {
+                font-size: 1.2rem;
+                line-height: 1.9;
+                max-width: 760px;
+                margin: 0 auto 2rem;
+                color: var(--color-text-muted);
+            }
+
+            /* ── Hero ── */
+            .rc-hero {
+                background-color: #0c0c0c;
+                padding: 12rem 0 8rem;
+            }
+
+            .rc-hero__inner {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .rc-label {
+                display: inline-block;
+                font-size: 0.7rem;
+                font-weight: 800;
+                letter-spacing: 0.25em;
+                text-transform: uppercase;
+                color: var(--color-accent);
+                border: 1px solid rgba(0, 210, 255, 0.25);
+                padding: 0.45rem 1.4rem;
+                border-radius: 100px;
+                background: rgba(0, 210, 255, 0.04);
+                margin-bottom: 2rem;
+            }
+
+            .rc-hero__title {
+                font-size: 4.8rem;
+                line-height: 1.05;
+                margin-bottom: 2rem;
+                letter-spacing: -0.03em;
+                color: var(--color-accent);
+            }
+
+            .rc-hero__tagline {
+                font-size: 1.6rem;
+                font-weight: 600;
+                max-width: 680px;
+                line-height: 1.3;
+                margin-bottom: 2.5rem;
+            }
+
+            .rc-hero__desc {
+                max-width: 600px;
+                margin-bottom: 5rem;
+            }
+
+            .rc-hero__desc p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+                color: var(--color-text-muted);
+                margin: 0;
+            }
+
+            .rc-hero__img-wrap {
+                width: 100%;
                 display: flex;
                 justify-content: center;
             }
 
-            .hero-image img {
+            .rc-hero__img {
                 max-width: 1100px;
                 width: 100%;
                 height: auto;
-                object-fit: contain;
-                border-radius: 8px;
-                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+                border-radius: 16px;
+                box-shadow: 0 40px 120px rgba(0, 0, 0, 0.8);
+                transition: transform 0.6s ease;
             }
 
-            /* Horizontal Gallery Base Styles */
-            .horizontal-gallery-wrapper {
-                position: relative;
+            .rc-hero__img:hover {
+                transform: scale(1.01);
             }
 
-            .horizontal-gallery {
-                display: flex;
-                gap: 20px;
-                overflow-x: auto;
-                padding-bottom: 12px;
-                scroll-snap-type: x mandatory;
-                -ms-overflow-style: none;
-                /* IE and Edge */
-                scrollbar-width: thin;
-                /* Firefox */
+            /* ── Snapshot ── */
+            .rc-snapshot {
+                background-color: var(--color-card-bg);
+                border-top: 1px solid var(--color-border);
+                border-bottom: 1px solid var(--color-border);
+                padding: 5rem 0;
             }
 
-            /* Premium Fade Indicator */
-            .horizontal-gallery-wrapper::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 80px;
-                height: 100%;
-                pointer-events: none;
-                background: linear-gradient(to right, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.9) 100%);
-                z-index: 2;
+            .rc-snapshot__grid {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 1.5rem;
             }
 
-            /* Gallery Images */
-            .horizontal-gallery img {
-                height: 220px;
-                width: auto;
-                border-radius: 6px;
-                flex-shrink: 0;
-                scroll-snap-align: start;
-                transition: transform 0.25s ease;
-                border: 1px solid var(--color-border);
-            }
-
-            .horizontal-gallery img:hover {
-                transform: scale(1.05);
-                border-color: var(--color-accent);
-            }
-
-            /* Scrollbar Styling */
-            .horizontal-gallery::-webkit-scrollbar {
-                height: 6px;
-            }
-
-            .horizontal-gallery::-webkit-scrollbar-track {
-                background: transparent;
-            }
-
-            .horizontal-gallery::-webkit-scrollbar-thumb {
-                background: #2a2a2a;
+            .rc-snap-card {
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(255, 255, 255, 0.06);
                 border-radius: 10px;
+                padding: 2rem 1.5rem;
             }
 
-            .horizontal-gallery::-webkit-scrollbar-thumb:hover {
-                background: #3a3a3a;
+            .rc-snap-card--hi {
+                border-top: 2px solid rgba(0, 210, 255, 0.5);
+                background: rgba(0, 210, 255, 0.03);
             }
 
-            /* Mobile Layout Rules */
+            .rc-snap-card__label {
+                display: block;
+                font-size: 0.7rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.18em;
+                color: var(--color-accent);
+                margin-bottom: 0.75rem;
+            }
+
+            .rc-snap-card__value {
+                font-size: 1rem;
+                font-weight: 700;
+                margin: 0;
+            }
+
+            /* ── Section Headings ── */
+            .rc-section__title {
+                text-align: center;
+                margin-bottom: 5rem;
+            }
+
+            /* ── Image Labels ── */
+            .rc-img-label {
+                display: block;
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.25em;
+                color: rgba(255, 255, 255, 0.3);
+                margin-bottom: 1.5rem;
+            }
+
+            /* ── Full-width image ── */
+            .rc-full-img-wrap {
+                width: 100%;
+                border-radius: 16px;
+                overflow: hidden;
+            }
+
+            .rc-full-img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 16px;
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+                transition: transform 0.4s ease;
+            }
+
+            .rc-full-img:hover {
+                transform: scale(1.01);
+            }
+
+            /* ── Cards ── */
+            .rc-card {
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-radius: 14px;
+                padding: 3rem 2.5rem;
+                transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+            }
+
+            .rc-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 210, 255, 0.06);
+                border-color: rgba(0, 210, 255, 0.2);
+                background: rgba(255, 255, 255, 0.035);
+            }
+
+            .rc-card--featured {
+                border-top: 2px solid rgba(0, 210, 255, 0.5);
+                background: rgba(0, 210, 255, 0.025);
+            }
+
+            .rc-card__num {
+                font-size: 2.5rem;
+                font-weight: 800;
+                margin-bottom: 1.5rem;
+            }
+
+            .rc-card__step {
+                display: block;
+                font-size: 1.6rem;
+                font-weight: 800;
+                margin-bottom: 1.25rem;
+                color: rgba(0, 210, 255, 0.5);
+            }
+
+            .rc-card__title {
+                font-size: 1.15rem;
+                margin-bottom: 1rem;
+                font-weight: 700;
+            }
+
+            .rc-card__body {
+                font-size: 0.95rem;
+                line-height: 1.7;
+                color: var(--color-text-muted);
+                margin: 0;
+            }
+
+            /* ── Grids ── */
+            .rc-grid-4 {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+            }
+
+            .rc-grid-3 {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+            }
+
+            .rc-grid-2 {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .rc-grid-2--narrow {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+            /* ── Gallery ── */
+            .rc-gallery {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+
+            .rc-gallery__item {
+                border-radius: 14px;
+                overflow: hidden;
+                border: 1px solid rgba(255, 255, 255, 0.07);
+            }
+
+            .rc-gallery__item img {
+                width: 100%;
+                height: 260px;
+                object-fit: cover;
+                display: block;
+                transition: transform 0.4s ease;
+            }
+
+            .rc-gallery__item:hover img {
+                transform: scale(1.04);
+            }
+
+            /* ── Feature Cards ── */
+            .rc-feature-card {
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                border-left: 3px solid rgba(0, 210, 255, 0.4);
+                border-radius: 10px;
+                padding: 1.75rem 2rem;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .rc-feature-card--full {
+                grid-column: span 2;
+                justify-content: center;
+            }
+
+            .rc-feature-card__dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: rgba(0, 210, 255, 0.6);
+                flex-shrink: 0;
+            }
+
+            .rc-feature-card p {
+                font-weight: 700;
+                font-size: 1.05rem;
+                margin: 0;
+            }
+
+            /* ── Map ── */
+            .rc-map-img {
+                width: 100%;
+                height: auto;
+                border-radius: 16px;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+                transition: transform 0.4s ease;
+            }
+
+            .rc-map-img:hover {
+                transform: scale(1.01);
+            }
+
+            /* ── CTA ── */
+            .rc-cta {
+                background: linear-gradient(to bottom, #0c0c0c, #000);
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                padding: 12rem 0;
+            }
+
+            .rc-cta__inner {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .rc-cta__logo {
+                height: 80px;
+                width: auto;
+                margin-bottom: 4rem;
+                opacity: 0.85;
+            }
+
+            .rc-cta__headline {
+                font-size: 3.2rem;
+                letter-spacing: 0.03em;
+                margin-bottom: 2rem;
+                line-height: 1.2;
+                font-weight: 900;
+            }
+
+            .rc-cta__sub {
+                color: var(--color-accent);
+                font-weight: 800;
+                letter-spacing: 0.4em;
+                margin-bottom: 4rem;
+                opacity: 0.7;
+                font-size: 0.85rem;
+            }
+
+            .rc-cta__btns {
+                display: flex;
+                gap: 2rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            /* ── Responsive ── */
+            @media (max-width: 1100px) {
+                .rc-grid-4 {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .rc-gallery {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 992px) {
+                .rc-snapshot__grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                .rc-grid-3 {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
             @media (max-width: 768px) {
-                .reclairos-hero {
-                    padding-top: 80px;
-                    text-align: center;
+                .rc-hero {
+                    padding: 10rem 0 5rem;
                 }
 
-                .horizontal-gallery {
-                    flex-direction: column;
-                    overflow-x: hidden;
-                    gap: 2rem;
+                .rc-hero__title {
+                    font-size: 3.2rem;
                 }
 
-                .horizontal-gallery img {
-                    width: 100%;
-                    height: auto;
-                    flex-shrink: 0;
+                .rc-hero__tagline {
+                    font-size: 1.2rem;
                 }
 
-                .horizontal-gallery-wrapper::after {
-                    display: none;
+                .rc-section {
+                    padding: 6rem 0;
                 }
 
-                .horizontal-gallery img:hover {
-                    transform: none;
+                .rc-snapshot__grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .rc-grid-4,
+                .rc-grid-3,
+                .rc-grid-2 {
+                    grid-template-columns: 1fr;
+                }
+
+                .rc-gallery {
+                    grid-template-columns: 1fr;
+                }
+
+                .rc-feature-card--full {
+                    grid-column: span 1;
+                }
+
+                .rc-cta {
+                    padding: 6rem 0;
+                }
+
+                .rc-cta__headline {
+                    font-size: 2rem;
                 }
             }
         </style>
-<!-- Key Features & Platforms -->
-<section class="section-padding">
-<div class="container">
-<div class="grid" style="grid-template-columns: 2fr 1fr; gap: 4rem;">
-<div>
-<h2 style="margin-bottom: 2rem;">Key Features</h2>
-<ul class="bullet-list text-muted" style="font-size: 1.1rem; line-height: 2;">
-<li>Strategic combat encounters</li>
-<li>Distinct hero combat roles</li>
-<li>Enemy archetypes with unique behaviors</li>
-<li>System-driven gameplay progression</li>
-<li>Performance-conscious visual design</li>
-</ul>
-</div>
-<div class="card" style="height: fit-content;">
-<h4 style="margin-bottom: 2rem;">Platforms</h4>
-<ul class="bullet-list" style="font-size: 0.95rem;">
-<li><strong class="text-accent">Engine:</strong> Unity</li>
-<li><strong class="text-accent">Platform:</strong> Mobile</li>
-<li><strong class="text-accent">Genre:</strong> Strategy Combat</li>
-<li><strong class="text-accent">Focus:</strong> System-Driven Gameplay Design</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- Standardized CTA -->
-<section class="section-padding" style="background-color: #0c0c0c; border-top: 1px solid var(--color-border); text-align: center;">
-<div class="container" style="max-width: 900px;">
-<h2 style="margin-bottom: 1rem; font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em;">ENGINEERED FOR PERFORMANCE. DESIGNED FOR SCALE. BUILT FOR PRODUCTION.</h2>
-<p class="text-muted" style="margin-bottom: 3rem; font-size: 1.1rem;">Performance-first systems. Production-ready pipelines.</p>
-<div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-<a class="btn btn-primary" href="../../../../contact.html" style="padding: 1rem 2rem; font-weight: 700;">Start a Project</a>
-<a class="btn btn-secondary" href="../case-study/index.html" style="padding: 1rem 2rem; font-weight: 600; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">View Case Study</a>
-</div>
-</div>
-</section>
-</main>
-<!-- Unified Newsletter Section -->
-<section class="section-padding" style="background-color: var(--color-card-bg); border-top: 1px solid var(--color-border); text-align: center;">
-<div class="container">
-<h2 style="margin-bottom: 1rem;">Stay Updated</h2>
-<p class="text-muted" style="max-width: 600px; margin: 0 auto 2rem;">Join our newsletter to receive our
+    </main>
+    <!-- Unified Newsletter Section -->
+    <section class="section-padding"
+        style="background-color: var(--color-card-bg); border-top: 1px solid var(--color-border); text-align: center;">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem;">Stay Updated</h2>
+            <p class="text-muted" style="max-width: 600px; margin: 0 auto 2rem;">Join our newsletter to receive our
                 latest insights and studio news directly in your inbox.</p>
-<form class="newsletter-form" style="max-width: 400px; margin: 0 auto;">
-<input class="newsletter-input" placeholder="Email Address" required="" type="email"/>
-<button class="btn btn-primary" style="padding: 0.75rem 1.5rem;" type="submit">Subscribe</button>
-</form>
-</div>
-</section>
-<!-- Unified Footer -->
-<footer>
-<div class="container">
-<div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
-<div class="footer-brand">
-<img alt="DualCore Games Logo" loading="lazy" src="../../../../assets/images/dualcore-logo.svg" style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;"/>
-<p>Game development studio building original IP and production-ready interactive systems.</p>
-</div>
-<div class="footer-col">
-<h4>Navigation</h4>
-<ul class="footer-links">
-<li><a href="../../../../index.html">Home</a></li>
-<li><a href="../../../../services/index.html">Services</a></li>
-<li><a href="../../../../work/index.html">Work</a></li>
-<li><a href="../../../../about.html">About</a></li>
-<li><a href="../../../../blog.html">Blog</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4>Connect</h4>
-<ul class="footer-links social-links">
-<li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a></li>
-<li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
-<li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2026 DualCore Games. All rights reserved.</p>
-<p>Designed for Performance.</p>
-</div>
-</div>
-</footer>
-<script defer="" src="../../../../assets/js/main.js"></script>
+            <form class="newsletter-form" style="max-width: 400px; margin: 0 auto;">
+                <input class="newsletter-input" placeholder="Email Address" required="" type="email" />
+                <button class="btn btn-primary" style="padding: 0.75rem 1.5rem;" type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    <!-- Unified Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+                <div class="footer-brand">
+                    <img alt="DualCore Games Logo" loading="lazy" src="../../../../assets/images/dualcore-logo.svg"
+                        style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" />
+                    <p>Game development studio building original IP and production-ready interactive systems.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../../../index.html">Home</a></li>
+                        <li><a href="../../../../services/index.html">Services</a></li>
+                        <li><a href="../../../../work/index.html">Work</a></li>
+                        <li><a href="../../../../about.html">About</a></li>
+                        <li><a href="../../../../blog.html">Blog</a></li>
+                        <li><a href="../../../../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul class="footer-links social-links">
+                        <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener"
+                                target="_blank">LinkedIn</a></li>
+                        <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
+                        <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener"
+                                target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 DualCore Games. All rights reserved.</p>
+                <p>Designed for Performance.</p>
+            </div>
+        </div>
+    </footer>
+    <script defer="" src="../../../../assets/js/main.js"></script>
 </body>
+
 </html>
