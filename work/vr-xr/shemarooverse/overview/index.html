@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="view-transition" content="same-origin" />
     <meta charset="utf-8"/>
+  <!-- Google Tag Manager Placeholder -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+
+    
+    <!-- Open Graph -->
+    <meta content="ShemarooVerse | DualCore Games" property="og:title"/>
+    <meta content="DualCore Games is an independent game development studio." property="og:description"/>
+    <meta content="website" property="og:type"/>
+    <meta content="https://dualcoregames.com/work/vr-xr/shemarooverse/overview/" property="og:url"/>
+    <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
+    <!-- Twitter -->
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="ShemarooVerse | DualCore Games" name="twitter:title"/>
+    <meta content="DualCore Games is an independent game development studio." name="twitter:description"/>
+    <meta name="theme-color" content="#00d2ff">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>ShemarooVerse | VR Media Ecosystem | DualCore</title>
+    <title>ShemarooVerse | DualCore Games</title>
     <meta content="A specialized VR media ecosystem for digital content consumption, featuring custom theater environments and real-time streaming." name="description"/>
     <link href="../../../../assets/css/style.css" rel="stylesheet"/>
     <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
@@ -11,19 +31,44 @@
 <body>
 <header>
     <div class="container header-inner">
-        <a class="logo" href="../../../../index.html">
-            <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg" style="height: 48px; width: auto; display: block;"/>
-        </a>
-        <nav>
-            <ul class="nav-menu">
-                <li class="nav-item"><a class="nav-link" href="../../../../index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" href="../../../../work/index.html">Work</a></li>
-                <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
+      <a class="logo" href="../../../../index.html">
+        <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg"
+          style="height: 48px; width: auto; display: block;" />
+      </a>
+      <nav>
+        <button aria-label="Toggle navigation" class="nav-toggle">☰</button>
+        <ul class="nav-menu">
+          <button aria-label="Close navigation" class="nav-close">✕</button>
+          <li class="nav-item"><a class="nav-link" href="../../../../index.html">Home</a></li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span
+                class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game
+                  Development</a></li>
+              <li><a class="dropdown-link" href="../../../../services/game-art/index.html">Game Art</a></li>
+              <li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR
+                  Simulation</a></li>
             </ul>
-        </nav>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="../../../../work/index.html">Work <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game Development</a>
+              </li>
+              <li><a class="dropdown-link" href="../../../../work/game-art/index.html">Game Art</a></li>
+              <li><a class="dropdown-link" href="../../../../work/vr-xr/index.html">VR/XR</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html"
+              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+        </ul>
+      </nav>
     </div>
-</header>
+  </header>
 <main>
     <!-- HERO -->
     <section class="section-padding" style="padding-top: 10rem;">
@@ -139,18 +184,40 @@
         </div>
     </section>
 </main>
-<footer>
+  <footer>
     <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg" style="height: 40px; width: auto; margin-bottom: 1.5rem;"/>
-                <p>Game development studio building original IP and production-ready interactive systems.</p>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 DualCore Games. All rights reserved.</p>
-            </div>
+      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+        <div class="footer-brand">
+          <img alt="DualCore Games Logo" loading="lazy" src="../../../../assets/images/dualcore-logo.svg"
+            style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" />
+          <p>Game development studio building original IP and production-ready interactive systems.</p>
         </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="../../../../index.html">Home</a></li>
+            <li><a href="../../../../services/index.html">Services</a></li>
+            <li><a href="../../../../work/index.html">Work</a></li>
+            <li><a href="../../../../about.html">About</a></li>
+            <li><a href="../../../../blog.html">Blog</a></li>
+            <li><a href="../../../../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul class="footer-links social-links">
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a>
+            </li>
+            <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
+            <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center; opacity: 0.45; font-size: 0.7rem; padding-top: 2rem;">
+        <p>© 2026 DualCore Games | <a href="../../../../privacy-policy.html">Privacy Policy</a> | <a href="../../../../terms.html">Terms of Service</a></p>
+        <p style="max-width: 600px; line-height: 1.6;">Unity is a trademark of Unity Technologies. DualCore Games is not affiliated with or endorsed by Unity Technologies. Android is a trademark of Google LLC. Unreal Engine is a trademark of Epic Games, Inc. Meta, Photon, and other marks are the property of their respective owners.</p>
+      </div>
     </div>
-</footer>
+  </footer>
 </body>
 </html>

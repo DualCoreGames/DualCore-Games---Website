@@ -3,27 +3,33 @@
 <html lang="en">
 
 <head>
+  <meta name="view-transition" content="same-origin" />
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <!-- Google Tag Manager Placeholder -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+
+  
+    <!-- Open Graph -->
+    <meta content="Game Development Studio for PC &amp; Mobile | DualCore Games" property="og:title"/>
+    <meta content="DualCore Games is an independent game development studio." property="og:description"/>
+    <meta content="website" property="og:type"/>
+    <meta content="https://dualcoregames.com/" property="og:url"/>
+    <meta content="assets/images/social-preview.webp" property="og:image"/>
+    <!-- Twitter -->
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="Game Development Studio for PC &amp; Mobile | DualCore Games" name="twitter:title"/>
+    <meta content="DualCore Games is an independent game development studio." name="twitter:description"/>
+    <meta name="theme-color" content="#00d2ff">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Game Development Studio for PC &amp; Mobile | DualCore Games</title>
   <meta
     content="DualCore Games is an independent game development studio specializing in PC, mobile, and VR/XR simulation systems. We build production-ready original IP."
     name="description" />
   <link href="https://dualcoregames.com/" rel="canonical" />
-  <!-- Open Graph -->
-  <meta content="Game Development Studio for PC &amp; Mobile | DualCore Games" property="og:title" />
-  <meta
-    content="DualCore Games is an independent game development studio specializing in PC, mobile, and VR/XR simulation systems. We build production-ready original IP."
-    property="og:description" />
-  <meta content="website" property="og:type" />
-  <meta content="https://dualcoregames.com/" property="og:url" />
-  <!-- Twitter -->
-  <meta content="summary_large_image" name="twitter:card" />
-  <meta content="Game Development Studio for PC &amp; Mobile | DualCore Games" name="twitter:title" />
-  <meta
-    content="DualCore Games is an independent game development studio specializing in PC, mobile, and VR/XR simulation systems. We build production-ready original IP."
-    name="twitter:description" />
-  <!-- Fonts & CSS Preload -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
@@ -34,50 +40,8 @@
   </noscript>
   <link href="assets/css/style.css" rel="stylesheet" />
   <link href="assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "DualCore Games",
-      "url": "https://dualcoregames.com/",
-      "logo": "https://dualcoregames.com/assets/images/dualcore-logo.svg",
-      "description": "Independent game development studio building original IP and production-ready interactive systems.",
-      "sameAs": [
-        "https://www.linkedin.com/company/dual-core-games/",
-        "https://x.com/DualCore53111",
-        "https://www.instagram.com/dualcoregames/",
-        "https://www.facebook.com/DualCoreGames"
-      ]
-    }
-    </script>
-  <script type="application/ld+json">
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [{
-                "@type": "Question",
-                "name": "What platforms do you develop for?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "We provide full-cycle PC game development, mobile game development (iOS & Android native/cross-platform), and immersive VR / XR development. We utilize industry-standard engines like Unity and Unreal Engine to ensure cross-platform compatibility."
-                }
-              }, {
-                "@type": "Question",
-                "name": "Do you work with startups?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. We operate as a full-service game development studio helping founders build high-quality technical benchmarks, MVPs, and vertical slices in Unity and Unreal Engine to secure funding or test viability."
-                }
-              }, {
-                "@type": "Question",
-                "name": "Can you join an existing project?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Absolutely. We offer targeted technical support for PC, mobile, and VR platform builds. This includes performance optimization, multiplayer integration, and technical art systems acting as an extension of your internal team."
-                }
-              }]
-            }
-            </script>
+  <meta name="view-transition" content="same-origin" />
+  
   <meta content="https://dualcoregames.com/assets/images/dualcore-logo.svg" property="og:image" />
 </head>
 
@@ -117,7 +81,7 @@
           <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
           <li class="nav-item"><a class="btn btn-primary" href="contact.html"
-              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
         </ul>
       </nav>
     </div>
@@ -128,7 +92,7 @@
          ======================== -->
     <section class="hero" id="home">
       <div class="hero-video-bg" aria-hidden="true">
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/hero-poster.webp" fetchpriority="high">
           <source src="assets/video/hero.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -140,8 +104,8 @@
           DualCore delivers stable architecture and production-ready systems.
         </p>
         <div class="hero-buttons">
-          <a class="btn btn-primary btn-large" href="contact.html">Start a Project</a>
-          <a class="btn btn-secondary btn-large" href="work/index.html">View Our Work</a>
+          <a class="btn btn-primary btn-large" href="contact.html?intent=audit">Request Architecture Audit</a>
+          <a class="btn btn-secondary btn-large" href="work/index.html">View Project Portfolio</a>
         </div>
       </div>
     </section>
@@ -163,7 +127,7 @@
               <span>Multiplayer Integration</span>
               <span>Scalable Backend Design</span>
             </div>
-            <a class="btn btn-secondary" href="services/index.html">Explore Development</a>
+            <a class="btn btn-secondary" href="contact.html?intent=specs">Download Production Pipeline Specs</a>
           </div>
           <!-- Game Art -->
           <div class="card service-card-premium">
@@ -196,7 +160,7 @@
       <div class="container">
         <div class="featured-project-dominant">
           <div class="featured-visual">
-            <img alt="Reclairos Flagship Project" loading="lazy" src="work/game-development/reclairos/assets/reclairos-thumbnail.webp" />
+            <img alt="Reclairos Flagship Project" fetchpriority="high" src="work/game-development/reclairos/assets/reclairos-thumbnail.webp" />
             <div class="visual-overlay"></div>
           </div>
           <div class="featured-content">
@@ -323,20 +287,20 @@
         <!-- Merged Tech & Production Metrics -->
         <div class="production-metrics">
           <div class="metric-item">
-            <strong>10+</strong>
-            <span>Built for Scale</span>
+            <strong>Sub-150MB</strong>
+            <span>Mobile Builds</span>
           </div>
           <div class="metric-item">
-            <strong>60–90</strong>
-            <span>Optimized for Performance</span>
+            <strong>Stable 60FPS</strong>
+            <span>on URP Architecture</span>
           </div>
           <div class="metric-item">
-            <strong>Unity &amp; UE</strong>
-            <span>Engine Mastery</span>
+            <strong>40% Memory</strong>
+            <span>Reduction via Overrides</span>
           </div>
           <div class="metric-item">
             <strong>VR/XR</strong>
-            <span>Engineered for Collaboration</span>
+            <span>Field-Tested Pipelines</span>
           </div>
         </div>
       </div>
@@ -354,7 +318,7 @@
           <!-- Mayaaverse -->
           <div class="card project-card-refined">
             <div class="card-image">
-              <img alt="Mayaaverse VR" src="assets/images/mayaaverse-thumb.png" />
+              <img alt="Mayaaverse VR" loading="lazy" src="assets/images/mayaaverse-thumb.webp" />
             </div>
             <div class="card-body">
               <span class="label">VR/XR Simulation</span>
@@ -406,7 +370,7 @@
             Move from concept to production with a team that eats systems for breakfast.
           </p>
           <div class="cta-actions">
-            <a class="btn btn-primary btn-large" href="contact.html">Start a Project</a>
+            <a class="btn btn-primary btn-large" href="contact.html">Request Architecture Audit</a>
           </div>
         </div>
       </div>
@@ -429,7 +393,7 @@
   </section>
 
   <!-- Unified Footer -->
-  <footer>
+    <footer>
     <div class="container">
       <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
         <div class="footer-brand">
@@ -445,6 +409,7 @@
             <li><a href="work/index.html">Work</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -458,10 +423,9 @@
         </div>
       </div>
       <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center; opacity: 0.45; font-size: 0.7rem; padding-top: 2rem;">
-        <p>© 2026 DualCore Games. All rights reserved.</p>
+        <p>© 2026 DualCore Games | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
         <p style="max-width: 600px; line-height: 1.6;">Unity is a trademark of Unity Technologies. DualCore Games is not affiliated with or endorsed by Unity Technologies. Android is a trademark of Google LLC. Unreal Engine is a trademark of Epic Games, Inc. Meta, Photon, and other marks are the property of their respective owners.</p>
       </div>
-
     </div>
   </footer>
   <script defer="" src="assets/js/main.js"></script>

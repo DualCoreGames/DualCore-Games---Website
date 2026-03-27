@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>https://dualcoregames.com/</loc>
+      <loc>https://dualcoregames.com/index.html</loc>
    </url>
    <url>
       <loc>https://dualcoregames.com/about.html</loc>
@@ -13,48 +13,54 @@
       <loc>https://dualcoregames.com/contact.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/services/</loc>
+      <loc>https://dualcoregames.com/services/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/services/game-art/</loc>
+      <loc>https://dualcoregames.com/services/game-art/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/services/game-development/</loc>
+      <loc>https://dualcoregames.com/services/game-development/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/services/vr-xr-simulation/</loc>
+      <loc>https://dualcoregames.com/services/vr-xr-simulation/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/</loc>
+      <loc>https://dualcoregames.com/work/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-art/</loc>
+      <loc>https://dualcoregames.com/work/game-art/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/</loc>
+      <loc>https://dualcoregames.com/work/game-development/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/vr-xr/</loc>
+      <loc>https://dualcoregames.com/work/vr-xr/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/reclairos/</loc>
+      <loc>https://dualcoregames.com/work/game-development/reclairos/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/crazy-planet/</loc>
+      <loc>https://dualcoregames.com/work/game-development/crazy-planet/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/never-open-the-door/</loc>
+      <loc>https://dualcoregames.com/work/game-development/never-open-the-door/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/papi-gudia-pc/</loc>
+      <loc>https://dualcoregames.com/work/game-development/papi-gudia-pc/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/vr-xr/mayaaverse/</loc>
+      <loc>https://dualcoregames.com/work/vr-xr/mayaaverse/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/vr-xr/shemarooverse/</loc>
+      <loc>https://dualcoregames.com/work/vr-xr/shemarooverse/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-art/technical-art-benchmarks/</loc>
+      <loc>https://dualcoregames.com/work/game-art/technical-art-benchmarks/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/privacy-policy.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/terms.html</loc>
    </url>
 </urlset>

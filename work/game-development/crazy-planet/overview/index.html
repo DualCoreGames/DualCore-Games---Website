@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="view-transition" content="same-origin" />
     <meta charset="utf-8">
+    
+    <!-- Open Graph -->
+    <meta content="Crazy Planet | DualCore Games" property="og:title"/>
+    <meta content="Lightweight 2D platformer engineered for responsive gameplay, accessibility, and scalable level design." property="og:description"/>
+    <meta content="website" property="og:type"/>
+    <meta content="https://dualcoregames.com/work/game-development/crazy-planet/overview/" property="og:url"/>
+    <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
+    <!-- Twitter -->
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="Crazy Planet | DualCore Games" name="twitter:title"/>
+    <meta content="Lightweight 2D platformer engineered for responsive gameplay, accessibility, and scalable level design." name="twitter:description"/>
+    <meta name="theme-color" content="#00d2ff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crazy Planet | DualCore Games</title>
     <meta name="description" content="Lightweight 2D platformer engineered for responsive gameplay, accessibility, and scalable level design.">
@@ -18,38 +31,44 @@
 <body>
 <header>
     <div class="container header-inner">
-        <a href="../../../../index.html" class="logo">
-            <img src="../../../../assets/images/dualcore-logo.svg" alt="DualCore Games Logo" style="height: 48px; width: auto; display: block;">
-        </a>
-        <nav>
-            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-            <ul class="nav-menu">
-                <button class="nav-close" aria-label="Close navigation">✕</button>
-                <li class="nav-item"><a href="../../../../index.html" class="nav-link">Home</a></li>
-                <li class="nav-item has-dropdown">
-                    <a href="../../../../services/index.html" class="nav-link dropdown-toggle">Services <span class="dropdown-icon">▼</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../../../../services/game-development/index.html" class="dropdown-link">Game Development</a></li>
-                        <li><a href="../../../../services/game-art/index.html" class="dropdown-link">Game Art</a></li>
-                        <li><a href="../../../../services/vr-xr-simulation/index.html" class="dropdown-link">VR/XR Simulation</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item has-dropdown">
-                    <a href="../../../../work/index.html" class="nav-link dropdown-toggle active">Work <span class="dropdown-icon">▼</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../../../../work/game-development/index.html" class="dropdown-link">Game Development</a></li>
-                        <li><a href="../../../../work/game-art/index.html" class="dropdown-link">Game Art</a></li>
-                        <li><a href="../../../../work/vr-xr/index.html" class="dropdown-link">VR/XR</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a href="../../../../about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="../../../../blog.html" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="../../../../contact.html" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="../../../../contact.html" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+      <a class="logo" href="../../../../index.html">
+        <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg"
+          style="height: 48px; width: auto; display: block;" />
+      </a>
+      <nav>
+        <button aria-label="Toggle navigation" class="nav-toggle">☰</button>
+        <ul class="nav-menu">
+          <button aria-label="Close navigation" class="nav-close">✕</button>
+          <li class="nav-item"><a class="nav-link" href="../../../../index.html">Home</a></li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span
+                class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game
+                  Development</a></li>
+              <li><a class="dropdown-link" href="../../../../services/game-art/index.html">Game Art</a></li>
+              <li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR
+                  Simulation</a></li>
             </ul>
-        </nav>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="../../../../work/index.html">Work <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game Development</a>
+              </li>
+              <li><a class="dropdown-link" href="../../../../work/game-art/index.html">Game Art</a></li>
+              <li><a class="dropdown-link" href="../../../../work/vr-xr/index.html">VR/XR</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html"
+              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+        </ul>
+      </nav>
     </div>
-</header>
+  </header>
 <main>
     <!-- HERO SECTION -->
     <section class="section-padding" style="padding-top: 10rem;">
@@ -244,38 +263,41 @@
         </form>
     </div>
 </section>
-<footer>
+  <footer>
     <div class="container">
-        <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
-            <div class="footer-brand">
-                <img src="../../../../assets/images/dualcore-logo.svg" alt="DualCore Games Logo" loading="lazy" style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;">
-                <p>Game development studio building original IP and production-ready interactive systems.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul class="footer-links">
-                    <li><a href="../../../../index.html">Home</a></li>
-                    <li><a href="../../../../services/index.html">Services</a></li>
-                    <li><a href="../../../../work/index.html">Work</a></li>
-                    <li><a href="../../../../about.html">About</a></li>
-                    <li><a href="../../../../blog.html">Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Connect</h4>
-                <ul class="footer-links social-links">
-                    <li><a href="https://www.linkedin.com/company/dual-core-games/" target="_blank" rel="noopener">LinkedIn</a></li>
-                    <li><a href="https://x.com/DualCore53111" target="_blank" rel="noopener">X (Twitter)</a></li>
-                    <li><a href="https://www.instagram.com/dualcoregames/" target="_blank" rel="noopener">Instagram</a></li>
-                </ul>
-            </div>
+      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+        <div class="footer-brand">
+          <img alt="DualCore Games Logo" loading="lazy" src="../../../../assets/images/dualcore-logo.svg"
+            style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" />
+          <p>Game development studio building original IP and production-ready interactive systems.</p>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 DualCore Games. All rights reserved.</p>
-            <p>Designed for Performance.</p>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="../../../../index.html">Home</a></li>
+            <li><a href="../../../../services/index.html">Services</a></li>
+            <li><a href="../../../../work/index.html">Work</a></li>
+            <li><a href="../../../../about.html">About</a></li>
+            <li><a href="../../../../blog.html">Blog</a></li>
+            <li><a href="../../../../contact.html">Contact</a></li>
+          </ul>
         </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul class="footer-links social-links">
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a>
+            </li>
+            <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
+            <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center; opacity: 0.45; font-size: 0.7rem; padding-top: 2rem;">
+        <p>© 2026 DualCore Games | <a href="../../../../privacy-policy.html">Privacy Policy</a> | <a href="../../../../terms.html">Terms of Service</a></p>
+        <p style="max-width: 600px; line-height: 1.6;">Unity is a trademark of Unity Technologies. DualCore Games is not affiliated with or endorsed by Unity Technologies. Android is a trademark of Google LLC. Unreal Engine is a trademark of Epic Games, Inc. Meta, Photon, and other marks are the property of their respective owners.</p>
+      </div>
     </div>
-</footer>
+  </footer>
 <script src="../../../../assets/js/main.js" defer></script>
 </body>
 </html>
