@@ -53,48 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Form Submission & AJAX Redirect Patch
-    const contactForm = document.querySelector('#contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const form = e.target;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.textContent;
-            
-            // Loading State
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
 
-            try {
-                const formData = new FormData(form);
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    window.location.href = 'thank-you.html';
-                } else {
-                    const data = await response.json();
-                    if (data.errors) {
-                        alert(data.errors.map(error => error.message).join(", "));
-                    } else {
-                        alert("Oops! There was a problem submitting your form.");
-                    }
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalBtnText;
-                }
-            } catch (error) {
-                alert("Oops! Connection error. Please try again.");
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
-            }
-        });
-    }
 
     // 5. Nav Toggle & Accessibility
     const navToggle = document.querySelector('.nav-toggle');
