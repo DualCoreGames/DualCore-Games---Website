@@ -52,7 +52,33 @@ document.addEventListener('DOMContentLoaded', () => {
             trackConversion(`Intent: ${intent}`);
         });
     });
+    // 4. Form Submission & AJAX Redirect
+    const forms = document.querySelectorAll('#contactForm, #contactFormTwo');
+    forms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'SENDING...';
 
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            })
+            .then(() => {
+                window.location.href = 'thank-you.html';
+            })
+            .catch(() => {
+                alert("Oops! There was a problem submitting your form. Please try again.");
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            });
+        });
+    });
 
 
     // 5. Nav Toggle & Accessibility
