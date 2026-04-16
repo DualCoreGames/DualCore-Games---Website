@@ -90,13 +90,15 @@
       margin-bottom: 2.5rem;
       text-shadow: 0 0 12px rgba(0,209,255,0.4);
     }
-    .rc-hero__title {
-      font-size: clamp(3.5rem, 8vw, 6rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+    /* sr-only: h1 exists for SEO/a11y but art carries the visual title */
+    .rc-hero__title-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
     }
     .rc-hero__tagline {
       font-size: clamp(1.3rem, 3vw, 1.9rem);
@@ -460,8 +462,9 @@
       <div class="rc-hero__bg" role="img" aria-label="Reclairos — fractured world key art"></div>
       <div class="rc-hero__overlay"></div>
       <div class="rc-hero__inner">
+        <!-- h1 hidden: key art already renders 'RECLAIROS' as visual title -->
+        <h1 class="rc-hero__title-hidden">Reclairos</h1>
         <span class="rc-label">Flagship Project — Private Beta Open</span>
-        <h1 class="rc-hero__title">Reclairos</h1>
         <p class="rc-hero__tagline">The world is broken.<br>Reclaim it, one wave at a time.</p>
         <div class="rc-hero__desc">
           <p>A 2D story-driven Tower Defense RPG for Android &amp; iOS. Assemble your elite squad, protect the escort, and fight through a fractured world — before it's too late.</p>
