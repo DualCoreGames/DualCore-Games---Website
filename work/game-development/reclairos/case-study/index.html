@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta name="view-transition" content="same-origin" />
-    <meta charset="utf-8"/>
+  <meta charset="utf-8"/>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -11,30 +11,321 @@
   })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
   <!-- End Google Tag Manager -->
 
-    
-    <!-- Open Graph -->
-    <meta content="Reclairos Case Study | DualCore Games" property="og:title"/>
-    <meta content="DualCore Games is an independent game development studio." property="og:description"/>
-    <meta content="website" property="og:type"/>
-    <meta content="https://dualcoregames.com/work/game-development/reclairos/case-study/" property="og:url"/>
-    <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
-    <!-- Twitter -->
-    <meta content="summary_large_image" name="twitter:card"/>
-    <meta content="Reclairos Case Study | DualCore Games" name="twitter:title"/>
-    <meta content="DualCore Games is an independent game development studio." name="twitter:description"/>
-    <meta name="theme-color" content="#00d2ff">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Reclairos Case Study | DualCore Games</title>
-    <meta content="Technical case study of Reclairos, exploring mobile game architecture, scalable game systems, and performance engineering in Unity URP." name="description"/>
-    <link href="../../../../assets/css/style.css" rel="stylesheet"/>
-    <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+  <!-- Open Graph -->
+  <meta content="Reclairos Engineering Case Study | DualCore Games" property="og:title"/>
+  <meta content="How we built a modular mobile tower defense RPG — 18 to 60 FPS on Snapdragon 665, 40% memory savings via Animator Override, and a 9-layer decoupled architecture." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://dualcoregames.com/work/game-development/reclairos/case-study/" property="og:url"/>
+  <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Reclairos Engineering Case Study | DualCore Games" name="twitter:title"/>
+  <meta content="How we built a modular mobile tower defense RPG — 18 to 60 FPS on Snapdragon 665, 40% memory savings via Animator Override, and a 9-layer decoupled architecture." name="twitter:description"/>
+  <meta name="theme-color" content="#00d2ff">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Reclairos — Engineering Case Study | DualCore Games</title>
+  <meta content="Technical deep-dive into the architecture, engineering challenges, and performance solutions behind Reclairos — a modular mobile tower defense RPG in Unity URP." name="description"/>
+  <link href="../../../../assets/css/style.css" rel="stylesheet"/>
+  <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+
+  <style>
+    /* ── Reclairos Case Study — Technical Whitepaper Styles ── */
+    .cs-hero {
+      background: #080808;
+      padding: 12rem 0 8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .cs-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+    .cs-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .cs-hero__meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .cs-hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* Project meta grid */
+    .cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    .cs-meta-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .cs-meta-card__label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-meta-card__value { font-size: 0.95rem; font-weight: 700; margin: 0; }
+
+    /* Benchmark strip */
+    .cs-benchmarks {
+      background: linear-gradient(135deg, rgba(0,210,255,0.06) 0%, rgba(0,0,0,0) 60%);
+      border-top: 1px solid rgba(0,210,255,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 5rem 0;
+    }
+    .cs-bench-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .cs-bench-card {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(0,210,255,0.15);
+      border-top: 3px solid var(--color-accent);
+      border-radius: 14px;
+      background: rgba(0,210,255,0.03);
+    }
+    .cs-bench-card__stat {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .cs-bench-card__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .cs-bench-card__sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin: 0;
+    }
+
+    /* Sections */
+    .cs-section { padding: 8rem 0; }
+    .cs-section--alt { background: #0c0c0c; }
+    .cs-section-num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cs-section h2 { margin-bottom: 3rem; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+
+    /* Table styles */
+    .cs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .cs-table th {
+      text-align: left;
+      padding: 1rem 1.5rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      border-bottom: 1px solid rgba(0,210,255,0.2);
+      background: rgba(0,210,255,0.04);
+    }
+    .cs-table td {
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .cs-table td:first-child { font-weight: 700; white-space: nowrap; }
+    .cs-table td.text-muted { color: var(--color-text-muted); }
+    .cs-table tr:hover td { background: rgba(255,255,255,0.01); }
+
+    /* Architecture layers */
+    .cs-arch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .cs-arch-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .cs-arch-card__layer {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-arch-card h4 { font-size: 0.95rem; margin-bottom: 0.75rem; font-weight: 700; }
+    .cs-arch-card p { font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; }
+
+    /* Problem/Solution split */
+    .cs-challenge { margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .cs-challenge:last-child { border-bottom: none; margin-bottom: 0; }
+    .cs-challenge__header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .cs-challenge__num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.1);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .cs-challenge__header h3 { font-size: 1.4rem; margin: 0; }
+    .cs-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .cs-split__col--problem {
+      background: rgba(255,60,60,0.04);
+      border: 1px solid rgba(255,60,60,0.12);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__col--solution {
+      background: rgba(0,210,255,0.04);
+      border: 1px solid rgba(0,210,255,0.15);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__tag {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      display: block;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .cs-split__tag--problem { color: rgba(255,100,100,0.9); background: rgba(255,60,60,0.08); }
+    .cs-split__tag--solution { color: var(--color-accent); background: rgba(0,210,255,0.08); }
+    .cs-split__col h4 { font-size: 1rem; margin-bottom: 1.25rem; font-weight: 700; }
+    .cs-bullet-list { list-style: none; padding: 0; margin: 0; }
+    .cs-bullet-list li {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      line-height: 1.6;
+    }
+    .cs-bullet-list li:last-child { border-bottom: none; }
+    .cs-bullet-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.2);
+    }
+    .cs-split__col--solution .cs-bullet-list li::before { color: rgba(0,210,255,0.4); }
+
+    /* Takeaways */
+    .cs-takeaway {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: start;
+    }
+    .cs-takeaway:last-child { border-bottom: none; }
+    .cs-takeaway__num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.12);
+      line-height: 1;
+      padding-top: 0.2rem;
+    }
+    .cs-takeaway--featured .cs-takeaway__num { color: rgba(0,210,255,0.3); }
+    .cs-takeaway h4 { margin-bottom: 0.75rem; font-size: 1rem; font-weight: 700; }
+    .cs-takeaway p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+    .cs-takeaway--featured {
+      background: rgba(0,210,255,0.03);
+      border: 1px solid rgba(0,210,255,0.12);
+      border-radius: 14px;
+      padding: 2.5rem;
+      margin: 0 0 1.5rem;
+    }
+
+    /* CTA */
+    .cs-cta {
+      background: linear-gradient(to bottom, #0c0c0c, #080808);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 10rem 0;
+      text-align: center;
+    }
+    .cs-cta h2 { margin-bottom: 1rem; font-size: 2.2rem; font-weight: 900; }
+    .cs-cta p { color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .cs-cta__btns { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .cs-arch-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-bench-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    }
+    @media (max-width: 768px) {
+      .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-split { grid-template-columns: 1fr; }
+      .cs-arch-grid { grid-template-columns: 1fr; }
+      .cs-section { padding: 5rem 0; }
+      .cs-hero { padding: 9rem 0 5rem; }
+    }
+  </style>
 </head>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2F3CX5Z"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-<header>
+
+  <header>
     <div class="container header-inner">
       <a class="logo" href="../../../../index.html">
         <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg"
@@ -46,21 +337,17 @@
           <button aria-label="Close navigation" class="nav-close">✕</button>
           <li class="nav-item"><a class="nav-link" href="../../../../index.html">Home</a></li>
           <li class="nav-item has-dropdown">
-            <a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span
-                class="dropdown-icon">▼</span></a>
+            <a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span class="dropdown-icon">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game
-                  Development</a></li>
+              <li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game Development</a></li>
               <li><a class="dropdown-link" href="../../../../services/game-art/index.html">Game Art</a></li>
-              <li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR
-                  Simulation</a></li>
+              <li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR Simulation</a></li>
             </ul>
           </li>
           <li class="nav-item has-dropdown">
             <a class="nav-link dropdown-toggle" href="../../../../work/index.html">Work <span class="dropdown-icon">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game Development</a>
-              </li>
+              <li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game Development</a></li>
               <li><a class="dropdown-link" href="../../../../work/game-art/index.html">Game Art</a></li>
               <li><a class="dropdown-link" href="../../../../work/vr-xr/index.html">VR/XR</a></li>
             </ul>
@@ -68,476 +355,428 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html"
-              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
         </ul>
       </nav>
     </div>
   </header>
-<main>
+
+  <main>
 
     <!-- ═══ HERO ═══ -->
-    <section class="rc-hero">
-        <div class="container rc-hero__inner">
-            <span class="rc-label">Technical Case Study</span>
-            <h1 class="rc-hero__title">Reclairos</h1>
-            <p class="rc-hero__tagline">Engineering a modular, <strong>Scalable Game System</strong> for <strong>Mobile Game Architecture</strong> using Unity URP.</p>
+    <section class="cs-hero">
+      <div class="container">
+        <span class="cs-label">Technical Case Study — Confidential</span>
+        <p class="cs-hero__meta">Android &amp; iOS &nbsp;/&nbsp; Unity URP &nbsp;/&nbsp; 2D Story-Driven Tower Defense RPG</p>
+        <h1>Reclairos<br><span style="color: var(--color-text-muted); font-weight: 400; font-size: 0.55em; letter-spacing: 0;">Engineering Case Study</span></h1>
+        <p>A technical deep-dive into the architecture, engineering challenges, and design decisions behind a modular, story-driven mobile tower defense RPG — built for stable performance on mid-range hardware at every stage of development.</p>
+        <a href="../overview/index.html" class="btn btn-secondary" style="padding: 0.85rem 2rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">← View Game Overview</a>
 
-            <!-- System Summary Grid -->
-            <div class="rc-snapshot__grid" style="margin-top: 5rem; width: 100%;">
-                <div class="rc-snap-card rc-snap-card--hi">
-                    <span class="rc-snap-card__label">Platform</span>
-                    <p class="rc-snap-card__value">Android • iOS</p>
-                </div>
-                <div class="rc-snap-card rc-snap-card--hi">
-                    <span class="rc-snap-card__label">Engine</span>
-                    <p class="rc-snap-card__value">Unity (URP)</p>
-                </div>
-                <div class="rc-snap-card">
-                    <span class="rc-snap-card__label">Architecture</span>
-                    <p class="rc-snap-card__value">Modular Systems</p>
-                </div>
-                <div class="rc-snap-card">
-                    <span class="rc-snap-card__label">Core Design</span>
-                    <p class="rc-snap-card__value">Escort-Based</p>
-                </div>
-                <div class="rc-snap-card">
-                    <span class="rc-snap-card__label">Performance</span>
-                    <p class="rc-snap-card__value">Stable 60 FPS</p>
-                </div>
-            </div>
+        <!-- Project Meta -->
+        <div class="cs-meta-grid">
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Platform</span>
+            <p class="cs-meta-card__value">Android • iOS (Mobile)</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Engine</span>
+            <p class="cs-meta-card__value">Unity (URP)</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Genre</span>
+            <p class="cs-meta-card__value">2D Story-Driven TD + RPG</p>
+          </div>
+          <div class="cs-meta-card" style="border-top: 2px solid rgba(0,210,255,0.4); background: rgba(0,210,255,0.03);">
+            <span class="cs-meta-card__label">Min Spec Target</span>
+            <p class="cs-meta-card__value">Snapdragon 665 Class</p>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ═══ HARD BENCHMARKS ═══ -->
+    <section class="cs-benchmarks">
+      <div class="container">
+        <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); display: block; text-align: center; margin-bottom: 3rem;">Technical Performance Benchmarks</span>
+        <div class="cs-bench-grid">
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">18 → 60</span>
+            <p class="cs-bench-card__title">FPS on Snapdragon 665</p>
+            <p class="cs-bench-card__sub">Multi-layer mobile optimisation strategy targeting stable 60fps on mid-range Android hardware</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">120+ → &lt;30</span>
+            <p class="cs-bench-card__title">Draw Calls Reduced</p>
+            <p class="cs-bench-card__sub">Sprite Atlasing, static batching, and URP 2D Renderer eliminated redundant draw calls across all encounter scenes</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">40%</span>
+            <p class="cs-bench-card__title">Memory Reduction</p>
+            <p class="cs-bench-card__sub">AnimatorOverrideController pattern — one base state machine in memory, per-unit clip overrides replace duplicated Animator Controllers</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 01 PROJECT OVERVIEW ═══ -->
-    <section class="rc-section rc-section--alt">
-        <div class="container">
-            <h2 class="rc-section__h2">01 Project Overview</h2>
-            <div style="max-width: 800px;">
-                <p class="rc-body-left">Reclairos is a system-driven strategy game built around escort-based combat and narrative progression. The project required balancing complex gameplay systems with strict mobile performance constraints.</p>
-                <p class="rc-body-left" style="margin-bottom: 0;">The challenge was to engineer a modular architecture that could handle dynamic enemy behaviors and real-time pathfinding for the moving objective while maintaining steady frame rates on mid-range hardware.</p>
-            </div>
-
-            <!-- Gameplay Screenshot fills placeholder -->
-            <div style="margin-top: 5rem;">
-                <span class="rc-img-label">GAMEPLAY – WAVE DEFENSE</span>
-                <div class="rc-full-img-wrap">
-                    <img alt="Reclairos gameplay overview — escort wave defense in action" loading="lazy" src="../assets/reclairos-mood-01.webp" class="rc-full-img"/>
-                </div>
-            </div>
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">01 &nbsp;/&nbsp; Project Overview</span>
+        <h2>Design Pillars</h2>
+        <p style="color: var(--color-text-muted); max-width: 700px; font-size: 1rem; line-height: 1.75; margin-bottom: 4rem;">Reclairos is a 2D story-driven Tower Defense RPG for Android and iOS using Unity URP. The game blends lane-based tactical defense with character-driven RPG progression and an episodic narrative structure — giving players a reason to fight beyond pure survival.</p>
+        <div style="overflow-x: auto;">
+          <table class="cs-table">
+            <thead>
+              <tr>
+                <th style="width: 180px;">Pillar</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Story First</td><td class="text-muted">Narrative context drives every combat encounter. Players understand why they are fighting, which deepens strategic investment.</td></tr>
+              <tr><td>Escort as Objective</td><td class="text-muted">Levels task the player with safely guiding a unit to the exit — creating dynamic, moving threat responses instead of static base defense.</td></tr>
+              <tr><td>Class-Based Combat</td><td class="text-muted">Player units are organised into distinct combat roles. Strategic class combinations are essential to progressing through harder encounters.</td></tr>
+              <tr><td>Mobile-Aware Design</td><td class="text-muted">All systems designed with mobile constraints: touch controls, short session lengths, and stable performance on mid-range hardware.</td></tr>
+              <tr><td>Scalable Architecture</td><td class="text-muted">New enemies, story chapters, and unit types can be introduced without rewriting core gameplay systems.</td></tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </section>
 
-    <!-- ═══ 02 DESIGN PILLARS ═══ -->
-    <section class="rc-section">
-        <div class="container">
-            <h2 class="rc-section__title">02 Design Pillars</h2>
-            <div class="rc-grid-4">
-                <div class="rc-card">
-                    <h4 class="rc-card__title">Strategic Depth</h4>
-                    <p class="rc-card__body">Lane-based combat depth through class synergies.</p>
-                </div>
-                <div class="rc-card">
-                    <h4 class="rc-card__title">Modular Systems</h4>
-                    <p class="rc-card__body">Decoupled architecture for scalable content.</p>
-                </div>
-                <div class="rc-card">
-                    <h4 class="rc-card__title">Mobile-First</h4>
-                    <p class="rc-card__body">Optimized performance across hardware tiers.</p>
-                </div>
-                <div class="rc-card">
-                    <h4 class="rc-card__title">Systemic AI</h4>
-                    <p class="rc-card__body">Data-driven behaviors and adaptive threats.</p>
-                </div>
-            </div>
+    <!-- ═══ 02 SYSTEM ARCHITECTURE ═══ -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <span class="cs-section-num">02 &nbsp;/&nbsp; System Architecture</span>
+        <h2>9-Layer Modular System</h2>
+        <p style="color: var(--color-text-muted); max-width: 700px; font-size: 1rem; line-height: 1.75; margin-bottom: 4rem;">Reclairos is built on a modular gameplay architecture where independent systems communicate through well-defined interfaces. This decoupling allows each system to be developed, tested, and extended independently without breaking adjacent functionality.</p>
+
+        <div class="cs-arch-grid" style="margin-bottom: 5rem;">
+          <div class="cs-arch-card">
+            <span class="cs-arch-card__layer">Layer 1</span>
+            <h4>Player Input</h4>
+            <p>Touch input handler, lane selection, unit drag-and-drop placement, ability trigger buttons.</p>
+          </div>
+          <div class="cs-arch-card">
+            <span class="cs-arch-card__layer">Layer 2</span>
+            <h4>Character Controller</h4>
+            <p>Unit movement along lanes, escort unit pathfinding, collision and obstacle response.</p>
+          </div>
+          <div class="cs-arch-card">
+            <span class="cs-arch-card__layer">Layer 3</span>
+            <h4>Combat &amp; Ability System</h4>
+            <p>Damage resolution, ability cooldowns, targeting logic, status effects (stun, slow, burn).</p>
+          </div>
+          <div class="cs-arch-card" style="border-top: 2px solid rgba(0,210,255,0.35);">
+            <span class="cs-arch-card__layer">Layer 4</span>
+            <h4>Enemy AI System</h4>
+            <p>Archetype state machines (melee, ranged, disruptor, elite), threat detection, attack sequencing.</p>
+          </div>
+          <div class="cs-arch-card" style="border-top: 2px solid rgba(0,210,255,0.35);">
+            <span class="cs-arch-card__layer">Layer 5</span>
+            <h4>Encounter Manager</h4>
+            <p>Wave sequencing, enemy spawning, difficulty scaling, win/loss condition evaluation.</p>
+          </div>
+          <div class="cs-arch-card">
+            <span class="cs-arch-card__layer">Layer 6</span>
+            <h4>Game State Manager</h4>
+            <p>Session state machine: Lobby → Story → PreBattle → Combat → Results → Progression.</p>
+          </div>
+          <div class="cs-arch-card">
+            <span class="cs-arch-card__layer">Layer 7</span>
+            <h4>UI Feedback System</h4>
+            <p>Combat HUD, health bars, damage numbers, ability indicators, wave counter, escort progress bar.</p>
+          </div>
+          <div class="cs-arch-card">
+            <span class="cs-arch-card__layer">Layer 8</span>
+            <h4>Narrative System</h4>
+            <p>Dialogue engine, cutscene sequencer, story state tracker, chapter unlock logic.</p>
+          </div>
+          <div class="cs-arch-card" style="border: 1px solid rgba(255,255,255,0.12);">
+            <span class="cs-arch-card__layer">Layer 9</span>
+            <h4>Unity Engine (URP)</h4>
+            <p>2D rendering, sprite atlasing, particle VFX, physics, audio, scene management.</p>
+          </div>
         </div>
+
+        <h3 style="margin-bottom: 2rem; font-size: 1.3rem;">Architecture Principles</h3>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+          <div style="padding: 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 0.75rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em;">Modular Systems</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.65; margin: 0;">The Combat System does not directly reference Enemy AI. Both communicate through a shared DamageEvent / StateChange event bus — preventing tight coupling.</p>
+          </div>
+          <div style="padding: 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 0.75rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em;">Encounter-Driven Design</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.65; margin: 0;">A single Encounter Manager reads a data asset describing wave timing, enemy types, and spawn positions — generating the entire encounter at runtime. No hand-scripted scenes.</p>
+          </div>
+          <div style="padding: 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 0.75rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em;">Scalable by Default</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.65; margin: 0;">Adding a new enemy type, ability, or story chapter requires creating a new ScriptableObject data asset — not modifying core gameplay code.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ═══ 03 GAMEPLAY LOOP ═══ -->
-    <section class="rc-section rc-section--alt">
-        <div class="container">
-            <h2 class="rc-section__h2">03 Gameplay Loop</h2>
+    <!-- ═══ 03 TECHNICAL CHALLENGES & SOLUTIONS ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">03 &nbsp;/&nbsp; Technical Challenges &amp; Solutions</span>
+        <h2>Four Core Engineering Problems</h2>
 
-            <!-- Macro Loop -->
-            <div style="margin-bottom: 5rem;">
-                <h3 class="rc-sub-heading">Macro Loop</h3>
-                <div class="rc-grid-4">
-                    <div class="rc-card">
-                        <span class="rc-card__step" style="color: rgba(255,255,255,0.3);">01</span>
-                        <p class="rc-card__title">Exploration</p>
-                    </div>
-                    <div class="rc-card">
-                        <span class="rc-card__step" style="color: rgba(255,255,255,0.3);">02</span>
-                        <p class="rc-card__title">Encounter</p>
-                    </div>
-                    <div class="rc-card">
-                        <span class="rc-card__step" style="color: rgba(255,255,255,0.3);">03</span>
-                        <p class="rc-card__title">Resolution</p>
-                    </div>
-                    <div class="rc-card">
-                        <span class="rc-card__step" style="color: rgba(255,255,255,0.3);">04</span>
-                        <p class="rc-card__title">Progression</p>
-                    </div>
-                </div>
+        <!-- Challenge 1 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">01</span>
+            <h3>Large Character Roster Scalability</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Unique Animator Controllers Don't Scale</h4>
+              <ul class="cs-bullet-list">
+                <li>Each character class has distinct attack, idle, move, hit-reaction, and death animations</li>
+                <li>Separate Animator controllers per unit create state machine duplication and balloon memory</li>
+                <li>Adding a new unit type required rebuilding an animation graph from scratch</li>
+                <li>Enemies share behavioral patterns but have visually distinct presentations</li>
+              </ul>
             </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution — Animator Override Controller</span>
+              <h4>One Base State Machine, Per-Unit Clip Overrides</h4>
+              <ul class="cs-bullet-list">
+                <li>Base Animator defines all states and transitions once — shared by every unit</li>
+                <li>AnimatorOverrideController swaps animation clips per unit type at instantiation time</li>
+                <li>New unit types require only a new clip set and override asset — no state machine authoring</li>
+                <li><strong style="color: var(--color-accent);">Result: 40% animator memory reduction</strong> — one base controller in memory, override assets are lightweight clip references</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-            <!-- Micro Loop -->
+        <!-- Challenge 2 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">02</span>
+            <h3>Combat Readability on Mobile Screens</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Visual Chaos at Scale</h4>
+              <ul class="cs-bullet-list">
+                <li>Mobile screens are 5–6 inches — multiple overlapping characters, projectiles, and effects compete for attention</li>
+                <li>Players must distinguish allies from enemies, identify enemy archetype at a glance, and track the escort unit at all times</li>
+                <li>VFX density during large encounters can obscure unit positions and health states</li>
+                <li>Damage number spam becomes unreadable during intense waves</li>
+              </ul>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution — Visual Hierarchy System</span>
+              <h4>Readability as a First-Class Engineering Concern</h4>
+              <ul class="cs-bullet-list">
+                <li>Escort unit always rendered on a dedicated top sorting layer — never occluded by other units or effects</li>
+                <li>Ally and enemy units use distinct silhouette shapes and colour-coded UI rings for immediate archetype identification</li>
+                <li>VFX particle budgets capped per encounter by the Encounter Manager — effects are pooled and reused, never spawned unlimitedly</li>
+                <li>Damage numbers use a priority queue: only the most recent N values are displayed simultaneously</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge 3 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">03</span>
+            <h3>Mobile Performance Constraints</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>18 FPS on Snapdragon 665 Hardware</h4>
+              <ul class="cs-bullet-list">
+                <li>Each active unit requires an Animator, Collider, and AI tick every frame</li>
+                <li>Particle effects from abilities multiply GPU overdraw significantly</li>
+                <li>Unity Editor profiling underestimated real-device performance by a wide margin</li>
+                <li>GC allocation patterns caused frame hitches during encounter-start instantiation</li>
+              </ul>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution — Multi-Layer Optimisation</span>
+              <h4>Stable 60 FPS on Snapdragon 665 Achieved</h4>
+              <ul class="cs-bullet-list">
+                <li>Sprite atlasing (Unity Sprite Atlas) — all unit sprites packed per chapter to minimise draw calls from 120+ to under 30</li>
+                <li>Object pooling for all units, projectiles, VFX, and damage numbers — zero runtime Instantiate() calls during combat</li>
+                <li>AI tick staggering — enemy state machines update on a distributed tick schedule, not every frame</li>
+                <li>Animator culling set to 'Cull Completely' for off-screen units — zero evaluation cost for unseen characters</li>
+                <li>Particle systems converted to URP Particles Unlit shader — removes unnecessary lighting calculations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge 4 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">04</span>
+            <h3>System Scalability Under Growing Content</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Hard-Coded Logic Blocks Scale</h4>
+              <ul class="cs-bullet-list">
+                <li>Hard-coded enemy behaviour logic becomes a maintenance burden with 10+ enemy types</li>
+                <li>Encounter scripts that reference specific unit types cannot be reused across chapters</li>
+                <li>Ability systems embedding damage values in code block rapid balancing iteration</li>
+                <li>Every balance change required a code modification, recompile, and QA pass</li>
+              </ul>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution — ScriptableObject Architecture</span>
+              <h4>Gameplay Configuration Separated from Code</h4>
+              <ul class="cs-bullet-list">
+                <li><strong>EnemyArchetypeSO:</strong> movement speed, attack range, damage, health, behavior state weights, visual asset reference</li>
+                <li><strong>WaveDefinitionSO:</strong> enemy archetype list, spawn intervals, spawn positions, difficulty modifier</li>
+                <li><strong>AbilitySO:</strong> cooldown, targeting rule, effect type, damage/heal values, status effect applied</li>
+                <li>New enemy types, abilities, and encounters created entirely in Unity Editor — no C# files touched</li>
+                <li>Balance tuning reduced from hours (recompile + QA) to minutes (editor SO edit)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 04 UNIT CLASS SYSTEM ═══ -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <span class="cs-section-num">04 &nbsp;/&nbsp; Gameplay Systems</span>
+        <h2>Unit Class &amp; Enemy Architecture</h2>
+
+        <h3 style="margin-bottom: 2rem; font-size: 1.1rem; color: rgba(255,255,255,0.6); font-weight: 600;">Player Unit Classes</h3>
+        <div style="overflow-x: auto; margin-bottom: 5rem;">
+          <table class="cs-table">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Role</th>
+                <th>Strategic Function</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Vanguard</td><td class="text-muted">Frontline Melee Tank</td><td class="text-muted">High HP. Absorbs damage. Slows enemy advance. Buys time for ranged units to operate.</td></tr>
+              <tr><td>Ranger</td><td class="text-muted">Ranged DPS</td><td class="text-muted">Consistent damage from safe distance. Vulnerable to fast disruptor enemies that bypass the frontline.</td></tr>
+              <tr><td>Warden</td><td class="text-muted">Support / Healer</td><td class="text-muted">Sustains frontline units. Applies buffs and debuffs. Critical in longer, multi-wave encounters.</td></tr>
+              <tr><td>Breaker</td><td class="text-muted">Burst / AoE Damage</td><td class="text-muted">High burst output on grouped enemies. Long cooldown. Used to clear dense wave clusters.</td></tr>
+              <tr><td>Sentinel</td><td class="text-muted">Defensive / Crowd Control</td><td class="text-muted">Applies slows, stuns, and traps. Counters fast disruptor enemy types. Low DPS but high utility.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-bottom: 2rem; font-size: 1.1rem; color: rgba(255,255,255,0.6); font-weight: 600;">Enemy Archetype Design</h3>
+        <div style="overflow-x: auto;">
+          <table class="cs-table">
+            <thead>
+              <tr>
+                <th>Archetype</th>
+                <th>Behavior Pattern</th>
+                <th>Player Counter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Aggressive Melee</td><td class="text-muted">Rushes the escort unit directly. High pressure, low HP.</td><td class="text-muted">Frontline Vanguards + Sentinel slows</td></tr>
+              <tr><td>Heavy Defender</td><td class="text-muted">High HP, slow advance. Blocks lane. Absorbs significant damage.</td><td class="text-muted">Breaker burst damage + flanking Ranger pressure</td></tr>
+              <tr><td>Fast Disruptor</td><td class="text-muted">Bypasses frontline. Targets ranged and support units at the rear.</td><td class="text-muted">Sentinel traps and stuns + immediate Vanguard repositioning</td></tr>
+              <tr><td>Elite Tactical</td><td class="text-muted">Adaptive targeting. Coordinates with nearby enemies. High priority.</td><td class="text-muted">Focus fire priority targeting + Warden support</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 05 ENGINEERING TAKEAWAYS ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">05 &nbsp;/&nbsp; Engineering Takeaways</span>
+        <h2>Seven Lessons Validated in Production</h2>
+
+        <div style="margin-top: 3rem;">
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">1</span>
             <div>
-                <h3 class="rc-sub-heading">Micro Loop</h3>
-                <div class="rc-grid-4">
-                    <div class="rc-card rc-card--featured">
-                        <span class="rc-card__step">01</span>
-                        <p class="rc-card__title">Deployment</p>
-                    </div>
-                    <div class="rc-card rc-card--featured">
-                        <span class="rc-card__step">02</span>
-                        <p class="rc-card__title">Real-time Combat</p>
-                    </div>
-                    <div class="rc-card rc-card--featured">
-                        <span class="rc-card__step">03</span>
-                        <p class="rc-card__title">Lane Management</p>
-                    </div>
-                    <div class="rc-card rc-card--featured">
-                        <span class="rc-card__step">04</span>
-                        <p class="rc-card__title">Objective Defense</p>
-                    </div>
-                </div>
+              <h4>Modular Architecture Enables Long-Term Scalability</h4>
+              <p>Adding the third story chapter required zero changes to the Combat, AI, or Encounter Manager systems — only new ScriptableObject data assets. This validated the modular approach and significantly reduced chapter delivery time compared to a monolithic codebase.</p>
             </div>
+          </div>
 
-            <!-- Gameplay Loop Flow Visual -->
-            <div style="margin-top: 6rem;">
-                <span class="rc-img-label">GAMEPLAY FLOW</span>
-                <div class="rc-full-img-wrap">
-                    <img alt="Reclairos gameplay loop interaction flow — Plan, Deploy, Adapt, Resolve" loading="lazy" src="../assets/reclairos-flow-loop.webp" class="rc-full-img"/>
-                </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">2</span>
+            <div>
+              <h4>Data-Driven Design Is a Force Multiplier</h4>
+              <p>ScriptableObjects allowed non-engineer team members to author and balance enemies, abilities, and encounters directly. Balance iteration cycles that would have required a recompile and QA pass became editor operations measurable in minutes rather than hours.</p>
             </div>
+          </div>
+
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">3</span>
+            <div>
+              <h4>Escort Mechanics Demand Different Threat Modeling</h4>
+              <p>Traditional tower defense threat modeling focuses on static base defense. Escort design requires the threat model to account for a moving, vulnerable variable. Every system — unit placement, enemy targeting, wave pacing — had to be re-evaluated around the escort's position. The result: fundamentally more engaging gameplay.</p>
+            </div>
+          </div>
+
+          <!-- Featured takeaway #4 -->
+          <div class="cs-takeaway cs-takeaway--featured">
+            <span class="cs-takeaway__num">4</span>
+            <div>
+              <h4>Combat Readability Is a First-Class Engineering Concern</h4>
+              <p>Readability was initially treated as a UI/art problem. Midway through development it became clear it was an <strong>engineering problem</strong>: particle budgets, sorting layers, damage number queuing, and VFX pooling all directly affected whether the player could read the battlefield under pressure. These systems needed explicit engineering ownership, not just art direction.</p>
+            </div>
+          </div>
+
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">5</span>
+            <div>
+              <h4>Mobile Performance Must Be Validated on Real Hardware Early</h4>
+              <p>Unity Editor profiling significantly underestimated the performance cost of the encounter system on mid-range Android devices. Frame budgets appearing comfortable in editor were failing target frame rate on Snapdragon 665 hardware. A weekly on-device profiling ritual from the first playable build prevented performance debt from accumulating silently.</p>
+            </div>
+          </div>
+
+          <!-- Featured takeaway #6 -->
+          <div class="cs-takeaway cs-takeaway--featured">
+            <span class="cs-takeaway__num">6</span>
+            <div>
+              <h4>The Animation Override Pattern Is Underutilised in Mobile RPGs</h4>
+              <p>AnimatorOverrideController is one of Unity's most underused tools for mobile RPGs with large character rosters. The pattern — one base state machine, per-unit clip overrides — delivered <strong style="color: var(--color-accent);">40% memory savings</strong> and dramatically reduced the engineering cost of onboarding a new unit type. It should be the default approach for any mobile title with more than five character archetypes.</p>
+            </div>
+          </div>
+
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">7</span>
+            <div>
+              <h4>Story Context Amplifies Tactical Investment</h4>
+              <p>The most consistently positive playtest feedback was not about mechanics — it was about caring which characters survived. Players who had engaged with the narrative sequences were measurably more engaged with combat outcomes. Story integration is not merely a content layer; it is a motivation layer that makes tactical gameplay feel consequential rather than abstract.</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- ═══ 04 DESIGN NOTE ═══ -->
-    <section class="rc-section">
-        <div class="container">
-            <div class="rc-design-note">
-                <span class="rc-label">Design Note</span>
-                <h3 class="rc-design-note__headline">ESCORT SYSTEM REDEFINES<br>TRADITIONAL TOWER DEFENSE</h3>
-                <p class="rc-design-note__body">
-                    The objective is moving. The threats are adapting.<br>
-                    <strong>Every decision becomes positional and urgent.</strong>
-                </p>
-            </div>
+    <!-- ═══ CTA ═══ -->
+    <section class="cs-cta">
+      <div class="container">
+        <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); display: block; margin-bottom: 2rem;">What's Next</span>
+        <h2>Ready to Build at This Level?</h2>
+        <p>DualCore engineers modular, production-ready game systems for mobile, PC, and XR. If you're building a title that demands performance, data-driven design, and long-term scalability — let's talk.</p>
+        <div class="cs-cta__btns">
+          <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Start a Project</a>
+          <a href="../overview/index.html" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">← View Game Overview</a>
         </div>
+      </div>
     </section>
 
-    <!-- ═══ 05 SYSTEM ARCHITECTURE ═══ -->
-    <section class="rc-section rc-section--alt">
-        <div class="container">
-            <h2 class="rc-section__h2">05 System Architecture</h2>
+  </main>
 
-            <!-- Pipeline -->
-            <div class="rc-pipeline">
-                <div class="rc-pipeline__node">Input</div>
-                <div class="rc-pipeline__arrow">→</div>
-                <div class="rc-pipeline__node">Control</div>
-                <div class="rc-pipeline__arrow">→</div>
-                <div class="rc-pipeline__node">Combat</div>
-                <div class="rc-pipeline__arrow">→</div>
-                <div class="rc-pipeline__node">AI</div>
-                <div class="rc-pipeline__arrow">→</div>
-                <div class="rc-pipeline__node">System</div>
-                <div class="rc-pipeline__arrow">→</div>
-                <div class="rc-pipeline__node">Output</div>
-            </div>
-
-            <!-- Architecture Visual — replaces placeholder -->
-            <div style="margin-top: 4rem;">
-                <span class="rc-img-label">SYSTEM ARCHITECTURE</span>
-                <div class="rc-full-img-wrap">
-                    <img alt="Reclairos system architecture flow diagram" loading="lazy" src="../assets/reclairos-system-architecture.webp" class="rc-full-img"/>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 06 ARCHITECTURE PRINCIPLES ═══ -->
-    <section class="rc-section">
-        <div class="container">
-            <h2 class="rc-section__title">06 Architecture Principles</h2>
-            <div class="rc-grid-3">
-                <div class="rc-card">
-                    <h4 class="rc-card__title">Modular Systems</h4>
-                    <p class="rc-card__body">Decoupled logic for rapid iteration and scalable content updates.</p>
-                </div>
-                <div class="rc-card rc-card--featured">
-                    <h4 class="rc-card__title">Encounter-Driven</h4>
-                    <p class="rc-card__body">Data-driven combat scenarios that adapt to player progression.</p>
-                </div>
-                <div class="rc-card">
-                    <h4 class="rc-card__title">Scalable Asset Pipelines</h4>
-                    <p class="rc-card__body">Built for production-ready pipelines and cross-platform stability.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 07–08 TECHNICAL CHALLENGES & SOLUTIONS ═══ -->
-    <section class="rc-section rc-section--alt">
-        <div class="container">
-            <div class="rc-cs-grid">
-                <div>
-                    <h2 class="rc-section__h2">07 Challenges</h2>
-                    <div class="rc-vstack">
-                        <div class="rc-challenge-card">
-                            <h4>Dynamic Pathfinding</h4>
-                            <p>Continuous recomputation of unit lanes as the objective moves.</p>
-                        </div>
-                        <div class="rc-challenge-card">
-                            <h4>Performance Spikes</h4>
-                            <p>Managing high-density VFX costs during lane-clearing resets.</p>
-                        </div>
-                        <div class="rc-challenge-card">
-                            <h4>Memory Constraints</h4>
-                            <p>Managing asset pools for 40+ unit types on 4GB RAM devices.</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="rc-section__h2">08 Solutions</h2>
-                    <div class="rc-vstack">
-                        <div class="rc-solution-card">
-                            <h4>Animator Overrides</h4>
-                            <p>Decoupling logic from assets, reducing controller overhead by 40%.</p>
-                        </div>
-                        <div class="rc-solution-card">
-                            <h4>Object Pooling</h4>
-                            <p>Global singleton patterns for unit and VFX lifecycle management.</p>
-                        </div>
-                        <div class="rc-solution-card">
-                            <h4>Culling Systems</h4>
-                            <p>Distance-based resolution and silhouette prioritizing.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Combat detail fills the placeholder -->
-            <div style="margin-top: 6rem;">
-                <span class="rc-img-label">GAMEPLAY – ABILITY EXECUTION</span>
-                <div class="rc-full-img-wrap">
-                    <img alt="Reclairos ability UI and skill execution close-up" loading="lazy" src="../assets/reclairos-detail-01.webp" class="rc-full-img"/>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 09 GAMEPLAY SYSTEMS ═══ -->
-    <section class="rc-section">
-        <div class="container">
-            <h2 class="rc-section__title">09 Gameplay Systems</h2>
-
-            <!-- Boss fight image — fills placeholder -->
-            <div style="margin-bottom: 6rem;">
-                <span class="rc-img-label">GAMEPLAY – BOSS ENCOUNTER</span>
-                <div class="rc-full-img-wrap">
-                    <img alt="Reclairos boss fight encounter" loading="lazy" src="../assets/reclairos-gameplay-02.webp" class="rc-full-img"/>
-                </div>
-            </div>
-
-            <!-- Player Classes & Enemy Archetypes -->
-            <div class="rc-cs-grid">
-                <div>
-                    <h3 class="rc-sub-heading">Player Classes</h3>
-                    <div class="rc-vstack">
-                        <div class="rc-sys-card">
-                            <span class="rc-sys-card__name">Tank</span>
-                            <span class="rc-sys-card__role">Escort Defense focus</span>
-                        </div>
-                        <div class="rc-sys-card">
-                            <span class="rc-sys-card__name">DPS</span>
-                            <span class="rc-sys-card__role">High-damage lane clearing</span>
-                        </div>
-                        <div class="rc-sys-card">
-                            <span class="rc-sys-card__name">Support</span>
-                            <span class="rc-sys-card__role">Unit sustain &amp; buffs</span>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="rc-sub-heading">Enemy Archetypes</h3>
-                    <div class="rc-vstack">
-                        <div class="rc-sys-card">
-                            <span class="rc-sys-card__name">Swarmers</span>
-                            <span class="rc-sys-card__role">High volume combat</span>
-                        </div>
-                        <div class="rc-sys-card">
-                            <span class="rc-sys-card__name">Breachers</span>
-                            <span class="rc-sys-card__role">Shield-breaking systems</span>
-                        </div>
-                        <div class="rc-sys-card">
-                            <span class="rc-sys-card__name">Stalkers</span>
-                            <span class="rc-sys-card__role">Priority target behavior</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Combat effects fills second placeholder -->
-            <div style="margin-top: 6rem;">
-                <span class="rc-img-label">GAMEPLAY – SPELL EFFECTS</span>
-                <div class="rc-full-img-wrap">
-                    <img alt="Reclairos combat VFX and spell effects" loading="lazy" src="../assets/reclairos-detail-02.webp" class="rc-full-img"/>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 10 ENGINEERING TAKEAWAYS ═══ -->
-    <section class="rc-section rc-section--alt">
-        <div class="container">
-            <h2 class="rc-section__title">10 Engineering Takeaways</h2>
-            <div class="rc-grid-3">
-                <div class="rc-card">
-                    <h4 class="rc-card__title" style="color: var(--color-accent);">Modular equals Scalable</h4>
-                    <p class="rc-card__body">Decoupled systems allow for infinite horizontal content expansion and stable updates.</p>
-                </div>
-                <div class="rc-card rc-card--featured">
-                    <h4 class="rc-card__title" style="color: var(--color-accent);">Performance is a Core Feature</h4>
-                    <p class="rc-card__body">Strict optimization from day one ensures broader commercial viability on mobile hardware.</p>
-                </div>
-                <div class="rc-card">
-                    <h4 class="rc-card__title" style="color: var(--color-accent);">Systemic over Scripted</h4>
-                    <p class="rc-card__body">Emergent gameplay depth results in higher player lifetime value and engagement.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ BOTTOM CTA ═══ -->
-    <section class="rc-cta">
-        <div class="container rc-cta__inner">
-            <img alt="Reclairos Logo" src="../assets/reclairos-logo.webp" class="rc-cta__logo"/>
-            <h2 class="rc-cta__headline">ENGINEERED FOR PERFORMANCE.<br>DESIGNED FOR SCALE.</h2>
-            <p class="rc-cta__sub">BUILT FOR PRODUCTION</p>
-            <div class="rc-cta__btns">
-                <a class="btn btn-primary" href="../overview/index.html" style="padding: 1.2rem 3rem; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;">Back to Overview</a>
-                <a class="btn btn-outline" href="../../../../contact.html" style="padding: 1.2rem 3rem; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; border: 1px solid rgba(255,255,255,0.2);">Build Your Game</a>
-            </div>
-        </div>
-    </section>
-
-    <style>
-        /* ── Base ── */
-        .rc-section { padding: 10rem 0; }
-        .rc-section--alt { background-color: #0c0c0c; }
-        .rc-body-left { font-size: 1.2rem; line-height: 1.9; color: var(--color-text-muted); margin-bottom: 2rem; max-width: 800px; }
-
-        /* ── Hero ── */
-        .rc-hero { background-color: #0c0c0c; padding: 12rem 0 8rem; }
-        .rc-hero__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .rc-label { display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-accent); border: 1px solid rgba(0,210,255,0.25); padding: 0.45rem 1.4rem; border-radius: 100px; background: rgba(0,210,255,0.04); margin-bottom: 2rem; }
-        .rc-hero__title { font-size: 4.8rem; line-height: 1.05; margin-bottom: 2rem; letter-spacing: -0.03em; color: var(--color-accent); }
-        .rc-hero__tagline { font-size: 1.4rem; font-weight: 500; max-width: 680px; line-height: 1.4; margin-bottom: 0; color: var(--color-text-muted); }
-
-        /* ── Snapshot ── */
-        .rc-snapshot__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
-        .rc-snap-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 2rem 1.5rem; }
-        .rc-snap-card--hi { border-top: 2px solid rgba(0,210,255,0.5); background: rgba(0,210,255,0.03); }
-        .rc-snap-card__label { display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-accent); margin-bottom: 0.75rem; }
-        .rc-snap-card__value { font-size: 1rem; font-weight: 700; margin: 0; }
-
-        /* ── Section Headings ── */
-        .rc-section__title { text-align: center; margin-bottom: 5rem; }
-        .rc-section__h2 { margin-bottom: 4rem; }
-        .rc-sub-heading { color: var(--color-accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 800; margin-bottom: 2rem; }
-
-        /* ── Image Labels ── */
-        .rc-img-label { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; }
-
-        /* ── Full-width Image ── */
-        .rc-full-img-wrap { width: 100%; border-radius: 16px; overflow: hidden; }
-        .rc-full-img { width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid rgba(255,255,255,0.07); box-shadow: 0 30px 80px rgba(0,0,0,0.5); transition: transform 0.4s ease; }
-        .rc-full-img:hover { transform: scale(1.01); }
-
-        /* ── Cards ── */
-        .rc-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 14px;
-            padding: 3rem 2.5rem;
-            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
-        }
-        .rc-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(0,210,255,0.06);
-            border-color: rgba(0,210,255,0.2);
-            background: rgba(255,255,255,0.035);
-        }
-        .rc-card--featured { border-top: 2px solid rgba(0,210,255,0.5); background: rgba(0,210,255,0.025); }
-        .rc-card__step { display: block; font-size: 1.6rem; font-weight: 800; margin-bottom: 1.25rem; color: rgba(0,210,255,0.5); }
-        .rc-card__title { font-size: 1.15rem; margin-bottom: 1rem; font-weight: 700; margin-top: 0; }
-        .rc-card__body { font-size: 0.95rem; line-height: 1.7; color: var(--color-text-muted); margin: 0; }
-
-        /* ── Grids ── */
-        .rc-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-        .rc-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
-        .rc-cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-        .rc-vstack { display: flex; flex-direction: column; gap: 1.25rem; }
-
-        /* ── Design Note ── */
-        .rc-design-note { background: rgba(0,210,255,0.03); border: 1px solid rgba(0,210,255,0.15); border-radius: 16px; padding: 8rem 4rem; text-align: center; }
-        .rc-design-note__headline { font-size: 2.4rem; letter-spacing: -0.02em; margin: 2rem 0; line-height: 1.2; color: var(--color-text); }
-        .rc-design-note__body { font-size: 1.3rem; max-width: 760px; margin: 0 auto; line-height: 1.7; color: var(--color-text-muted); }
-
-        /* ── Pipeline ── */
-        .rc-pipeline { display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
-        .rc-pipeline__node { background: rgba(0,210,255,0.04); border: 1px solid rgba(0,210,255,0.2); border-radius: 6px; padding: 0.5rem 1.25rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-accent); }
-        .rc-pipeline__arrow { color: rgba(0,210,255,0.3); font-size: 1.1rem; font-weight: 700; }
-
-        /* ── Challenge / Solution Cards ── */
-        .rc-challenge-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-left: 3px solid rgba(255,77,77,0.5); border-radius: 10px; padding: 1.75rem 2rem; }
-        .rc-challenge-card h4 { color: #ff7070; font-size: 1rem; margin: 0 0 0.5rem; }
-        .rc-challenge-card p { font-size: 0.9rem; line-height: 1.6; color: var(--color-text-muted); margin: 0; }
-        .rc-solution-card { background: rgba(0,210,255,0.03); border: 1px solid rgba(0,210,255,0.15); border-left: 3px solid rgba(0,210,255,0.5); border-radius: 10px; padding: 1.75rem 2rem; }
-        .rc-solution-card h4 { color: var(--color-accent); font-size: 1rem; margin: 0 0 0.5rem; }
-        .rc-solution-card p { font-size: 0.9rem; line-height: 1.6; color: var(--color-text-muted); margin: 0; }
-
-        /* ── System Cards ── */
-        .rc-sys-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; transition: border-color 0.3s ease; }
-        .rc-sys-card:hover { border-color: rgba(0,210,255,0.2); }
-        .rc-sys-card__name { font-weight: 800; font-size: 1.05rem; }
-        .rc-sys-card__role { font-size: 0.85rem; font-weight: 600; color: var(--color-text-muted); }
-
-        /* ── CTA ── */
-        .rc-cta { background: linear-gradient(to bottom, #0c0c0c, #000); border-top: 1px solid rgba(255,255,255,0.05); padding: 12rem 0; }
-        .rc-cta__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .rc-cta__logo { height: 80px; width: auto; margin-bottom: 4rem; opacity: 0.85; }
-        .rc-cta__headline { font-size: 3.2rem; letter-spacing: 0.03em; margin-bottom: 2rem; line-height: 1.2; font-weight: 900; }
-        .rc-cta__sub { color: var(--color-accent); font-weight: 800; letter-spacing: 0.4em; margin-bottom: 4rem; opacity: 0.7; font-size: 0.85rem; }
-        .rc-cta__btns { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
-
-        /* ── Responsive ── */
-        @media (max-width: 1100px) {
-            .rc-grid-4 { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 992px) {
-            .rc-snapshot__grid { grid-template-columns: repeat(3, 1fr); }
-            .rc-grid-3 { grid-template-columns: repeat(2, 1fr); }
-            .rc-cs-grid { grid-template-columns: 1fr; gap: 4rem; }
-        }
-        @media (max-width: 768px) {
-            .rc-hero { padding: 10rem 0 5rem; }
-            .rc-hero__title { font-size: 3.2rem; }
-            .rc-hero__tagline { font-size: 1.2rem; }
-            .rc-section { padding: 6rem 0; }
-            .rc-snapshot__grid { grid-template-columns: repeat(2, 1fr); }
-            .rc-grid-4, .rc-grid-3 { grid-template-columns: 1fr; }
-            .rc-design-note { padding: 4rem 2rem; }
-            .rc-design-note__headline { font-size: 1.75rem; }
-            .rc-pipeline { display: none; }
-            .rc-cta { padding: 6rem 0; }
-            .rc-cta__headline { font-size: 2rem; }
-        }
-    </style>
-</main>
   <footer>
     <div class="container">
       <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
@@ -560,8 +799,7 @@
         <div class="footer-col">
           <h4>Connect</h4>
           <ul class="footer-links social-links">
-            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a>
-            </li>
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a></li>
             <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
             <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
           </ul>
@@ -573,6 +811,7 @@
       </div>
     </div>
   </footer>
-<script defer="" src="../../../../assets/js/main.js"></script>
+
+  <script defer="" src="../../../../assets/js/main.js"></script>
 </body>
 </html>
