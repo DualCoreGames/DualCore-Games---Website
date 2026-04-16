@@ -82,18 +82,19 @@
       font-weight: 800;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--color-accent);
-      border: 1px solid rgba(0,210,255,0.25);
+      color: #00D1FF;
+      border: 1px solid rgba(0,209,255,0.55);
       padding: 0.4rem 1.2rem;
       border-radius: 100px;
-      background: rgba(0,210,255,0.06);
+      background: rgba(0,209,255,0.12);
       margin-bottom: 2.5rem;
+      text-shadow: 0 0 12px rgba(0,209,255,0.4);
     }
     .rc-hero__logo {
       height: 90px;
       width: auto;
       margin-bottom: 3rem;
-      filter: drop-shadow(0 0 40px rgba(0,210,255,0.25));
+      filter: drop-shadow(0 0 40px rgba(0,210,255,0.35));
     }
     .rc-hero__tagline {
       font-size: clamp(1.3rem, 3vw, 1.9rem);
@@ -101,7 +102,8 @@
       max-width: 640px;
       line-height: 1.45;
       margin-bottom: 1.5rem;
-      color: rgba(255,255,255,0.9);
+      color: rgba(255,255,255,0.95);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.9);
     }
     .rc-hero__desc {
       max-width: 540px;
@@ -110,7 +112,8 @@
     .rc-hero__desc p {
       font-size: 1rem;
       line-height: 1.8;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.7);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.9);
     }
 
     /* Snapshot strip */
@@ -126,12 +129,19 @@
       gap: 1rem;
     }
     .rc-snap-card {
-      background: rgba(255,255,255,0.02);
+      background: rgba(0,209,255,0.03);
       border: 1px solid rgba(255,255,255,0.06);
+      border-top: 3px solid #00D1FF;
       border-radius: 10px;
       padding: 1.5rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .rc-snap-card--hi { border-top: 2px solid rgba(0,210,255,0.5); background: rgba(0,210,255,0.03); }
+    .rc-snap-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px rgba(0,209,255,0.12), 0 8px 24px rgba(0,0,0,0.3);
+    }
+    /* --hi class kept for backwards compat but now all cards share the same style */
+    .rc-snap-card--hi { border-top: 3px solid #00D1FF; background: rgba(0,209,255,0.05); }
     .rc-snap-card__label { display: block; font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-accent); margin-bottom: 0.5rem; }
     .rc-snap-card__value { font-size: 0.9rem; font-weight: 700; margin: 0; }
 
@@ -159,7 +169,7 @@
       line-height: 1.75;
     }
 
-    /* Squad roster — all 5 cards with blue top border */
+    /* Squad roster — all 5 cards with consistent blue top border */
     .rc-squad__grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -168,19 +178,36 @@
     .rc-squad-card {
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.07);
-      border-top: 2px solid rgba(0,210,255,0.45);
+      border-top: 3px solid #00D1FF;
       border-radius: 14px;
       padding: 2.5rem 1.5rem;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
     .rc-squad-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(0,210,255,0.06);
-      border-color: rgba(0,210,255,0.35);
-      background: rgba(0,210,255,0.03);
+      transform: scale(1.02);
+      box-shadow: 0 0 32px rgba(0,209,255,0.14), 0 16px 48px rgba(0,0,0,0.45);
+      background: rgba(0,209,255,0.04);
     }
-    .rc-squad-card__icon { font-size: 2rem; margin-bottom: 1.25rem; display: block; }
+    /* Character PNG placeholder — ready to receive isolated character art */
+    .rc-squad-card__portrait {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(0,209,255,0.08);
+      border: 1px solid rgba(0,209,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 2rem;
+      transition: transform 0.3s ease;
+    }
+    .rc-squad-card:hover .rc-squad-card__portrait {
+      transform: scale(1.08);
+    }
     .rc-squad-card__class { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-accent); display: block; margin-bottom: 0.5rem; }
     .rc-squad-card__role { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; }
     .rc-squad-card__fn { font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; }
@@ -477,31 +504,36 @@
         <p class="rc-section__sub">Five distinct combat roles. Infinite tactical combinations. Encounters are designed so no single unit type dominates — strategy demands synergy.</p>
         <div class="rc-squad__grid">
           <div class="rc-squad-card">
-            <span class="rc-squad-card__icon">🛡️</span>
+            <!-- Portrait slot: replace emoji span with <img> when character PNG is ready -->
+            <div class="rc-squad-card__portrait" aria-hidden="true">🛡️</div>
             <span class="rc-squad-card__class">Vanguard</span>
             <p class="rc-squad-card__role">Frontline Tank</p>
             <p class="rc-squad-card__fn">High HP. Absorbs damage and slows the enemy advance. Buys critical time for ranged units to operate.</p>
           </div>
           <div class="rc-squad-card">
-            <span class="rc-squad-card__icon">🏹</span>
+            <!-- Portrait slot: replace emoji span with <img> when character PNG is ready -->
+            <div class="rc-squad-card__portrait" aria-hidden="true">🏹</div>
             <span class="rc-squad-card__class">Ranger</span>
             <p class="rc-squad-card__role">Ranged DPS</p>
             <p class="rc-squad-card__fn">Consistent damage from a safe distance. Vulnerable to fast disruptors that bypass the frontline.</p>
           </div>
           <div class="rc-squad-card">
-            <span class="rc-squad-card__icon">✨</span>
+            <!-- Portrait slot: replace emoji span with <img> when character PNG is ready -->
+            <div class="rc-squad-card__portrait" aria-hidden="true">✨</div>
             <span class="rc-squad-card__class">Warden</span>
             <p class="rc-squad-card__role">Support / Healer</p>
             <p class="rc-squad-card__fn">Sustains the frontline with buffs and heals. Critical in grueling multi-wave encounters.</p>
           </div>
           <div class="rc-squad-card">
-            <span class="rc-squad-card__icon">💥</span>
+            <!-- Portrait slot: replace emoji span with <img> when character PNG is ready -->
+            <div class="rc-squad-card__portrait" aria-hidden="true">💥</div>
             <span class="rc-squad-card__class">Breaker</span>
             <p class="rc-squad-card__role">Burst / AoE Damage</p>
             <p class="rc-squad-card__fn">Devastating burst output against grouped enemies. Long cooldown. Obliterates dense wave clusters.</p>
           </div>
           <div class="rc-squad-card">
-            <span class="rc-squad-card__icon">⚡</span>
+            <!-- Portrait slot: replace emoji span with <img> when character PNG is ready -->
+            <div class="rc-squad-card__portrait" aria-hidden="true">⚡</div>
             <span class="rc-squad-card__class">Sentinel</span>
             <p class="rc-squad-card__role">Crowd Control</p>
             <p class="rc-squad-card__fn">Applies slows, stuns, and traps. Counters fast disruptors. Low DPS, maximum utility.</p>
@@ -553,35 +585,35 @@
       </div>
     </section>
 
-    <!-- ═══ THREAT INTEL — Enemy Archetypes ═══ -->
-    <section class="rc-section rc-section--dark">
+    <!-- ═══ THREAT INTEL — Enemy Archetypes (Combat Intel placeholders) ═══ -->
+    <section class="rc-section rc-section--dark" style="padding-top: 13rem;">
       <div class="container">
         <span class="rc-section__eyebrow">Know Your Enemy</span>
         <h2 class="rc-section__title">Threat Intel</h2>
         <p class="rc-section__sub">Wave-based enemy archetypes designed with hard counters. Encounter them unprepared, and your escort won't survive.</p>
         <div class="rc-threat__grid">
           <div class="rc-threat-card">
-            <img alt="Reclairos — Aggressive Melee enemy archetype" loading="lazy" src="../assets/reclairos-environment-02.webp" width="600" height="450" />
+            <img alt="Reclairos — Aggressive Melee combat zone" loading="lazy" src="../assets/reclairos-environment-02.webp" width="600" height="450" />
             <div class="rc-threat-card__overlay">
-              <span class="rc-threat-card__tag">Archetype 01</span>
+              <span class="rc-threat-card__tag">Combat Intel — Archetype 01</span>
               <p class="rc-threat-card__name">Aggressive Melee</p>
               <p class="rc-threat-card__desc">Rushes the escort directly. High pressure, low HP. Counter: Frontline Vanguards + Sentinel slows.</p>
             </div>
           </div>
           <div class="rc-threat-card">
-            <img alt="Reclairos — Heavy Defender enemy archetype" loading="lazy" src="../assets/reclairos-environment-03.webp" width="600" height="450" />
+            <img alt="Reclairos — Heavy Defender combat zone" loading="lazy" src="../assets/reclairos-environment-03.webp" width="600" height="450" />
             <div class="rc-threat-card__overlay">
-              <span class="rc-threat-card__tag">Archetype 02</span>
+              <span class="rc-threat-card__tag">Combat Intel — Archetype 02</span>
               <p class="rc-threat-card__name">Heavy Defender</p>
               <p class="rc-threat-card__desc">Blocks the lane. Absorbs damage. Counter: Breaker burst damage + flanking Ranger pressure.</p>
             </div>
           </div>
           <div class="rc-threat-card">
-            <img alt="Reclairos — Fast Disruptor enemy archetype" loading="lazy" src="../assets/reclairos-environment-04.webp" width="600" height="450" />
+            <img alt="Reclairos — Fast Disruptor combat zone" loading="lazy" src="../assets/reclairos-environment-04.webp" width="600" height="450" />
             <div class="rc-threat-card__overlay">
-              <span class="rc-threat-card__tag">Archetype 03</span>
+              <span class="rc-threat-card__tag">Combat Intel — Archetype 03</span>
               <p class="rc-threat-card__name">Fast Disruptor</p>
-              <p class="rc-threat-card__desc">Bypasses the frontline. Targets your ranged and support units. Counter: Sentinel traps + Vanguard reposition.</p>
+              <p class="rc-threat-card__desc">Bypasses the frontline. Targets ranged and support units at the rear. Counter: Sentinel traps + Vanguard reposition.</p>
             </div>
           </div>
         </div>
