@@ -88,8 +88,16 @@
       padding: 0.4rem 1.2rem;
       border-radius: 100px;
       background: rgba(0,209,255,0.12);
-      margin-bottom: 2.5rem;
       text-shadow: 0 0 12px rgba(0,209,255,0.4);
+    }
+    /* Pill pinned to top of hero, above the art logo */
+    .rc-hero .rc-label {
+      position: absolute;
+      top: 9rem;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 3;
     }
     /* sr-only: h1 exists for SEO/a11y but art carries the visual title */
     .rc-hero__title-hidden {
