@@ -84,9 +84,12 @@
     <!-- HERO SECTION -->
     <section class="section-padding" style="padding-top: 10rem;">
         <div class="container">
-            <h1 class="text-accent" style="margin-bottom: 1.5rem;">Crazy Planet</h1>
-            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin-bottom: 1rem;">Lightweight 2D platformer engineered for responsive gameplay, accessibility, and scalable level design.</p>
-            <p class="text-muted" style="font-size: 1.1rem; max-width: 800px; margin-bottom: 2rem;">Engineered to maintain stable performance and visual clarity across all target hardware.</p>
+            <span class="text-accent" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 1rem;">Work / Game Development</span>
+            <h1 style="margin-bottom: 1.5rem; font-weight: 900; letter-spacing: -0.02em;">Crazy Planet</h1>
+            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; line-height: 1.6; margin-bottom: 2.5rem;">A lightweight 2D platformer system engineered to maintain stable performance and visual clarity across all target hardware.</p>
+            <div style="margin-bottom: 4rem;">
+                <a class="btn btn-primary" href="#alpha-form" style="padding: 1rem 2.5rem; font-size: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Join the Private Alpha</a>
+            </div>
             
             <div class="tags-container" style="margin-bottom: 3rem;">
                 <span class="tag">2D Platformer</span>
@@ -258,37 +261,35 @@
             
             <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
                 <a href="../../../../contact.html" class="btn btn-primary" style="padding: 0.8rem 1.6rem; font-size: 1rem;">Start a Project</a>
-                <a href="../case-study/index.html" class="btn btn-secondary" style="padding: 0.8rem 1.6rem; font-size: 1rem;">View Case Study &rarr;</a>
+                <a href="../case-study/index.html" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1rem; border: 1px solid var(--color-accent);">See the Engineering Architecture</a>
             </div>
             <p class="text-muted" style="margin-top: 1.5rem; font-size: 0.9rem;">Performance-first systems. Production-ready pipelines.</p>
         </div>
     </section>
 </main>
 <!-- Lead Capture Section -->
-<section class="section-padding" style="background-color: var(--color-card-bg); border-top: 1px solid var(--color-border);">
-<div class="container" style="max-width: 600px;">
-<div style="text-align: center; margin-bottom: 3rem;">
-<h2 style="margin-bottom: 1rem;">Start Your Project</h2>
-<p class="text-muted" style="max-width: 500px; margin: 0 auto;">Ready to build? Tell us about your project and let's engineer the future together.</p>
-</div>
-<form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="contactForm">
-<div class="form-group">
-<label for="name">Full Name</label>
-<input id="name" name="name" placeholder="John Doe" required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="email">Email Address</label>
-<input id="email" name="email" placeholder="john@example.com" required="" type="email"/>
-</div>
-<div class="form-group">
-<label for="project">Project Type</label>
-<input id="project" name="project" placeholder="e.g. Mobile Game, Engine Optimization" required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="message">Message</label>
-<textarea id="message" name="message" placeholder="Briefly describe your requirements..." required=""></textarea>
-</div>
-<button class="btn btn-primary" style="width: 100%;" type="submit">Submit Inquiry</button>
+        <section class="section-padding" id="alpha-form" style="background-color: #0c0c0c; border-top: 1px solid rgba(255,255,255,0.05); padding: 8rem 0;">
+            <div class="container" style="max-width: 600px;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <span class="rc-label" style="display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-accent); border: 1px solid rgba(0,210,255,0.25); padding: 0.45rem 1.4rem; border-radius: 100px; background: rgba(0,210,255,0.04); margin-bottom: 1.5rem;">Limited Access</span>
+                    <h2 class="display-2" style="margin-bottom: 1rem;">Join the Private Alpha</h2>
+                    <p class="text-muted" style="max-width: 500px; margin: 0 auto;">Experience the next evolution of physics-based platforming. Sign up for early access and production updates.</p>
+                </div>
+                <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="contactForm">
+                    <input type="hidden" name="project" value="Crazy Planet Private Alpha">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input id="name" name="name" placeholder="Name" required="" type="text" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input id="email" name="email" placeholder="email@example.com" required="" type="email" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Why are you interested in Crazy Planet?</label>
+                        <textarea id="message" name="message" placeholder="I love technical platformers..." required="" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"></textarea>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; padding: 1rem;" type="submit">List My Interest</button>
 <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 1.5rem; text-align: center;">
 By submitting this form, you agree to our Privacy Policy. Our engineering team typically responds within 24-48 hours.
 </p>

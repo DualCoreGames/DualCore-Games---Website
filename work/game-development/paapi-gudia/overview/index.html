@@ -78,9 +78,12 @@
     <!-- HERO -->
     <section class="section-padding" style="padding-top: 10rem;">
         <div class="container">
-            <span class="text-accent" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 1rem;">Experience Overview</span>
-            <h1 class="text-accent">Paapi Gudia</h1>
-            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin-top: 1.5rem;">A cross-platform horror shooter engineered for seamless performance across PC and standalone VR hardware.</p>
+            <span class="text-accent" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 1rem;">Work / Game Development</span>
+            <h1 style="margin-bottom: 1.5rem; font-weight: 900; letter-spacing: -0.02em;">Paapi Gudia</h1>
+            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; line-height: 1.6; margin-bottom: 2.5rem;">A cross-platform horror shooter engineered for seamless performance across PC and standalone VR hardware.</p>
+            <div style="margin-bottom: 4rem;">
+                <a class="btn btn-primary" href="#alpha-form" style="padding: 1rem 2.5rem; font-size: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Join the Private Alpha</a>
+            </div>
         </div>
     </section>
 
@@ -178,14 +181,33 @@
     </section>
 
     <!-- Standardized CTA -->
-    <section class="section-padding" style="background-color: #0c0c0c; border-top: 1px solid var(--color-border); text-align: center;">
-        <div class="container" style="max-width: 900px;">
-            <h2 style="margin-bottom: 1rem; font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em;">ENGINEERED FOR PERFORMANCE. DESIGNED FOR SCALE. BUILT FOR PRODUCTION.</h2>
-            <p class="text-muted" style="margin-bottom: 3rem; font-size: 1.1rem;">Performance-first systems. Production-ready pipelines.</p>
-            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1rem 2rem; font-weight: 700;">Start a Project</a>
-                <a href="../case-study/index.html" class="btn btn-secondary" style="padding: 1rem 2rem; font-weight: 600; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">View Case Study</a>
+    <!-- Standardized CTA & Alpha Form -->
+    <section class="section-padding" id="alpha-form" style="background-color: #0c0c0c; border-top: 1px solid rgba(255,255,255,0.05); padding: 8rem 0;">
+        <div class="container" style="max-width: 600px;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <span class="rc-label" style="display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-accent); border: 1px solid rgba(0,210,255,0.25); padding: 0.45rem 1.4rem; border-radius: 100px; background: rgba(0,210,255,0.04); margin-bottom: 1.5rem;">Cross-Play Access</span>
+                <h2 class="display-2" style="margin-bottom: 1rem;">Join the Private Alpha</h2>
+                <p class="text-muted" style="max-width: 500px; margin: 0 auto;">Help us calibrate the cross-platform horror experience. Sign up for early access on PC or Meta Quest.</p>
             </div>
+            <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="contactForm">
+                <input type="hidden" name="project" value="Paapi Gudia Private Alpha">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input id="name" name="name" placeholder="Name" required="" type="text" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input id="email" name="email" placeholder="email@example.com" required="" type="email" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
+                </div>
+                <div class="form-group">
+                    <label for="message">What's your primary platform (PC/VR)?</label>
+                    <textarea id="message" name="message" placeholder="I play on Meta Quest 3 / PC..." required="" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"></textarea>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; padding: 1rem;" type="submit">Submit Entry</button>
+                <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 1.5rem; text-align: center;">
+                    By joining, you agree to our <a href="../../../../privacy-policy.html" style="color: var(--color-accent);">Privacy Policy</a>. Our team responds within 24-48 hours.
+                </p>
+            </form>
         </div>
     </section>
 </main>
