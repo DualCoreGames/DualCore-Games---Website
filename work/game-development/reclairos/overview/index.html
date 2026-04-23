@@ -412,6 +412,32 @@
       border-top: 1px solid rgba(255,255,255,0.05);
       padding: 10rem 0;
     }
+    .rc-success-message {
+      background: rgba(0, 209, 255, 0.05);
+      border: 1px solid rgba(0, 209, 255, 0.2);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    .rc-success-message h3 {
+      color: #00D1FF;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+    .rc-success-message p {
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     /* Responsive */
     @media (max-width: 1100px) {
@@ -749,6 +775,10 @@
           <h2 style="font-size: 2.5rem; font-weight: 900; margin: 1.5rem 0 1rem; letter-spacing: -0.02em;">Join the Reclairos Private Beta</h2>
           <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.7; max-width: 480px; margin: 0 auto;">Experience the next evolution of mobile strategy. Sign up to receive an early access invite and production updates — directly from the team building it.</p>
         </div>
+        <div id="reclairosSuccessMessage" class="rc-success-message">
+          <h3>Submission Successful</h3>
+          <p>Technical Request Received. Our engineering team will review and respond within 24-48 hours.</p>
+        </div>
         <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="reclairosBetaForm">
           <input type="hidden" name="project" value="Reclairos Private Beta">
           <div class="form-group">
@@ -770,6 +800,40 @@
         </form>
       </div>
     </section>
+
+    <script>
+      document.getElementById('reclairosBetaForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        const button = form.querySelector('button[type="submit"]');
+        const successMessage = document.getElementById('reclairosSuccessMessage');
+        
+        // Disable button and change text
+        button.disabled = true;
+        button.textContent = 'Sending...';
+        
+        const formData = new FormData(form);
+        
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors' // Handle Google Apps Script redirect behavior silently
+        })
+        .then(() => {
+          // On success (or redirection ignored by no-cors)
+          form.style.display = 'none';
+          successMessage.style.display = 'block';
+          // Ensure we scroll to the message if it's out of view
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          button.disabled = false;
+          button.textContent = 'Secure My Beta Invite';
+          alert('Something went wrong. Please try again.');
+        });
+      });
+    </script>
 
   </main>
 
