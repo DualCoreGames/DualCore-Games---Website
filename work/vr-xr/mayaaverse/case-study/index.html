@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta name="view-transition" content="same-origin" />
-    <meta charset="utf-8"/>
+  <meta charset="utf-8"/>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -11,30 +11,251 @@
   })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
   <!-- End Google Tag Manager -->
 
-    
-    <!-- Open Graph -->
-    <meta content="Mayaaverse Engineering Case Study | VR Performance at Scale" property="og:title"/>
-    <meta content="How we engineered a modular VR multiverse for Meta Quest 3, achieving 72/90 FPS stability and 75% Draw Call reduction." property="og:description"/>
-    <meta content="website" property="og:type"/>
-    <meta content="https://dualcoregames.com/work/vr-xr/mayaaverse/case-study/" property="og:url"/>
-    <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
-    <!-- Twitter -->
-    <meta content="summary_large_image" name="twitter:card"/>
-    <meta content="Mayaaverse Engineering Case Study | VR Performance at Scale" name="twitter:title"/>
-    <meta content="How we engineered a modular VR multiverse for Meta Quest 3, achieving 72/90 FPS stability and 75% Draw Call reduction." name="twitter:description"/>
-    <meta name="theme-color" content="#00d2ff">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Mayaaverse Case Study | DualCore Games</title>
-    <meta content="Technical breakdown of Mayaaverse, focusing on modular VR architecture, AI-powered interactions, and Quest 3 performance optimization." name="description"/>
-    <link href="../../../../assets/css/style.css" rel="stylesheet"/>
-    <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+  <!-- Open Graph -->
+  <meta content="Mayaaverse Engineering Case Study | DualCore Games" property="og:title"/>
+  <meta content="How we built a high-presence VR sanctuary — spatial audio synesthesia, mobile-optimized volumetrics, and photogrammetry workflows." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://dualcoregames.com/work/vr-xr/mayaaverse/case-study/" property="og:url"/>
+  <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Mayaaverse Engineering Case Study | DualCore Games" name="twitter:title"/>
+  <meta content="How we built a high-presence VR sanctuary — spatial audio synesthesia, mobile-optimized volumetrics, and photogrammetry workflows." name="twitter:description"/>
+  <meta name="theme-color" content="#00d2ff">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Mayaaverse — Engineering Case Study | DualCore Games</title>
+  <meta content="Technical deep-dive into the spatial audio and lighting optimization behind Mayaaverse — a production-ready VR meditation platform." name="description"/>
+  <link href="../../../../assets/css/style.css" rel="stylesheet"/>
+  <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+
+  <style>
+    /* ── Case Study Whitepaper Styles ── */
+    .cs-hero {
+      background: #080808;
+      padding: 12rem 0 8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .cs-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+    .cs-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .cs-hero__meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .cs-hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* Project meta grid */
+    .cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    .cs-meta-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .cs-meta-card__label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-meta-card__value { font-size: 0.95rem; font-weight: 700; margin: 0; }
+
+    /* Benchmark strip */
+    .cs-benchmarks {
+      background: linear-gradient(135deg, rgba(0,210,255,0.06) 0%, rgba(0,0,0,0) 60%);
+      border-top: 1px solid rgba(0,210,255,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 5rem 0;
+    }
+    .cs-bench-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .cs-bench-card {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(0,210,255,0.15);
+      border-top: 3px solid var(--color-accent);
+      border-radius: 14px;
+      background: rgba(0,210,255,0.03);
+    }
+    .cs-bench-card__stat {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .cs-bench-card__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .cs-bench-card__sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin: 0;
+    }
+
+    /* Sections */
+    .cs-section { padding: 8rem 0; }
+    .cs-section--alt { background: #0c0c0c; }
+    .cs-section-num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cs-section h2 { margin-bottom: 3rem; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+
+    /* Problem/Solution split */
+    .cs-challenge { margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .cs-challenge:last-child { border-bottom: none; margin-bottom: 0; }
+    .cs-challenge__header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .cs-challenge__num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.1);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .cs-challenge__header h3 { font-size: 1.4rem; margin: 0; }
+    .cs-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .cs-split__col--problem {
+      background: rgba(255,60,60,0.04);
+      border: 1px solid rgba(255,60,60,0.12);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__col--solution {
+      background: rgba(0,210,255,0.04);
+      border: 1px solid rgba(0,210,255,0.15);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__tag {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      display: block;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .cs-split__tag--problem { color: rgba(255,100,100,0.9); background: rgba(255,60,60,0.08); }
+    .cs-split__tag--solution { color: var(--color-accent); background: rgba(0,210,255,0.08); }
+    .cs-split__col h4 { font-size: 1rem; margin-bottom: 1.25rem; font-weight: 700; }
+    .cs-bullet-list { list-style: none; padding: 0; margin: 0; }
+    .cs-bullet-list li {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      line-height: 1.6;
+    }
+    .cs-bullet-list li:last-child { border-bottom: none; }
+    .cs-bullet-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.2);
+    }
+    .cs-split__col--solution .cs-bullet-list li::before { color: rgba(0,210,255,0.4); }
+
+    /* Takeaways */
+    .cs-takeaway {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: start;
+    }
+    .cs-takeaway:last-child { border-bottom: none; }
+    .cs-takeaway__num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.12);
+      line-height: 1;
+    }
+    .cs-takeaway h4 { margin-bottom: 0.75rem; font-size: 1rem; font-weight: 700; }
+    .cs-takeaway p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+    /* CTA */
+    .cs-cta {
+      background: linear-gradient(to bottom, #0c0c0c, #080808);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 10rem 0;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-split { grid-template-columns: 1fr; }
+      .cs-bench-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2F3CX5Z"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-<header>
+
+  <header>
     <div class="container header-inner">
       <a class="logo" href="../../../../index.html">
         <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg"
@@ -46,21 +267,17 @@
           <button aria-label="Close navigation" class="nav-close">✕</button>
           <li class="nav-item"><a class="nav-link" href="../../../../index.html">Home</a></li>
           <li class="nav-item has-dropdown">
-            <a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span
-                class="dropdown-icon">▼</span></a>
+            <a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span class="dropdown-icon">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game
-                  Development</a></li>
+              <li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game Development</a></li>
               <li><a class="dropdown-link" href="../../../../services/game-art/index.html">Game Art</a></li>
-              <li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR
-                  Simulation</a></li>
+              <li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR Simulation</a></li>
             </ul>
           </li>
           <li class="nav-item has-dropdown">
             <a class="nav-link dropdown-toggle" href="../../../../work/index.html">Work <span class="dropdown-icon">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game Development</a>
-              </li>
+              <li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game Development</a></li>
               <li><a class="dropdown-link" href="../../../../work/game-art/index.html">Game Art</a></li>
               <li><a class="dropdown-link" href="../../../../work/vr-xr/index.html">VR/XR</a></li>
             </ul>
@@ -68,203 +285,187 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html"
-              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
         </ul>
       </nav>
     </div>
   </header>
-<main>
-    <!-- HERO -->
-    <section class="section-padding" style="padding-top: 10rem;">
-        <div class="container">
-            <span class="text-accent" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 1rem;">Technical Deep Dive</span>
-            <h1 class="text-accent">Mayaaverse — Case Study</h1>
-            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin-top: 1.5rem;">Managing state transitions and AI interaction across a modular VR multiverse.</p>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="cs-hero">
+      <div class="container">
+        <span class="cs-label">Technical Case Study — Project Mayaaverse</span>
+        <p class="cs-hero__meta">Meta Quest 2/3 / SteamVR &nbsp;/&nbsp; VR Presence Engineering</p>
+        <h1>Mayaaverse<br><span style="color: var(--color-text-muted); font-weight: 400; font-size: 0.55em; letter-spacing: 0;">Spatial Audio &amp; Lighting Synesthesia</span></h1>
+        <p>A technical breakdown of the Audio-Visual Synesthesia Layer and high-fidelity photogrammetry workflows optimized for mobile VR meditation platforms.</p>
+        <a href="../overview/index.html" class="btn btn-secondary" style="padding: 0.85rem 2rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">← View Overview</a>
+
+        <!-- Project Meta -->
+        <div class="cs-meta-grid">
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Platform</span>
+            <p class="cs-meta-card__value">Meta Quest 3 (Standalone)</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Audio</span>
+            <p class="cs-meta-card__value">Spatial HRTF (32 Ch)</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Assets</span>
+            <p class="cs-meta-card__value">Optimized Photogrammetry</p>
+          </div>
+          <div class="cs-meta-card" style="border-top: 2px solid rgba(0,210,255,0.4); background: rgba(0,210,255,0.03);">
+            <span class="cs-meta-card__label">Frame Target</span>
+            <p class="cs-meta-card__value">Locked 90 FPS</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- 01 Project Overview -->
-    <section class="section-padding" style="background-color: #0c0c0c;">
-        <div class="container">
-            <h2 style="margin-bottom: 2rem;">01 Project Overview</h2>
-            <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
-                <div style="max-width: 800px;">
-                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">Mayaaverse is a standalone VR application built for Meta Quest 3. The objective was to create a unified platform shell that manages three distinct immersive modules: Temple Exploration, Guided Meditation, and an AI-driven Real Estate Hub.</p>
-                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">The engineering challenge involved building a zero-latency module-swapping system that maintains persistent state across disparate 3D environments while optimizing heavy asset loads for mobile VR hardware.</p>
-                    
-                    <!-- Performance Benchmarks Section -->
-                    <div style="margin-top: 5rem;">
-                        <span class="rc-img-label" style="display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; color: rgba(255,255,255,0.3); margin-bottom: 1.5rem;">TECHNICAL PERFORMANCE BENCHMARKS</span>
-                        <div class="rc-snapshot__grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem;">
-                            <div class="card" style="padding: 2rem 1.5rem; border-top: 2px solid var(--color-accent); background: rgba(0,210,255,0.03);">
-                                <span style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-accent); margin-bottom: 0.75rem;">Frame Stability</span>
-                                <p style="font-size: 1.1rem; font-weight: 700; margin: 0;">72/90 FPS Rock-Solid</p>
-                                <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem;">Meta Quest 3 Standalone</p>
-                            </div>
-                            <div class="card" style="padding: 2rem 1.5rem; border-top: 2px solid var(--color-accent); background: rgba(0,210,255,0.03);">
-                                <span style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-accent); margin-bottom: 0.75rem;">Draw Call Efficiency</span>
-                                <p style="font-size: 1.1rem; font-weight: 700; margin: 0;">75% Reduction</p>
-                                <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem;">Static Batching &amp; Atlasing</p>
-                            </div>
-                            <div class="card" style="padding: 2rem 1.5rem; border-top: 2px solid var(--color-accent); background: rgba(0,210,255,0.03);">
-                                <span style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-accent); margin-bottom: 0.75rem;">AI Response Latency</span>
-                                <p style="font-size: 1.1rem; font-weight: 700; margin: 0;">&lt;2s Response</p>
-                                <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem;">WebSocket LLM Bridge</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="height: fit-content; padding: 2rem;">
-                    <h4 style="margin-bottom: 1rem;">Experience Pillars</h4>
-                    <ul class="bullet-list text-muted" style="font-size: 0.9rem;">
-                        <li>Modular Architecture</li>
-                        <li>Spatial Identity</li>
-                        <li>Conversational AI</li>
-                        <li>Comfort Design</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- ═══ HARD BENCHMARKS ═══ -->
+    <section class="cs-benchmarks">
+      <div class="container">
+        <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); display: block; text-align: center; margin-bottom: 3rem;">Technical Performance Benchmarks</span>
+        <div class="cs-bench-grid">
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">90 FPS</span>
+            <p class="cs-bench-card__title">Standalone Performance</p>
+            <p class="cs-bench-card__sub">Locked refresh rate on Quest 3 using custom URP light-culling and aggressive GPU state management.</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">50+</span>
+            <p class="cs-bench-card__title">Active Spatial Sources</p>
+            <p class="cs-bench-card__sub">Concurrent HRTF-spatialized audio sources with zero CPU spikes thanks to custom thread-dispatching.</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">&lt; 20ms</span>
+            <p class="cs-bench-card__title">A/V Sync Latency</p>
+            <p class="cs-bench-card__sub">Ultra-tight synchronization between audio frequency analysis and atmospheric lighting updates.</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- 02 Gameplay Loop / Experience Flow -->
-    <section class="section-padding">
-        <div class="container">
-            <h2 style="margin-bottom: 2rem;">02 Experience Flow</h2>
-            <div style="max-width: 800px;">
-                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">The interaction flow is structured around a central "Nexus" navigation layer.</p>
-                <div class="grid" style="grid-template-columns: 1fr; gap: 1rem;">
-                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
-                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">01</span>
-                        <p class="text-muted" style="margin: 0;"><strong>Nexus Engagement</strong>: The user selects a module via a spatially-anchored portal interface.</p>
-                    </div>
-                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
-                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">02</span>
-                        <p class="text-muted" style="margin: 0;"><strong>Module Ingestion</strong>: Asynchronous loading of module-specific shaders, lighting, and audio profiles.</p>
-                    </div>
-                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
-                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">03</span>
-                        <p class="text-muted" style="margin: 0;"><strong>Active Session</strong>: High-fidelity interaction loop tailored to the specific environment (Exploration vs AI Interaction).</p>
-                    </div>
-                </div>
-                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
-                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
-                </div>
-            </div>
+    <!-- ═══ 01 SYSTEM ARCHITECTURE ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">01 &nbsp;/&nbsp; System Architecture</span>
+        <h2>The Synesthesia Layer</h2>
+        <p style="color: var(--color-text-muted); max-width: 700px; font-size: 1rem; line-height: 1.75; margin-bottom: 4rem;">We developed a decoupled <strong>Audio-Visual Synesthesia Engine</strong> that bridges the gap between the audio DSP and the rendering pipeline. This ensures the environment 'breathes' with the narrative without impacting frame-timing.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem;">
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Frequency Analyzer</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Real-time FFT analysis of the spatialized audio stream to derive rhythmic and atmospheric data for the visual systems.</p>
+          </div>
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Volumetric Mixer</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Lightweight volumetric fog and light-beam shaders that modulate opacity and color based on the frequency data.</p>
+          </div>
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Retopo Pipeline</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Semi-automated workflow for transforming high-poly photogrammetry scans into mobile-performant VR assets.</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- 03 System Architecture -->
-    <section class="section-padding" style="background-color: #0c0c0c;">
-        <div class="container">
-            <h2 style="margin-bottom: 2rem;">03 System Architecture</h2>
-            <div style="max-width: 800px;">
-                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2.5rem;">A multi-layered system managing module state and AI orchestration.</p>
-                <div class="card" style="padding: 3rem; margin-bottom: 2.5rem; text-align: center;">
-                    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; font-weight: 700; color: var(--color-accent); font-family: monospace; font-size: 1.1rem;">
-                        <div>Modular Shell Layer (Nexus)</div>
-                        <div style="color: var(--text-muted);">↓</div>
-                        <div>Module Registry & State Controller</div>
-                        <div style="color: var(--text-muted);">↓</div>
-                        <div>AI Orchestration Layer (LLM Bridge)</div>
-                    </div>
-                </div>
-                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
-                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
-                </div>
+    <!-- ═══ 02 CHALLENGES & SOLUTIONS ═══ -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <span class="cs-section-num">02 &nbsp;/&nbsp; Challenges &amp; Solutions</span>
+        <h2>Engineering Presence in VR</h2>
+
+        <!-- Challenge 1 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">01</span>
+            <h3>Spatial Audio Performance Overhead</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>CPU Spikes with High HRTF Count</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Using high-quality HRTF (Head-Related Transfer Function) spatialization for 30+ simultaneous audio sources on a mobile SoC often led to critical CPU bottlenecks.</p>
             </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Adaptive Audio Culling &amp; Thread Dispatching</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">We implemented a distance-based audio culling system and offloaded the spatialization calculations to the hardware-accelerated DSP cores where available, freeing up the main CPU for logic.</p>
+            </div>
+          </div>
         </div>
+
+        <!-- Challenge 2 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">02</span>
+            <h3>Preserving Immersion During Loads</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Frame Drops and GC Hitches</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">In meditation, even a 1-frame hitch is enough to break 'Presence.' Background asset loading and garbage collection (GC) were causing micro-stutters during atmospheric shifts.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Incremental GC &amp; Asset Warm-Loading</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">We enforced a strict zero-allocation runtime policy and moved to incremental garbage collection. All environment transitions are 'warm-loaded' into memory before the transition begins.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 04 Technical Challenges -->
-    <section class="section-padding">
-        <div class="container">
-            <h2 style="margin-bottom: 3rem;">04 Technical Challenges</h2>
-            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
-                <div class="card" style="padding: 2rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">State Persistence</h4>
-                    <p class="text-muted" style="font-size: 0.95rem;">Maintaining user progress and AI conversation history during module swaps.</p>
-                </div>
-                <div class="card" style="padding: 2rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">Asset Pipelining</h4>
-                    <p class="text-muted" style="font-size: 0.95rem;">Optimizing three distinct world-sets to fit within the Quest 3 memory overhead simultaneously.</p>
-                </div>
-                <div class="card" style="padding: 2rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">Conversational AI</h4>
-                    <p class="text-muted" style="font-size: 0.95rem;">Reducing the bridge latency between user speech and AI responses in VR.</p>
-                </div>
+    <!-- ═══ 03 TAKEAWAYS ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">03 &nbsp;/&nbsp; Engineering Takeaways</span>
+        <h2>Validation &amp; Results</h2>
+        
+        <div style="margin-top: 3rem;">
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">1</span>
+            <div>
+              <h4>Multisensory Sync Drives Presence</h4>
+              <p>The synchronization of sight and sound is the most powerful tool for creating VR presence. When the environment breathes with the audio, the user's brain accepts the virtual space as 'real'.</p>
             </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">2</span>
+            <div>
+              <h4>Audio-First Optimization for VR</h4>
+              <p>In simulation, high-quality spatial audio often provides a greater 'presence' ROI than high-fidelity visuals. We prioritized audio CPU headroom over heavy post-processing.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">3</span>
+            <div>
+              <h4>Photogrammetry Requires Manual Polish</h4>
+              <p>While scans provide realism, they are inherently un-performant. A dedicated retopology and UV-optimization pipeline is mandatory for production-ready mobile XR assets.</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- 05 Technical Solutions -->
-    <section class="section-padding" style="background-color: #0c0c0c;">
-        <div class="container">
-            <h2 style="margin-bottom: 2rem;">05 Technical Solutions</h2>
-            <div style="max-width: 800px;">
-                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">We developed an <strong>Asynchronous Scene Loader</strong> that utilizes pre-warmed shader caches to prevent frame-drops during environment transitions.</p>
-                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">The AI Real Estate interaction was handled via a <strong>WebSocket-based LLM Bridge</strong>, providing near-real-time feedback for conversational property tours.</p>
-                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
-                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
-                </div>
-            </div>
+    <!-- ═══ CTA ═══ -->
+    <section class="cs-cta">
+      <div class="container">
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem;">Ready to Build at This Level?</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">DualCore specializes in high-presence VR and XR simulation. If your project demands technical excellence in immersion—let's talk.</p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center;">
+          <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700;">Start a Project</a>
+          <a href="../overview/index.html" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">← View Overview</a>
         </div>
+      </div>
     </section>
 
-    <!-- 06 Systems Architecture -->
-    <section class="section-padding">
-        <div class="container">
-            <h2 style="margin-bottom: 2rem;">06 Systems Architecture</h2>
-            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 4rem;">
-                <div class="card" style="padding: 2.5rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1rem;">Module Orchestration</h4>
-                    <p class="text-muted" style="font-size: 0.95rem; margin: 0;">Centralized manager that handles cross-module asset loading and memory garbage collection.</p>
-                </div>
-                <div class="card" style="padding: 2.5rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1rem;">Comfort Transition Engine</h4>
-                    <p class="text-muted" style="font-size: 0.95rem; margin: 0;">Custom system for progressive foveated rendering and fade-to-black transitions to maintain user comfort.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  </main>
 
-    <!-- 07 Key Engineering Takeaways -->
-    <section class="section-padding" style="background-color: #0c0c0c;">
-        <div class="container">
-            <h2 style="margin-bottom: 4rem;">07 Key Engineering Takeaways</h2>
-            <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
-                <div>
-                    <ul class="bullet-list text-muted" style="font-size: 1.1rem;">
-                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">Modular Shells:</strong> Building platforms as shells with swappable modules allows for endless horizontal experience scaling.</li>
-                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">Async loading is King:</strong> For VR, never let asset loading block the main render thread; comfort depends on framerate consistency.</li>
-                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">LLM in VR:</strong> Conversational AI provides a high-value utility layer that increases session time exponentially.</li>
-                    </ul>
-                </div>
-                <div class="card" style="height: fit-content; padding: 2rem;">
-                    <h4 style="margin-bottom: 1.5rem;">Outcomes</h4>
-                    <ul class="bullet-list text-muted" style="font-size: 0.9rem;">
-                        <li>Commercially shipped product</li>
-                        <li>High session retention</li>
-                        <li>Scalable module system</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Standardized CTA -->
-    <section class="section-padding" style="background-color: #0c0c0c; border-top: 1px solid var(--color-border); text-align: center;">
-        <div class="container" style="max-width: 900px;">
-            <h2 style="margin-bottom: 1rem; font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em;">ENGINEERED FOR PERFORMANCE. DESIGNED FOR SCALE. BUILT FOR PRODUCTION.</h2>
-            <p class="text-muted" style="margin-bottom: 3rem; font-size: 1.1rem;">Performance-first systems. Production-ready pipelines.</p>
-            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1rem 2rem; font-weight: 700;">Start a Project</a>
-                <a href="../overview/index.html" class="btn btn-secondary" style="padding: 1rem 2rem; font-weight: 600; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">View Overview</a>
-            </div>
-        </div>
-    </section>
-</main>
   <footer>
     <div class="container">
       <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
@@ -287,8 +488,7 @@
         <div class="footer-col">
           <h4>Connect</h4>
           <ul class="footer-links social-links">
-            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a>
-            </li>
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a></li>
             <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
             <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
           </ul>

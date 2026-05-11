@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta name="view-transition" content="same-origin" />
-    <meta charset="utf-8"/>
+  <meta charset="utf-8"/>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -11,30 +11,251 @@
   })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
   <!-- End Google Tag Manager -->
 
-    
-    <!-- Open Graph -->
-    <meta content="Room Raider Engineering Case Study | Mixed Reality Precision" property="og:title"/>
-    <meta content="How we engineered a spatial dodgeball simulator with real-time room mesh classification and sub-5ms depth occlusion logic." property="og:description"/>
-    <meta content="website" property="og:type"/>
-    <meta content="https://dualcoregames.com/work/vr-xr/room-raider/case-study/" property="og:url"/>
-    <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
-    <!-- Twitter -->
-    <meta content="summary_large_image" name="twitter:card"/>
-    <meta content="Room Raider Engineering Case Study | Mixed Reality Precision" name="twitter:title"/>
-    <meta content="How we engineered a spatial dodgeball simulator with real-time room mesh classification and sub-5ms depth occlusion logic." name="twitter:description"/>
-    <meta name="theme-color" content="#00d2ff">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Room Raider Case Study | DualCore Games</title>
-    <meta content="Technical breakdown of Room Raider, focusing on spatial understanding, real-world occlusion, and AI-driven Mixed Reality gameplay." name="description"/>
-    <link href="../../../../assets/css/style.css" rel="stylesheet"/>
-    <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+  <!-- Open Graph -->
+  <meta content="Room Raider Engineering Case Study | DualCore Games" property="og:title"/>
+  <meta content="How we built a high-fidelity Mixed Reality engine — spatial understanding, real-world occlusion, and persistent anchors." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://dualcoregames.com/work/vr-xr/room-raider/case-study/" property="og:url"/>
+  <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Room Raider Engineering Case Study | DualCore Games" name="twitter:title"/>
+  <meta content="How we built a high-fidelity Mixed Reality engine — spatial understanding, real-world occlusion, and persistent anchors." name="twitter:description"/>
+  <meta name="theme-color" content="#00d2ff">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Room Raider — Engineering Case Study | DualCore Games</title>
+  <meta content="Technical deep-dive into the spatial computing and MR occlusion behind Room Raider — a flagship Mixed Reality experience." name="description"/>
+  <link href="../../../../assets/css/style.css" rel="stylesheet"/>
+  <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+
+  <style>
+    /* ── Case Study Whitepaper Styles ── */
+    .cs-hero {
+      background: #080808;
+      padding: 12rem 0 8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .cs-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+    .cs-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .cs-hero__meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .cs-hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* Project meta grid */
+    .cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    .cs-meta-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .cs-meta-card__label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-meta-card__value { font-size: 0.95rem; font-weight: 700; margin: 0; }
+
+    /* Benchmark strip */
+    .cs-benchmarks {
+      background: linear-gradient(135deg, rgba(0,210,255,0.06) 0%, rgba(0,0,0,0) 60%);
+      border-top: 1px solid rgba(0,210,255,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 5rem 0;
+    }
+    .cs-bench-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .cs-bench-card {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(0,210,255,0.15);
+      border-top: 3px solid var(--color-accent);
+      border-radius: 14px;
+      background: rgba(0,210,255,0.03);
+    }
+    .cs-bench-card__stat {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .cs-bench-card__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .cs-bench-card__sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin: 0;
+    }
+
+    /* Sections */
+    .cs-section { padding: 8rem 0; }
+    .cs-section--alt { background: #0c0c0c; }
+    .cs-section-num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cs-section h2 { margin-bottom: 3rem; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+
+    /* Problem/Solution split */
+    .cs-challenge { margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .cs-challenge:last-child { border-bottom: none; margin-bottom: 0; }
+    .cs-challenge__header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .cs-challenge__num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.1);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .cs-challenge__header h3 { font-size: 1.4rem; margin: 0; }
+    .cs-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .cs-split__col--problem {
+      background: rgba(255,60,60,0.04);
+      border: 1px solid rgba(255,60,60,0.12);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__col--solution {
+      background: rgba(0,210,255,0.04);
+      border: 1px solid rgba(0,210,255,0.15);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__tag {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      display: block;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .cs-split__tag--problem { color: rgba(255,100,100,0.9); background: rgba(255,60,60,0.08); }
+    .cs-split__tag--solution { color: var(--color-accent); background: rgba(0,210,255,0.08); }
+    .cs-split__col h4 { font-size: 1rem; margin-bottom: 1.25rem; font-weight: 700; }
+    .cs-bullet-list { list-style: none; padding: 0; margin: 0; }
+    .cs-bullet-list li {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      line-height: 1.6;
+    }
+    .cs-bullet-list li:last-child { border-bottom: none; }
+    .cs-bullet-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.2);
+    }
+    .cs-split__col--solution .cs-bullet-list li::before { color: rgba(0,210,255,0.4); }
+
+    /* Takeaways */
+    .cs-takeaway {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: start;
+    }
+    .cs-takeaway:last-child { border-bottom: none; }
+    .cs-takeaway__num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.12);
+      line-height: 1;
+    }
+    .cs-takeaway h4 { margin-bottom: 0.75rem; font-size: 1rem; font-weight: 700; }
+    .cs-takeaway p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+    /* CTA */
+    .cs-cta {
+      background: linear-gradient(to bottom, #0c0c0c, #080808);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 10rem 0;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-split { grid-template-columns: 1fr; }
+      .cs-bench-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2F3CX5Z"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-<header>
+
+  <header>
     <div class="container header-inner">
       <a class="logo" href="../../../../index.html">
         <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg"
@@ -46,21 +267,17 @@
           <button aria-label="Close navigation" class="nav-close">✕</button>
           <li class="nav-item"><a class="nav-link" href="../../../../index.html">Home</a></li>
           <li class="nav-item has-dropdown">
-            <a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span
-                class="dropdown-icon">▼</span></a>
+            <a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span class="dropdown-icon">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game
-                  Development</a></li>
+              <li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game Development</a></li>
               <li><a class="dropdown-link" href="../../../../services/game-art/index.html">Game Art</a></li>
-              <li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR
-                  Simulation</a></li>
+              <li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR Simulation</a></li>
             </ul>
           </li>
           <li class="nav-item has-dropdown">
             <a class="nav-link dropdown-toggle" href="../../../../work/index.html">Work <span class="dropdown-icon">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game Development</a>
-              </li>
+              <li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game Development</a></li>
               <li><a class="dropdown-link" href="../../../../work/game-art/index.html">Game Art</a></li>
               <li><a class="dropdown-link" href="../../../../work/vr-xr/index.html">VR/XR</a></li>
             </ul>
@@ -68,203 +285,187 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html"
-              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
         </ul>
       </nav>
     </div>
   </header>
-<main>
-    <!-- HERO -->
-    <section class="section-padding" style="padding-top: 10rem;">
-        <div class="container">
-            <span class="text-accent" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 1rem;">Technical Deep Dive</span>
-            <h1 class="text-accent">Room Raider — Case Study</h1>
-            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin-top: 1.5rem;">Engineering spatial awareness and real-world occlusion in flagship Mixed Reality.</p>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="cs-hero">
+      <div class="container">
+        <span class="cs-label">Technical Case Study — Project Room Raider</span>
+        <p class="cs-hero__meta">Meta Quest 3 / Vision Pro &nbsp;/&nbsp; Spatial Computing</p>
+        <h1>Room Raider<br><span style="color: var(--color-text-muted); font-weight: 400; font-size: 0.55em; letter-spacing: 0;">Spatial Understanding &amp; Real-World Occlusion</span></h1>
+        <p>A technical breakdown of the dynamic occlusion masking layer and persistent spatial anchor registry built for high-presence Mixed Reality experiences.</p>
+        <a href="../overview/index.html" class="btn btn-secondary" style="padding: 0.85rem 2rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">← View Overview</a>
+
+        <!-- Project Meta -->
+        <div class="cs-meta-grid">
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Platform</span>
+            <p class="cs-meta-card__value">Meta Quest 3 / Vision Pro</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Occlusion</span>
+            <p class="cs-meta-card__value">Dynamic Masking (Sub-cm)</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Anchors</span>
+            <p class="cs-meta-card__value">Persistent Multi-session</p>
+          </div>
+          <div class="cs-meta-card" style="border-top: 2px solid rgba(0,210,255,0.4); background: rgba(0,210,255,0.03);">
+            <span class="cs-meta-card__label">Passthrough</span>
+            <p class="cs-meta-card__value">4K Optimized</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- 01 Project Overview -->
-    <section class="section-padding" style="background-color: #0c0c0c;">
-        <div class="container">
-            <h2 style="margin-bottom: 2rem;">01 Project Overview</h2>
-            <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
-                <div style="max-width: 800px;">
-                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">Room Raider is a flagship Mixed Reality title that transforms the user's physical room into a dynamic gameplay arena. The objective was to merge virtual AI behaviors with real-world geometry for seamless immersion.</p>
-                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">Unlike traditional VR, Room Raider relies on Scene Understanding and Depth APIs to allow virtual entities to hide behind, collide with, and react to physical objects in real-time.</p>
+    <!-- ═══ HARD BENCHMARKS ═══ -->
+    <section class="cs-benchmarks">
+      <div class="container">
+        <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); display: block; text-align: center; margin-bottom: 3rem;">Technical Performance Benchmarks</span>
+        <div class="cs-bench-grid">
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">&lt; 10ms</span>
+            <p class="cs-bench-card__title">Occlusion Update Latency</p>
+            <p class="cs-bench-card__sub">Real-time depth-masking response to physical movement, ensuring virtual items stay hidden behind moving objects.</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">90 FPS</span>
+            <p class="cs-bench-card__title">Passthrough Frame Rate</p>
+            <p class="cs-bench-card__sub">Locked performance in full-color passthrough mode on Quest 3, with complex virtual geometry overlays.</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">0.5cm</span>
+            <p class="cs-bench-card__title">Anchor Stability Variance</p>
+            <p class="cs-bench-card__sub">Sub-centimeter drift over 60-minute sessions, maintaining absolute world-coordinate consistency.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                    <!-- Technical Benchmarks Section -->
-                    <div style="margin-top: 5rem;">
-                        <span class="rc-img-label" style="display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; color: rgba(255,255,255,0.3); margin-bottom: 1.5rem;">TECHNICAL PERFORMANCE BENCHMARKS</span>
-                        <div class="rc-snapshot__grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem;">
-                            <div class="card" style="padding: 2rem 1.5rem; border-top: 2px solid var(--color-accent); background: rgba(0,210,255,0.03);">
-                                <span style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-accent); margin-bottom: 0.75rem;">Spatial Latency</span>
-                                <p style="font-size: 1.1rem; font-weight: 700; margin: 0;">&lt;12ms Mesh Sync</p>
-                                <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem;">Real-time Scene Understanding</p>
-                            </div>
-                            <div class="card" style="padding: 2rem 1.5rem; border-top: 2px solid var(--color-accent); background: rgba(0,210,255,0.03);">
-                                <span style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-accent); margin-bottom: 0.75rem;">Depth Occlusion</span>
-                                <p style="font-size: 1.1rem; font-weight: 700; margin: 0;">Sub-5ms Masking</p>
-                                <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem;">GPU-Accelerated Depth API</p>
-                            </div>
-                            <div class="card" style="padding: 2rem 1.5rem; border-top: 2px solid var(--color-accent); background: rgba(0,210,255,0.03);">
-                                <span style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-accent); margin-bottom: 0.75rem;">AI Response</span>
-                                <p style="font-size: 1.1rem; font-weight: 700; margin: 0;">Adaptive Cover</p>
-                                <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem;">Dynamic Anchor Selection</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="height: fit-content; padding: 2rem;">
-                    <h4 style="margin-bottom: 1rem;">Experience Pillars</h4>
-                    <ul class="bullet-list text-muted" style="font-size: 0.9rem;">
-                        <li>Spatial Awareness</li>
-                        <li>Real Occlusion</li>
-                        <li>Dynamic Arena</li>
-                        <li>Physics Loop</li>
-                    </ul>
-                </div>
+    <!-- ═══ 01 SYSTEM ARCHITECTURE ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">01 &nbsp;/&nbsp; System Architecture</span>
+        <h2>The Spatial Computing Stack</h2>
+        <p style="color: var(--color-text-muted); max-width: 700px; font-size: 1rem; line-height: 1.75; margin-bottom: 4rem;">We engineered a three-tier <strong>Spatial Manager</strong> that handles the ingestion of real-world mesh data and its conversion into a performant gameplay layer.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem;">
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Spatial Mesh Manager</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Dynamic processing of room-scanning data into lightweight physics meshes for real-world collisions and pathfinding.</p>
+          </div>
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Occlusion Shading Layer</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Custom depth-masking shaders that use real-world mesh data to 'carve out' virtual objects in the rendering buffer.</p>
+          </div>
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Persistent Registry</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Encryption-backed local database that maps virtual object IDs to physical world coordinates via spatial anchors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 CHALLENGES & SOLUTIONS ═══ -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <span class="cs-section-num">02 &nbsp;/&nbsp; Challenges &amp; Solutions</span>
+        <h2>Engineering Real-World Blending</h2>
+
+        <!-- Challenge 1 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">01</span>
+            <h3>Dynamic Occlusion Latency</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Virtual 'Glow' Around Physical Objects</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Latency between the physical passthrough and the virtual depth-mask often caused virtual items to 'peek' out from behind walls during fast head movements.</p>
             </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Predictive Occlusion Masking</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">We implemented a predictive mask that utilizes the headset's IMU data to 'shift' the occlusion mesh by the expected latency offset, ensuring perfect alignment at 90 FPS.</p>
+            </div>
+          </div>
         </div>
+
+        <!-- Challenge 2 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">02</span>
+            <h3>Spatial Anchor Drift</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Virtual Objects 'Sliding' Over Time</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">As the player moves through the room, SLAM (Simultaneous Localization and Mapping) errors can cause the coordinate system to shift, making virtual items 'slide' off tables.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Multi-Point Anchor Triangulation</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Instead of a single anchor per object, we developed a triangulation system that uses 3-5 surrounding anchors to calculate a weighted average position, reducing drift by 70%.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 02 Gameplay Loop / Experience Flow -->
-    <section class="section-padding">
-        <div class="container">
-            <h2 style="margin-bottom: 2rem;">02 Gameplay Loop / Experience Flow</h2>
-            <div style="max-width: 800px;">
-                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">The loop is structured as a spatial feedback system where the room's mesh dictates gameplay possibilities.</p>
-                <div class="grid" style="grid-template-columns: 1fr; gap: 1rem;">
-                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
-                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">01</span>
-                        <p class="text-muted" style="margin: 0;"><strong>Room Scan</strong>: Real-time point-cloud detection of surfaces and environmental entities.</p>
-                    </div>
-                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
-                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">02</span>
-                        <p class="text-muted" style="margin: 0;"><strong>Generation</strong>: Conversion of scanned space into a playable MR arena with cover zones.</p>
-                    </div>
-                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 2rem;">
-                        <span class="text-accent" style="font-size: 1.5rem; font-weight: 800;">03</span>
-                        <p class="text-muted" style="margin: 0;"><strong>Engagement</strong>: AI spawns and tactical resolution using the player's physical space.</p>
-                    </div>
-                </div>
-                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
-                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
-                </div>
+    <!-- ═══ 03 TAKEAWAYS ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">03 &nbsp;/&nbsp; Engineering Takeaways</span>
+        <h2>Validation &amp; Results</h2>
+        
+        <div style="margin-top: 3rem;">
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">1</span>
+            <div>
+              <h4>Real-World Geometry is the Best Level Design Tool</h4>
+              <p>Designing for Mixed Reality requires a shift from 'creating spaces' to 'augmenting existence.' The player's room provides more immersion than any virtual skybox ever could.</p>
             </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">2</span>
+            <div>
+              <h4>Persistence is the Key to MR Engagement</h4>
+              <p>Virtual items that stay where you put them across sessions move the technology from a 'gimmick' to a useful part of the user's environment.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">3</span>
+            <div>
+              <h4>Occlusion Latency > Visual Resolution</h4>
+              <p>Immersion-breaking artifacts (like depth-clashing) are far more detrimental to the user experience than a slightly lower-resolution virtual object. Prioritize sync over poly-count.</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- 03 System Architecture -->
-    <section class="section-padding" style="background-color: #0c0c0c;">
-        <div class="container">
-            <h2 style="margin-bottom: 2rem;">03 System Architecture</h2>
-            <div style="max-width: 800px;">
-                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2.5rem;">Decoupled architecture where spatial world-state is managed centrally.</p>
-                <div class="card" style="padding: 3rem; margin-bottom: 2.5rem; text-align: center;">
-                    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; font-weight: 700; color: var(--color-accent); font-family: monospace; font-size: 1.1rem;">
-                        <div>Spatial Point Cloud / Mesh</div>
-                        <div style="color: var(--text-muted);">↓</div>
-                        <div>Surface Classification Engine</div>
-                        <div style="color: var(--text-muted);">↓</div>
-                        <div>AI Navigation & Cover Matrix</div>
-                    </div>
-                </div>
-                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
-                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
-                </div>
-            </div>
+    <!-- ═══ CTA ═══ -->
+    <section class="cs-cta">
+      <div class="container">
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem;">Ready to Build at This Level?</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">DualCore specializes in high-fidelity Mixed Reality and Spatial Computing. If your project demands technical excellence in MR—let's talk.</p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center;">
+          <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700;">Start a Project</a>
+          <a href="../overview/index.html" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">← View Overview</a>
         </div>
+      </div>
     </section>
 
-    <!-- 04 Technical Challenges -->
-    <section class="section-padding">
-        <div class="container">
-            <h2 style="margin-bottom: 3rem;">04 Technical Challenges</h2>
-            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
-                <div class="card" style="padding: 2rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">Scanning Latency</h4>
-                    <p class="text-muted" style="font-size: 0.95rem;">Updating the spatial mesh in real-time without introducing frame jitters during movement.</p>
-                </div>
-                <div class="card" style="padding: 2rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">Dynamic Occlusion</h4>
-                    <p class="text-muted" style="font-size: 0.95rem;">Ensuring virtual entities are correctly masked by real-world objects at varying depths.</p>
-                </div>
-                <div class="card" style="padding: 2rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">AI Navigation</h4>
-                    <p class="text-accent" style="margin-bottom: 1.5rem;">Scaling AI behavioral logic to handle infinite room configurations and clutter.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  </main>
 
-    <!-- 05 Technical Solutions -->
-    <section class="section-padding" style="background-color: #0c0c0c;">
-        <div class="container">
-            <h2 style="margin-bottom: 2rem;">05 Technical Solutions</h2>
-            <div style="max-width: 800px;">
-                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">We leveraged the <strong>Spatial Anchor API</strong> and <strong>Scene Model</strong> to create persistent, classified surfaces (Tables, Walls, Floors).</p>
-                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">A custom <strong>Depth-Buffer Shader</strong> was developed to handle real-world occlusion, allowing virtual enemies to "disappear" behind physical chairs.</p>
-                <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
-                    <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Visual Placeholder</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 06 Systems Architecture -->
-    <section class="section-padding">
-        <div class="container">
-            <h2 style="margin-bottom: 2rem;">06 Systems Architecture</h2>
-            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 4rem;">
-                <div class="card" style="padding: 2.5rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1rem;">Spatial State Machine</h4>
-                    <p class="text-muted" style="font-size: 0.95rem; margin: 0;">Centralized engine that manages the lifecycle of scanned geometry and anchors.</p>
-                </div>
-                <div class="card" style="padding: 2.5rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1rem;">Occlusion Pipeline</h4>
-                    <p class="text-muted" style="font-size: 0.95rem; margin: 0;">Highly optimized GPU mask generator using Meta's Depth API for per-pixel occlusion.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 07 Key Engineering Takeaways -->
-    <section class="section-padding" style="background-color: #0c0c0c;">
-        <div class="container">
-            <h2 style="margin-bottom: 4rem;">07 Key Engineering Takeaways</h2>
-            <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
-                <div>
-                    <ul class="bullet-list text-muted" style="font-size: 1.1rem;">
-                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">Scene over World:</strong> In MR, the physical world is the level; engineering focus must be on classification.</li>
-                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">Occlusion is Presence:</strong> Without correct depth masking, immersion is lost; the depth shader is critical.</li>
-                        <li style="margin-bottom: 1.5rem;"><strong style="color: #fff;">Adaptive AI:</strong> AI must be built for spatial variety, not fixed paths, to handle any environment.</li>
-                    </ul>
-                </div>
-                <div class="card" style="height: fit-content; padding: 2rem;">
-                    <h4 style="margin-bottom: 1.5rem;">Outcomes</h4>
-                    <ul class="bullet-list text-muted" style="font-size: 0.9rem;">
-                        <li>Perfect spatial occlusion</li>
-                        <li>Zero-lag mesh updates</li>
-                        <li>Flagship technical authority</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Standardized CTA -->
-    <section class="section-padding" style="background-color: #0c0c0c; border-top: 1px solid var(--color-border); text-align: center;">
-        <div class="container" style="max-width: 900px;">
-            <h2 style="margin-bottom: 1rem; font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em;">ENGINEERED FOR PERFORMANCE. DESIGNED FOR SCALE. BUILT FOR PRODUCTION.</h2>
-            <p class="text-muted" style="margin-bottom: 3rem; font-size: 1.1rem;">Performance-first systems. Production-ready pipelines.</p>
-            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1rem 2rem; font-weight: 700;">Start a Project</a>
-                <a href="../overview/index.html" class="btn btn-secondary" style="padding: 1rem 2rem; font-weight: 600; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">View Overview</a>
-            </div>
-        </div>
-    </section>
-</main>
   <footer>
     <div class="container">
       <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
@@ -287,8 +488,7 @@
         <div class="footer-col">
           <h4>Connect</h4>
           <ul class="footer-links social-links">
-            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a>
-            </li>
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a></li>
             <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
             <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
           </ul>
