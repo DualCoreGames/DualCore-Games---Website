@@ -12,16 +12,16 @@
   <!-- End Google Tag Manager -->
 
   <!-- Open Graph -->
-  <meta content="Never Open The Door | Psychological Horror Experience | DualCore Games" property="og:title"/>
-  <meta content="A psychological horror experience engineered around environmental storytelling, controlled pacing, and narrative-driven system design." property="og:description"/>
+  <meta content="Never Open The Door | Psychological Horror Game | DualCore Games" property="og:title"/>
+  <meta content="A psychological horror experience engineered around environmental storytelling, controlled pacing, and narrative-driven system design. Build by DualCore Games." property="og:description"/>
   <meta content="website" property="og:type"/>
   <meta content="https://dualcoregames.com/work/game-development/never-open-the-door/overview/" property="og:url"/>
-  <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
+  <meta content="../assets/notd-screenshot-01.png" property="og:image"/>
   <!-- Twitter -->
   <meta content="summary_large_image" name="twitter:card"/>
-  <meta content="Never Open The Door | Psychological Horror Experience | DualCore Games" name="twitter:title"/>
-  <meta content="A psychological horror experience engineered around environmental storytelling, controlled pacing, and narrative-driven system design." name="twitter:description"/>
-  <meta name="theme-color" content="#00d2ff">
+  <meta content="Never Open The Door | Psychological Horror Game | DualCore Games" name="twitter:title"/>
+  <meta content="A psychological horror experience engineered around environmental storytelling, controlled pacing, and narrative-driven system design. Build by DualCore Games." name="twitter:description"/>
+  <meta name="theme-color" content="#8B2FC9">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Never Open The Door — Psychological Horror | DualCore Games</title>
   <meta content="Experience systemic psychological horror where narrative discovery directly influences environmental behavior. Built by DualCore Games." name="description"/>
@@ -35,15 +35,15 @@
     "@type": "VideoGame",
     "name": "Never Open The Door",
     "description": "A psychological horror experience engineered around environmental storytelling and narrative-triggered system design.",
-    "genre": ["Psychological Horror", "Systemic Horror"],
-    "gamePlatform": ["PC", "VR"],
+    "genre": ["Psychological Horror", "Systemic Horror", "First-Person Mystery"],
+    "gamePlatform": ["PC"],
     "applicationCategory": "Game",
     "author": {
       "@type": "Organization",
       "name": "DualCore Games",
       "url": "https://dualcoregames.com"
     },
-    "image": "https://dualcoregames.com/assets/images/social-preview.webp"
+    "image": "https://dualcoregames.com/work/game-development/never-open-the-door/assets/notd-screenshot-01.png"
   }
   </script>
 
@@ -51,28 +51,33 @@
     /* ── DualCore Signature Styles ── */
     .hero-cinematic {
       position: relative;
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
-      padding: 12rem 0 8rem;
+      padding: 8rem 0;
       background: #050505;
       overflow: hidden;
-    }
-    .hero-cinematic::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(0, 209, 255, 0.03) 0%, transparent 70%);
-      pointer-events: none;
     }
     .hero-cinematic__bg {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       object-fit: cover;
-      opacity: 0.2;
-      filter: grayscale(1) contrast(1.2);
+      opacity: 0.15;
+      filter: grayscale(0.2) contrast(1.1);
+      pointer-events: none;
     }
-    .hero-cinematic__content { position: relative; z-index: 10; }
+    .hero-cinematic::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(139, 47, 201, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-cinematic__content { 
+      position: relative; 
+      z-index: 10;
+      text-align: left;
+    }
     
     .breadcrumbs {
       display: flex;
@@ -93,21 +98,22 @@
       font-weight: 800;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--color-accent);
-      border: 1px solid rgba(0,210,255,0.2);
+      color: #8B2FC9;
+      border: 1px solid rgba(139,47,201,0.2);
       padding: 0.4rem 1.2rem;
       border-radius: 100px;
-      background: rgba(0,210,255,0.04);
+      background: rgba(139,47,201,0.04);
       margin-bottom: 2rem;
     }
 
     .hero-title {
-      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-size: clamp(3rem, 7vw, 5.5rem);
       font-weight: 900;
       line-height: 0.95;
       letter-spacing: -0.04em;
       margin-bottom: 2rem;
       color: #fff;
+      text-align: left !important; /* Force left alignment */
     }
 
     /* Cards & Interactivity */
@@ -127,6 +133,7 @@
     .feature-card:hover {
       transform: scale(1.03); /* Signature Hover */
       background: rgba(0,210,255,0.04);
+      box-shadow: 0 0 20px rgba(0, 209, 255, 0.05);
     }
     .feature-card__num {
       font-size: 0.65rem;
@@ -140,45 +147,141 @@
     .feature-card p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
 
     /* Narrative Sections */
-    .narrative-section { padding: 10rem 0; position: relative; }
-    .narrative-section--alt { background: #080808; }
+    .narrative-section { padding: 8rem 0; position: relative; }
+    .narrative-section--alt { background: #080808; border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03); }
     .narrative-grid {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
       gap: 6rem;
       align-items: center;
     }
-    .narrative-content h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 2rem; letter-spacing: -0.02em; }
-    .narrative-content p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-muted); margin-bottom: 2rem; }
+    .narrative-content h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
     
-    .image-frame {
-      position: relative;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      overflow: hidden;
-      aspect-ratio: 16/10;
+    /* Core Loop Pipeline Diagram */
+    .pipeline-wrapper {
+      margin-top: 4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    .image-frame img { width: 100%; height: 100%; object-fit: cover; }
-    .image-frame__overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
-    }
-
-    /* Lead Form Customization */
-    .alpha-form-container {
-      max-width: 650px;
-      margin: 0 auto;
+    .pipeline-step {
+      flex: 1;
+      min-width: 200px;
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.08);
-      border-top: 3px solid var(--color-accent);
-      padding: 4rem;
+      padding: 2.5rem 2rem;
+      position: relative;
+      border-radius: 8px;
+    }
+    .pipeline-step::after {
+      content: '→';
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-accent);
+      font-weight: 900;
+      z-index: 2;
+    }
+    .pipeline-step:last-child::after { content: none; }
+    .pipeline-step__title { font-size: 1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.1em; color: var(--color-accent); }
+    .pipeline-step__desc { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; }
+
+    /* Roster Grid / Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .gallery-card {
+      aspect-ratio: 16/9;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 3px solid #8B2FC9;
+      position: relative;
+      overflow: hidden;
       border-radius: 4px;
     }
+    .gallery-card img {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .gallery-card:hover img { transform: scale(1.05); }
+    
+    .gallery-large { grid-column: span 2; aspect-ratio: 21/9; }
 
-    @media (max-width: 1000px) {
-      .narrative-grid { grid-template-columns: 1fr; gap: 4rem; }
+    /* Single Form Funnel */
+    .funnel-section {
+      padding: 8rem 0;
+      background: linear-gradient(to bottom, #050505, #0a0a0a);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+    }
+    .beta-form {
+      max-width: 500px;
+      margin: 3rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .beta-form input {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem 1.5rem;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+    .beta-form input:focus { border-color: var(--color-accent); outline: none; }
+    .beta-form button {
+      background: var(--color-accent);
+      color: #000;
+      border: none;
+      padding: 1rem 2rem;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .beta-form button:hover { background: #fff; transform: translateY(-2px); }
+    .beta-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    
+    .form-success-message {
+        display: none;
+        background: rgba(0, 210, 255, 0.05);
+        border: 1px solid rgba(0, 210, 255, 0.2);
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+        text-align: center;
+        animation: fadeIn 0.5s ease forwards;
+    }
+    .form-success-message h4 { color: var(--color-accent); margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: 800; }
+    .form-success-message p { color: var(--color-text-muted); font-size: 0.9rem; margin: 0; line-height: 1.5; }
+
+    @media (max-width: 992px) {
+      .narrative-grid { grid-template-columns: 1fr; gap: 3rem; }
       .feature-grid { grid-template-columns: 1fr; }
+      .pipeline-step::after { content: '↓'; right: auto; left: 50%; bottom: -1rem; top: auto; transform: translateX(-50%); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-large { grid-column: span 1; aspect-ratio: 16/9; }
+    }
+    @media (max-width: 576px) {
+      .gallery-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -219,128 +322,230 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="#beta-form" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Join Early Access</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- ═══ CINEMATIC HERO ═══ -->
+    <!-- ═══ HERO ═══ -->
     <section class="hero-cinematic">
-      <img src="../../../../assets/images/placeholder.webp" class="hero-cinematic__bg" alt="Never Open The Door Environment">
+      <img src="../assets/notd-hero-bg.png" alt="Never Open The Door Environment" class="hero-cinematic__bg" />
       <div class="container hero-cinematic__content">
-        <nav class="breadcrumbs">
+        <div class="breadcrumbs">
           <a href="../../../../index.html">Home</a> <span>/</span> 
-          <a href="../../../index.html">Work</a> <span>/</span>
-          <a href="../../index.html">Game Development</a>
-        </nav>
-        <span class="hero-label">Atmospheric Psychological Horror</span>
-        <h1 class="hero-title">Never Open<br>The Door</h1>
-        <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 700px; margin-bottom: 3.5rem;">A psychological horror experience where narrative discovery is the primary catalyst for environmental transformation. Experience a world that reacts to what you know.</p>
-        
-        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
-          <a href="#alpha-form" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Join Private Alpha</a>
-          <a href="../case-study/index.html" class="btn btn-secondary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">Technical Case Study</a>
+          <a href="../../../index.html">Work</a> <span>/</span> 
+          Never Open The Door
         </div>
-
-        <!-- Experience Pillars -->
-        <div class="feature-grid">
-          <div class="feature-card">
-            <span class="feature-card__num">01</span>
-            <h3>Systemic Tension</h3>
-            <p>Pacing is dynamically managed by a "Terror Metric" that tracks player discovery and interaction speed.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-card__num">02</span>
-            <h3>Reactive Realities</h3>
-            <p>Environmental shifts and supernatural events are triggered by narrative state flags, not fixed timelines.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-card__num">03</span>
-            <h3>Emergent Horror</h3>
-            <p>A zero-script approach to scares, utilizing behavioral AI to create unique, unrepeatable atmospheric moments.</p>
-          </div>
+        <span class="hero-label">Flagship Project — PC Horror</span>
+        <h1 class="hero-title">Psychological descent<br>into a supernatural<br>nightmare.</h1>
+        <p style="font-size: 1.15rem; color: rgba(255,255,255,0.7); max-width: 650px; line-height: 1.7; margin-bottom: 2.5rem;">
+          A first-person psychological horror experience centered around environmental storytelling, slow-burn tension, and a narrative-driven mystery that blurs the boundary between reality and the supernatural.
+        </p>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <a href="#beta-form" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700;">Join Early Access</a>
+          <a href="../case-study/index.html" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">Read Tech Case Study</a>
         </div>
       </div>
     </section>
 
-    <!-- ═══ 01 PROJECT OVERVIEW ═══ -->
+    <!-- ═══ PROJECT STRIP ═══ -->
+    <section style="background: #080808; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Platform</span><strong style="font-size: 0.95rem;">PC (Windows)</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Engine</span><strong style="font-size: 0.95rem;">Unity (HDRP)</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Genre</span><strong style="font-size: 0.95rem;">Psychological Horror</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Perspective</span><strong style="font-size: 0.95rem;">First-Person</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Theme</span><strong style="font-size: 0.95rem;">Supernatural Mystery</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STORY & MYSTERY ═══ -->
     <section class="narrative-section">
       <div class="container">
         <div class="narrative-grid">
           <div class="narrative-content">
-            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">01 / Project Vision</span>
-            <h2>Truth is the Trigger</h2>
-            <p>In Never Open The Door, the horror isn't something that happens <em>to</em> you—it's something you invite through discovery. The core gameplay loop revolves around investigating a shifting, non-linear environment to uncover "Narrative Fragments."</p>
-            <p>Every piece of information collected updates a global State Machine. As your character's understanding of the truth deepens, the game engine physically distorts the world to match the narrative revelation. The more you know, the more dangerous the world becomes.</p>
+            <span style="color: var(--color-accent); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">The Premise</span>
+            <h2>A new home.<br>A tragic past.</h2>
+            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              You play as Sam, a man attempting to start fresh in an isolated mansion far away from civilization. Excited to prepare the house for his future wife Ayat, Sam begins to uncover the unsettling truth of the previous owner.
+            </p>
+            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+              Mysterious candles appear out of nowhere. Strange dolls materialize in empty rooms. As night falls, Sam discovers a hidden diary that reveals a terrifying history of ritual sacrifices and a cursed entity searching for its seventh soul.
+            </p>
+            <div style="padding-left: 1.5rem; border-left: 2px solid #8B2FC9;">
+              <p style="font-style: italic; color: #fff; font-size: 1.05rem; line-height: 1.6; margin: 0;">
+                "What initially feels like exploration slowly becomes a psychological descent into a cycle of unfinished rituals and trapped spirits."
+              </p>
+            </div>
           </div>
-          <div class="image-frame">
-            <img src="../../../../assets/images/placeholder.webp" alt="Environmental Distortion Preview">
-            <div class="image-frame__overlay"></div>
+          <div>
+            <img src="../assets/notd-screenshot-01.png" alt="Mansion Exploration" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ 02 SYSTEMIC DESIGN ═══ -->
+    <!-- ═══ CORE LOOP ═══ -->
     <section class="narrative-section narrative-section--alt">
       <div class="container">
-        <div class="narrative-grid">
-          <div class="image-frame" style="order: 2;">
-            <img src="../../../../assets/images/placeholder.webp" alt="State Controller Visualization">
-            <div class="image-frame__overlay"></div>
+        <div class="narrative-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h2>The Anatomy of Fear</h2>
+          <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">Never Open The Door abandons cheap jump scares in favor of a creeping, systemic dread. The environment itself acts as the primary antagonist, distorting and reacting as you uncover fragments of the cursed diary.</p>
+        </div>
+        
+        <div class="pipeline-wrapper">
+          <div class="pipeline-step">
+            <h3 class="pipeline-step__title">Explore</h3>
+            <p class="pipeline-step__desc">Navigate an isolated mansion, investigating rooms, hidden spaces, and environmental clues.</p>
           </div>
-          <div class="narrative-content" style="order: 1;">
-            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">02 / Engineering Pacing</span>
-            <h2>The Terror Metric</h2>
-            <p>Traditional horror games often rely on "Jump Scare" triggers placed on specific coordinates. We built a custom <strong>Pacing Controller</strong> that monitors player proximity, investigation rate, and input frequency to calculate a real-time stress value.</p>
-            <p>This "Terror Metric" determines the frequency and intensity of environmental cues, ensuring that the tension always matches the player's personal rhythm. It creates a personalized horror experience that is never too slow, nor too predictable.</p>
-            <ul class="bullet-list text-muted" style="font-size: 1rem; margin-top: 2rem;">
-              <li>Dynamic Audio Spatialization</li>
-              <li>Procedural Visual Distortions</li>
-              <li>Non-Linear Event Sequencing</li>
+          <div class="pipeline-step">
+            <h3 class="pipeline-step__title">Discover</h3>
+            <p class="pipeline-step__desc">Uncover diary entries revealing a tragic history of love, obsession, and occult rituals.</p>
+          </div>
+          <div class="pipeline-step">
+            <h3 class="pipeline-step__title">Trigger</h3>
+            <p class="pipeline-step__desc">Each discovery unlocks dynamic paranormal sequences that rewrite the mansion's reality.</p>
+          </div>
+          <div class="pipeline-step">
+            <h3 class="pipeline-step__title">Survive</h3>
+            <p class="pipeline-step__desc">Endure increasingly disturbing psychological encounters as the supernatural blurs with reality.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ATMOSPHERE ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid" style="grid-template-columns: 1.2fr 1fr;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <img src="../assets/notd-screenshot-02.png" alt="Mansion Hallway" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+            <img src="../assets/notd-screenshot-03.png" alt="Candlelit Ritual Room" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; margin-top: 2rem;" />
+          </div>
+          <div class="narrative-content">
+            <span style="color: var(--color-accent); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">Environmental Storytelling</span>
+            <h2>A house that watches, learns, and changes.</h2>
+            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+              The game relies heavily on creating fear through atmosphere and suspense. The visual presentation focuses on low-light environments, shadow-heavy composition, and sudden, eerie silence.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Layered Horror Feedback:</strong> Intense sound design, subtle environmental motion, and visual distortion create sustained tension.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Distorted Environments:</strong> The mansion's layout subtly alters, trapping you in a maze of psychological illusions.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Ritualistic Themes:</strong> Unsettling candle-lit hallways and supernatural dolls add to the psychological terror.</p>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ LEAD CAPTURE ═══ -->
-    <section class="narrative-section" id="alpha-form">
+    <!-- ═══ GAMEPLAY VIDEO ═══ -->
+    <section class="narrative-section narrative-section--alt">
       <div class="container">
-        <div class="alpha-form-container">
-          <div style="text-align: center; margin-bottom: 4rem;">
-            <span class="hero-label">Early Access</span>
-            <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem;">Join the Private Alpha</h2>
-            <p class="text-muted" style="max-width: 500px; margin: 0 auto;">We are currently selecting a small group of players for our first technical stress test. Enter the distortion and help us shape the future of systemic horror.</p>
-          </div>
-          
-          <form id="contactForm" class="contact-form">
-            <input type="hidden" name="project" value="Never Open the Door Private Alpha">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" required placeholder="Name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required placeholder="email@example.com">
-            </div>
-            <div class="form-group">
-              <label for="message">What draws you to systemic horror?</label>
-              <textarea id="message" name="message" required placeholder="Tell us about your favorite horror experiences..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; margin-top: 1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Submit Alpha Entry</button>
-            <div id="form-status" style="margin-top: 1.5rem; text-align: center; display: none;"></div>
-          </form>
-          
-          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); text-align: center; margin-top: 2rem;">
-            By submitting, you agree to our <a href="../../../../privacy-policy.html" style="color: var(--color-accent);">Privacy Policy</a>. Data is used solely for alpha coordination.
-          </p>
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 4rem;">
+          <span style="color: #8B2FC9; font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">Live Gameplay</span>
+          <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem;">Experience the Terror</h2>
+          <p class="text-muted" style="font-size: 1.05rem; line-height: 1.7;">Watch players react to the unpredictable, systemic horror of Never Open The Door.</p>
+        </div>
+        
+        <div style="max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.05); position: relative; padding-bottom: 56.25%; height: 0;">
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/GRXJ9MycbJI?si=qcdV03TRmaIksr_h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
     </section>
 
+    <!-- ═══ GAMEPLAY GALLERY ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+          <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem;">Mansion Environment</h2>
+          <p class="text-muted" style="font-size: 1.05rem; line-height: 1.7;">A psychological nightmare where every hallway, room, and shadow hides another disturbing truth.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-card gallery-large">
+            <img src="../assets/notd-screenshot-08.png" alt="Gameplay Screenshot 1" />
+          </div>
+          <div class="gallery-card">
+            <img src="../assets/notd-screenshot-09.png" alt="Gameplay Screenshot 2" />
+          </div>
+          <div class="gallery-card">
+            <img src="../assets/notd-screenshot-10.png" alt="Gameplay Screenshot 3" />
+          </div>
+          <div class="gallery-card">
+            <img src="../assets/notd-screenshot-11.png" alt="Gameplay Screenshot 4" />
+          </div>
+          <div class="gallery-card">
+            <img src="../assets/notd-screenshot-12.png" alt="Gameplay Screenshot 5" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURES GRID ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+          <span style="color: #00D1FF; font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">Under The Hood</span>
+          <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; margin-bottom: 1.5rem;">Core Technical Systems</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-card__num">01</span>
+            <h3>Event-Driven Narrative</h3>
+            <p>Diary entries act as narrative triggers, ensuring environmental changes occur only after the player has discovered key story elements, maintaining optimal pacing.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">02</span>
+            <h3>Dynamic State Controller</h3>
+            <p>A centralized state system controls objects, lighting, and audio layers, allowing the house to gradually shift and reinforce the feeling of a living supernatural presence.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">03</span>
+            <h3>Controlled Encounters</h3>
+            <p>Supernatural events are triggered through carefully timed sequences tied to exploration progress, making paranormal encounters feel unpredictable rather than scripted.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FUNNEL ═══ -->
+    <section class="funnel-section" id="interest-form">
+      <div class="container">
+        <span style="color: var(--color-accent); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">Early Access Waitlist</span>
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem;">Experience the Nightmare</h2>
+        <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; max-width: 600px; margin: 0 auto 2rem;">Register for the exclusive Private Beta. The first wave of keys will be distributed to our community members directly.</p>
+        
+        <form class="beta-form" id="notd-form">
+          <input type="hidden" name="project" value="Never Open The Door — Early Access" />
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <input type="text" name="company" placeholder="Studio/Company (Optional)" />
+          <button type="submit" id="submit-btn">Join Private Beta</button>
+        </form>
+
+        <div id="success-message" class="form-success-message">
+          <h4>Access Requested</h4>
+          <p>Your request for the Never Open The Door beta has been received. Our team will review your application and send instructions shortly.</p>
+        </div>
+
+        <p style="margin-top: 3rem; font-size: 0.9rem; color: rgba(255,255,255,0.4);">
+          Are you a developer? <a href="../case-study/index.html" style="color: var(--color-accent); text-decoration: none;">Read the technical case study</a>.
+        </p>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -379,58 +584,32 @@
   </footer>
 
   <script>
-    // ── AJAX Form Submission Handler ──
-    const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('form-status');
+    document.getElementById('notd-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const form = this;
+      const btn = document.getElementById('submit-btn');
+      const successMsg = document.getElementById('success-message');
+      const formData = new FormData(form);
+      const url = "https://script.google.com/macros/s/AKfycbzL5nJtQ82vK991xXXi8r0Bf3d6YJ_Y_mO5o_Z7XQ0t6A4/exec";
 
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerText;
-        
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'Submitting...';
-        
-        const formData = new FormData(contactForm);
-        
-        try {
-          // Standardized DualCore Lead Capture Hook
-          const response = await fetch('https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec', {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors' // Google Script requires no-cors for simple redirection
-          });
+      btn.disabled = true;
+      btn.innerText = 'Sending...';
 
-          // Since no-cors doesn't return readable status, we assume success if no error is thrown
-          formStatus.style.display = 'block';
-          formStatus.style.color = '#00d1ff';
-          formStatus.innerHTML = '<strong>Submission Received.</strong> Welcome to the distortion.';
-          contactForm.reset();
-          submitBtn.innerText = 'Submitted';
-          
-        } catch (error) {
-          formStatus.style.display = 'block';
-          formStatus.style.color = '#ff3c3c';
-          formStatus.innerText = 'Transmission failed. Please try again.';
-          submitBtn.disabled = false;
-          submitBtn.innerText = originalBtnText;
-        }
+      fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      }).then(() => {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      }).catch(err => {
+        console.error('Submission failed', err);
+        btn.disabled = false;
+        btn.innerText = 'Join Private Beta';
+        alert('There was an error submitting your request. Please try again later.');
       });
-    }
-
-    // Nav Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const navClose = document.querySelector('.nav-close');
-
-    if (navToggle && navMenu) {
-      navToggle.addEventListener('click', () => navMenu.classList.add('active'));
-    }
-    if (navClose && navMenu) {
-      navClose.addEventListener('click', () => navMenu.classList.remove('active'));
-    }
+    });
   </script>
 </body>
 </html>

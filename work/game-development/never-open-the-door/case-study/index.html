@@ -13,18 +13,18 @@
 
   <!-- Open Graph -->
   <meta content="Never Open The Door Engineering Case Study | DualCore Games" property="og:title"/>
-  <meta content="How we built a systemic psychological horror engine — bitwise state evaluation, terror metric pacing, and zero-allocation environmental shifts." property="og:description"/>
+  <meta content="Technical breakdown of a modular event-driven architecture where narrative triggers control environmental behavior and systemic psychological tension." property="og:description"/>
   <meta content="website" property="og:type"/>
   <meta content="https://dualcoregames.com/work/game-development/never-open-the-door/case-study/" property="og:url"/>
   <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
   <!-- Twitter -->
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="Never Open The Door Engineering Case Study | DualCore Games" name="twitter:title"/>
-  <meta content="How we built a systemic psychological horror engine — bitwise state evaluation, terror metric pacing, and zero-allocation environmental shifts." name="twitter:description"/>
-  <meta name="theme-color" content="#00d2ff">
+  <meta content="Technical breakdown of a modular event-driven architecture where narrative triggers control environmental behavior and systemic psychological tension." name="twitter:description"/>
+  <meta name="theme-color" content="#8B2FC9">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Never Open The Door — Engineering Case Study | DualCore Games</title>
-  <meta content="Technical deep-dive into the architecture, state management, and performance optimization behind Never Open The Door — a systemic psychological horror experience." name="description"/>
+  <meta content="Technical deep-dive into the event-driven architecture, environmental state management, and narrative-triggered pacing behind Never Open The Door." name="description"/>
   <link href="../../../../assets/css/style.css" rel="stylesheet"/>
   <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
 
@@ -41,7 +41,7 @@
       font-weight: 800;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--color-accent);
+      color: #00D1FF;
       border: 1px solid rgba(0,210,255,0.2);
       padding: 0.4rem 1.2rem;
       border-radius: 100px;
@@ -233,13 +233,59 @@
     .cs-takeaway h4 { margin-bottom: 0.75rem; font-size: 1rem; font-weight: 700; }
     .cs-takeaway p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
 
-    /* CTA */
-    .cs-cta {
+    /* Single Form Funnel */
+    .funnel-section {
+      padding: 8rem 0;
       background: linear-gradient(to bottom, #0c0c0c, #080808);
       border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 10rem 0;
       text-align: center;
     }
+    .beta-form {
+      max-width: 500px;
+      margin: 3rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .beta-form input {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem 1.5rem;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+    .beta-form input:focus { border-color: var(--color-accent); outline: none; }
+    .beta-form button {
+      background: var(--color-accent);
+      color: #000;
+      border: none;
+      padding: 1rem 2rem;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .beta-form button:hover { background: #fff; transform: translateY(-2px); }
+    .beta-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    
+    .form-success-message {
+        display: none;
+        background: rgba(0, 210, 255, 0.05);
+        border: 1px solid rgba(0, 210, 255, 0.2);
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+        text-align: center;
+        animation: fadeIn 0.5s ease forwards;
+    }
+    .form-success-message h4 { color: var(--color-accent); margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: 800; }
+    .form-success-message p { color: var(--color-text-muted); font-size: 0.9rem; margin: 0; line-height: 1.5; }
 
     @media (max-width: 768px) {
       .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
@@ -285,21 +331,20 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="#audit-form" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-
     <!-- ═══ HERO ═══ -->
     <section class="cs-hero">
       <div class="container">
         <span class="cs-label">Technical Case Study — Project NOTD</span>
-        <p class="cs-hero__meta">PC &nbsp;/&nbsp; VR-Ready &nbsp;/&nbsp; Systemic Psychological Horror</p>
+        <p class="cs-hero__meta">PC &nbsp;/&nbsp; Systemic Psychological Horror</p>
         <h1>Never Open<br><span style="color: var(--color-text-muted); font-weight: 400; font-size: 0.55em; letter-spacing: 0;">The Door Engineering Case Study</span></h1>
-        <p>A technical breakdown of the "State-Discovery Engine"—a decoupled architecture where narrative knowledge acts as the primary driver for procedural environmental transformation and systemic tension.</p>
+        <p>A technical breakdown of a modular event-driven architecture where narrative triggers control environmental behavior, spatial distortion, and systemic tension.</p>
         <a href="../overview/index.html" class="btn btn-secondary" style="padding: 0.85rem 2rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">← View Game Overview</a>
 
         <!-- Project Meta -->
@@ -314,11 +359,11 @@
           </div>
           <div class="cs-meta-card">
             <span class="cs-meta-card__label">State Logic</span>
-            <p class="cs-meta-card__value">Bitwise Flag Registry</p>
+            <p class="cs-meta-card__value">Event-Driven Diary Manger</p>
           </div>
           <div class="cs-meta-card" style="border-top: 2px solid rgba(0,210,255,0.4); background: rgba(0,210,255,0.03);">
-            <span class="cs-meta-card__label">VFX Target</span>
-            <p class="cs-meta-card__value">Zero-Frame Hitching</p>
+            <span class="cs-meta-card__label">Target V-Sync</span>
+            <p class="cs-meta-card__value">120 Hz Uncapped</p>
           </div>
         </div>
       </div>
@@ -330,19 +375,19 @@
         <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); display: block; text-align: center; margin-bottom: 3rem;">Technical Performance Benchmarks</span>
         <div class="cs-bench-grid">
           <div class="cs-bench-card">
-            <span class="cs-bench-card__stat">0ms</span>
-            <p class="cs-bench-card__title">Runtime GC Allocations</p>
-            <p class="cs-bench-card__sub">Object pooling and bitwise state comparison ensure zero garbage collection during intense environmental shifts.</p>
+            <span class="cs-bench-card__stat">&lt; 1ms</span>
+            <p class="cs-bench-card__title">Event Trigger Latency</p>
+            <p class="cs-bench-card__sub">Decoupled state events resolve with near-zero overhead, ensuring immediate environmental reaction upon narrative discovery.</p>
           </div>
           <div class="cs-bench-card">
-            <span class="cs-bench-card__stat">128-bit</span>
-            <p class="cs-bench-card__title">State Flag Registry</p>
-            <p class="cs-bench-card__sub">Efficient narrative dependency management using a centralized bit-field for ultra-fast discovery validation.</p>
+            <span class="cs-bench-card__stat">100%</span>
+            <p class="cs-bench-card__title">State Consistency</p>
+            <p class="cs-bench-card__sub">Centralized Environmental State Controller prevents contradictory lighting or object states during complex overlapping hallucinations.</p>
           </div>
           <div class="cs-bench-card">
-            <span class="cs-bench-card__stat">60+</span>
-            <p class="cs-bench-card__title">Stable FPS (HDRP)</p>
-            <p class="cs-bench-card__sub">Optimization pass on volumetric lighting and procedural shaders to maintain immersion on mid-range hardware.</p>
+            <span class="cs-bench-card__stat">5+ Layers</span>
+            <p class="cs-bench-card__title">Audio Spatialization</p>
+            <p class="cs-bench-card__sub">Simultaneous real-time DSP layers including whispers, environmental tension, and direct UI narrative feedback.</p>
           </div>
         </div>
       </div>
@@ -352,21 +397,21 @@
     <section class="cs-section">
       <div class="container">
         <span class="cs-section-num">01 &nbsp;/&nbsp; System Architecture</span>
-        <h2>The State-Discovery Engine</h2>
-        <p style="color: var(--color-text-muted); max-width: 700px; font-size: 1rem; line-height: 1.75; margin-bottom: 4rem;">We engineered a three-tier decoupled architecture to separate narrative progression from visual execution. This allows the designers to create complex "knowledge dependencies" without hard-coding triggers into the environment.</p>
+        <h2>Modular Event-Driven Architecture</h2>
+        <p style="color: var(--color-text-muted); max-width: 700px; font-size: 1rem; line-height: 1.75; margin-bottom: 4rem;">The game is built around an event-driven architecture that connects player exploration with narrative progression and dynamic environmental reactions. This pipeline ensures that horror events unfold naturally.</p>
         
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem;">
-          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Narrative Registry</h4>
-            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Centralized bit-field that tracks every "Narrative Fragment" discovered by the player. Used as the ground truth for all system evaluations.</p>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 5rem; text-align: center;">
+          <div style="padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase;">1. Player Exploration</h4>
           </div>
-          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Pacing Controller</h4>
-            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Analyzes player telemetry (speed, proximity, discovery rate) to update the real-time "Terror Metric."</p>
+          <div style="padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase;">2. Diary Event Manager</h4>
           </div>
-          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Environmental Mixer</h4>
-            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Layered component system that blends procedural shaders, spatialized audio, and lighting presets based on the current state.</p>
+          <div style="padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase;">3. Env State Controller</h4>
+          </div>
+          <div style="padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase;">4. A/V Horror Effects</h4>
           </div>
         </div>
       </div>
@@ -376,24 +421,24 @@
     <section class="cs-section cs-section--alt">
       <div class="container">
         <span class="cs-section-num">02 &nbsp;/&nbsp; Challenges &amp; Solutions</span>
-        <h2>Engineering Systemic Horror</h2>
+        <h2>Engineering Psychological Tension</h2>
 
         <!-- Challenge 1 -->
         <div class="cs-challenge">
           <div class="cs-challenge__header">
             <span class="cs-challenge__num">01</span>
-            <h3>Non-Linear Discovery Conflicts</h3>
+            <h3>Narrative Driven Event Sequencing</h3>
           </div>
           <div class="cs-split">
             <div class="cs-split__col--problem">
               <span class="cs-split__tag cs-split__tag--problem">Problem</span>
-              <h4>State Dependencies and Sequence Breaking</h4>
-              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Players in an open-ended environment may discover items in a different order than expected. Traditional boolean flag systems become unmanageable with 50+ discovery points and complex "if-then" requirements.</p>
+              <h4>Linear Expectations in Open Environments</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Because paranormal events are directly tied to diary discoveries, the system needed to support dynamic story triggers that activate environmental changes in a controlled narrative order, even when players navigate non-linearly.</p>
             </div>
             <div class="cs-split__col--solution">
               <span class="cs-split__tag cs-split__tag--solution">Solution</span>
-              <h4>Bitwise Masking &amp; Priority Evaluation</h4>
-              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">We moved to a bitwise state registry where environmental shifts require a specific "knowledge mask." This allows for complex dependencies (e.g., Fragment A + Fragment B, but NOT C) to be evaluated in a single CPU instruction.</p>
+              <h4>Event-Driven Narrative System</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Diary entries act as narrative triggers broadcasted across a decoupled event bus. This system ensures that environmental changes occur only after the player has discovered key story elements, maintaining narrative pacing seamlessly.</p>
             </div>
           </div>
         </div>
@@ -402,18 +447,38 @@
         <div class="cs-challenge">
           <div class="cs-challenge__header">
             <span class="cs-challenge__num">02</span>
-            <h3>Performance During World Distortion</h3>
+            <h3>Environmental Consistency During Distortions</h3>
           </div>
           <div class="cs-split">
             <div class="cs-split__col--problem">
               <span class="cs-split__tag cs-split__tag--problem">Problem</span>
-              <h4>Visual Frame Drops During Transitions</h4>
-              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">High-quality HDRP environmental shifts (warping geometry, changing material properties) often caused frame spikes, breaking immersion at the most critical narrative moments.</p>
+              <h4>Visual Continuity Breakdowns</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">As supernatural events begin to alter the house, maintaining visual continuity while introducing subtle environmental distortions becomes critical for preserving immersion. Traditional toggling of objects caused jarring pop-ins.</p>
             </div>
             <div class="cs-split__col--solution">
               <span class="cs-split__tag cs-split__tag--solution">Solution</span>
-              <h4>Compute Shader Warping &amp; Material Layering</h4>
-              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">We offloaded geometric distortion to compute shaders and used a layered material approach where transition states are pre-calculated. The transition is then a simple lerp between layers, ensuring a locked 60 FPS.</p>
+              <h4>Dynamic Environmental State System</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Environmental objects, lighting, and audio layers are controlled through a centralized state system. This allows the house to gradually change as the story progresses, creating subtle, interpolated shifts that reinforce the supernatural influence smoothly.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Challenge 3 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">03</span>
+            <h3>Managing Player Expectations</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Predictable "Scripted Event" Fatigue</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Players exploring horror environments often anticipate scripted events or jump scares. The challenge was designing systems that make paranormal encounters feel unpredictable and psychologically unsettling rather than repetitive.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Controlled Encounters & Layered Feedback</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Supernatural events are triggered through carefully timed sequences tied to exploration progress. Instead of relying solely on jump scares, the game uses layered horror cues—sound design, environmental motion, shadow behavior, and visual distortion—to create sustained tension.</p>
             </div>
           </div>
         </div>
@@ -424,28 +489,35 @@
     <section class="cs-section">
       <div class="container">
         <span class="cs-section-num">03 &nbsp;/&nbsp; Engineering Takeaways</span>
-        <h2>Validation &amp; Results</h2>
+        <h2>Validation in Production</h2>
         
         <div style="margin-top: 3rem;">
           <div class="cs-takeaway">
             <span class="cs-takeaway__num">1</span>
             <div>
-              <h4>Systemic Horror Over Scripted Triggers</h4>
-              <p>By moving from coordinate-based triggers to state-based systemic logic, we reduced the manual level-design cost by 40% while increasing player-perceived depth and reactivity.</p>
+              <h4>Narrative-Driven Systems Enhance Horror Immersion</h4>
+              <p>Connecting paranormal encounters directly to story progression ensures that each supernatural event feels meaningful and reinforces the narrative experience, rather than feeling like a random sequence of events.</p>
             </div>
           </div>
           <div class="cs-takeaway">
             <span class="cs-takeaway__num">2</span>
             <div>
-              <h4>Decoupling Narrative from Asset Logic</h4>
-              <p>Allowing the narrative team to update the bitwise registry without touching environmental prefabs enabled parallel development and much faster iteration on story-beats.</p>
+              <h4>Environmental Storytelling Strengthens Player Engagement</h4>
+              <p>Allowing players to uncover the story through exploration encourages curiosity and deepens immersion within the haunted environment.</p>
             </div>
           </div>
           <div class="cs-takeaway">
             <span class="cs-takeaway__num">3</span>
             <div>
-              <h4>Data-Driven Pacing is the Future</h4>
-              <p>The "Terror Metric" proved that personalized tension is significantly more effective than static horror design. It ensures every player has a unique, optimally paced experience regardless of their playstyle.</p>
+              <h4>Psychological Horror Requires Controlled Pacing</h4>
+              <p>Gradual escalation of supernatural events allows tension to build naturally, making each encounter more impactful than a barrage of immediate threats.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">4</span>
+            <div>
+              <h4>Dynamic Environment Systems Support Immersive Horror</h4>
+              <p>By allowing environmental elements to subtly change over time through the centralized state controller, the game creates a living space where the house itself feels like an active participant in the horror experience.</p>
             </div>
           </div>
         </div>
@@ -453,12 +525,25 @@
     </section>
 
     <!-- ═══ CTA ═══ -->
-    <section class="cs-cta">
+    <section class="funnel-section" id="audit-form">
       <div class="container">
         <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem;">Ready to Build at This Level?</h2>
-        <p style="color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">DualCore engineers modular, production-ready systems for immersive titles. If you're building a project that demands technical excellence—let's talk.</p>
-        <div style="display: flex; gap: 1.5rem; justify-content: center;">
-          <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700;">Start a Project</a>
+        <p style="color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">DualCore engineers modular, production-ready systems for immersive titles. If you're building a project that demands technical excellence—request an architecture audit.</p>
+        
+        <form class="beta-form" id="audit-form-element">
+          <input type="hidden" name="project" value="Never Open The Door — Technical Audit" />
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Work Email" required />
+          <input type="text" name="company" placeholder="Studio/Company" required />
+          <button type="submit" id="audit-submit-btn">Request Technical Audit</button>
+        </form>
+
+        <div id="audit-success-message" class="form-success-message">
+          <h4>Audit Request Received</h4>
+          <p>Our engineering team will review your inquiry and reach out within 24-48 hours to schedule a consultation.</p>
+        </div>
+
+        <div style="display: flex; gap: 1.5rem; justify-content: center; margin-top: 3rem;">
           <a href="../overview/index.html" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">← View Overview</a>
         </div>
       </div>
@@ -500,5 +585,34 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.getElementById('audit-form-element').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const form = this;
+      const btn = document.getElementById('audit-submit-btn');
+      const successMsg = document.getElementById('audit-success-message');
+      const formData = new FormData(form);
+      const url = "https://script.google.com/macros/s/AKfycbzL5nJtQ82vK991xXXi8r0Bf3d6YJ_Y_mO5o_Z7XQ0t6A4/exec";
+
+      btn.disabled = true;
+      btn.innerText = 'Sending...';
+
+      fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      }).then(() => {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      }).catch(err => {
+        console.error('Submission failed', err);
+        btn.disabled = false;
+        btn.innerText = 'Request Technical Audit';
+        alert('There was an error submitting your request. Please try again later.');
+      });
+    });
+  </script>
 </body>
 </html>
