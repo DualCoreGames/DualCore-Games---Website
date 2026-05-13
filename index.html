@@ -87,7 +87,7 @@
           <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
           <li class="nav-item"><a class="btn btn-primary" href="contact.html"
-              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">View Services</a></li>
         </ul>
       </nav>
     </div>
@@ -97,12 +97,12 @@
          HERO SECTION
          ======================== -->
     <section class="hero" id="home">
-      <div class="hero-video-bg" aria-hidden="true">
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/hero-poster.webp" fetchpriority="high" width="1920" height="1080">
+      <div class="hero-video-bg">
+        <video autoplay muted loop playsinline poster="work/game-development/reclairos/assets/reclairos-hero.webp" class="hero-video">
           <source src="assets/video/hero.mp4" type="video/mp4">
         </video>
-        <div class="hero-overlay"></div>
       </div>
+      <div class="hero-overlay" style="background: linear-gradient(to bottom, rgba(5,7,10,0.3) 0%, rgba(5,7,10,0.85) 100%);"></div>
       <div class="container hero-content">
         <h1 class="display-1">We Build Scalable Game Systems.<br>We Design Memorable Experiences.</h1>
         <p class="lead" style="margin: 0 auto;">
@@ -110,7 +110,7 @@
           DualCore delivers stable architecture and production-ready systems.
         </p>
         <div class="hero-buttons">
-          <a class="btn btn-primary btn-large" href="contact.html?intent=audit">Request Architecture Audit</a>
+          <a class="btn btn-primary btn-large" href="services/index.html">Explore Our Services</a>
           <a class="btn btn-secondary btn-large" href="work/index.html">View Project Portfolio</a>
         </div>
       </div>
@@ -133,7 +133,7 @@
               <span>Multiplayer Integration</span>
               <span>Scalable Backend Design</span>
             </div>
-            <a class="btn btn-secondary" href="contact.html?intent=specs">Download Production Pipeline Specs</a>
+            <a class="btn btn-secondary" href="services/game-development/index.html">Explore Game Development</a>
           </div>
           <!-- Game Art -->
           <div class="card service-card-premium">
@@ -144,7 +144,7 @@
               <span>Asset Optimization</span>
               <span>Environment Design</span>
             </div>
-            <a class="btn btn-secondary" href="services/index.html">Explore Art</a>
+            <a class="btn btn-secondary" href="services/game-art/index.html">Explore Game Art</a>
           </div>
           <!-- VR/XR Simulation -->
           <div class="card service-card-premium">
@@ -155,29 +155,30 @@
               <span>Cross-Platform XR</span>
               <span>Performance Stability</span>
             </div>
-            <a class="btn btn-secondary" href="services/index.html">Explore XR</a>
+            <a class="btn btn-secondary" href="services/vr-xr-simulation/index.html">Explore VR/XR</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 3. FEATURED PROJECT (RECLAIROS) -->
-    <section class="section-padding featured-project-section" style="padding: 14rem 0; background-color: var(--bg-primary); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);">
+    <section class="section-padding featured-project-section reclairos-bg" style="padding: 14rem 0;">
       <div class="container">
         <div class="featured-project-dominant">
-          <div class="featured-visual">
-            <img alt="Reclairos Flagship Project" fetchpriority="high" src="work/game-development/reclairos/assets/reclairos-thumbnail.webp" width="600" height="337" />
-            <div class="visual-overlay"></div>
+          <div class="featured-visual" style="border-radius: 12px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5); aspect-ratio: 16/10; position: relative;">
+            <img alt="Reclairos Flagship Project" fetchpriority="high" src="work/game-development/reclairos/assets/reclairos-thumbnail.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            <div class="visual-overlay" style="position: absolute; inset: -1px; background: linear-gradient(to right, rgba(5,7,10,0.4), transparent); pointer-events: none;"></div>
           </div>
           <div class="featured-content">
             <span class="label-accent">Flagship Project</span>
-            <h2 class="display-2">Reclairos</h2>
-            <p class="lead">
+            <h2 class="display-2" style="margin-bottom: 1.5rem;">Reclairos</h2>
+            <p class="lead" style="margin-bottom: 2.5rem; color: rgba(255,255,255,0.85);">
               A systems-first strategy title showcasing our capability to build scalable combat architectures 
               and performance-ready mobile systems.
             </p>
-            <div class="featured-actions">
-              <a class="btn btn-primary" href="work/game-development/reclairos/case-study/index.html">Read Case Study</a>
+            <div class="featured-actions" style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+              <a class="btn btn-primary" href="work/game-development/reclairos/overview/index.html">View Project Overview</a>
+              <a class="btn btn-secondary" href="work/game-development/reclairos/case-study/index.html">Technical Case Study</a>
             </div>
           </div>
         </div>
@@ -315,48 +316,69 @@
     <!-- ========================
          PROJECT GRID (Secondary)
          ======================== -->
-    <section class="section-padding project-grid-secondary" style="padding: 14rem 0;">
+    <section class="section-padding project-grid-secondary selected-work-bg" style="padding: 14rem 0;">
       <div class="container">
         <div class="section-header center">
-          <h2>Selected Work</h2>
+          <span class="label-accent">Showcase</span>
+          <h2 class="display-2">Selected Work</h2>
+          <p class="text-muted" style="max-width: 600px; margin: 1rem auto 0 auto;">Engineering excellence across PC, Mobile, and Mixed Reality platforms.</p>
         </div>
-        <div class="grid projects-grid-premium">
-          <!-- Mayaaverse -->
-          <div class="card project-card-refined">
-            <div class="card-image">
-              <img alt="Mayaaverse VR" loading="lazy" src="assets/images/mayaaverse-thumb.webp" width="640" height="360" />
+        <div class="grid projects-grid-premium" style="grid-template-columns: repeat(2, 1fr);">
+          <!-- Paapi Gudia -->
+          <div class="card project-card-refined" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02);">
+            <div class="card-image" style="aspect-ratio: 16/9; width: 100%; overflow: hidden; position: relative;">
+              <img alt="Paapi Gudia PC Shooter" loading="lazy" src="work/game-development/paapi-gudia/assets/paapi-hero-bg-clean.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
             </div>
-            <div class="card-body">
-              <span class="label">VR/XR Simulation</span>
-              <h3>Mayaaverse</h3>
-              <a class="link-arrow" href="work/vr-xr/mayaaverse/overview/index.html">View Project</a>
+            <div class="card-body" style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="label" style="color: var(--core-art); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">PC + VR / Horror</span>
+              <h3 style="margin-bottom: 1.5rem;">Paapi Gudia</h3>
+              <div style="margin-top: auto;">
+                <a class="link-arrow" href="work/game-development/paapi-gudia/overview/index.html" style="color: var(--core-tech); font-weight: 600;">View Project Overview →</a>
+              </div>
             </div>
           </div>
-          <!-- ShemarooVerse -->
-          <div class="card project-card-refined">
-            <div class="card-image studio-bg">
-              <span class="initials">SV</span>
+          <!-- Crazy Planet -->
+          <div class="card project-card-refined" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02);">
+            <div class="card-image" style="aspect-ratio: 16/9; width: 100%; overflow: hidden; position: relative;">
+              <img alt="Crazy Planet Retro Action" loading="lazy" src="work/game-development/crazy-planet/assets/cp-hero-bg.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
             </div>
-            <div class="card-body">
-              <span class="label">Multiplayer VR</span>
-              <h3>ShemarooVerse</h3>
-              <a class="link-arrow" href="work/vr-xr/shemarooverse/overview/index.html">View Project</a>
+            <div class="card-body" style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="label" style="color: var(--core-tech); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Mobile / Action</span>
+              <h3 style="margin-bottom: 1.5rem;">Crazy Planet</h3>
+              <div style="margin-top: auto;">
+                <a class="link-arrow" href="work/game-development/crazy-planet/overview/index.html" style="color: var(--core-tech); font-weight: 600;">View Project Overview →</a>
+              </div>
+            </div>
+          </div>
+          <!-- Room Raider -->
+          <div class="card project-card-refined" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02);">
+            <div class="card-image" style="aspect-ratio: 16/9; width: 100%; overflow: hidden; position: relative;">
+              <img alt="Room Raider Mixed Reality" loading="lazy" src="work/vr-xr/room-raider/assets/room-raider-thumb.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+            </div>
+            <div class="card-body" style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="label" style="color: var(--core-tech); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Mixed Reality / Action</span>
+              <h3 style="margin-bottom: 1.5rem;">Room Raider</h3>
+              <div style="margin-top: auto;">
+                <a class="link-arrow" href="work/vr-xr/room-raider/overview/index.html" style="color: var(--core-tech); font-weight: 600;">View Project Overview →</a>
+              </div>
             </div>
           </div>
           <!-- Never Open The Door -->
-          <div class="card project-card-refined">
-            <div class="card-image" style="padding: 0; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
-              <img src="work/game-development/never-open-the-door/assets/notd-hero-bg.png" alt="Never Open The Door" style="width: 100%; height: 100%; object-fit: cover;" />
+          <div class="card project-card-refined" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02);">
+            <div class="card-image" style="aspect-ratio: 16/9; width: 100%; overflow: hidden; position: relative;">
+              <img src="work/game-development/never-open-the-door/assets/never-open-the-door-hero-bg.png" alt="Never Open The Door" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
             </div>
-            <div class="card-body">
-              <span class="label">PC / Horror</span>
-              <h3>Never Open The Door</h3>
-              <a class="link-arrow" href="work/game-development/never-open-the-door/overview/index.html">View Project</a>
+            <div class="card-body" style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="label" style="color: var(--core-art); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">PC / Psychological Horror</span>
+              <h3 style="margin-bottom: 1.5rem;">Never Open The Door</h3>
+              <div style="margin-top: auto;">
+                <a class="link-arrow" href="work/game-development/never-open-the-door/overview/index.html" style="color: var(--core-tech); font-weight: 600;">View Project Overview →</a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="center-cta" style="margin-top: 4rem;">
-          <a class="btn btn-secondary" href="work/index.html">View All Portfolios</a>
+        <div class="center-cta" style="margin-top: 5rem;">
+          <a class="btn btn-secondary" href="work/index.html">Explore All Portfolios</a>
         </div>
       </div>
     </section>
@@ -376,7 +398,7 @@
             Move from concept to production with a team that eats systems for breakfast.
           </p>
           <div class="cta-actions">
-            <a class="btn btn-primary btn-large" href="contact.html">Request Architecture Audit</a>
+            <a class="btn btn-primary btn-large" href="contact.html">View Services</a>
           </div>
         </div>
       </div>

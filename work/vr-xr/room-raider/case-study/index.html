@@ -31,10 +31,23 @@
   <style>
     /* ── Case Study Whitepaper Styles ── */
     .cs-hero {
+      position: relative;
       background: #080808;
-      padding: 12rem 0 8rem;
+      padding: 14rem 0 10rem;
       border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
     }
+    .cs-hero__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('../assets/room-raider-hero.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      filter: saturate(1.5) brightness(0.8);
+      z-index: 0;
+    }
+    .cs-hero .container { position: relative; z-index: 2; }
     .cs-label {
       display: inline-block;
       font-size: 0.65rem;
@@ -285,7 +298,7 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">View Services</a></li>
         </ul>
       </nav>
     </div>
@@ -295,6 +308,7 @@
 
     <!-- ═══ HERO ═══ -->
     <section class="cs-hero">
+      <div class="cs-hero__bg"></div>
       <div class="container">
         <span class="cs-label">Technical Case Study — Project Room Raider</span>
         <p class="cs-hero__meta">Meta Quest 3 / Vision Pro &nbsp;/&nbsp; Spatial Computing</p>

@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (messageField) messageField.value = "I am interested in downloading the DualCore Production Pipeline Specifications. Please provide the latest technical documentation.";
                 if (projectField) projectField.value = "Technical Pipeline Specs";
             } else if (intent === 'audit') {
-                if (contactH1) contactH1.textContent = "Request Architecture Audit";
+                if (contactH1) contactH1.textContent = "View Services";
                 if (messageField) messageField.value = "I would like to request a technical architecture audit for our current project.";
                 if (projectField) projectField.value = "Architecture Audit";
             }

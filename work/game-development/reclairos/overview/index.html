@@ -503,7 +503,7 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">View Services</a></li>
         </ul>
       </nav>
     </div>
@@ -515,9 +515,15 @@
     <section class="rc-hero">
       <div class="rc-hero__bg" role="img" aria-label="Reclairos — fractured world key art"></div>
       <div class="rc-hero__overlay"></div>
-      <!-- Pill pinned to top of hero, above the art logo -->
-      <span class="rc-label">Flagship Project &mdash; Private Beta Open</span>
       <div class="rc-hero__inner">
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs" style="display: flex; gap: 0.75rem; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 2rem; color: rgba(255,255,255,0.4);">
+          <a href="../../../../index.html" style="color: var(--core-tech); text-decoration: none;">Home</a> <span>/</span> 
+          <a href="../../../index.html" style="color: var(--core-tech); text-decoration: none;">Work</a> <span>/</span> 
+          Reclairos
+        </div>
+        <!-- Pill pinned to top of hero, above the art logo -->
+        <span class="rc-label" style="margin-bottom: 1.5rem;">Flagship Project &mdash; Private Beta Open</span>
         <!-- h1 hidden: key art already renders 'RECLAIROS' as visual title -->
         <h1 class="rc-hero__title-hidden">Reclairos</h1>
         <p class="rc-hero__tagline">The world is broken.<br>Reclaim it, one wave at a time.</p>
@@ -834,6 +840,47 @@
         });
       });
     </script>
+
+    <!-- ═══ DISCOVERY: Other Projects ═══ -->
+    <section class="section-padding" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;">
+          <div>
+            <span class="label-accent" style="color: var(--core-tech); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">Discovery</span>
+            <h2 class="display-2" style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em;">Explore Other Projects</h2>
+          </div>
+          <a href="../../../../work/index.html" class="text-accent" style="font-weight: 600; font-size: 0.9rem; text-decoration: none; color: var(--core-tech);">View All Work &rarr;</a>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+          <!-- Paapi Gudia -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative;">
+              <img alt="Paapi Gudia" loading="lazy" src="../../paapi-gudia/assets/paapi-hero-bg-clean.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--core-art); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">PC + VR Horror</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Paapi Gudia</h3>
+              <div style="margin-top: auto;">
+                <a href="../../paapi-gudia/overview/index.html" style="color: var(--core-tech); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+              </div>
+            </div>
+          </div>
+          <!-- Never Open The Door -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative;">
+              <img alt="Never Open The Door" loading="lazy" src="../../never-open-the-door/assets/never-open-the-door-hero-bg.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--core-tech); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Psychological Horror</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Never Open The Door</h3>
+              <div style="margin-top: auto;">
+                <a href="../../never-open-the-door/overview/index.html" style="color: var(--core-tech); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 

@@ -13,18 +13,18 @@
 
   <!-- Open Graph -->
   <meta content="Paapi Gudia | Cross-Platform Horror Shooter | DualCore Games" property="og:title"/>
-  <meta content="A cross-platform horror shooter engineered for seamless performance across PC and standalone VR hardware." property="og:description"/>
+  <meta content="A technical deep-dive into the cross-platform horror architecture behind Paapi Gudia — built for PC and Meta Quest parity." property="og:description"/>
   <meta content="website" property="og:type"/>
   <meta content="https://dualcoregames.com/work/game-development/paapi-gudia/overview/" property="og:url"/>
-  <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
+  <meta content="../assets/paapi-hero-bg.png" property="og:image"/>
   <!-- Twitter -->
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="Paapi Gudia | Cross-Platform Horror Shooter | DualCore Games" name="twitter:title"/>
-  <meta content="A cross-platform horror shooter engineered for seamless performance across PC and standalone VR hardware." name="twitter:description"/>
+  <meta content="A technical deep-dive into the cross-platform horror architecture behind Paapi Gudia." name="twitter:description"/>
   <meta name="theme-color" content="#00d2ff">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Paapi Gudia — Cross-Platform Horror Shooter | DualCore Games</title>
-  <meta content="Experience intensive horror combat on PC and Meta Quest. Built with unified input systems and performance-first VR optimization by DualCore Games." name="description"/>
+  <title>Paapi Gudia — Immersive Horror & Cross-Platform Architecture | DualCore Games</title>
+  <meta content="Engineering case study: Delivering atmospheric horror across PC and Meta Quest with a unified Unity URP codebase and OpenXR." name="description"/>
   <link href="../../../../assets/css/style.css" rel="stylesheet"/>
   <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
 
@@ -34,16 +34,15 @@
     "@context": "https://schema.org",
     "@type": "VideoGame",
     "name": "Paapi Gudia",
-    "description": "A cross-platform horror shooter engineered for seamless performance across PC and standalone VR hardware.",
-    "genre": ["Horror Shooter", "Action"],
-    "gamePlatform": ["PC", "Meta Quest", "VR"],
+    "description": "Cross-platform first-person horror shooter inspired by the iconic Bollywood horror film.",
+    "genre": ["Horror Shooter", "Action", "Adventure"],
+    "gamePlatform": ["PC", "Meta Quest 2", "Meta Quest 3", "Meta Quest 3S"],
     "applicationCategory": "Game",
     "author": {
       "@type": "Organization",
       "name": "DualCore Games",
       "url": "https://dualcoregames.com"
-    },
-    "image": "https://dualcoregames.com/assets/images/social-preview.webp"
+    }
   }
   </script>
 
@@ -51,31 +50,36 @@
     /* ── DualCore Signature Styles ── */
     .hero-cinematic {
       position: relative;
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       padding: 12rem 0 8rem;
-      background: #050505;
+      background: #080a08;
       overflow: hidden;
     }
     .hero-cinematic::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(59, 179, 217, 0.05) 0%, transparent 70%);
+      background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.08) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-cinematic__bg {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       object-fit: cover;
-      opacity: 0.15;
-      filter: grayscale(1) brightness(0.6);
+      opacity: 0.12;
+      filter: saturate(2) brightness(0.7);
     }
-    .hero-cinematic__content { position: relative; z-index: 10; }
+    .hero-cinematic__content { 
+      position: relative; 
+      z-index: 10; 
+      text-align: center;
+    }
     
     .breadcrumbs {
       display: flex;
+      justify-content: center;
       gap: 0.75rem;
       font-size: 0.65rem;
       font-weight: 800;
@@ -141,14 +145,14 @@
 
     /* Narrative Sections */
     .narrative-section { padding: 10rem 0; position: relative; }
-    .narrative-section--alt { background: #080808; }
+    .narrative-section--alt { background: #0c0c0c; }
     .narrative-grid {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
       gap: 6rem;
       align-items: center;
     }
-    .narrative-content h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 2rem; letter-spacing: -0.02em; }
+    .narrative-content h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; margin-bottom: 2rem; letter-spacing: -0.02em; line-height: 1.1; }
     .narrative-content p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-muted); margin-bottom: 2rem; }
     
     .image-frame {
@@ -165,19 +169,27 @@
       background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
     }
 
-    .alpha-form-container {
-      max-width: 650px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-top: 3px solid var(--color-accent);
-      padding: 4rem;
-      border-radius: 4px;
-    }
+    /* Video Section */
+    .video-section { padding: 10rem 0; background: #000; text-align: center; }
+    .video-container { max-width: 1200px; margin: 4rem auto 0; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .video-container video { width: 100%; display: block; }
+
+    /* Gallery Grid */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+    .gallery-item { aspect-ratio: 16/9; overflow: hidden; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* Table Design */
+    .tech-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.95rem; }
+    .tech-table th { text-align: left; padding: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.1); color: var(--color-accent); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.1em; }
+    .tech-table td { padding: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--color-text-muted); }
+    .tech-table strong { color: #fff; }
 
     @media (max-width: 1000px) {
       .narrative-grid { grid-template-columns: 1fr; gap: 4rem; }
       .feature-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -218,7 +230,7 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="#contactForm" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Get Beta Access</a></li>
         </ul>
       </nav>
     </div>
@@ -227,7 +239,7 @@
   <main>
     <!-- ═══ CINEMATIC HERO ═══ -->
     <section class="hero-cinematic">
-      <img src="../../../../assets/images/placeholder.webp" class="hero-cinematic__bg" alt="Paapi Gudia Environment">
+      <img src="../assets/paapi-hero-bg-clean.png" class="hero-cinematic__bg" alt="Paapi Gudia Cinematic Horror Background">
       <div class="container hero-cinematic__content">
         <nav class="breadcrumbs">
           <a href="../../../../index.html">Home</a> <span>/</span> 
@@ -236,30 +248,26 @@
         </nav>
         <span class="hero-label">Cross-Platform Horror Shooter</span>
         <h1 class="hero-title">Paapi Gudia</h1>
-        <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 700px; margin-bottom: 3.5rem;">Intensive horror combat engineered for parity across PC and standalone VR. Experience unified interaction and performance-first design.</p>
+        <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 800px; margin: 0 auto 3.5rem auto;">
+          An immersive horror adventure engineered for parity across PC and Meta Quest hardware. Built with Unity URP and OpenXR for production-ready cross-platform deployment.
+        </p>
         
-        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
-          <a href="#alpha-form" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Join Private Alpha</a>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+          <a href="#contactForm" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Join Private Alpha</a>
           <a href="../case-study/index.html" class="btn btn-secondary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">Technical Case Study</a>
         </div>
+      </div>
+    </section>
 
-        <!-- Experience Pillars -->
-        <div class="feature-grid">
-          <div class="feature-card">
-            <span class="feature-card__num">01</span>
-            <h3>Unified Input</h3>
-            <p>A single interaction system that translates tactile motion controls to traditional input without losing mechanical depth.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-card__num">02</span>
-            <h3>Performance Parity</h3>
-            <p>Optimized URP pipeline delivering stable 72/90 FPS on Meta Quest standalone while maintaining high-fidelity on PC.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-card__num">03</span>
-            <h3>Tactile Combat</h3>
-            <p>Physics-driven weapon handling and erratic AI behavior designed to keep players on edge across all platforms.</p>
-          </div>
+    <!-- ═══ PROJECT STRIP ═══ -->
+    <section style="background: #080808; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Platform</span><strong style="font-size: 0.95rem;">PC & Meta Quest 2 / 3 / 3S</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Engine</span><strong style="font-size: 0.95rem;">Unity (URP)</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Genre</span><strong style="font-size: 0.95rem;">Immersive Horror Shooter</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Perspective</span><strong style="font-size: 0.95rem;">First-Person (VR & PC)</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">XR Framework</span><strong style="font-size: 0.95rem;">OpenXR / XRIT</strong></div>
         </div>
       </div>
     </section>
@@ -271,71 +279,237 @@
           <div class="narrative-content">
             <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">01 / Hybrid Development</span>
             <h2>One Engine. Two Realities.</h2>
-            <p>Paapi Gudia was built from the ground up to solve the "lowest common denominator" problem in cross-platform VR. Instead of porting a PC game to Quest, we engineered a scalable framework that adjusts its complexity dynamically based on target hardware.</p>
-            <p>The result is an atmospheric horror shooter that feels like a native experience on both the Meta Quest 3 and high-end gaming PCs. Players can experience the same intensive combat loops and narrative beats, regardless of their chosen hardware.</p>
+            <p>Paapi Gudia is a cross-platform first-person horror shooter inspired by the iconic Bollywood horror film. The game delivers an immersive supernatural experience across two distinct hardware targets — Windows PC and Meta Quest standalone — from a single unified Unity codebase.</p>
+            <p>The central engineering challenge was delivering a genuinely immersive, atmospheric horror experience across platforms with vastly different rendering budgets — from a high-end PC GPU down to the Snapdragon XR2 mobile processor.</p>
+            <table class="tech-table">
+              <tr><th>Target</th><th>Profile</th></tr>
+              <tr><td><strong>PC (Windows)</strong></td><td>High-end GPU, full URP feature set, mouse/KB & Gamepad support.</td></tr>
+              <tr><td><strong>Meta Quest 3</strong></td><td>Snapdragon XR2 Gen 2, Standalone VR, Mixed Reality passthrough.</td></tr>
+              <tr><td><strong>Meta Quest 2</strong></td><td>Snapdragon XR2 Gen 1, Aggressive performance optimization.</td></tr>
+            </table>
           </div>
           <div class="image-frame">
-            <img src="../../../../assets/images/placeholder.webp" alt="Quest vs PC Comparison">
+            <img src="../assets/Gameplayscreenshot1.png" alt="Paapi Gudia Atmospheric Environment">
             <div class="image-frame__overlay"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ 02 SYSTEMIC DESIGN ═══ -->
+    <!-- Design Pillars -->
+    <section style="padding: 4rem 0; background: #0a0a0a;">
+      <div class="container">
+        <div class="feature-grid" style="margin-top: 0;">
+          <div class="feature-card">
+            <span class="feature-card__num">01</span>
+            <h3>Film-Authentic</h3>
+            <p>Visual identity and enemy design faithful to the source Bollywood IP, delivering a visceral interactive encounter.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">02</span>
+            <h3>Cross-Platform Parity</h3>
+            <p>PC and Quest players experience the same core gameplay and story beats — differentiated only by rendering fidelity.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">03</span>
+            <h3>Atmospheric Dread</h3>
+            <p>Every environment and audio cue is designed to build dread, rewarding environmental awareness over rushing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 CORE GAMEPLAY LOOP ═══ -->
     <section class="narrative-section narrative-section--alt">
       <div class="container">
         <div class="narrative-grid">
           <div class="image-frame" style="order: 2;">
-            <img src="../../../../assets/images/placeholder.webp" alt="AI Teleportation Visualization">
+            <img src="../assets/Gameplayscreenshot2.png" alt="Combat Encounter with Supernatural Entities">
             <div class="image-frame__overlay"></div>
           </div>
           <div class="narrative-content" style="order: 1;">
-            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">02 / Erratic AI</span>
-            <h2>The Distortion Logic</h2>
-            <p>In horror, predictability is the enemy. We developed a custom <strong>Teleportation AI System</strong> that calculates erratic movement patterns based on player gaze and proximity. Enemies don't just walk—they distort across the battlefield.</p>
-            <p>This system utilizes lightweight navigation meshes and custom compute-based line-of-sight checks to ensure that even with 10+ enemies active on standalone VR hardware, the frame rate remains rock-solid.</p>
-            <ul class="bullet-list text-muted" style="font-size: 1rem; margin-top: 2rem;">
-              <li>Unified Motion/Traditional Input</li>
-              <li>Physics-Based Weapon Interaction</li>
-              <li>Scalable Volumetric Lighting</li>
-            </ul>
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">02 / The Loop</span>
+            <h2>Atmospheric Pacing & Tension.</h2>
+            <p>The experience structures its loop as a slow atmospheric exploration phase punctuated by high-intensity combat waves and direct boss confrontations with the cursed doll.</p>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;">
+              <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-left: 3px solid var(--color-accent);">
+                <strong style="display: block; color: #fff; margin-bottom: 0.5rem; font-size: 0.9rem;">1. Exploration & Dread</strong>
+                <p style="font-size: 0.85rem; margin: 0;">Audio cues and lighting shifts build dread as players uncover story fragments.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-left: 3px solid var(--color-accent);">
+                <strong style="display: block; color: #fff; margin-bottom: 0.5rem; font-size: 0.9rem;">2. Wave Combat</strong>
+                <p style="font-size: 0.85rem; margin: 0;">Supernatural enemies emerge in waves, demanding fast shooting reflexes.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-left: 3px solid var(--color-accent);">
+                <strong style="display: block; color: #fff; margin-bottom: 0.5rem; font-size: 0.9rem;">3. Doll Confrontation</strong>
+                <p style="font-size: 0.85rem; margin: 0;">Direct encounters with the Paapi Gudia doll featuring erratic, unpredictable behavior.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ LEAD CAPTURE ═══ -->
-    <section class="narrative-section" id="alpha-form">
+    <!-- ═══ VIDEO TRAILER SECTION ═══ -->
+    <section class="video-section">
       <div class="container">
-        <div class="alpha-form-container">
+        <span class="hero-label">Gameplay Walkthrough</span>
+        <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">Witness the Terror</h2>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto;">A look at the cross-platform rendering and immersive VR combat mechanics.</p>
+        <div class="video-container">
+          <video controls poster="../assets/Gameplayscrenshot3.png">
+            <source src="../assets/Paapi Gudia - VR - Trailer walkthrough.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 03 SYSTEM ARCHITECTURE ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">03 / System Architecture</span>
+            <h2>Platform-Agnostic Core.</h2>
+            <p>Built on a modular architecture where core gameplay is platform-independent. Specific behavior — rendering quality, input handling, locomotion — is injected at runtime through abstraction layers.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <li><strong style="color: #fff; display: block;">Unified Input</strong>Routed through a single InputActionAsset with XR, PC, and Gamepad schemes.</li>
+              <li><strong style="color: #fff; display: block;">Runtime URP Switching</strong>Detects hardware and selects optimized PC or Quest render profiles.</li>
+              <li><strong style="color: #fff; display: block;">Hybrid AI</strong>Standard NavMesh for minions, custom teleport graphs for the boss.</li>
+              <li><strong style="color: #fff; display: block;">Tension Scalar</strong>A persistent scene manager updating dread levels based on real-time state.</li>
+            </ul>
+          </div>
+          <div class="image-frame">
+            <img src="../assets/Gameplayscreenshot4.png" alt="Technical System Overview Visualization">
+            <div class="image-frame__overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GALLERY SECTION ═══ -->
+    <section style="padding: 10rem 0; background: #080a08;">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 4rem;">
+          <span class="hero-label">Media Gallery</span>
+          <h2>Production Screenshots</h2>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="../assets/Gameplayscreenshot1.png" alt="Paapi Gudia Environment 1"></div>
+          <div class="gallery-item"><img src="../assets/Gameplayscreenshot2.png" alt="Paapi Gudia Combat 1"></div>
+          <div class="gallery-item"><img src="../assets/Gameplayscrenshot3.png" alt="Paapi Gudia Boss Encounter"></div>
+          <div class="gallery-item"><img src="../assets/Gameplayscreenshot4.png" alt="Paapi Gudia Environment 2"></div>
+          <div class="gallery-item"><img src="../assets/Gameplayscreenshot5.png" alt="Paapi Gudia Combat 2"></div>
+          <div class="gallery-item" style="background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.1);"><span style="color: rgba(255,255,255,0.2); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">More coming soon</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 04 ROADMAP & FUTURE ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">Future Expansion</span>
+            <h2>The Road Ahead.</h2>
+            <p>Our hybrid framework allows for rapid content scaling across both branches simultaneously. We are currently engineering new systems to push the boundaries of cross-platform immersion.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem;">
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Asynchronous Co-Op:</strong> Enabling PC and VR players to survive the nightmare together.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Haptic Suit Integration:</strong> Full bHaptics support for immersive physical feedback.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Dynamic World Shifting:</strong> Environment geometries that react to player heartbeat in real-time.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="image-frame">
+            <img src="../assets/Gameplayscreenshot5.png" alt="Development Testing and Haptics Calibration">
+            <div class="image-frame__overlay" style="background: radial-gradient(circle at 30% 50%, rgba(0, 210, 255, 0.2) 0%, transparent 60%);"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cinematic Banner -->
+    <section style="position: relative; height: 50vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #000;">
+      <img src="../assets/paapi-hero-bg.png" alt="Paapi Gudia Background" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(0.5);">
+      <div style="position: relative; z-index: 10; text-align: center;">
+        <h2 style="font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.04em;">Confront the Curse.</h2>
+        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto;">Join the private alpha and help us build the future of cross-platform horror.</p>
+      </div>
+    </section>
+
+    <!-- ═══ LEAD CAPTURE ═══ -->
+    <section class="narrative-section" id="contactForm">
+      <div class="container">
+        <div style="max-width: 650px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--color-accent); padding: 4rem; border-radius: 4px;">
           <div style="text-align: center; margin-bottom: 4rem;">
-            <span class="hero-label">Cross-Play Access</span>
-            <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem;">Join the Private Alpha</h2>
-            <p class="text-muted" style="max-width: 500px; margin: 0 auto;">Help us calibrate the cross-platform horror experience. Sign up for early access on PC or Meta Quest.</p>
+            <span class="hero-label">Alpha Recruitment</span>
+            <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem;">Join the Ranks</h2>
+            <p class="text-muted" style="max-width: 500px; margin: 0 auto;">We are recruiting testers for both PC and Standalone VR builds. Sign up below to receive early access instructions.</p>
           </div>
           
-          <form id="contactForm" class="contact-form">
-            <input type="hidden" name="project" value="Paapi Gudia Private Alpha">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" required placeholder="Name">
+          <form id="paapiContactForm" class="contact-form">
+            <input type="hidden" name="project" value="Paapi Gudia Alpha Recruitment">
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; letter-spacing: 0.1em;">Full Name</label>
+              <input type="text" name="name" required placeholder="John Doe" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 4px; color: #fff;">
             </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required placeholder="email@example.com">
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; letter-spacing: 0.1em;">Email Address</label>
+              <input type="email" name="email" required placeholder="email@example.com" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 4px; color: #fff;">
             </div>
-            <div class="form-group">
-              <label for="message">What's your primary platform (PC/VR)?</label>
-              <textarea id="message" name="message" required placeholder="I play on Meta Quest 3 / PC..."></textarea>
+            <div class="form-group" style="margin-bottom: 2rem;">
+              <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; letter-spacing: 0.1em;">Your Hardware (PC / VR)</label>
+              <textarea name="message" required placeholder="I play on PC and have a Meta Quest 3..." style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 4px; color: #fff; min-height: 100px;"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; margin-top: 1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Submit Alpha Entry</button>
-            <div id="form-status" style="margin-top: 1.5rem; text-align: center; display: none;"></div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Submit Alpha Entry</button>
+            <div id="paapi-status" style="margin-top: 1.5rem; text-align: center; display: none;"></div>
           </form>
-          
-          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); text-align: center; margin-top: 2rem;">
-            By submitting, you agree to our <a href="../../../../privacy-policy.html" style="color: var(--color-accent);">Privacy Policy</a>. Data is used solely for alpha coordination.
-          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ DISCOVERY: Other Projects ═══ -->
+    <section class="section-padding" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle); padding: 8rem 0;">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;">
+          <div>
+            <span class="label-accent" style="color: var(--color-accent); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">Discovery</span>
+            <h2 class="display-2" style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em;">Explore Other Projects</h2>
+          </div>
+          <a href="../../../../work/index.html" class="text-accent" style="font-weight: 600; font-size: 0.9rem; text-decoration: none; color: var(--color-accent);">View All Work &rarr;</a>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+          <!-- Crazy Planet -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <img alt="Crazy Planet" src="../../crazy-planet/assets/cp-hero-bg.png" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Mobile / Action</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Crazy Planet</h3>
+              <a href="../../crazy-planet/overview/index.html" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+            </div>
+          </div>
+          <!-- Reclairos -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <img alt="Reclairos" src="../../reclairos/assets/reclairos-thumbnail.webp" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Tactical RPG</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Reclairos</h3>
+              <a href="../../reclairos/overview/index.html" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -348,7 +522,7 @@
         <div class="footer-brand">
           <img alt="DualCore Games Logo" loading="lazy" src="../../../../assets/images/dualcore-logo.svg"
             style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" />
-          <p>Game development studio building original IP and production-ready interactive systems.</p>
+          <p>DualCore Games is a systems-first game development studio building immersive IP and production-ready interactive frameworks.</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
@@ -356,8 +530,6 @@
             <li><a href="../../../../index.html">Home</a></li>
             <li><a href="../../../../services/index.html">Services</a></li>
             <li><a href="../../../../work/index.html">Work</a></li>
-            <li><a href="../../../../about.html">About</a></li>
-            <li><a href="../../../../blog.html">Blog</a></li>
             <li><a href="../../../../contact.html">Contact</a></li>
           </ul>
         </div>
@@ -366,68 +538,55 @@
           <ul class="footer-links social-links">
             <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a></li>
             <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
-            <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center; opacity: 0.45; font-size: 0.7rem; padding-top: 2rem;">
-        <p>© 2026 DualCore Games | <a href="../../../../privacy-policy.html">Privacy Policy</a> | <a href="../../../../terms.html">Terms of Service</a></p>
-        <p style="max-width: 600px; line-height: 1.6;">Unity is a trademark of Unity Technologies. DualCore Games is not affiliated with or endorsed by Unity Technologies. Android is a trademark of Google LLC. Unreal Engine is a trademark of Epic Games, Inc. Meta, Photon, and other marks are the property of their respective owners.</p>
+        <p>© 2026 DualCore Games | <a href="../../../../privacy-policy.html">Privacy Policy</a></p>
+        <p style="max-width: 600px; line-height: 1.6;">Unity and Meta Quest are trademarks of their respective owners. DualCore Games is an independent studio.</p>
       </div>
     </div>
   </footer>
 
   <script>
-    // ── AJAX Form Submission Handler ──
-    const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('form-status');
+    // AJAX Form Handler
+    const paapiForm = document.getElementById('paapiContactForm');
+    const paapiStatus = document.getElementById('paapi-status');
 
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
+    if (paapiForm) {
+      paapiForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerText;
-        
+        const submitBtn = paapiForm.querySelector('button[type="submit"]');
         submitBtn.disabled = true;
-        submitBtn.innerText = 'Submitting...';
-        
-        const formData = new FormData(contactForm);
+        submitBtn.innerText = 'Transmitting...';
         
         try {
-          const response = await fetch('https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec', {
+          await fetch('https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec', {
             method: 'POST',
-            body: formData,
+            body: new FormData(paapiForm),
             mode: 'no-cors'
           });
-
-          formStatus.style.display = 'block';
-          formStatus.style.color = '#00d1ff';
-          formStatus.innerHTML = '<strong>Submission Received.</strong> Welcome to the alpha.';
-          contactForm.reset();
+          paapiStatus.style.display = 'block';
+          paapiStatus.style.color = '#00d1ff';
+          paapiStatus.innerHTML = '<strong>Submission Success.</strong> Welcome to the alpha.';
+          paapiForm.reset();
           submitBtn.innerText = 'Submitted';
-          
         } catch (error) {
-          formStatus.style.display = 'block';
-          formStatus.style.color = '#ff3c3c';
-          formStatus.innerText = 'Transmission failed. Please try again.';
+          paapiStatus.style.display = 'block';
+          paapiStatus.style.color = '#ff3c3c';
+          paapiStatus.innerText = 'Transmission error. Please try again.';
           submitBtn.disabled = false;
-          submitBtn.innerText = originalBtnText;
+          submitBtn.innerText = 'Submit Alpha Entry';
         }
       });
     }
 
-    // Nav Toggle
+    // Mobile Nav
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navClose = document.querySelector('.nav-close');
-
-    if (navToggle && navMenu) {
-      navToggle.addEventListener('click', () => navMenu.classList.add('active'));
-    }
-    if (navClose && navMenu) {
-      navClose.addEventListener('click', () => navMenu.classList.remove('active'));
-    }
+    if (navToggle) navToggle.addEventListener('click', () => navMenu.classList.add('active'));
+    if (navClose) navClose.addEventListener('click', () => navMenu.classList.remove('active'));
   </script>
 </body>
 </html>
