@@ -1,25 +1,30 @@
 # ROADMAP.md
 
-> **Current Phase**: Not started
-> **Milestone**: v1.0 — Reclairos Gold Standard
+> **Current Phase**: Phase 4: Project Deep-Dive & Polish
+> **Milestone**: v2.0 — Mobile-First Excellence
 
 ## Must-Haves (from SPEC)
-- [ ] Narrative Hero Hook on Overview.
-- [ ] Feature reframing for "Elite Squad" and "Battlefields".
-- [ ] Performance Metrics Grid on Case Study.
+- [ ] Responsive Hero Video (Home)
+- [ ] Overflow-free Layout (Site-wide)
+- [ ] Touch-optimized Navigation & Filters
+- [ ] Un-cramped Project Pages
 
 ## Phases
 
-### Phase 1: B2C Overview Refinement
+### Phase 1: Core Navigation & Global Stability
 **Status**: ✅ Complete
-**Objective**: Pivot the Overview page to a narrative focus and update CTAs.
-**Files**: `overview/index.html`
+**Objective**: Fix the mobile menu, global overflow issues, and common components (breadcrumbs, buttons).
+**Requirements**: REQ-02, REQ-03, REQ-06
 
-### Phase 2: B2B Engineering Authority
+### Phase 2: Homepage Hero & Media Optimization
 **Status**: ✅ Complete
-**Objective**: Add hard technical metrics to the Case Study to build client trust.
-**Files**: `case-study/index.html`
+**Requirements**: REQ-01
 
-### Phase 3: Final Polish
+### Phase 3: Portfolio & Filter UX
+**Status**: ✅ Complete
+**Requirements**: REQ-04, REQ-05
+
+### Phase 4: Project Deep-Dive & Polish
 **Status**: ⬜ Not Started
-**Objective**: Unified CTA check and responsiveness verification.
+**Objective**: Refine project-specific pages (Overview/Case Study) and final responsiveness verification.
+**Requirements**: REQ-07

@@ -88,8 +88,7 @@
           <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../contact.html"
-              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">View Services</a></li>
         </ul>
       </nav>
     </div>
@@ -98,6 +97,10 @@
 <!-- Hero Section -->
 <section class="section-padding" style="padding-top: 10rem;">
 <div class="container">
+<nav class="breadcrumbs" style="justify-content: flex-start;">
+  <a href="../index.html">Home</a> <span>/</span>
+  <span style="opacity:1; color: rgba(255,255,255,0.4); padding-top: 8px;">Work</span>
+</nav>
 <h1>Browse Projects</h1>
 <p class="text-muted" style="font-size: 1.25rem; max-width: 700px; margin-top: 1.5rem;">Explore projects
                     across game development, VR/XR simulations, and technical art pipelines.</p>
@@ -107,225 +110,221 @@
 <section class="section-padding" style="background-color: #0c0c0c;">
 <div class="container">
 <!-- Filter Tabs -->
-<div class="filter-tabs" style="display: flex; gap: 2rem; margin-bottom: 4rem; border-bottom: 1px solid var(--border-subtle);">
-<a class="filter-tab active" href="../work/index.html" style="padding: 1rem 0; font-weight: 600; color: var(--core-tech); border-bottom: 2px solid var(--core-tech); cursor: pointer;">All Work</a>
-<a class="filter-tab" href="../work/game-development/index.html" style="padding: 1rem 0; font-weight: 500; color: var(--text-secondary); cursor: pointer;">Game Development</a>
-<a class="filter-tab" href="../work/vr-xr/index.html" style="padding: 1rem 0; font-weight: 500; color: var(--text-secondary); cursor: pointer;">VR &amp; XR</a>
-<a class="filter-tab" href="../work/game-art/index.html" style="padding: 1rem 0; font-weight: 500; color: var(--text-secondary); cursor: pointer;">Game Art</a>
+<div class="filter-tabs">
+<a class="filter-tab active" href="../work/index.html">All Work</a>
+<a class="filter-tab" href="../work/game-development/index.html">Game Development</a>
+<a class="filter-tab" href="../work/vr-xr/index.html">VR &amp; XR</a>
+<a class="filter-tab" href="../work/game-art/index.html">Game Art</a>
 </div>
-<!-- Game Development Section -->
-<div style="margin-bottom: 6rem;">
-<div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; border-left: 4px solid var(--core-art); padding-left: 1.5rem;">
-<div>
-<h2 style="margin-bottom: 0.5rem;">Game Development</h2>
-<p class="text-muted">Original IP and performance-engineered gameplay systems.</p>
-</div>
-<a class="text-accent" href="game-development/index.html" style="font-weight: 600; font-size: 0.9rem; text-decoration: none;">View All Game Dev →</a>
-</div>
-<div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 3rem;">
-<!-- Flagship: Reclairos -->
-<div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-<div style="aspect-ratio: 16/9; width: 100%; overflow: hidden;">
-<img alt="Reclairos project thumbnail" loading="lazy" src="game-development/reclairos/assets/reclairos-thumbnail.webp" width="800" height="450" style="width: 100%; height: 100%; object-fit: cover;"/>
-</div>
-<div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-<h3 style="margin: 0;">Reclairos</h3>
-<span style="font-size: 0.65rem; font-weight: 800; background: rgba(59, 179, 217, 0.1); color: var(--color-accent); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(59, 179, 217, 0.2);">FLAGSHIP</span>
-</div>
-<p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
-                                    A system-driven strategy experience built with performance-first design and scalable
-                                    gameplay systems.</p>
-<div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
-<a class="btn btn-secondary" href="game-development/reclairos/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View
-                                        Project</a>
-<a class="btn btn-primary" href="game-development/reclairos/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
-</div>
-</div>
-</div>
-<!-- Project: Never Open The Door -->
-<div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-<div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(135deg, #080406 0%, #1a0808 60%, #080406 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.04); position: relative;">
-  <div style="position: absolute; inset: 0; background: radial-gradient(circle at 30% 50%, rgba(120,0,0,0.3) 0%, transparent 60%);"></div>
-  <div style="text-align: center; position: relative; z-index: 1;"><div style="font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,50,50,0.7);">NEVER OPEN</div><div style="width: 30px; height: 1px; background: rgba(255,50,50,0.4); margin: 0.4rem auto;"></div><div style="font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,50,50,0.7);">THE DOOR</div></div>
-</div>
-<div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-<h3 style="margin-bottom: 1rem;">Never Open The Door</h3>
-<p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
-                                    Atmospheric horror prototype built with a focus on tension loops and systemic AI
-                                    behavior.</p>
-<div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
-<a class="btn btn-secondary" href="game-development/never-open-the-door/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
-<a class="btn btn-primary" href="game-development/never-open-the-door/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
-</div>
-</div>
-</div>
-<!-- Card: Paapi Gudia PC -->
-<div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-<div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(135deg, #0c0a14 0%, #1a0828 60%, #0c0a14 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.04);">
-  <div style="text-align: center;"><div style="font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; color: var(--core-art); opacity: 0.8; text-shadow: 0 0 25px rgba(255,122,24,0.35);">PG</div><div style="font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); margin-top: 0.4rem;">PC + VR Horror</div></div>
-</div>
-<div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-<span class="text-accent" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">PC SHOOTER</span>
-<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-<h3 style="margin: 0;">Paapi Gudia</h3>
-<span style="font-size: 0.65rem; font-weight: 800; background: rgba(59, 179, 217, 0.1); color: var(--color-accent); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(59, 179, 217, 0.2);">PC + VR</span>
-</div>
-<p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">Cross-platform horror shooter engineered for PC and Meta Quest.</p>
-<div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
-<a class="btn btn-secondary" href="game-development/paapi-gudia/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
-<a class="btn btn-primary" href="game-development/paapi-gudia/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
-</div>
-</div>
-</div>
-<!-- Project: Crazy Planet -->
-<div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-<div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(135deg, #0a1a0a 0%, #1a2a00 50%, #0a1a0a 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.04);">
-  <div style="text-align: center;"><div style="font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; color: var(--core-art); opacity: 0.85; text-shadow: 0 0 25px rgba(255,122,24,0.35);">CP</div><div style="font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); margin-top: 0.4rem;">Mobile Arcade</div></div>
-</div>
-<div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-<h3 style="margin-bottom: 1rem;">Crazy Planet</h3>
-<p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">A dynamic,
-                                    fast-paced mobile game featuring procedural generation and vibrant physics-based
-                                    gameplay.</p>
-<div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
-<a class="btn btn-secondary" href="game-development/crazy-planet/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
-<a class="btn btn-primary" href="game-development/crazy-planet/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- VR/XR Simulation Section -->
-<div style="margin-bottom: 6rem;">
-<div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; border-left: 4px solid var(--core-tech); padding-left: 1.5rem;">
-<div>
-<h2 style="margin-bottom: 0.5rem;">VR/XR Simulation</h2>
-<p class="text-muted">Immersive training and interactive virtual environments.</p>
-</div>
-<a class="text-accent" href="vr-xr/index.html" style="font-weight: 600; font-size: 0.9rem; text-decoration: none;">View All VR/XR →</a>
-</div>
-<div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 3rem;">
-<!-- Flagship: Mayaaverse -->
-<div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-<div style="aspect-ratio: 16/9; width: 100%; overflow: hidden;">
-<img alt="Mayaaverse VR temple meditation platform" loading="lazy" src="../assets/images/mayaaverse-thumb.png" width="640" height="360" style="width: 100%; height: 100%; object-fit: cover;"/>
-</div>
-<div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-<h3 style="margin: 0;">Mayaaverse</h3>
-<span style="font-size: 0.65rem; font-weight: 800; background: rgba(59, 179, 217, 0.1); color: var(--color-accent); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(59, 179, 217, 0.2);">FLAGSHIP</span>
-</div>
-<p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
-                                    Temple simulation and meditation platform featuring spatial audio and AI-driven
-                                    systems.</p>
-<div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
-<a class="btn btn-secondary" href="vr-xr/mayaaverse/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View
-                                        Project</a>
-<a class="btn btn-primary" href="vr-xr/mayaaverse/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
-</div>
-</div>
-</div>
-<!-- Flagship: Room Raider -->
-<div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-<div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(135deg, #050a14 0%, #0a1826 50%, #050a14 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.04);">
-  <div style="text-align: center;"><div style="font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; color: var(--core-tech); opacity: 0.8; text-shadow: 0 0 25px rgba(0,210,255,0.3);">MR</div><div style="font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); margin-top: 0.4rem;">Mixed Reality</div></div>
-</div>
-<div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-<h3 style="margin: 0;">Room Raider</h3>
-<span style="font-size: 0.65rem; font-weight: 800; background: rgba(59, 179, 217, 0.1); color: var(--color-accent); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(59, 179, 217, 0.2);">FLAGSHIP</span>
-</div>
-<p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
-                                    Mixed Reality experience powered by spatial understanding and real-world occlusion.</p>
-<div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
-<a class="btn btn-secondary" href="vr-xr/room-raider/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View
-                                        Project</a>
-<a class="btn btn-primary" href="vr-xr/room-raider/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
-</div>
-</div>
-</div>
-<!-- Flagship: ShemarooVerse -->
-<div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-<div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(135deg, #0a0f1a 0%, #1a0826 50%, #0a0f1a 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.04);">
-  <div style="text-align: center;"><div style="font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; color: var(--core-tech); opacity: 0.75; text-shadow: 0 0 25px rgba(0,210,255,0.3);">SV</div><div style="font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); margin-top: 0.4rem;">Multiplayer VR</div></div>
-</div>
-<div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-<h3 style="margin: 0;">ShemarooVerse</h3>
-<span style="font-size: 0.65rem; font-weight: 800; background: rgba(59, 179, 217, 0.1); color: var(--color-accent); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(59, 179, 217, 0.2);">FLAGSHIP</span>
-</div>
-<p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
-                                    Multiplayer VR media platform integrated with JioImmerse using Photon Fusion.</p>
-<div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
-<a class="btn btn-secondary" href="vr-xr/shemarooverse/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View
-                                        Project</a>
-<a class="btn btn-primary" href="vr-xr/shemarooverse/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
-</div>
-</div>
-</div>
-<!-- Project: Educational Simulations -->
-<div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-<div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(135deg, #051014 0%, #0a1e24 50%, #051014 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.04);">
-  <div style="text-align: center;"><div style="font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; color: var(--core-tech); opacity: 0.7;">ES</div><div style="font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); margin-top: 0.4rem;">XR Training</div></div>
-</div>
-<div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-<h3 style="margin-bottom: 1rem;">Educational Simulations</h3>
-<p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">Interactive,
-                                    immersive learning environments built for enterprise-scale deployment across
-                                    standalone VR headsets.</p>
-<div style="margin-top: auto;">
-<a class="btn btn-secondary" href="vr-xr/educational-simulations/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View
-                                        Project</a>
-</div>
-</div>
-</div>
-<!-- Project: Medical Simulations -->
-<div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-<div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(135deg, #050e14 0%, #0a1c24 50%, #050e14 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.04);">
-  <div style="text-align: center;"><div style="font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; color: var(--core-tech); opacity: 0.7;">MS</div><div style="font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); margin-top: 0.4rem;">Clinical XR</div></div>
-</div>
-<div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-<h3 style="margin-bottom: 1rem;">Medical Simulations</h3>
-<p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">Precision-focused
-                                    XR solutions for advanced surgical and clinical training involving complex
-                                    procedures.</p>
-<div style="margin-top: auto;">
-<a class="btn btn-secondary" href="vr-xr/medical-simulations/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View
-                                        Project</a>
-</div>
-</div>
-</div>
+      <!-- Game Development Section -->
+      <div style="margin-bottom: 6rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; border-left: 4px solid var(--core-art); padding-left: 1.5rem;">
+          <div>
+            <h2 style="margin-bottom: 0.5rem;">Game Development</h2>
+            <p class="text-muted">Original IP and performance-engineered gameplay systems.</p>
+          </div>
+          <a class="text-accent" href="game-development/index.html" style="font-weight: 600; font-size: 0.9rem; text-decoration: none;">View All Game Dev →</a>
+        </div>
+        <div class="grid portfolio-grid">
+          <!-- Card: Reclairos -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.04);">
+              <img alt="Reclairos Flagship Project" loading="lazy" src="game-development/reclairos/assets/reclairos-thumbnail.webp" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="text-accent" style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">SCI-FI ADVENTURE</span>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                <h3 style="margin: 0;">Reclairos</h3>
+                <span style="font-size: 0.65rem; font-weight: 800; background: rgba(59, 179, 217, 0.1); color: var(--color-accent); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(59, 179, 217, 0.2);">GOLD STANDARD</span>
+              </div>
+              <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; flex-grow: 1;">Cinematic sci-fi experience featuring advanced AI systems, modular interaction, and high-fidelity URP environments.</p>
+              <div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a class="btn btn-secondary" href="game-development/reclairos/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
+                <a class="btn btn-primary" href="game-development/reclairos/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
+              </div>
+            </div>
+          </div>
+                   <!-- Card 2: Never Open The Door -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.04); position: relative;">
+              <img src="game-development/never-open-the-door/assets/never-open-the-door-hero-bg.png" alt="Never Open The Door" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+            </div>
+            <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="text-accent" style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">ATMOSPHERIC HORROR</span>
+              <h3 style="margin-bottom: 1rem;">Never Open The Door</h3>
+              <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; flex-grow: 1;">Atmospheric horror prototype built with a focus on tension loops and systemic AI behavior.</p>
+              <div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a class="btn btn-secondary" href="game-development/never-open-the-door/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
+                <a class="btn btn-primary" href="game-development/never-open-the-door/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
+              </div>
+            </div>
+          </div>
+          <!-- Card: Paapi Gudia PC -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.04); position: relative;">
+              <img src="game-development/paapi-gudia/assets/paapi-hero-bg-clean.png" alt="Paapi Gudia" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+            </div>
+            <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="text-accent" style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">PC SHOOTER</span>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                <h3 style="margin: 0;">Paapi Gudia</h3>
+                <span style="font-size: 0.65rem; font-weight: 800; background: rgba(59, 179, 217, 0.1); color: var(--color-accent); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(59, 179, 217, 0.2);">PC + VR</span>
+              </div>
+              <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; flex-grow: 1;">Cross-platform horror shooter engineered for PC and Meta Quest.</p>
+              <div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a class="btn btn-secondary" href="game-development/paapi-gudia/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
+                <a class="btn btn-primary" href="game-development/paapi-gudia/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4: Crazy Planet -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.04); position: relative;">
+              <img src="game-development/crazy-planet/assets/cp-hero-bg.png" alt="Crazy Planet" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+            </div>
+            <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="text-accent" style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">RETRO ACTION</span>
+              <h3 style="margin-bottom: 1rem;">Crazy Planet</h3>
+              <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; flex-grow: 1;">A vibrant retro action platformer engineered with modular enemy behavior and smooth mechanics.</p>
+              <div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a class="btn btn-secondary" href="game-development/crazy-planet/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
+                <a class="btn btn-primary" href="game-development/crazy-planet/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-</div>
-</div>
-<!-- Game Art Section -->
-<div style="margin-bottom: 2rem;">
-<div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; border-left: 4px solid var(--core-art); padding-left: 1.5rem;">
-<div>
-<h2 style="margin-bottom: 0.5rem;">Game Art</h2>
-<p class="text-muted">Technical art benchmarks and production-ready assets.</p>
-</div>
-<a class="text-accent" href="game-art/index.html" style="font-weight: 600; font-size: 0.9rem; text-decoration: none;">View All Game Art →</a>
-</div>
-<div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 3rem;">
-<!-- Project: Technical Art Benchmarks -->
-<div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-<div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(135deg, #0e0a06 0%, #241800 50%, #0e0a06 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.04);">
-  <div style="text-align: center;"><div style="font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; color: var(--core-art); opacity: 0.8; text-shadow: 0 0 25px rgba(255,122,24,0.3);">TA</div><div style="font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); margin-top: 0.4rem;">Technical Art</div></div>
-</div>
-<div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-<h3 style="margin-bottom: 1rem;">Technical Art Benchmarks</h3>
-<p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5;">
-                                    Showcase of high-fidelity environment art and technical shader work.</p>
-<div style="margin-top: auto;">
-<a class="btn btn-secondary" href="game-art/technical-art-benchmarks/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View
-                                        Project</a>
-</div>
-</div>
-</div>
-</div>
-</div>
+      <!-- VR/XR Simulation Section -->
+      <div style="margin-bottom: 6rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; border-left: 4px solid var(--core-tech); padding-left: 1.5rem;">
+          <div>
+            <h2 style="margin-bottom: 0.5rem;">VR/XR Simulation</h2>
+            <p class="text-muted">Immersive training and interactive virtual environments.</p>
+          </div>
+          <a class="text-accent" href="vr-xr/index.html" style="font-weight: 600; font-size: 0.9rem; text-decoration: none;">View All VR/XR →</a>
+        </div>
+        <div class="grid portfolio-grid">
+          <!-- Flagship: Mayaaverse -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.04); position: relative;">
+              <img alt="Mayaaverse VR temple meditation platform" loading="lazy" src="../assets/images/mayaaverse-thumb.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+            </div>
+            <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="text-accent" style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">VIRTUAL REALITY</span>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                <h3 style="margin: 0;">Mayaaverse</h3>
+                <span style="font-size: 0.65rem; font-weight: 800; background: rgba(59, 179, 217, 0.1); color: var(--color-accent); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(59, 179, 217, 0.2);">FLAGSHIP</span>
+              </div>
+              <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; flex-grow: 1;">A modular VR ecosystem combining cultural exploration, guided meditation, and AI-powered real estate interaction.</p>
+              <div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a class="btn btn-secondary" href="vr-xr/mayaaverse/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
+                <a class="btn btn-primary" href="vr-xr/mayaaverse/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
+              </div>
+            </div>
+          </div>
+          <!-- Flagship: Room Raider -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.04); position: relative;">
+              <img alt="Room Raider Mixed Reality" loading="lazy" src="vr-xr/room-raider/assets/room-raider-thumb.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+            </div>
+            <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="text-accent" style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">MIXED REALITY</span>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                <h3 style="margin: 0;">Room Raider</h3>
+                <span style="font-size: 0.65rem; font-weight: 800; background: rgba(59, 179, 217, 0.1); color: var(--color-accent); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(59, 179, 217, 0.2);">FLAGSHIP</span>
+              </div>
+              <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; flex-grow: 1;">Mixed Reality experience powered by spatial understanding and real-world occlusion.</p>
+              <div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a class="btn btn-secondary" href="vr-xr/room-raider/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
+                <a class="btn btn-primary" href="vr-xr/room-raider/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
+              </div>
+            </div>
+          </div>
+          <!-- Flagship: ShemarooVerse -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.04);">
+              <img alt="ShemarooVerse Multiplayer VR" loading="lazy" src="../assets/images/shemarooverse-thumb.png" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="text-accent" style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">VIRTUAL REALITY</span>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                <h3 style="margin: 0;">ShemarooVerse</h3>
+                <span style="font-size: 0.65rem; font-weight: 800; background: rgba(59, 179, 217, 0.1); color: var(--color-accent); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(59, 179, 217, 0.2);">FLAGSHIP</span>
+              </div>
+              <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; flex-grow: 1;">Multiplayer VR media platform integrated with JioImmerse using Photon Fusion networking.</p>
+              <div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a class="btn btn-secondary" href="vr-xr/shemarooverse/overview/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
+                <a class="btn btn-primary" href="vr-xr/shemarooverse/case-study/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto; background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Case Study</a>
+              </div>
+            </div>
+          </div>
+          <!-- Project: Educational Simulations -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(135deg, #0a0f14 0%, #050a0a 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.04);">
+              <div style="text-align: center;">
+                <div style="font-size: 1.5rem; font-weight: 900; color: var(--core-tech); opacity: 0.5;">EDU</div>
+                <div style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.3; margin-top: 0.5rem;">Simulation</div>
+              </div>
+            </div>
+            <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="text-accent" style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">ENTERPRISE VR</span>
+              <h3 style="margin-bottom: 1rem;">Educational Simulations</h3>
+              <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; flex-grow: 1;">Interactive, immersive learning environments built for enterprise-scale deployment.</p>
+              <div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a class="btn btn-secondary" href="vr-xr/educational-simulations/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
+              </div>
+            </div>
+          </div>
+          <!-- Project: Medical Simulations -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(135deg, #050e14 0%, #0a1c24 50%, #050e14 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.04);">
+              <div style="text-align: center;">
+                <div style="font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; color: var(--core-tech); opacity: 0.7;">MS</div>
+                <div style="font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); margin-top: 0.4rem;">Clinical XR</div>
+              </div>
+            </div>
+            <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="text-accent" style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">ENTERPRISE MEDICAL XR</span>
+              <h3 style="margin-bottom: 1rem;">Medical Simulations</h3>
+              <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; flex-grow: 1;">Precision-focused XR solutions for advanced surgical and clinical training.</p>
+              <div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a class="btn btn-secondary" href="vr-xr/medical-simulations/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game Art Section -->
+      <div style="margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; border-left: 4px solid var(--core-art); padding-left: 1.5rem;">
+          <div>
+            <h2 style="margin-bottom: 0.5rem;">Game Art</h2>
+            <p class="text-muted">Technical art benchmarks and production-ready assets.</p>
+          </div>
+          <a class="text-accent" href="game-art/index.html" style="font-weight: 600; font-size: 0.9rem; text-decoration: none;">View All Game Art →</a>
+        </div>
+        <div class="grid portfolio-grid">
+          <!-- Project: Technical Art Benchmarks -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+            <div style="aspect-ratio: 16/9; width: 100%; background: linear-gradient(135deg, #0e0a06 0%, #241800 50%, #0e0a06 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.04);">
+              <div style="text-align: center;">
+                <div style="font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; color: var(--core-art); opacity: 0.8; text-shadow: 0 0 25px rgba(255,122,24,0.3);">TA</div>
+                <div style="font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.28); margin-top: 0.4rem;">Technical Art</div>
+              </div>
+            </div>
+            <div style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span class="text-accent" style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">ENVIRONMENT ART</span>
+              <h3 style="margin-bottom: 1rem;">Technical Art Benchmarks</h3>
+              <p class="text-muted" style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; flex-grow: 1;">Showcase of high-fidelity environment art and technical shader work.</p>
+              <div style="margin-top: auto; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a class="btn btn-secondary" href="game-art/technical-art-benchmarks/index.html" style="padding: 0.6rem 1.2rem; font-size: 0.75rem; width: auto;">View Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 </section>
 <!-- CTA Section -->
 <section class="section-padding" style="text-align: center; background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle);">

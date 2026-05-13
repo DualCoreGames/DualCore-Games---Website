@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta name="view-transition" content="same-origin" />
-    <meta charset="utf-8">
+  <meta charset="utf-8"/>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -10,37 +10,190 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
   <!-- End Google Tag Manager -->
+
+  <!-- Open Graph -->
+  <meta content="Crazy Planet | Retro Action Platformer | DualCore Games" property="og:title"/>
+  <meta content="A vibrant retro action platformer featuring dynamic combat and precision mechanics." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://dualcoregames.com/work/game-development/crazy-planet/overview/" property="og:url"/>
+  <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Crazy Planet | Retro Action Platformer | DualCore Games" name="twitter:title"/>
+  <meta content="A vibrant retro action platformer featuring dynamic combat and precision mechanics." name="twitter:description"/>
+  <meta name="theme-color" content="#00d2ff">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Crazy Planet — Retro Action Platformer | DualCore Games</title>
+  <meta content="Experience the vibrant retro chaos in Crazy Planet. High-performance platformer gameplay built with modular enemy systems by DualCore Games." name="description"/>
+  <link href="../../../../assets/css/style.css" rel="stylesheet"/>
+  <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+
+  <!-- VideoGame JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Crazy Planet",
+    "description": "A vibrant retro action platformer featuring dynamic combat and precision mechanics.",
+    "genre": ["Platformer", "Action", "Adventure"],
+    "gamePlatform": ["PC", "Mobile"],
+    "applicationCategory": "Game",
+    "author": {
+      "@type": "Organization",
+      "name": "DualCore Games",
+      "url": "https://dualcoregames.com"
+    },
+    "image": "https://dualcoregames.com/assets/images/social-preview.webp"
+  }
+  </script>
+
+  <style>
+    /* ── DualCore Signature Styles ── */
+    .hero-cinematic {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding: 12rem 0 8rem;
+      background: #080a08;
+      overflow: hidden;
+    }
+    .hero-cinematic::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-cinematic__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.12;
+      filter: saturate(2) brightness(0.7);
+    }
+    .hero-cinematic__content { 
+      position: relative; 
+      z-index: 10; 
+      text-align: center;
+    }
     
-    <!-- Open Graph -->
-    <meta content="Crazy Planet | DualCore Games" property="og:title"/>
-    <meta content="Lightweight 2D platformer engineered for responsive gameplay, accessibility, and scalable level design." property="og:description"/>
-    <meta content="website" property="og:type"/>
-    <meta content="https://dualcoregames.com/work/game-development/crazy-planet/overview/" property="og:url"/>
-    <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
-    <!-- Twitter -->
-    <meta content="summary_large_image" name="twitter:card"/>
-    <meta content="Crazy Planet | DualCore Games" name="twitter:title"/>
-    <meta content="Lightweight 2D platformer engineered for responsive gameplay, accessibility, and scalable level design." name="twitter:description"/>
-    <meta name="theme-color" content="#00d2ff">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crazy Planet | DualCore Games</title>
-    <meta name="description" content="Lightweight 2D platformer engineered for responsive gameplay, accessibility, and scalable level design.">
-    <!-- Fonts & CSS Preload -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-    </noscript>
-    <link rel="stylesheet" href="../../../../assets/css/style.css">
-    <link rel="icon" type="image/svg+xml" href="../../../../assets/images/dualcore-icon.svg">
+    .breadcrumbs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 2.5rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .breadcrumbs a { color: var(--color-accent); text-decoration: none; }
+    .breadcrumbs span { opacity: 0.3; }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    /* Cards & Interactivity */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-top: 3px solid #00D1FF;
+      padding: 2.5rem;
+      transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), background 0.4s ease;
+    }
+    .feature-card:hover {
+      transform: scale(1.03);
+      background: rgba(0,210,255,0.04);
+    }
+    .feature-card__num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+      letter-spacing: 0.2em;
+    }
+    .feature-card h3 { font-size: 1.25rem; margin-bottom: 1rem; font-weight: 800; }
+    .feature-card p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+    /* Narrative Sections */
+    .narrative-section { padding: 10rem 0; position: relative; }
+    .narrative-section--alt { background: #0c0c0c; }
+    .narrative-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .narrative-content h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 2rem; letter-spacing: -0.02em; }
+    .narrative-content p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-muted); margin-bottom: 2rem; }
+    
+    .image-frame {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+    .image-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .image-frame__overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+    }
+
+    .beta-form-container {
+      max-width: 650px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top: 3px solid var(--color-accent);
+      padding: 4rem;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 1000px) {
+      .narrative-grid { grid-template-columns: 1fr; gap: 4rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2F3CX5Z"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-<header>
+
+  <header>
     <div class="container header-inner">
       <a class="logo" href="../../../../index.html">
         <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg"
@@ -52,21 +205,17 @@
           <button aria-label="Close navigation" class="nav-close">✕</button>
           <li class="nav-item"><a class="nav-link" href="../../../../index.html">Home</a></li>
           <li class="nav-item has-dropdown">
-            <a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span
-                class="dropdown-icon">▼</span></a>
+            <a class="nav-link dropdown-toggle" href="../../../../services/index.html">Services <span class="dropdown-icon">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game
-                  Development</a></li>
+              <li><a class="dropdown-link" href="../../../../services/game-development/index.html">Game Development</a></li>
               <li><a class="dropdown-link" href="../../../../services/game-art/index.html">Game Art</a></li>
-              <li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR
-                  Simulation</a></li>
+              <li><a class="dropdown-link" href="../../../../services/vr-xr-simulation/index.html">VR/XR Simulation</a></li>
             </ul>
           </li>
           <li class="nav-item has-dropdown">
             <a class="nav-link dropdown-toggle" href="../../../../work/index.html">Work <span class="dropdown-icon">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game Development</a>
-              </li>
+              <li><a class="dropdown-link" href="../../../../work/game-development/index.html">Game Development</a></li>
               <li><a class="dropdown-link" href="../../../../work/game-art/index.html">Game Art</a></li>
               <li><a class="dropdown-link" href="../../../../work/vr-xr/index.html">VR/XR</a></li>
             </ul>
@@ -74,228 +223,273 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html"
-              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">View Services</a></li>
         </ul>
       </nav>
     </div>
   </header>
-<main>
-    <!-- HERO SECTION -->
-    <section class="section-padding" style="padding-top: 10rem;">
-        <div class="container">
-            <span class="text-accent" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 1rem;">Work / Game Development</span>
-            <h1 style="margin-bottom: 1.5rem; font-weight: 900; letter-spacing: -0.02em;">Crazy Planet</h1>
-            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; line-height: 1.6; margin-bottom: 2.5rem;">A lightweight 2D platformer system engineered to maintain stable performance and visual clarity across all target hardware.</p>
-            <div style="margin-bottom: 4rem;">
-                <a class="btn btn-primary" href="#alpha-form" style="padding: 1rem 2.5rem; font-size: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Join the Private Alpha</a>
-            </div>
-            
-            <div class="tags-container" style="margin-bottom: 3rem;">
-                <span class="tag">2D Platformer</span>
-                <span class="tag">Systemic Design</span>
-                <span class="tag">Accessibility</span>
-                <span class="tag">Lightweight</span>
-            </div>
-            
-            <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-                <div class="card" style="padding: 1.5rem;">
-                    <span class="text-accent" style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.5rem;">Platform</span>
-                    <strong style="font-size: 1rem;">PC, Web</strong>
-                </div>
-                <div class="card" style="padding: 1.5rem;">
-                    <span class="text-accent" style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.5rem;">Engine</span>
-                    <strong style="font-size: 1rem;">Unity</strong>
-                </div>
-                <div class="card" style="padding: 1.5rem;">
-                    <span class="text-accent" style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.5rem;">Genre</span>
-                    <strong style="font-size: 1rem;">Action Platformer</strong>
-                </div>
-                <div class="card" style="padding: 1.5rem;">
-                    <span class="text-accent" style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.5rem;">Orientation</span>
-                    <strong style="font-size: 1rem;">2D Side-Scroller</strong>
-                </div>
-            </div>
+
+  <main>
+    <!-- ═══ CINEMATIC HERO ═══ -->
+    <section class="hero-cinematic">
+      <img src="../assets/cp-hero-bg.png" class="hero-cinematic__bg" alt="Crazy Planet Vibrant Environment">
+      <div class="container hero-cinematic__content">
+        <nav class="breadcrumbs">
+          <a href="../../../../index.html">Home</a> <span>/</span> 
+          <a href="../../../index.html">Work</a> <span>/</span>
+          <a href="../../index.html">Game Development</a>
+        </nav>
+        <span class="hero-label">Retro Action Platformer</span>
+        <h1 class="hero-title">Crazy Planet</h1>
+        <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 700px; margin: 0 auto 3.5rem auto;">A vibrant 2D side-scrolling adventure that combines the ruthless challenge of classic arcade platformers with smooth, modern mechanics.</p>
+        
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+          <a href="#beta-form" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Get Beta Access</a>
+          <a href="../case-study/index.html" class="btn btn-secondary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">Technical Case Study</a>
         </div>
+
+      </div>
     </section>
 
-    <!-- EXPERIENCE PILLARS -->
-    <section class="section-padding" style="background-color: var(--color-card-bg);">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 4rem;">Experience Pillars</h2>
-            <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
-                <div class="card">
-                    <h4 style="margin-bottom: 0.5rem;">Accessible Gameplay Design</h4>
-                    <p class="text-muted" style="font-size: 0.95rem;">Simple, readable mechanics designed for immediate player understanding.</p>
-                </div>
-                <div class="card">
-                    <h4 style="margin-bottom: 0.5rem;">Responsive Movement System</h4>
-                    <p class="text-muted" style="font-size: 0.95rem;">Precise controls enabling smooth and predictable platforming.</p>
-                </div>
-                <div class="card">
-                    <h4 style="margin-bottom: 0.5rem;">Modular Enemy Systems</h4>
-                    <p class="text-muted" style="font-size: 0.95rem;">Enemies built using reusable behavior patterns for scalable gameplay variety.</p>
-                </div>
-                <div class="card">
-                    <h4 style="margin-bottom: 0.5rem;">Performance-Conscious Design</h4>
-                    <p class="text-muted" style="font-size: 0.95rem;">Optimized assets and systems ensuring stable performance across devices.</p>
-                </div>
-            </div>
+    <!-- ═══ PROJECT STRIP ═══ -->
+    <section style="background: #080808; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Platform</span><strong style="font-size: 0.95rem;">PC & Mobile</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Engine</span><strong style="font-size: 0.95rem;">Unity (2D URP)</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Genre</span><strong style="font-size: 0.95rem;">Action Platformer</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Perspective</span><strong style="font-size: 0.95rem;">2D Side-Scrolling</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Theme</span><strong style="font-size: 0.95rem;">Retro Arcade</strong></div>
         </div>
+      </div>
     </section>
 
-    <!-- OVERVIEW & CORE EXPERIENCE -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 6rem;">
-                <div style="order: 1;">
-                    <h2 style="margin-bottom: 2rem;">Overview</h2>
-                    <p class="text-muted" style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.6;">
-                        Crazy Planet is a 2D side-scrolling platformer designed around accessibility, responsiveness, and modular gameplay systems.
-                    </p>
-                    <p class="text-muted" style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.6;">
-                        Inspired by classic arcade platformers, the project focuses on delivering fast, readable gameplay while maintaining a smooth progression curve. The game is built on a system-driven approach where level design, enemy behavior, and progression systems work together to create engaging gameplay through simplicity and clarity.
-                    </p>
-                    <p class="text-muted" style="margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.6;">
-                        The result is a lightweight platformer experience that prioritizes performance, readability, and scalable content design.
-                    </p>
-                    
-                    <h2 style="margin-bottom: 2rem;">Core Experience</h2>
-                    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                        <div class="card" style="padding: 1.5rem;">
-                            <h4 style="margin-bottom: 0; font-size: 1.1rem;">Movement Phase</h4>
-                            <p class="text-muted" style="font-size: 0.9rem; margin-top: 0.5rem;">Responsive jumping and navigation.</p>
-                        </div>
-                        <div class="card" style="padding: 1.5rem;">
-                            <h4 style="margin-bottom: 0; font-size: 1.1rem;">Interaction Phase</h4>
-                            <p class="text-muted" style="font-size: 0.9rem; margin-top: 0.5rem;">Engaging with collectibles and environment.</p>
-                        </div>
-                        <div class="card" style="padding: 1.5rem;">
-                            <h4 style="margin-bottom: 0; font-size: 1.1rem;">Combat Phase</h4>
-                            <p class="text-muted" style="font-size: 0.9rem; margin-top: 0.5rem;">Avoiding or defeating enemies.</p>
-                        </div>
-                        <div class="card" style="padding: 1.5rem;">
-                            <h4 style="margin-bottom: 0; font-size: 1.1rem;">Progression Phase</h4>
-                            <p class="text-muted" style="font-size: 0.9rem; margin-top: 0.5rem;">Unlocking paths and completing levels.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Sidebar -->
-                <div style="order: 2;">
-                    <div class="card" style="height: fit-content; position: sticky; top: 2rem;">
-                        <h4 style="margin-bottom: 1.5rem;">Key Performance</h4>
-                        <ul class="bullet-list text-muted" style="font-size: 0.95rem; margin-bottom: 0;">
-                            <li style="margin-bottom: 1rem;">Low-latency input</li>
-                            <li style="margin-bottom: 1rem;">Sprite batching</li>
-                            <li style="margin-bottom: 1rem;">Scalable level logic</li>
-                            <li style="margin-bottom: 0;">Cross-device stability</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <!-- Experience Pillars -->
+    <section style="padding: 4rem 0;">
+      <div class="container">
+        <div class="feature-grid" style="margin-top: 0;">
+          <div class="feature-card">
+            <span class="feature-card__num">01</span>
+            <h3>Precision Platforming</h3>
+            <p>Skill-based movement mechanics demanding pixel-perfect timing to overcome spinning blades and environmental hazards.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">02</span>
+            <h3>Retro Aesthetic</h3>
+            <p>Handcrafted pixel-art environments that capture the vibrant, colorful charm of legendary classic titles.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">03</span>
+            <h3>Dynamic Combat</h3>
+            <p>Six unique enemy types featuring distinct attack patterns and behaviors designed to test your combat strategy.</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Environment Visual -->
-    <section class="section-padding" style="padding-top: 0;">
-        <div class="container">
-            <div class="card" style="height: 320px; display: flex; align-items: center; justify-content: center; text-align: center;">
-                <span class="text-muted">Environment / Atmosphere Visual</span>
-            </div>
+    <!-- ═══ 01 PROJECT OVERVIEW ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">01 / The Arcade Revival</span>
+            <h2>Nostalgia Engineered.</h2>
+            <p>Drawing direct inspiration from timeless classics like Contra, Super Mario, and Prince of Persia, <strong>Crazy Planet</strong> is designed to recreate the visceral thrill of 90s arcade gaming. The game spans 7 progressively difficult levels, each introducing new gameplay elements to continuously test the player's reflexes.</p>
+            <p>We engineered the movement physics to feel immediate and predictable, ensuring that every missed jump or trap collision feels like a learning opportunity rather than a technical flaw.</p>
+          </div>
+          <div class="image-frame">
+            <img src="../assets/cp-screenshot-01.png" alt="Retro Platforming Environment">
+            <div class="image-frame__overlay"></div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- GAMEPLAY LOOP -->
-    <section class="section-padding" style="background-color: var(--color-card-bg);">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 4rem;">Gameplay Loop</h2>
-            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-                <div class="card">
-                    <span class="text-accent" style="font-size: 0.8rem; font-weight: 800; margin-bottom: 0.5rem; display: block;">1</span>
-                    <h4 style="margin-bottom: 0.5rem;">Exploration</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Navigate platforms and environment.</p>
-                </div>
-                <div class="card">
-                    <span class="text-accent" style="font-size: 0.8rem; font-weight: 800; margin-bottom: 0.5rem; display: block;">2</span>
-                    <h4 style="margin-bottom: 0.5rem;">Collection</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Gather coins and hidden items.</p>
-                </div>
-                <div class="card">
-                    <span class="text-accent" style="font-size: 0.8rem; font-weight: 800; margin-bottom: 0.5rem; display: block;">3</span>
-                    <h4 style="margin-bottom: 0.5rem;">Discovery</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Find keys and unlock new paths.</p>
-                </div>
-                <div class="card">
-                    <span class="text-accent" style="font-size: 0.8rem; font-weight: 800; margin-bottom: 0.5rem; display: block;">4</span>
-                    <h4 style="margin-bottom: 0.5rem;">Engagement</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Interact with enemies and obstacles.</p>
-                </div>
-                <div class="card">
-                    <span class="text-accent" style="font-size: 0.8rem; font-weight: 800; margin-bottom: 0.5rem; display: block;">5</span>
-                    <h4 style="margin-bottom: 0.5rem;">Challenge</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Handle increasing difficulty through level design.</p>
-                </div>
-                <div class="card">
-                    <span class="text-accent" style="font-size: 0.8rem; font-weight: 800; margin-bottom: 0.5rem; display: block;">6</span>
-                    <h4 style="margin-bottom: 0.5rem;">Progression</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Reach the exit and advance to next stage.</p>
-                </div>
-            </div>
+    <!-- ═══ 02 SYSTEMIC DESIGN ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="image-frame" style="order: 2;">
+            <img src="../assets/cp-screenshot-02.png" alt="Dynamic Enemy Encounters">
+            <div class="image-frame__overlay"></div>
+          </div>
+          <div class="narrative-content" style="order: 1;">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">02 / Precision & Combat</span>
+            <h2>Adapt to Survive.</h2>
+            <p>The world is filled with hostile creatures, wild animals, and complex mechanical traps. Rather than relying on simple hitpoint attrition, we built encounters where players must analyze specific enemy behaviors and strike at the perfect moment.</p>
+            <p>The progression system is strictly built on the classic design philosophy: <strong>Teach → Test → Reward</strong>. New mechanics are introduced safely before being combined into punishing challenge sequences.</p>
+            <ul class="bullet-list text-muted" style="font-size: 1rem; margin-top: 2rem;">
+              <li>Hostile Animal Behaviors</li>
+              <li>Momentum-Based Puzzles</li>
+              <li>Hidden Challenge Areas</li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Gameplay Visual Placeholder -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="card" style="height: 320px; display: flex; align-items: center; justify-content: center; text-align: center;">
-                <span class="text-muted">Gameplay Visual Placeholder</span>
-            </div>
+    <!-- ═══ GAMEPLAY VIDEO ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+          <span style="color: var(--color-accent); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">Live Action</span>
+          <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem;">Raw Gameplay</h2>
+          <p class="text-muted" style="font-size: 1.05rem; line-height: 1.7;">See the fluid animations and fast-paced platforming in action.</p>
         </div>
+        
+        <div style="max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.05); position: relative; background: #000;">
+          <video src="../assets/cp-gameplay.mp4" controls autoplay muted loop style="width: 100%; display: block;"></video>
+        </div>
+      </div>
     </section>
 
-    <!-- SYSTEM HIGHLIGHT & CTA -->
-    <section class="section-padding" style="text-align: center; background-color: #0c0c0c;">
-        <div class="container">
-            <p class="text-accent" style="margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Engineered for performance. Designed for scale. Built for production.</p>
-            <h3 class="text-accent" style="margin-bottom: 3rem; font-weight: 500; font-size: 1.25rem;">Building scalable gameplay systems or lightweight game experiences?</h3>
-            
-            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="../../../../contact.html" class="btn btn-primary" style="padding: 0.8rem 1.6rem; font-size: 1rem;">Start a Project</a>
-                <a href="../case-study/index.html" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1rem; border: 1px solid var(--color-accent);">See the Engineering Architecture</a>
-            </div>
-            <p class="text-muted" style="margin-top: 1.5rem; font-size: 0.9rem;">Performance-first systems. Production-ready pipelines.</p>
+    <!-- ═══ GAMEPLAY GALLERY ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+          <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem;">Vibrant Worlds</h2>
+          <p class="text-muted" style="font-size: 1.05rem; line-height: 1.7;">Explore hand-crafted stages full of secrets, traps, and dynamic encounters.</p>
         </div>
+
+        <style>
+          .cp-gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
+          .cp-gallery-item { position: relative; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+          .cp-gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+          .cp-gallery-item:hover img { transform: scale(1.05); }
+          .cp-item-1 { grid-column: span 8; aspect-ratio: 16/9; }
+          .cp-item-2 { grid-column: span 4; aspect-ratio: 4/3; }
+          .cp-item-3 { grid-column: span 4; aspect-ratio: 4/3; }
+          .cp-item-4 { grid-column: span 8; aspect-ratio: 16/9; }
+          .cp-item-5 { grid-column: span 12; aspect-ratio: 21/9; }
+          @media (max-width: 768px) {
+            .cp-gallery-item { grid-column: span 12 !important; aspect-ratio: 16/9 !important; }
+          }
+        </style>
+
+        <div class="cp-gallery">
+          <div class="cp-gallery-item cp-item-1"><img src="../assets/cp-screenshot-03.png" alt="Level Screenshot 1"></div>
+          <div class="cp-gallery-item cp-item-2"><img src="../assets/cp-screenshot-04.png" alt="Level Screenshot 2"></div>
+          <div class="cp-gallery-item cp-item-3"><img src="../assets/cp-screenshot-05.png" alt="Level Screenshot 3"></div>
+          <div class="cp-gallery-item cp-item-4"><img src="../assets/cp-screenshot-06.png" alt="Level Screenshot 4"></div>
+          <div class="cp-gallery-item cp-item-5"><img src="../assets/cp-screenshot-07.png" alt="Level Screenshot 5"></div>
+        </div>
+      </div>
     </section>
-</main>
-<!-- Lead Capture Section -->
-        <section class="section-padding" id="alpha-form" style="background-color: #0c0c0c; border-top: 1px solid rgba(255,255,255,0.05); padding: 8rem 0;">
-            <div class="container" style="max-width: 600px;">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <span class="rc-label" style="display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-accent); border: 1px solid rgba(0,210,255,0.25); padding: 0.45rem 1.4rem; border-radius: 100px; background: rgba(0,210,255,0.04); margin-bottom: 1.5rem;">Limited Access</span>
-                    <h2 class="display-2" style="margin-bottom: 1rem;">Join the Private Alpha</h2>
-                    <p class="text-muted" style="max-width: 500px; margin: 0 auto;">Experience the next evolution of physics-based platforming. Sign up for early access and production updates.</p>
-                </div>
-                <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="contactForm">
-                    <input type="hidden" name="project" value="Crazy Planet Private Alpha">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input id="name" name="name" placeholder="Name" required="" type="text" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input id="email" name="email" placeholder="email@example.com" required="" type="email" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Why are you interested in Crazy Planet?</label>
-                        <textarea id="message" name="message" placeholder="I love technical platformers..." required="" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"></textarea>
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%; padding: 1rem;" type="submit">List My Interest</button>
-<p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 1.5rem; text-align: center;">
-By submitting this form, you agree to our Privacy Policy. Our engineering team typically responds within 24-48 hours.
-</p>
-</form>
-</div>
-</section>
+
+    <!-- ═══ 04 ROADMAP & FUTURE ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">Road to Launch</span>
+            <h2>Expanding the Chaos.</h2>
+            <p>Crazy Planet is continuously evolving. Our modular architecture allows us to rapidly inject new environments, enemy types, and mechanics directly into the game's core loop without compromising performance.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem;">
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Upcoming Levels:</strong> The Neon Factory and Glacial Peaks are currently in greybox testing.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Boss Encounters:</strong> Multi-phase boss battles designed to push player mastery to the absolute limit.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Speedrun Integration:</strong> Built-in timers and ghosts for competitive community events.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="image-frame">
+            <img src="../assets/cp-screenshot-04.png" alt="Development Testing" style="filter: grayscale(80%) sepia(20%) hue-rotate(180deg);">
+            <div class="image-frame__overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cinematic Banner -->
+    <section style="position: relative; height: 50vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #000;">
+      <img src="../assets/cp-hero-bg.png" alt="Crazy Planet Background" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: saturate(1.5);">
+      <div style="position: relative; z-index: 10; text-align: center;">
+        <h2 style="font-size: clamp(2rem, 5vw, 4rem); font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.02em;">Ready for the Challenge?</h2>
+        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto;">Join the beta community and test your skills.</p>
+      </div>
+    </section>
+
+    <!-- ═══ LEAD CAPTURE ═══ -->
+    <section class="narrative-section" id="beta-form">
+      <div class="container">
+        <div class="beta-form-container">
+          <div style="text-align: center; margin-bottom: 4rem;">
+            <span class="hero-label">Early Access</span>
+            <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem;">Join the Beta</h2>
+            <p class="text-muted" style="max-width: 500px; margin: 0 auto;">Crazy Planet is currently in limited beta. Sign up to get an early invite and help us calibrate the chaos.</p>
+          </div>
+          
+          <form id="contactForm" class="contact-form">
+            <input type="hidden" name="project" value="Crazy Planet Beta Access">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required placeholder="Name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+              <label for="message">What's your primary mobile OS (iOS/Android)?</label>
+              <textarea id="message" name="message" required placeholder="I use Android / iPhone..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; margin-top: 1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Request Beta Invite</button>
+            <div id="form-status" style="margin-top: 1.5rem; text-align: center; display: none;"></div>
+          </form>
+          
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); text-align: center; margin-top: 2rem;">
+            By joining, you agree to our <a href="../../../../privacy-policy.html" style="color: var(--color-accent);">Privacy Policy</a>. We never spam.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ DISCOVERY: Other Projects ═══ -->
+    <section class="section-padding" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle); padding: 8rem 0;">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;">
+          <div>
+            <span class="label-accent" style="color: var(--color-accent); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">Discovery</span>
+            <h2 class="display-2" style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em;">Explore Other Projects</h2>
+          </div>
+          <a href="../../../../work/index.html" class="text-accent" style="font-weight: 600; font-size: 0.9rem; text-decoration: none; color: var(--color-accent);">View All Work &rarr;</a>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+          <!-- Room Raider -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <img alt="Room Raider" src="../../../vr-xr/room-raider/assets/room-raider-screenshot-1.png" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Mixed Reality / Action</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Room Raider</h3>
+              <a href="../../../vr-xr/room-raider/overview/index.html" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+            </div>
+          </div>
+          <!-- Paapi Gudia -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <img alt="Paapi Gudia" src="../../paapi-gudia/assets/paapi-hero-bg.png" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">PC + VR Horror</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Paapi Gudia</h3>
+              <a href="../../paapi-gudia/overview/index.html" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
   <footer>
     <div class="container">
       <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
@@ -318,8 +512,7 @@ By submitting this form, you agree to our Privacy Policy. Our engineering team t
         <div class="footer-col">
           <h4>Connect</h4>
           <ul class="footer-links social-links">
-            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a>
-            </li>
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a></li>
             <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
             <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
           </ul>
@@ -331,6 +524,58 @@ By submitting this form, you agree to our Privacy Policy. Our engineering team t
       </div>
     </div>
   </footer>
-<script src="../../../../assets/js/main.js" defer></script>
+
+  <script>
+    // ── AJAX Form Submission Handler ──
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('form-status');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerText;
+        
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Submitting...';
+        
+        const formData = new FormData(contactForm);
+        
+        try {
+          const response = await fetch('https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+          });
+
+          formStatus.style.display = 'block';
+          formStatus.style.color = '#00d1ff';
+          formStatus.innerHTML = '<strong>Submission Received.</strong> Welcome to the chaos.';
+          contactForm.reset();
+          submitBtn.innerText = 'Submitted';
+          
+        } catch (error) {
+          formStatus.style.display = 'block';
+          formStatus.style.color = '#ff3c3c';
+          formStatus.innerText = 'Transmission failed. Please try again.';
+          submitBtn.disabled = false;
+          submitBtn.innerText = originalBtnText;
+        }
+      });
+    }
+
+    // Nav Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navClose = document.querySelector('.nav-close');
+
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => navMenu.classList.add('active'));
+    }
+    if (navClose && navMenu) {
+      navClose.addEventListener('click', () => navMenu.classList.remove('active'));
+    }
+  </script>
 </body>
 </html>

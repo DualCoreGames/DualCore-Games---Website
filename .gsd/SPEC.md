@@ -3,27 +3,32 @@
 > **Status**: `FINALIZED`
 
 ## Vision
-Elevate the Reclairos project pages (Overview and Case Study) to act as the studio's "Gold Standard" by balancing a compelling consumer narrative with authoritative engineering metrics.
+Transform the DualCore Games website into a mobile-first experience that retains its high-end, "Systems-First" aesthetic on all devices. This involves fixing critical layout breaks, improving touch-target usability, and ensuring heavy assets like hero videos are optimized and correctly framed for mobile viewports.
 
 ## Goals
-1. **B2C Narrative Pivot**: Refactor the Overview page to focus on player fantasy and engagement.
-2. **B2B Authority**: Implement hard performance benchmarks in the Case Study to demonstrate engineering expertise.
-3. **Conversion Optimization**: Standardize CTAs for beta signups and technical audits.
+1. **Critical Layout Stability**: Eliminate horizontal scrolling and overlapping elements across all core pages.
+2. **Hero Optimization**: Fix the homepage hero video framing and loading behavior for mobile screens.
+3. **Usability & Navigation**: Refine the mobile menu and touch targets (buttons, links, filters) for a premium handheld experience.
+4. **Visual Polish**: Adjust spacing and typography scales to ensure information density remains high but readable on small screens.
 
 ## Non-Goals (Out of Scope)
-- Redesigning the core global CSS.
-- Implementing an actual backend for the "Private Beta" beyond current form logic.
+- Complete redesign of the desktop site.
+- Implementing new features not related to responsiveness.
+- Replacing the video content itself (only its presentation).
 
 ## Users
-- **Players**: Looking for a high-quality mobile strategy experience.
-- **Potential Clients/Partners**: Looking for a reliable engineering studio with proven optimization results.
+- **Game Developers/Clients**: Reviewing the portfolio on the go.
+- **Job Seekers**: Browsing studio information on mobile devices.
+- **Partners**: Accessing case studies during meetings/presentations.
 
 ## Constraints
 - **Framework**: Static HTML/JS/CSS (Vanilla).
-- **Style**: Must maintain the existing "Systems-First" aesthetic.
+- **Aesthetic**: Must maintain the "Systems-First", dark-themed, engineering-heavy design.
+- **Performance**: Mobile optimization must not significantly increase page load times.
 
 ## Success Criteria
-- [ ] Overview Hero hook updated to narrative text.
-- [ ] Feature names updated to thematic titles.
-- [ ] Case Study includes a metrics grid with FPS and memory data.
-- [ ] All CTAs correctly route to their respective targets.
+- [ ] Homepage hero video is correctly centered and visible on iOS/Android browsers.
+- [ ] Zero horizontal overflow on Home, Work, and Project pages.
+- [ ] Mobile menu close button is easily interactable and correctly positioned.
+- [ ] Portfolio filter tabs are optimized for touch (scrollable or stacked).
+- [ ] "Gold Standard" badges do not overlap project titles on small screens.

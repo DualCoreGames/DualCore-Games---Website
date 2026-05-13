@@ -501,14 +501,15 @@ header {
 .nav-close {
     display: none;
     position: fixed;
-    top: 2rem;
+    top: 2.5rem; /* Increased for safer tap area and notch clearance */
     right: 1.5rem;
-    font-size: 2rem;
+    font-size: 2.2rem; /* Slightly larger for touch */
     background: none;
     border: none;
     color: var(--text-primary);
     cursor: pointer;
     z-index: 1002;
+    padding: 10px; /* Added padding for larger hit area */
 }
 
 @media (max-width: 1024px) {
@@ -577,13 +578,10 @@ header {
 
 .hero-video {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     pointer-events: none;
 }
@@ -593,9 +591,9 @@ header {
     inset: 0;
     background: radial-gradient(
         circle at center,
-        rgba(0, 0, 0, 0.3) 0%,
-        rgba(0, 0, 0, 0.62) 55%,
-        rgba(0, 0, 0, 0.88) 100%
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.78) 55%,
+        rgba(0, 0, 0, 0.96) 100%
     );
     z-index: 2;
     pointer-events: none;
@@ -1231,6 +1229,14 @@ footer {
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-card);
     transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-card-premium .btn {
+    margin-top: auto;
+    width: 100%;
 }
 
 .service-card-premium:hover {
@@ -1574,7 +1580,7 @@ img { max-width: 100%; height: auto; }
 .btn:hover { transform: translateY(-2px); }
 
 /* --- FEATURED PROJECT (RECLAIROS) --- */
-.featured-project-section { border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+.featured-project-section { border-top: none; border-bottom: none; }
 .featured-project-dominant { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
 .featured-visual { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5); aspect-ratio: 16/10; }
 .featured-visual img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
@@ -1636,14 +1642,19 @@ img { max-width: 100%; height: auto; }
     gap: 2rem;
     border-top: 1px solid var(--border-subtle);
     padding-top: 4rem;
-    container-type: inline-size;
+}
 
-    @container (max-width: 600px) {
-        grid-template-columns: 1fr 1fr;
+@media (max-width: 992px) {
+    .production-metrics {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 2rem;
     }
+}
 
-    @container (max-width: 400px) {
+@media (max-width: 576px) {
+    .production-metrics {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 }
 
@@ -1652,7 +1663,7 @@ img { max-width: 100%; height: auto; }
 
     & strong {
         display: block;
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 8vw, 2.8rem); /* Fluid font size for better fit */
         font-weight: 900;
         color: var(--text-primary);
         margin-bottom: 0.5rem;
@@ -1722,7 +1733,7 @@ img { max-width: 100%; height: auto; }
 .why-choose-section { padding: 14rem 0; }
 .cta-premium { padding: 14rem 0; }
 
-.featured-project-section { padding: 14rem 0 !important; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+.featured-project-section { padding: 14rem 0 !important; border-top: none; border-bottom: none; }
 /* Ensure consistent text colors for branding */
 .text-accent { color: var(--core-tech); }
 .text-orange { color: var(--core-art); }
@@ -1734,4 +1745,215 @@ img { max-width: 100%; height: auto; }
 /* Social Links Hover State */
 .social-links a:hover {
     color: var(--core-tech);
+}
+
+/* =========================================
+   17. SECTION BACKGROUNDS
+   ========================================= */
+.reclairos-bg {
+    position: relative;
+    background-image: url('../../work/game-development/reclairos/assets/reclairos-hero.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.reclairos-bg::before {
+    content: '';
+    position: absolute;
+    inset: -2px 0; /* Slight overlap to prevent 1px render gaps */
+    background: linear-gradient(90deg, rgba(5,7,10,0.98) 0%, rgba(5,7,10,0.85) 45%, rgba(5,7,10,0.4) 100%),
+                linear-gradient(0deg, rgba(5,7,10,0.6) 0%, transparent 20%, transparent 80%, rgba(5,7,10,0.6) 100%);
+    z-index: 1;
+}
+
+.reclairos-bg .container {
+    position: relative;
+    z-index: 2;
+}
+
+.selected-work-bg {
+    position: relative;
+    background-color: var(--bg-secondary);
+    background-image: radial-gradient(circle at 100% 0%, rgba(0,210,255,0.04), transparent 40%),
+                      radial-gradient(circle at 0% 100%, rgba(255,122,24,0.03), transparent 40%);
+}
+
+/* =========================================
+   27. BREADCRUMBS
+   ========================================= */
+.breadcrumbs {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 2.5rem;
+    color: rgba(255,255,255,0.4);
+}
+
+.breadcrumbs a { 
+    color: var(--core-tech); 
+    text-decoration: none; 
+    padding: 8px 4px; /* Increased hit area */
+}
+
+.breadcrumbs span { 
+    opacity: 0.3; 
+    padding-top: 8px; /* Alignment with links */
+}
+
+@media (max-width: 768px) {
+    .breadcrumbs {
+        font-size: 0.8rem;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+    
+    .breadcrumbs a {
+        padding: 10px 6px;
+    }
+}
+
+
+/* =========================================
+   28. PHASE 2 — HERO VIDEO MOBILE
+   ========================================= */
+
+/* Fix for iOS: background-attachment: fixed causes blank areas */
+@media (max-width: 768px) {
+    .reclairos-bg {
+        background-attachment: scroll;
+    }
+}
+
+/* Hero mobile vertical padding & safe area */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100svh;
+        padding-top: 80px;
+        padding-bottom: 4rem;
+        align-items: flex-end;
+    }
+
+    .hero-content {
+        padding-bottom: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        line-height: 1.65;
+        margin-bottom: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .hero-buttons a {
+        text-align: center;
+    }
+}
+
+/* =========================================
+   29. PHASE 3 — PORTFOLIO & FILTER UX
+   ========================================= */
+
+/* Filter tabs: horizontal scroll strip on mobile */
+.filter-tabs {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 4rem;
+}
+
+.filter-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-tab {
+    flex: 0 0 auto;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-tab.active {
+    color: var(--core-tech);
+    border-bottom-color: var(--core-tech);
+}
+
+/* Work page: project card grid — 1 column on mobile */
+@media (max-width: 768px) {
+    .grid[style*="grid-template-columns: repeat(2, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    /* Reduce oversized section padding on mobile */
+    #services.section-padding,
+    .core-capabilities-section,
+    .why-choose-section,
+    .cta-premium,
+    .philosophy-narrative,
+    .featured-project-section {
+        padding: 5rem 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-tabs {
+        margin-bottom: 2.5rem;
+    }
+
+    .filter-tab {
+        padding: 0.85rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* =========================================
+   30. PORTFOLIO GRID (work/index.html)
+   ========================================= */
+.portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* 3-column grid variant, collapses to 1 on mobile */
+.portfolio-grid--3col {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+    .portfolio-grid--3col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid--3col {
+        grid-template-columns: 1fr;
+    }
 }

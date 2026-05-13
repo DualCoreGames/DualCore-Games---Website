@@ -16,14 +16,14 @@
   <meta content="A systems-driven mobile tower defense RPG. Join the Private Beta — assemble your elite squad and fight for a fractured world." property="og:description"/>
   <meta content="website" property="og:type"/>
   <meta content="https://dualcoregames.com/work/game-development/reclairos/overview/" property="og:url"/>
-  <meta content="../../../../assets/images/social-preview.webp" property="og:image"/>
+  <meta content="https://dualcoregames.com/work/game-development/reclairos/assets/reclairos-thumbnail.webp" property="og:image"/>
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="Reclairos | The World is Broken. Reclaim It." name="twitter:title"/>
   <meta content="A systems-driven mobile tower defense RPG. Join the Private Beta — assemble your elite squad and fight for a fractured world." name="twitter:description"/>
   <meta name="theme-color" content="#00d2ff">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Reclairos | DualCore Games</title>
-  <meta content="Reclairos is a 2D story-driven tower defense RPG for Android and iOS. Assemble your elite squad, defend the escort, and reclaim a fractured world." name="description" />
+  <title>Reclairos | Tactical Tower Defense RPG | DualCore Games</title>
+  <meta content="Reclairos is a 2D story-driven tactical tower defense RPG for Android and iOS. Assemble your elite squad, protect the escort, and reclaim a fractured world." name="description" />
   <link href="https://dualcoregames.com/work/game-development/reclairos/overview/" rel="canonical" />
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -33,6 +33,25 @@
   <link href="../../../../assets/css/style.css" rel="stylesheet" />
   <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://dualcoregames.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://dualcoregames.com/work/index.html"},{"@type":"ListItem","position":3,"name":"Game Development","item":"https://dualcoregames.com/work/game-development/index.html"},{"@type":"ListItem","position":4,"name":"Reclairos","item":"https://dualcoregames.com/work/game-development/reclairos/overview/"}]}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Reclairos",
+    "description": "A 2D story-driven tactical tower defense RPG where you assemble an elite squad to reclaim a fractured world.",
+    "genre": ["Tactical RPG", "Tower Defense", "Strategy"],
+    "gamePlatform": ["Android", "iOS"],
+    "applicationCategory": "Game",
+    "operatingSystem": "Android, iOS",
+    "author": {
+      "@type": "Organization",
+      "name": "DualCore Games",
+      "url": "https://dualcoregames.com"
+    },
+    "image": "https://dualcoregames.com/work/game-development/reclairos/assets/reclairos-thumbnail.webp",
+    "url": "https://dualcoregames.com/work/game-development/reclairos/overview/"
+  }
+  </script>
 
   <style>
     /* ── Reclairos Overview — Cinematic Page Styles ── */
@@ -393,6 +412,32 @@
       border-top: 1px solid rgba(255,255,255,0.05);
       padding: 10rem 0;
     }
+    .rc-success-message {
+      background: rgba(0, 209, 255, 0.05);
+      border: 1px solid rgba(0, 209, 255, 0.2);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    .rc-success-message h3 {
+      color: #00D1FF;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+    .rc-success-message p {
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     /* Responsive */
     @media (max-width: 1100px) {
@@ -458,7 +503,7 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Request Architecture Audit</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">View Services</a></li>
         </ul>
       </nav>
     </div>
@@ -470,9 +515,15 @@
     <section class="rc-hero">
       <div class="rc-hero__bg" role="img" aria-label="Reclairos — fractured world key art"></div>
       <div class="rc-hero__overlay"></div>
-      <!-- Pill pinned to top of hero, above the art logo -->
-      <span class="rc-label">Flagship Project &mdash; Private Beta Open</span>
       <div class="rc-hero__inner">
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs" style="display: flex; gap: 0.75rem; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 2rem; color: rgba(255,255,255,0.4);">
+          <a href="../../../../index.html" style="color: var(--core-tech); text-decoration: none;">Home</a> <span>/</span> 
+          <a href="../../../index.html" style="color: var(--core-tech); text-decoration: none;">Work</a> <span>/</span> 
+          Reclairos
+        </div>
+        <!-- Pill pinned to top of hero, above the art logo -->
+        <span class="rc-label" style="margin-bottom: 1.5rem;">Flagship Project &mdash; Private Beta Open</span>
         <!-- h1 hidden: key art already renders 'RECLAIROS' as visual title -->
         <h1 class="rc-hero__title-hidden">Reclairos</h1>
         <p class="rc-hero__tagline">The world is broken.<br>Reclaim it, one wave at a time.</p>
@@ -515,7 +566,7 @@
     <section class="rc-section">
       <div class="container">
         <span class="rc-section__eyebrow">Your Commanders</span>
-        <h2 class="rc-section__title">Assemble Your Elite Squad</h2>
+        <h2 class="rc-section__title">Assemble Your Elite Squad: Tactical RPG Class Synergy</h2>
         <p class="rc-section__sub">Five distinct combat roles. Infinite tactical combinations. Encounters are designed so no single unit type dominates — strategy demands synergy.</p>
         <div class="rc-squad__grid">
           <div class="rc-squad-card">
@@ -561,7 +612,7 @@
     <section class="rc-section rc-section--alt">
       <div class="container">
         <span class="rc-section__eyebrow">In Battle</span>
-        <h2 class="rc-section__title">Gameplay Showcase</h2>
+        <h2 class="rc-section__title">Reclairos Gameplay Showcase & Mechanics</h2>
         <p class="rc-section__sub">Escort mechanics, ability use, and unit deployment — all in a single lane. Every decision has consequence.</p>
 
         <!-- Primary 2-up layout -->
@@ -604,7 +655,7 @@
     <section class="rc-section rc-section--dark" style="padding-top: 13rem;">
       <div class="container">
         <span class="rc-section__eyebrow">Know Your Enemy</span>
-        <h2 class="rc-section__title">Threat Intel</h2>
+        <h2 class="rc-section__title">Combat Intel: Data-Driven Enemy Archetypes</h2>
         <p class="rc-section__sub">Wave-based enemy archetypes designed with hard counters. Encounter them unprepared, and your escort won't survive.</p>
         <div class="rc-threat__grid">
           <div class="rc-threat-card">
@@ -639,7 +690,7 @@
     <section class="rc-section rc-section--alt">
       <div class="container">
         <span class="rc-section__eyebrow">The Combat Cycle</span>
-        <h2 class="rc-section__title">Story Drives Every Battle</h2>
+        <h2 class="rc-section__title">Dynamic Combat: Story-Driven Encounter Loops</h2>
         <p class="rc-section__sub">Reclairos doesn't drop you into combat cold. Every encounter has context, stakes, and consequence.</p>
         <div style="background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 4rem 2rem;">
           <div class="rc-flow">
@@ -687,7 +738,7 @@
     <section class="rc-section rc-section--alt">
       <div class="container" style="text-align: center;">
         <span class="rc-section__eyebrow">World Exploration</span>
-        <h2 class="rc-section__title">A World Worth Fighting For</h2>
+        <h2 class="rc-section__title">World Exploration: Episodic Narrative Chapters</h2>
         <p class="rc-section__sub">Reclairos features exploration-based chapter progression, taking your squad through dense villages, ancient ruins, and high-tension encounter zones across a fractured, episodic world.</p>
         <div style="max-width: 960px; margin: 0 auto;">
           <img alt="Detailed world map of Reclairos showing exploration zones, encounter regions, and chapter progression" loading="lazy" src="../assets/reclairos-map.webp" class="rc-map__img" width="960" height="540" />
@@ -727,8 +778,12 @@
       <div class="container" style="max-width: 600px;">
         <div style="text-align: center; margin-bottom: 3.5rem;">
           <span class="rc-label">Limited Access</span>
-          <h2 style="font-size: 2.5rem; font-weight: 900; margin: 1.5rem 0 1rem; letter-spacing: -0.02em;">Join the Private Beta</h2>
+          <h2 style="font-size: 2.5rem; font-weight: 900; margin: 1.5rem 0 1rem; letter-spacing: -0.02em;">Join the Reclairos Private Beta</h2>
           <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.7; max-width: 480px; margin: 0 auto;">Experience the next evolution of mobile strategy. Sign up to receive an early access invite and production updates — directly from the team building it.</p>
+        </div>
+        <div id="reclairosSuccessMessage" class="rc-success-message">
+          <h3>Submission Successful</h3>
+          <p>Technical Request Received. Our engineering team will review and respond within 24-48 hours.</p>
         </div>
         <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="reclairosBetaForm">
           <input type="hidden" name="project" value="Reclairos Private Beta">
@@ -749,6 +804,81 @@
             By joining, you agree to our <a href="../../../../privacy-policy.html" style="color: var(--color-accent);">Privacy Policy</a>. We only send high-value updates — no spam.
           </p>
         </form>
+      </div>
+    </section>
+
+    <script>
+      document.getElementById('reclairosBetaForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        const button = form.querySelector('button[type="submit"]');
+        const successMessage = document.getElementById('reclairosSuccessMessage');
+        
+        // Disable button and change text
+        button.disabled = true;
+        button.textContent = 'Sending...';
+        
+        const formData = new FormData(form);
+        
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors' // Handle Google Apps Script redirect behavior silently
+        })
+        .then(() => {
+          // On success (or redirection ignored by no-cors)
+          form.style.display = 'none';
+          successMessage.style.display = 'block';
+          // Ensure we scroll to the message if it's out of view
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          button.disabled = false;
+          button.textContent = 'Secure My Beta Invite';
+          alert('Something went wrong. Please try again.');
+        });
+      });
+    </script>
+
+    <!-- ═══ DISCOVERY: Other Projects ═══ -->
+    <section class="section-padding" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;">
+          <div>
+            <span class="label-accent" style="color: var(--core-tech); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">Discovery</span>
+            <h2 class="display-2" style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em;">Explore Other Projects</h2>
+          </div>
+          <a href="../../../../work/index.html" class="text-accent" style="font-weight: 600; font-size: 0.9rem; text-decoration: none; color: var(--core-tech);">View All Work &rarr;</a>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+          <!-- Paapi Gudia -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative;">
+              <img alt="Paapi Gudia" loading="lazy" src="../../paapi-gudia/assets/paapi-hero-bg-clean.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--core-art); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">PC + VR Horror</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Paapi Gudia</h3>
+              <div style="margin-top: auto;">
+                <a href="../../paapi-gudia/overview/index.html" style="color: var(--core-tech); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+              </div>
+            </div>
+          </div>
+          <!-- Never Open The Door -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative;">
+              <img alt="Never Open The Door" loading="lazy" src="../../never-open-the-door/assets/never-open-the-door-hero-bg.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--core-tech); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Psychological Horror</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Never Open The Door</h3>
+              <div style="margin-top: auto;">
+                <a href="../../never-open-the-door/overview/index.html" style="color: var(--core-tech); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
