@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>https://dualcoregames.com/index.html</loc>
+      <loc>https://dualcoregames.com/</loc>
    </url>
    <url>
       <loc>https://dualcoregames.com/about.html</loc>
@@ -13,7 +13,13 @@
       <loc>https://dualcoregames.com/contact.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/services/index.html</loc>
+      <loc>https://dualcoregames.com/blog/optimizing-mobile-60fps/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/blog/scalable-multiplayer-infrastructure/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/blog/vr-simulation-architecture/index.html</loc>
    </url>
    <url>
       <loc>https://dualcoregames.com/services/game-art/index.html</loc>
@@ -22,40 +28,73 @@
       <loc>https://dualcoregames.com/services/game-development/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/services/vr-xr-simulation/index.html</loc>
+      <loc>https://dualcoregames.com/services/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/index.html</loc>
+      <loc>https://dualcoregames.com/services/vr-xr-simulation/index.html</loc>
    </url>
    <url>
       <loc>https://dualcoregames.com/work/game-art/index.html</loc>
    </url>
    <url>
+      <loc>https://dualcoregames.com/work/game-art/technical-art-benchmarks/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/crazy-planet/case-study/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/crazy-planet/overview/index.html</loc>
+   </url>
+   <url>
       <loc>https://dualcoregames.com/work/game-development/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/never-open-the-door/case-study/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/never-open-the-door/overview/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/paapi-gudia/case-study/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/paapi-gudia/overview/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/reclairos/case-study/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/reclairos/overview/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/index.html</loc>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/vr-xr/educational-simulations/index.html</loc>
    </url>
    <url>
       <loc>https://dualcoregames.com/work/vr-xr/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/reclairos/index.html</loc>
+      <loc>https://dualcoregames.com/work/vr-xr/mayaaverse/case-study/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/crazy-planet/index.html</loc>
+      <loc>https://dualcoregames.com/work/vr-xr/mayaaverse/overview/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/never-open-the-door/index.html</loc>
+      <loc>https://dualcoregames.com/work/vr-xr/medical-simulations/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/papi-gudia-pc/index.html</loc>
+      <loc>https://dualcoregames.com/work/vr-xr/room-raider/case-study/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/vr-xr/mayaaverse/index.html</loc>
+      <loc>https://dualcoregames.com/work/vr-xr/room-raider/overview/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/vr-xr/shemarooverse/index.html</loc>
+      <loc>https://dualcoregames.com/work/vr-xr/shemarooverse/case-study/index.html</loc>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-art/technical-art-benchmarks/index.html</loc>
+      <loc>https://dualcoregames.com/work/vr-xr/shemarooverse/overview/index.html</loc>
    </url>
    <url>
       <loc>https://dualcoregames.com/privacy-policy.html</loc>

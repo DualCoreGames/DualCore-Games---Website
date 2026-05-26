@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (utmTerm) {
                 const formattedTerm = decodeURIComponent(utmTerm).replace(/\+/g, ' ');
                 heroH1.textContent = `Engineering-First Systems for ${formattedTerm}`;
-            } else {
-                heroH1.textContent = "We Build Scalable Game Systems.";
             }
         }
     };
@@ -70,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 mode: 'no-cors'
             })
             .then(() => {
-                window.location.href = 'thank-you.html';
+                window.location.href = '/thank-you.html';
             })
             .catch(() => {
                 alert("Oops! There was a problem submitting your form. Please try again.");
@@ -84,6 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Nav Toggle & Accessibility
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const navClose = document.querySelector('.nav-close');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
     if (navToggle && navMenu) {
         const toggleMenu = (open) => {
@@ -96,7 +96,27 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         navToggle.addEventListener('click', () => toggleMenu());
-        // ... (remaining nav logic preserved)
+        if (navClose) {
+            navClose.addEventListener('click', () => toggleMenu(false));
+        }
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (event) => {
+                if (window.innerWidth > 1024) return;
+                const dropdownItem = toggle.closest('.has-dropdown');
+                if (!dropdownItem) return;
+                event.preventDefault();
+                const isActive = dropdownItem.classList.contains('active');
+                document.querySelectorAll('.has-dropdown.active').forEach(item => {
+                    if (item !== dropdownItem) item.classList.remove('active');
+                });
+                dropdownItem.classList.toggle('active', !isActive);
+            });
+        });
+
+        navMenu.querySelectorAll('a:not(.dropdown-toggle)').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
     }
 
     // 6. Optimized Animations (rAF)
@@ -158,11 +178,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        if (!question) return;
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
             faqItems.forEach(faq => {
                 faq.classList.remove('active');
-                faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                faq.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
             });
 
             if (!isActive) {
@@ -172,4 +193,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
