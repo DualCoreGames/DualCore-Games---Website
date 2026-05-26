@@ -512,6 +512,10 @@ header {
     padding: 10px; /* Added padding for larger hit area */
 }
 
+.nav-close-item {
+    display: contents;
+}
+
 @media (max-width: 1024px) {
     .nav-toggle {
         display: block !important;
