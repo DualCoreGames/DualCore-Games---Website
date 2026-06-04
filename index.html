@@ -243,74 +243,251 @@
       </div>
     </section>
 
-    <!-- ========================
-         DUALCORE PHILOSOPHY
-         ======================== -->
-    <section class="section-padding philosophy-narrative" style="padding: 14rem 0;">
-      <div class="container philosophy-container">
-        <div class="philosophy-center">
-          <div class="logic-art-icon">
-            <span class="logic">Logic</span>
-            <span class="meets">Meets</span>
-            <span class="art">Art</span>
-          </div>
-          <h2 class="display-1">Where Systems Meet Story</h2>
-          <div class="philosophy-accent-line duo"></div>
-          <p class="philosophy-text">
-            We exist at the intersection of engineering precision and creative exploration. Memorable interactive worlds are built when robust systems design meets bold artistic direction. We blend scalable game architecture with immersive visual storytelling.
-          </p>
+   <!-- ========================
+     DUALCORE PHILOSOPHY
+     ======================== -->
+<section class="section-padding philosophy-narrative" style="
+  padding: 14rem 0;
+  position: relative;
+  overflow: hidden;
+  background-image: url('assets/images/philosophy.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+">
+  <div class="container philosophy-container">
+    <div class="philosophy-center">
 
-        </div>
+      <div class="logic-art-icon">
+        <span class="logic">Logic</span>
+        <span class="meets">Meets</span>
+        <span class="art">Art</span>
       </div>
-    </section>
 
-    <!-- ========================
-         WHY CHOOSE US & PRODUCTION
-         ======================== -->
-    <section class="section-padding why-choose-section" style="background-color: var(--bg-secondary); padding: 14rem 0;">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="display-2">Why Choose DualCore</h2>
-        </div>
-        <div class="grid pillar-grid">
-          <div class="card pillar-card">
-            <span class="pillar-icon">SE</span>
-            <h3>Studio-Level Execution</h3>
-            <p>Iterative feedback loops and structured production pipelines that reduce delivery risk.</p>
-          </div>
-          <div class="card pillar-card">
-            <span class="pillar-icon">PD</span>
-            <h3>Performance Development</h3>
-            <p>Meticulously engineered architecture across PC, mobile, and XR platforms.</p>
-          </div>
-          <div class="card pillar-card">
-            <span class="pillar-icon">TC</span>
-            <h3>Technical Collaboration</h3>
-            <p>Seamless integration with internal teams as production partners or reinforcements.</p>
-          </div>
-        </div>
+      <!-- Styled headline matching the image -->
+      <h2 class="display-1" style="
+        line-height: 1;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        letter-spacing: -0.01em;
+      ">
+        <span style="
+          font-size: clamp(1rem, 2vw, 2rem);
+          font-weight: 400;
+          color: rgb(255, 255, 255);
+          letter-spacing: 0.25em;
+          text-transform: uppercase;
+          margin-bottom: 0.7rem;
+          
+        ">Where</span>
 
-        <!-- Merged Tech & Production Metrics -->
-        <div class="production-metrics">
-          <div class="metric-item">
-            <strong>Sub-150MB</strong>
-            <span>Mobile Builds</span>
-          </div>
-          <div class="metric-item">
-            <strong>Stable 60FPS</strong>
-            <span>on URP Architecture</span>
-          </div>
-          <div class="metric-item">
-            <strong>40% Memory</strong>
-            <span>Reduction via Overrides</span>
-          </div>
-          <div class="metric-item">
-            <strong>VR/XR</strong>
-            <span>Field-Tested Pipelines</span>
-          </div>
+        <span style="
+          font-size: clamp(4rem, 9vw, 6.5rem);
+          font-weight: 500;
+          color: #00d2ff;
+          line-height: 0.95;
+          letter-spacing: -0.03em;
+          display: block;
+        ">Systems</span>
+
+        <span style="
+          font-size: clamp(1rem, 2vw, 2rem);
+          font-weight: 400;
+          color: rgb(255, 255, 255);
+          letter-spacing: 0.25em;
+          text-transform: uppercase;
+          margin-top: 2rem;
+          margin-bottom: 0.7rem;
+          
+        ">Meet</span>
+
+        <span style="
+          font-size: clamp(4rem, 9vw, 6.5rem);
+          font-weight: 500;
+          color: #ff7a18;
+          line-height: 0.95;
+          letter-spacing: -0.03em;
+          display: block;
+        ">Story</span>
+      </h2>
+
+      <div class="philosophy-accent-line duo" style="margin-top: 3.5rem;"></div>
+
+      <p class="philosophy-text" style="
+        font-size: clamp(1.5rem, 1.2vw, 1.05rem);
+        color: rgba(255, 255, 255, 0.795);
+        font-weight: 500;
+        line-height: 1.5;
+        max-width: 600px;
+        text-align: center;
+        margin-top: 2.5rem;
+      ">
+        We exist at the intersection of engineering
+        precision and creative exploration.<br><br>
+        Memorable interactive worlds are built
+        when robust systems design meets
+        bold artistic direction.<br><br>
+        We blend scalable game architecture
+        with immersive visual storytelling.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+   <!-- ========================
+     WHY CHOOSE US & PRODUCTION
+     ======================== -->
+<section class="section-padding why-choose-section" style="
+  padding: 14rem 0;
+  position: relative;
+  overflow: hidden;
+  background-image: url('assets/images/Why Choose Us.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+">
+  <div class="container" style="position: relative; z-index: 1;">
+
+    <div class="section-header" style="margin-bottom: 4rem;">
+      <h2 class="display-2" style="font-size: 2.8rem; font-weight: 900;">
+        Why Choose <span style="color: #00d2ff;">Dual</span><span style="color: #ff7a20;">Core</span>
+      </h2>
+    </div>
+
+    <div class="grid pillar-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem;">
+
+      <!-- SE Card -->
+      <div class="card pillar-card" style="
+        background: rgba(10,18,35,0.85);
+        border: 1.5px solid rgba(0,180,255,0.3);
+        border-radius: 14px;
+        padding: 2.5rem;
+        backdrop-filter: blur(10px);
+      ">
+        <div style="
+          width: 56px; height: 56px; margin-bottom: 1.75rem;
+          display: flex; align-items: center; justify-content: center;
+          background: rgba(255,100,20,0.1);
+          border: 1.5px solid rgba(255,100,20,0.6);
+          clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+        ">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff7a20" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
         </div>
+        <div style="font-size: 2rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 0.3rem;">SE</div>
+        <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Studio-Level Execution</div>
+        <div style="width: 30px; height: 2px; background: #ff7a20; margin-bottom: 1.25rem;"></div>
+        <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iterative feedback loops and structured production pipelines that reduce delivery risk.</p>
       </div>
-    </section>
+
+      <!-- PD Card -->
+      <div class="card pillar-card" style="
+        background: rgba(10,18,35,0.85);
+        border: 1.5px solid rgba(0,180,255,0.45);
+        border-radius: 14px;
+        padding: 2.5rem;
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 40px rgba(255,100,20,0.1);
+      ">
+        <div style="position:absolute;bottom:0;left:8%;right:8%;height:2.5px;background:linear-gradient(90deg,transparent,#ff7a20 35%,#ff9a40 65%,transparent);border-radius:0;"></div>
+        <div style="
+          width: 56px; height: 56px; margin-bottom: 1.75rem;
+          display: flex; align-items: center; justify-content: center;
+          background: rgba(0,180,255,0.1);
+          border: 1.5px solid rgba(0,180,255,0.6);
+          clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+        ">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="1.5">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <div style="font-size: 2rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 0.3rem;">PD</div>
+        <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Performance<br>Development</div>
+        <div style="width: 30px; height: 2px; background: #ff7a20; margin-bottom: 1.25rem;"></div>
+        <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; margin: 0;">Meticulously engineered architecture across PC, mobile, and XR platforms.</p>
+      </div>
+
+      <!-- TC Card -->
+      <div class="card pillar-card" style="
+        background: rgba(10,18,35,0.85);
+        border: 1.5px solid rgba(0,180,255,0.3);
+        border-radius: 14px;
+        padding: 2.5rem;
+        backdrop-filter: blur(10px);
+      ">
+        <div style="
+          width: 56px; height: 56px; margin-bottom: 1.75rem;
+          display: flex; align-items: center; justify-content: center;
+          background: rgba(0,180,255,0.1);
+          border: 1.5px solid rgba(0,180,255,0.6);
+          clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+        ">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="1.5">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div style="font-size: 2rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 0.3rem;">TC</div>
+        <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Technical<br>Collaboration</div>
+        <div style="width: 30px; height: 2px; background: #00d2ff; margin-bottom: 1.25rem;"></div>
+        <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; margin: 0;">Seamless integration with internal teams as production partners or reinforcements.</p>
+      </div>
+    </div>
+
+    <!-- Metrics Row -->
+    <div class="production-metrics" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 4rem; grid-template-columns: repeat(4,1fr); gap: 2rem;">
+      <div class="metric-item" style="text-align:center;">
+        <div style="margin-bottom:1rem;display:flex;justify-content:center;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="1.2" stroke-linecap="round">
+            <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+          </svg>
+        </div>
+        <strong>Sub-150MB</strong>
+        <span>Mobile Builds</span>
+      </div>
+      <div class="metric-item" style="text-align:center;">
+        <div style="margin-bottom:1rem;display:flex;justify-content:center;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff7a20" stroke-width="1.2" stroke-linecap="round">
+            <path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l3 3"/><path d="M18 2l4 4-4 4"/>
+          </svg>
+        </div>
+        <strong>Stable 60FPS</strong>
+        <span>on URP Architecture</span>
+      </div>
+      <div class="metric-item" style="text-align:center;">
+        <div style="margin-bottom:1rem;display:flex;justify-content:center;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff7a20" stroke-width="1.2" stroke-linecap="round">
+            <rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 7V4M12 7V4M15 7V4M9 20v-3M12 20v-3M15 20v-3M7 9H4M7 12H4M7 15H4M20 9h-3M20 12h-3M20 15h-3"/>
+          </svg>
+        </div>
+        <strong>40% Memory</strong>
+        <span>Reduction via Overrides</span>
+      </div>
+      <div class="metric-item" style="text-align:center;">
+        <div style="margin-bottom:1rem;display:flex;justify-content:center;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="1.2" stroke-linecap="round">
+            <path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8z"/>
+            <circle cx="8.5" cy="12" r="1.5"/><circle cx="15.5" cy="12" r="1.5"/>
+            <path d="M8.5 13.5c0 1 .67 2 1.5 2h4c.83 0 1.5-1 1.5-2"/>
+          </svg>
+        </div>
+        <strong>VR/XR</strong>
+        <span>Field-Tested Pipelines</span>
+      </div>
+    </div>
+
+  </div>
+</section>
 
     <!-- ========================
          PROJECT GRID (Secondary)
