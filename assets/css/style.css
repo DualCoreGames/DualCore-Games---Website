@@ -1683,6 +1683,105 @@ img { max-width: 100%; height: auto; }
     }
 }
 
+/* WHY CHOOSE — animations */
+.why-choose-section {
+  background-attachment: fixed;
+}
+
+.why-choose-section .pillar-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.why-choose-section .pillar-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.why-choose-section .pillar-card:nth-child(1) { transition-delay: 0s; }
+.why-choose-section .pillar-card:nth-child(2) { transition-delay: 0.15s; }
+.why-choose-section .pillar-card:nth-child(3) { transition-delay: 0.3s; }
+
+.why-choose-section .metric-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.why-choose-section .metric-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.why-choose-section .metric-item:nth-child(1) { transition-delay: 0.1s; }
+.why-choose-section .metric-item:nth-child(2) { transition-delay: 0.2s; }
+.why-choose-section .metric-item:nth-child(3) { transition-delay: 0.3s; }
+.why-choose-section .metric-item:nth-child(4) { transition-delay: 0.4s; }
+
+.why-choose-section .section-header {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.why-choose-section .section-header.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* iOS fix */
+@media (max-width: 768px) {
+  .why-choose-section {
+    background-attachment: scroll;
+  }
+}
+
+/* --- */
+/* philosophy-narrative — animations */
+.philosophy-narrative {
+  background-attachment: fixed;
+}
+
+.philosophy-narrative .pillar-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.philosophy-narrative .pillar-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.philosophy-narrative .pillar-card:nth-child(1) { transition-delay: 0s; }
+.philosophy-narrative .pillar-card:nth-child(2) { transition-delay: 0.15s; }
+.philosophy-narrative .pillar-card:nth-child(3) { transition-delay: 0.3s; }
+
+.philosophy-narrative .metric-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.philosophy-narrative .metric-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.philosophy-narrative .metric-item:nth-child(1) { transition-delay: 0.1s; }
+.philosophy-narrative .metric-item:nth-child(2) { transition-delay: 0.2s; }
+.philosophy-narrative .metric-item:nth-child(3) { transition-delay: 0.3s; }
+.philosophy-narrative .metric-item:nth-child(4) { transition-delay: 0.4s; }
+
+.philosophy-narrative .section-header {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.philosophy-narrative .section-header.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* iOS fix */
+@media (max-width: 768px) {
+  .philosophy-narrative {
+    background-attachment: scroll;
+  }
+}
+
 /* --- PROJECT GRID SECONDARY --- */
 .project-card-refined { border: none; background: none; padding: 0; border-radius: 0; display: flex; flex-direction: column; gap: 1.5rem; }
 .project-card-refined .card-image { aspect-ratio: 16/10; border-radius: 12px; overflow: hidden; background-color: var(--bg-card); position: relative; }

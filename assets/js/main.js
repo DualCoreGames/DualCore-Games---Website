@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
     // 5. Nav Toggle & Accessibility
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -192,4 +191,63 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+        // Why Choose — scroll entrance + mouse parallax
+    (function () {
+    const section = document.querySelector('.why-choose-section');
+    if (!section) return;
+
+    const targets = section.querySelectorAll('.pillar-card, .metric-item, .section-header');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.12 });
+
+    targets.forEach((el) => observer.observe(el));
+
+    section.addEventListener('mousemove', (e) => {
+        const rect = section.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 14;
+        section.style.backgroundPosition = `calc(50% + ${x}px) calc(50% + ${y}px)`;
+    });
+
+    section.addEventListener('mouseleave', () => {
+        section.style.transition = 'background-position 1s ease';
+        section.style.backgroundPosition = 'center center';
+        setTimeout(() => section.style.transition = '', 1000);
+    });
+    })();
+
+      // .philosophy-narrative — scroll entrance + mouse parallax
+    (function () {
+    const section = document.querySelector('.philosophy-narrative');
+    if (!section) return;
+
+    const targets = section.querySelectorAll('.pillar-card, .metric-item, .section-header');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.12 });
+
+    targets.forEach((el) => observer.observe(el));
+
+    section.addEventListener('mousemove', (e) => {
+        const rect = section.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 14;
+        section.style.backgroundPosition = `calc(50% + ${x}px) calc(50% + ${y}px)`;
+    });
+
+    section.addEventListener('mouseleave', () => {
+        section.style.transition = 'background-position 1s ease';
+        section.style.backgroundPosition = 'center center';
+        setTimeout(() => section.style.transition = '', 1000);
+    });
+    })();
+
 });
