@@ -1855,7 +1855,7 @@ img { max-width: 100%; height: auto; }
    ========================================= */
 .reclairos-bg {
     position: relative;
-    background-image: url('../../work/game-development/reclairos/assets/reclairos-hero.webp');
+    background-image: url('../../work/game-development/reclairos/assets/reclairos-hero.webp?v=2');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

@@ -69,7 +69,7 @@
     .rc-hero__bg {
       position: absolute;
       inset: 0;
-      background-image: url('../assets/reclairos-hero.webp');
+      background-image: url('../assets/reclairos-hero.webp?v=2');
       background-size: cover;
       background-position: center top;
       opacity: 0.45;
@@ -109,12 +109,23 @@
       background: rgba(0,209,255,0.12);
       text-shadow: 0 0 12px rgba(0,209,255,0.4);
     }
-    /* Pill pinned to top of hero, above the art logo */
-    .rc-hero .rc-label {
+    /* Top-level container for breadcrumbs and flagship text */
+    .rc-hero__top {
       position: absolute;
-      top: 5rem;
+      top: 5.5rem;
       left: 50%;
       transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 3;
+      width: 100%;
+      padding: 0 2rem;
+    }
+    .rc-hero .rc-label {
+      position: relative;
+      margin-bottom: 0;
       white-space: nowrap;
       z-index: 3;
     }
@@ -460,10 +471,176 @@
       .rc-flow { grid-template-columns: 1fr; }
       .rc-threat__grid { grid-template-columns: 1fr; }
     }
-    @media (max-width: 480px) {
-      .rc-squad__grid { grid-template-columns: 1fr; }
-      .rc-gameplay__row { grid-template-columns: 1fr; }
-      .rc-snapshot__grid { grid-template-columns: repeat(2, 1fr); }
+    /* ═══ Character Roster Styles ═══ */
+    .rc-roster-section {
+      background-color: #0c0c0c;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 9rem 0;
+    }
+    .rc-roster-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+    .rc-roster-tab {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 30px;
+      padding: 0.6rem 1.6rem;
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .rc-roster-tab:hover {
+      background: rgba(0, 209, 255, 0.08);
+      border-color: rgba(0, 209, 255, 0.3);
+      color: #fff;
+    }
+    .rc-roster-tab--active {
+      background: #00D1FF;
+      color: #080808;
+      border-color: #00D1FF;
+      box-shadow: 0 0 20px rgba(0, 209, 255, 0.35);
+    }
+    .rc-roster__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      transition: all 0.4s ease;
+    }
+    .rc-roster-card {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    .rc-roster-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 209, 255, 0.12), 0 8px 20px rgba(0, 0, 0, 0.5);
+      border-color: rgba(0, 209, 255, 0.3);
+      background: rgba(0, 209, 255, 0.02);
+    }
+    .rc-roster-card__img-wrap {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
+      border: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .rc-roster-card__img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(0, 209, 255, 0.05) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .rc-roster-card:hover .rc-roster-card__img-wrap::after {
+      opacity: 1;
+    }
+    .rc-roster-card__img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.6));
+    }
+    .rc-roster-card:hover .rc-roster-card__img {
+      transform: scale(1.05);
+    }
+    .rc-roster-card__badge {
+      font-size: 0.58rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #00D1FF;
+      background: rgba(0, 209, 255, 0.08);
+      border: 1px solid rgba(0, 209, 255, 0.2);
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem;
+      width: fit-content;
+      margin-bottom: 0.75rem;
+    }
+    .rc-roster-card__title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 0 0 0.5rem 0;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .rc-roster-card__role {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+    }
+    .rc-roster-card__desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .rc-roster-card__meta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .rc-roster-card__meta-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .rc-roster-card__meta-label {
+      font-size: 0.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 0.25rem;
+    }
+    .rc-roster-card__meta-val {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.4;
+    }
+    
+    @media (max-width: 1200px) {
+      .rc-roster__grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 900px) {
+      .rc-roster__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .rc-roster__grid {
+        grid-template-columns: 1fr;
+      }
+      .rc-roster-section {
+        padding: 6rem 0;
+      }
     }
   </style>
 </head>
@@ -515,18 +692,23 @@
     <section class="rc-hero">
       <div class="rc-hero__bg" role="img" aria-label="Reclairos — fractured world key art"></div>
       <div class="rc-hero__overlay"></div>
-      <div class="rc-hero__inner">
+      <!-- Top Hero Brand Details (pinned to top of screen) -->
+      <div class="rc-hero__top">
         <!-- Breadcrumbs -->
-        <div class="breadcrumbs" style="display: flex; gap: 0.75rem; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 2rem; color: rgba(255,255,255,0.4);">
-          <a href="../../../../index.html" style="color: var(--core-tech); text-decoration: none;">Home</a> <span>/</span> 
-          <a href="../../../index.html" style="color: var(--core-tech); text-decoration: none;">Work</a> <span>/</span> 
-          Reclairos
+        <div class="breadcrumbs" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; background: rgba(8, 8, 8, 0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 0.5rem 1.25rem; border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); width: fit-content; margin: 0 auto; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
+          <a href="../../../../index.html" style="color: #00D1FF; text-decoration: none; transition: color 0.2s;">Home</a> <span style="color: rgba(255,255,255,0.35);">/</span> 
+          <a href="../../../index.html" style="color: #00D1FF; text-decoration: none; transition: color 0.2s;">Work</a> <span style="color: rgba(255,255,255,0.35);">/</span> 
+          <span style="color: rgba(255,255,255,0.85);">Reclairos</span>
         </div>
-        <!-- Pill pinned to top of hero, above the art logo -->
-        <span class="rc-label" style="margin-bottom: 1.5rem;">Flagship Project &mdash; Private Beta Open</span>
-        <!-- h1 hidden: key art already renders 'RECLAIROS' as visual title -->
-        <h1 class="rc-hero__title-hidden">Reclairos</h1>
-        <p class="rc-hero__tagline">The world is broken.<br>Reclaim it, one wave at a time.</p>
+        <!-- Pill badge -->
+        <span class="rc-label">Flagship Project &mdash; Private Beta Open</span>
+      </div>
+
+      <div class="rc-hero__inner">
+        <!-- h1: visible, semantic, and optimized for search engine indexing -->
+        <h1 class="rc-hero__title" style="font-size: clamp(1.3rem, 3.2vw, 2rem); font-weight: 700; max-width: 680px; line-height: 1.45; margin-bottom: 1.5rem; color: rgba(255,255,255,0.95); text-shadow: 0 2px 4px rgba(0,0,0,0.9); letter-spacing: -0.01em; text-align: center;">
+          Reclairos &mdash; The world is broken. Reclaim it, one wave at a time.
+        </h1>
         <div class="rc-hero__desc">
           <p>A 2D story-driven Tower Defense RPG for Android &amp; iOS. Assemble your elite squad, protect the escort, and fight through a fractured world — before it's too late.</p>
         </div>
@@ -603,6 +785,193 @@
             <span class="rc-squad-card__class">Sentinel</span>
             <p class="rc-squad-card__role">Crowd Control</p>
             <p class="rc-squad-card__fn">Applies slows, stuns, and traps. Counters fast disruptors. Low DPS, maximum utility.</p>
+          </div>
+        </div>
+    </section>
+
+    <!-- ═══ RECLAIROS ALLY ROSTER ═══ -->
+    <section class="rc-roster-section" id="ally-roster">
+      <div class="container">
+        <span class="rc-section__eyebrow">Meet the Resistance</span>
+        <h2 class="rc-section__title">Command the Army: Ally Units & Warlords</h2>
+        <p class="rc-section__sub">Unlock and recruit legendary fighters as you reclaim lost territory. Filter by unit tier to inspect their strategic capabilities.</p>
+
+        <!-- Filter tabs -->
+        <div class="rc-roster-tabs">
+          <button type="button" class="rc-roster-tab rc-roster-tab--active" data-filter="all">All Units</button>
+          <button type="button" class="rc-roster-tab" data-filter="basic">Basic Allies</button>
+          <button type="button" class="rc-roster-tab" data-filter="elite">Elite Allies</button>
+          <button type="button" class="rc-roster-tab" data-filter="warlord-emperor">Warlords &amp; Emperor</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="rc-roster__grid" id="roster-grid">
+          <!-- Hitter -->
+          <div class="rc-roster-card" data-tier="basic">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/Hitter.png" alt="Hitter" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Basic Ally Unit</span>
+            <h3 class="rc-roster-card__title">The Hitter</h3>
+            <p class="rc-roster-card__role">Single Attacker • Cheap to Spawn</p>
+            <p class="rc-roster-card__desc">Hitters are ordinary villagers who refused to watch their homeland fall into darkness. With no special training or heavy armor, they joined the Prince’s army with simple weapons.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Role</span>
+                <span class="rc-roster-card__meta-val">A low-cost single-target attacker with a fast respawn time. Hitters can quickly return to battle and support the frontline, becoming more effective when deployed in large groups.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story Appearance</span>
+                <span class="rc-roster-card__meta-val">One of the first allies available in the early levels of Reclairos, representing the courage of common people rising together with the Prince to take back their kingdom.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Knight -->
+          <div class="rc-roster-card" data-tier="basic">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/knight.png" alt="Knight" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Basic Ally Unit</span>
+            <h3 class="rc-roster-card__title">The Knight</h3>
+            <p class="rc-roster-card__role">Single Attacker • Medium Tanky</p>
+            <p class="rc-roster-card__desc">The Knights were once the loyal defenders of towns across Reclairos. After the demon invasion scattered the royal forces, these warriors returned to support the Prince.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Role</span>
+                <span class="rc-roster-card__meta-val">A strong and durable frontline unit designed to hold enemy attacks. With higher toughness than early fighters, Knights protect weaker allies behind them.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story Appearance</span>
+                <span class="rc-roster-card__meta-val">Unlocked after clearing Level 1, the Knight becomes one of the Prince’s first major reinforcements in his journey to rebuild the kingdom’s army.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hawk Eye -->
+          <div class="rc-roster-card" data-tier="basic">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/hawktho eye.png" alt="Hawk Eye" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Basic Ally Unit</span>
+            <h3 class="rc-roster-card__title">Hawk Eye</h3>
+            <p class="rc-roster-card__role">Single Target • Medium Range</p>
+            <p class="rc-roster-card__desc">The Hawk Eyes were skilled archers who once protected the castle walls of Reclairos. Known for their sharp vision and accuracy, they strike threats before they reach the gates.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Role</span>
+                <span class="rc-roster-card__meta-val">A basic ranged unit that attacks enemies from a safe distance. Using precise arrow shots, the Hawk Eye supports frontline warriors by damaging enemies from behind.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story Appearance</span>
+                <span class="rc-roster-card__meta-val">After joining the Prince’s army, the Hawk Eye brings back the kingdom’s ranged forces and helps strengthen the fight to reclaim the lost territories of Reclairos.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Armored Axeman -->
+          <div class="rc-roster-card" data-tier="elite">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/armored axeman.png" alt="Armored Axeman" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Elite Ally Unit</span>
+            <h3 class="rc-roster-card__title">Armored Axeman</h3>
+            <p class="rc-roster-card__role">Area Damage • Super Tanky</p>
+            <p class="rc-roster-card__desc">Once a mighty gate guard of the King’s Castle, trusted to protect the kingdom’s strongest defenses. Captured by demons, he was rescued by the Prince to join the fight.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Role</span>
+                <span class="rc-roster-card__meta-val">An elite tank unit with high durability and area damage. Armed with a massive axe, the Armored Axeman can hold back groups on the frontline and crush multiple opponents.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story Appearance</span>
+                <span class="rc-roster-card__meta-val">Rescued and unlocked after completing Level 3, the Armored Axeman becomes a key member of the Prince’s growing army, marking the return of the kingdom’s elite warriors.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fire Knight -->
+          <div class="rc-roster-card" data-tier="elite">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/fireknight.png" alt="Fire Knight" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Elite Ally Unit</span>
+            <h3 class="rc-roster-card__title">Fire Knight</h3>
+            <p class="rc-roster-card__role">High Area Damage</p>
+            <p class="rc-roster-card__desc">The strongest elite soldier of the kingdom, a legendary warrior carrying a powerful fire-infused sword. Captive to the demon forces until the Prince broke his chains.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Role</span>
+                <span class="rc-roster-card__meta-val">An elite area-damage unit specializing in destroying groups of enemies. With his blazing sword strikes, the Fire Knight can unleash massive damage across the battlefield.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story Appearance</span>
+                <span class="rc-roster-card__meta-val">Rescued and unlocked after completing Level 6, the Fire Knight’s return marks a turning point in the reclamation journey as one of the greatest champions joins the fight.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guardian Knight -->
+          <div class="rc-roster-card" data-tier="elite">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/gaurdian knight.png" alt="Guardian Knight" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Elite Ally Unit</span>
+            <h3 class="rc-roster-card__title">Guardian Knight</h3>
+            <p class="rc-roster-card__role">Fast • Single Target</p>
+            <p class="rc-roster-card__desc">Fearless cavalry warriors who once charged at the frontline during the kingdom’s greatest wars. Riding powerful war horses and armed with deadly spears.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Role</span>
+                <span class="rc-roster-card__meta-val">An elite high-DPS single-target attacker with great speed and strength. The Guardian Knight can quickly reach the frontline and deliver powerful spear attacks.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story Appearance</span>
+                <span class="rc-roster-card__meta-val">After joining the Prince’s army, the return of the Guardian Knights restores the kingdom’s legendary cavalry force, bringing speed, power, and battlefield dominance.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Priest -->
+          <div class="rc-roster-card" data-tier="warlord-emperor">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/healer.png" alt="Priest" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Warlord Ally Unit</span>
+            <h3 class="rc-roster-card__title">The Priest</h3>
+            <p class="rc-roster-card__role">Supporter • Area • Long Range</p>
+            <p class="rc-roster-card__desc">The spiritual guardian of the kingdom’s church, guiding and protecting the people. He joined the Prince’s army to use his sacred powers to save lives on the battlefield.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Role</span>
+                <span class="rc-roster-card__meta-val">A Warlord support unit specializing in ranged area healing. Instead of attacking, the Priest restores health to nearby allies, allowing them to hold their ground longer.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story Appearance</span>
+                <span class="rc-roster-card__meta-val">Unlocked after completing the Domain of Nerrisa event. The Priest’s arrival brings sacred healing power to the Prince’s forces, helping the army withstand stronger enemies.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- King -->
+          <div class="rc-roster-card" data-tier="warlord-emperor">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/King.png" alt="King" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Emperor Ally Unit</span>
+            <h3 class="rc-roster-card__title">The King</h3>
+            <p class="rc-roster-card__role">Long Range • Massive Area Damage • Tanky</p>
+            <p class="rc-roster-card__desc">The legendary ruler of the Reclairos Empire. Captured by Ashrak Doomcaller, leaving the empire unprotected. Now freed, the King returns to fight beside the Prince.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Role</span>
+                <span class="rc-roster-card__meta-val">An Emperor-tier unit specializing in long-range, massive area damage. With his ability to control powerful crystals, the King strikes entire groups from great distances.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story Appearance</span>
+                <span class="rc-roster-card__meta-val">Unlocked after completing the main story mode. The King’s return represents the restoration of the Reclairos Empire and the reunion of the kingdom’s greatest heroes.</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -837,6 +1206,46 @@
           button.disabled = false;
           button.textContent = 'Secure My Beta Invite';
           alert('Something went wrong. Please try again.');
+        });
+      });
+
+      // Roster filtering logic
+      const rosterTabs = document.querySelectorAll('.rc-roster-tab');
+      const rosterCards = document.querySelectorAll('.rc-roster-card');
+
+      rosterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active class from all tabs
+          rosterTabs.forEach(t => t.classList.remove('rc-roster-tab--active'));
+          // Add active class to clicked tab
+          tab.classList.add('rc-roster-tab--active');
+
+          const filterValue = tab.getAttribute('data-filter');
+
+          rosterCards.forEach(card => {
+            const cardTier = card.getAttribute('data-tier');
+            let shouldShow = false;
+
+            if (filterValue === 'all') {
+              shouldShow = true;
+            } else {
+              shouldShow = (cardTier === filterValue);
+            }
+
+            if (shouldShow) {
+              card.style.display = 'flex';
+              // Re-trigger fade transition
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(8px)';
+              setTimeout(() => {
+                card.style.transition = 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, 10);
+            } else {
+              card.style.display = 'none';
+            }
+          });
         });
       });
     </script>
