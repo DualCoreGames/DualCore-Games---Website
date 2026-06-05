@@ -368,131 +368,171 @@
 
     <div class="grid pillar-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem;">
 
-      <!-- SE Card -->
-      <div class="card pillar-card" style="
-        background: rgba(10,18,35,0.85);
-        border: 1.5px solid rgba(0,180,255,0.3);
-        border-radius: 14px;
-        padding: 2.5rem;
-        backdrop-filter: blur(10px);
-      ">
-        <div style="
-          width: 56px; height: 56px; margin-bottom: 1.75rem;
-          display: flex; align-items: center; justify-content: center;
-          background: rgba(255,100,20,0.1);
-          border: 1.5px solid rgba(255,100,20,0.6);
-          clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-        ">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff7a20" stroke-width="1.5">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-          </svg>
-        </div>
-        <div style="font-size: 2rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 0.3rem;">SE</div>
-        <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Studio-Level Execution</div>
-        <div style="width: 30px; height: 2px; background: #ff7a20; margin-bottom: 1.25rem;"></div>
-        <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iterative feedback loops and structured production pipelines that reduce delivery risk.</p>
-      </div>
+<!-- SE Card -->
+<div class="card pillar-card" style="
+  background: rgba(10,18,35,0.85);
+  border: 1.5px solid rgba(0,180,255,0.3);
+  border-radius: 14px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+">
+  <div style="width:56px; height:56px; margin-bottom:1.75rem;">
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hexGrad-se" x1="0" y1="56" x2="56" y2="0" gradientUnits="userSpaceOnUse">
+          <!-- WITH this (cyan left, orange right) -->
+        <stop offset="0%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#ff7a20"/>
+        <stop offset="100%" stop-color="#ff7a20"/>
+        </linearGradient>
+        <linearGradient id="iconGrad-se" x1="0" y1="26" x2="26" y2="0" gradientUnits="userSpaceOnUse">
+        <!-- WITH this (cyan left, orange right) -->
+        <stop offset="0%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#ff7a20"/>
+        <stop offset="100%" stop-color="#ff7a20"/>
+        </linearGradient>
+      </defs>
+      <polygon points="28,2 52,15 52,41 28,54 4,41 4,15" fill="rgba(255,122,32,0.08)" stroke="url(#hexGrad-se)" stroke-width="1.5"/>
+      <g transform="translate(15,15)">
+        <circle cx="13" cy="13" r="3" stroke="url(#iconGrad-se)" stroke-width="1.5" fill="none"/>
+        <path d="M20.4 16a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V22a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 10 20.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 5.68 16a1.65 1.65 0 0 0-1.51-1H4a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 5.6 10a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 10 5.68a1.65 1.65 0 0 0 1-1.51V4a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 20.4 10a1.65 1.65 0 0 0 1.51 1H22a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="url(#iconGrad-se)" stroke-width="1.5" fill="none"/>
+      </g>
+    </svg>
+  </div>
+  <div style="font-size: 2rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 0.3rem;">SE</div>
+  <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Studio-Level Execution</div>
+  <div style="width: 30px; height: 2px; background: #20cbff; margin-bottom: 1.25rem;"></div>
+  <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; margin: 0;">Iterative feedback loops and structured production pipelines that reduce delivery risk.</p>
+</div>
 
-      <!-- PD Card -->
-      <div class="card pillar-card" style="
-        background: rgba(10,18,35,0.85);
-        border: 1.5px solid rgba(0,180,255,0.45);
-        border-radius: 14px;
-        padding: 2.5rem;
-        backdrop-filter: blur(10px);
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 8px 40px rgba(255,100,20,0.1);
-      ">
-        <div style="position:absolute;bottom:0;left:8%;right:8%;height:2.5px;background:linear-gradient(90deg,transparent,#ff7a20 35%,#ff9a40 65%,transparent);border-radius:0;"></div>
-        <div style="
-          width: 56px; height: 56px; margin-bottom: 1.75rem;
-          display: flex; align-items: center; justify-content: center;
-          background: rgba(0,180,255,0.1);
-          border: 1.5px solid rgba(0,180,255,0.6);
-          clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-        ">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="1.5">
-            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-          </svg>
-        </div>
-        <div style="font-size: 2rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 0.3rem;">PD</div>
-        <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Performance<br>Development</div>
-        <div style="width: 30px; height: 2px; background: #ff7a20; margin-bottom: 1.25rem;"></div>
-        <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; margin: 0;">Meticulously engineered architecture across PC, mobile, and XR platforms.</p>
-      </div>
+<!-- PD Card -->
+<div class="card pillar-card" style="
+  background: rgba(10,18,35,0.85);
+  border: 1.5px solid rgba(0,180,255,0.45);
+  border-radius: 14px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(255,100,20,0.1);
+">
+  <div style="position:absolute;bottom:0;left:8%;right:8%;height:2.5px;background:linear-gradient(90deg,transparent,#ff7a20 35%,#ff9a40 65%,transparent);border-radius:0;"></div>
+  <div style="width:56px; height:56px; margin-bottom:1.75rem;">
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hexGrad-pd" x1="0" y1="56" x2="56" y2="0" gradientUnits="userSpaceOnUse">
+        <!-- WITH this (cyan left, orange right) -->
+        <stop offset="0%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#ff7a20"/>
+        <stop offset="100%" stop-color="#ff7a20"/>
+        </linearGradient>
+        <linearGradient id="iconGrad-pd" x1="0" y1="26" x2="26" y2="0" gradientUnits="userSpaceOnUse">
+        <!-- WITH this (cyan left, orange right) -->
+        <stop offset="0%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#ff7a20"/>
+        <stop offset="100%" stop-color="#ff7a20"/>
+        </linearGradient>
+      </defs>
+      <polygon points="28,2 52,15 52,41 28,54 4,41 4,15" fill="rgba(0,180,255,0.08)" stroke="url(#hexGrad-pd)" stroke-width="1.5"/>
+      <g transform="translate(15,15)">
+        <polyline points="16,18 22,12 16,6" stroke="url(#iconGrad-pd)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="8,6 2,12 8,18" stroke="url(#iconGrad-pd)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </svg>
+  </div>
+  <div style="font-size: 2rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 0.3rem;">PD</div>
+  <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Performance<br>Development</div>
+  <div style="width: 30px; height: 2px; background: #ff7a20; margin-bottom: 1.25rem;"></div>
+  <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; margin: 0;">Meticulously engineered architecture across PC, mobile, and XR platforms.</p>
+</div>
 
-      <!-- TC Card -->
-      <div class="card pillar-card" style="
-        background: rgba(10,18,35,0.85);
-        border: 1.5px solid rgba(0,180,255,0.3);
-        border-radius: 14px;
-        padding: 2.5rem;
-        backdrop-filter: blur(10px);
-      ">
-        <div style="
-          width: 56px; height: 56px; margin-bottom: 1.75rem;
-          display: flex; align-items: center; justify-content: center;
-          background: rgba(0,180,255,0.1);
-          border: 1.5px solid rgba(0,180,255,0.6);
-          clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-        ">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="1.5">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-        </div>
-        <div style="font-size: 2rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 0.3rem;">TC</div>
-        <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Technical<br>Collaboration</div>
-        <div style="width: 30px; height: 2px; background: #00d2ff; margin-bottom: 1.25rem;"></div>
-        <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; margin: 0;">Seamless integration with internal teams as production partners or reinforcements.</p>
-      </div>
+<!-- TC Card -->
+<div class="card pillar-card" style="
+  background: rgba(10,18,35,0.85);
+  border: 1.5px solid rgba(0,180,255,0.3);
+  border-radius: 14px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+">
+  <div style="width:56px; height:56px; margin-bottom:1.75rem;">
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hexGrad-tc" x1="0" y1="56" x2="56" y2="0" gradientUnits="userSpaceOnUse">
+        <!-- WITH this (cyan left, orange right) -->
+        <stop offset="0%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#ff7a20"/>
+        <stop offset="100%" stop-color="#ff7a20"/>
+        </linearGradient>
+        <linearGradient id="iconGrad-tc" x1="0" y1="26" x2="26" y2="0" gradientUnits="userSpaceOnUse">
+          <!-- WITH this (cyan left, orange right) -->
+        <stop offset="0%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#00d2ff"/>
+        <stop offset="50%" stop-color="#ff7a20"/>
+        <stop offset="100%" stop-color="#ff7a20"/>
+        </linearGradient>
+      </defs>
+      <polygon points="28,2 52,15 52,41 28,54 4,41 4,15" fill="rgba(0,180,255,0.08)" stroke="url(#hexGrad-tc)" stroke-width="1.5"/>
+      <g transform="translate(15,15)">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="url(#iconGrad-tc)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="9" cy="7" r="4" stroke="url(#iconGrad-tc)" stroke-width="1.5" fill="none"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="url(#iconGrad-tc)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="url(#iconGrad-tc)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+  <div style="font-size: 2rem; font-weight: 900; color: #ffffff; line-height: 1; margin-bottom: 0.3rem;">TC</div>
+  <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Technical<br>Collaboration</div>
+  <div style="width: 30px; height: 2px; background: #00d2ff; margin-bottom: 1.25rem;"></div>
+  <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; margin: 0;">Seamless integration with internal teams as production partners or reinforcements.</p>
+</div>
     </div>
 
-    <!-- Metrics Row -->
-    <div class="production-metrics" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 4rem; grid-template-columns: repeat(4,1fr); gap: 2rem;">
-      <div class="metric-item" style="text-align:center;">
-        <div style="margin-bottom:1rem;display:flex;justify-content:center;">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="1.2" stroke-linecap="round">
-            <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
-          </svg>
-        </div>
-        <strong>Sub-150MB</strong>
-        <span>Mobile Builds</span>
-      </div>
-      <div class="metric-item" style="text-align:center;">
-        <div style="margin-bottom:1rem;display:flex;justify-content:center;">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff7a20" stroke-width="1.2" stroke-linecap="round">
-            <path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l3 3"/><path d="M18 2l4 4-4 4"/>
-          </svg>
-        </div>
-        <strong>Stable 60FPS</strong>
-        <span>on URP Architecture</span>
-      </div>
-      <div class="metric-item" style="text-align:center;">
-        <div style="margin-bottom:1rem;display:flex;justify-content:center;">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff7a20" stroke-width="1.2" stroke-linecap="round">
-            <rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 7V4M12 7V4M15 7V4M9 20v-3M12 20v-3M15 20v-3M7 9H4M7 12H4M7 15H4M20 9h-3M20 12h-3M20 15h-3"/>
-          </svg>
-        </div>
-        <strong>40% Memory</strong>
-        <span>Reduction via Overrides</span>
-      </div>
-      <div class="metric-item" style="text-align:center;">
-        <div style="margin-bottom:1rem;display:flex;justify-content:center;">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="1.2" stroke-linecap="round">
-            <path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8z"/>
-            <circle cx="8.5" cy="12" r="1.5"/><circle cx="15.5" cy="12" r="1.5"/>
-            <path d="M8.5 13.5c0 1 .67 2 1.5 2h4c.83 0 1.5-1 1.5-2"/>
-          </svg>
-        </div>
-        <strong>VR/XR</strong>
-        <span>Field-Tested Pipelines</span>
-      </div>
+<!-- Metrics Row -->
+<div class="production-metrics" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 4rem; grid-template-columns: repeat(4,1fr); gap: 2rem;">
+  <div class="metric-item" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:0;">
+    <div style="margin-bottom:1rem;">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="1.2" stroke-linecap="round">
+        <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+      </svg>
     </div>
+    <strong>Sub-<br>150MB</strong>
+    <span style="margin-top:auto;">Mobile Builds</span>
+  </div>
+  <div class="metric-item" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:0;">
+    <div style="margin-bottom:1rem;">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff7a20" stroke-width="1.2" stroke-linecap="round">
+        <path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l3 3"/><path d="M18 2l4 4-4 4"/>
+      </svg>
+    </div>
+    <strong>Stable<br>60FPS</strong>
+    <span style="margin-top:auto;">on URP Architecture</span>
+  </div>
+  <div class="metric-item" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:0;">
+    <div style="margin-bottom:1rem;">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff7a20" stroke-width="1.2" stroke-linecap="round">
+        <rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 7V4M12 7V4M15 7V4M9 20v-3M12 20v-3M15 20v-3M7 9H4M7 12H4M7 15H4M20 9h-3M20 12h-3M20 15h-3"/>
+      </svg>
+    </div>
+    <strong>40%<br>Memory</strong>
+    <span style="margin-top:auto;">Reduction via Overrides</span>
+  </div>
+  <div class="metric-item" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:0;">
+    <div style="margin-bottom:1rem;">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="1.2" stroke-linecap="round">
+        <path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8z"/>
+        <circle cx="8.5" cy="12" r="1.5"/><circle cx="15.5" cy="12" r="1.5"/>
+        <path d="M8.5 13.5c0 1 .67 2 1.5 2h4c.83 0 1.5-1 1.5-2"/>
+      </svg>
+    </div>
+    <strong>AR/VR<br>MR</strong>
+    <span style="margin-top:auto;">Field-Tested Pipelines</span>
+  </div>
+</div>
 
   </div>
 </section>
