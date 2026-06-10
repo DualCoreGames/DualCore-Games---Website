@@ -642,31 +642,21 @@
         padding: 6rem 0;
       }
     }
-    /* Coming Soon Card Full-Width Banner Layout */
+    /* Coming Soon Card layout rules */
     .rc-roster-card--coming-soon {
-      grid-column: 1 / -1;
-      min-height: auto !important;
-      padding: 2.5rem !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 400px;
     }
     .rc-roster-card--coming-soon > div {
-      display: flex !important;
-      flex-direction: row !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 2.5rem;
-      text-align: left !important;
-      width: 100%;
-    }
-    .rc-roster-card--coming-soon .rc-roster-card__img-wrap {
-      margin-bottom: 0 !important;
-      flex-shrink: 0;
-    }
-    @media (max-width: 900px) {
-      .rc-roster-card--coming-soon > div {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 1rem;
-      }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      height: 100%;
     }
   </style>
 </head>
@@ -1265,7 +1255,8 @@
             let shouldShow = false;
 
             if (filterValue === 'all') {
-              shouldShow = true;
+              // Hide the coming soon card in the 'All' view for perfect grid symmetry
+              shouldShow = (cardTier !== 'basic elite warlord-emperor');
             } else {
               shouldShow = cardTier.split(' ').includes(filterValue);
             }
