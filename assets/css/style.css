@@ -451,6 +451,37 @@ header {
     color: var(--core-tech);
 }
 
+/* Dropdown sub-categories & project lists */
+.dropdown-header {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--core-tech);
+    padding: 0.75rem 1.5rem 0.25rem 1.5rem;
+    opacity: 0.8;
+}
+
+.dropdown-menu .dropdown-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
+    margin: 0.5rem 1.5rem;
+}
+
+.dropdown-link.sub-link {
+    padding: 0.4rem 2rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.dropdown-link.category-link {
+    padding: 0.4rem 1.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+
 @media (max-width: 1024px) {
     .nav-item {
         padding: 0;
@@ -479,12 +510,31 @@ header {
     }
 
     .has-dropdown.active .dropdown-menu {
-        max-height: 500px;
+        max-height: 1000px;
     }
 
     .dropdown-link {
         font-size: 1.1rem;
         padding: 0.5rem 0;
+    }
+
+    .dropdown-header {
+        padding: 0.75rem 0 0.25rem 0;
+        font-size: 0.8rem;
+    }
+    
+    .dropdown-menu .dropdown-divider {
+        margin: 0.5rem 0;
+    }
+    
+    .dropdown-link.sub-link {
+        padding: 0.4rem 0 0.4rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .dropdown-link.category-link {
+        padding: 0.4rem 0;
+        font-size: 0.95rem;
     }
 }
 
@@ -2060,3 +2110,24 @@ img { max-width: 100%; height: auto; }
         grid-template-columns: 1fr;
     }
 }
+
+/* Premium back-link button interaction */
+.back-link {
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.back-link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 209, 255, 0.5) !important;
+    box-shadow: 0 6px 20px rgba(0, 209, 255, 0.15) !important;
+}
+
+.back-link:hover span {
+    transform: translateX(-3px);
+}
+
+.back-link span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
