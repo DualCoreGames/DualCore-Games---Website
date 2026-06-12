@@ -18,16 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const urlParams = new URLSearchParams(window.location.search);
         const intent = urlParams.get('intent');
         const contactH1 = document.querySelector('main h1');
+        const contactSub = document.querySelector('main p.text-muted, main p.lead');
         const messageField = document.querySelector('#message');
         const projectField = document.querySelector('#project');
 
         if (window.location.pathname.includes('contact.html')) {
             if (intent === 'specs') {
                 if (contactH1) contactH1.textContent = "Get Production Pipeline Specs";
+                if (contactSub) contactSub.textContent = "Enter your details below to receive our latest B2B production pipeline specifications.";
                 if (messageField) messageField.value = "I am interested in downloading the DualCore Production Pipeline Specifications. Please provide the latest technical documentation.";
                 if (projectField) projectField.value = "Technical Pipeline Specs";
             } else if (intent === 'audit') {
-                if (contactH1) contactH1.textContent = "View Services";
+                if (contactH1) contactH1.textContent = "Request Technical Audit";
+                if (contactSub) contactSub.textContent = "Tell us about your project infrastructure to request a free engineering architecture audit.";
                 if (messageField) messageField.value = "I would like to request a technical architecture audit for our current project.";
                 if (projectField) projectField.value = "Architecture Audit";
             }
@@ -38,9 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Conversion Tracking
     window.trackConversion = (label) => {
         console.log(`[GTM-STAGED] Conversion Event: ${label}`);
-        // Add actual GTM dataLayer push here if needed
-        // window.dataLayer = window.dataLayer || [];
-        // window.dataLayer.push({'event': 'conversion', 'label': label});
     };
 
     // Attach tracking to specific buttons
@@ -50,30 +50,45 @@ document.addEventListener('DOMContentLoaded', () => {
             trackConversion(`Intent: ${intent}`);
         });
     });
+
     // 4. Form Submission & AJAX Redirect
-    const forms = document.querySelectorAll('#contactForm, #contactFormTwo');
+    const forms = document.querySelectorAll('form.contact-form, form.beta-form, #contactForm, #contactFormTwo, #reclairosBetaForm, #paapiContactForm, #roomRaiderForm, #audit-form-element, #notd-form');
     forms.forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const submitBtn = form.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.textContent;
+            const originalBtnText = submitBtn ? submitBtn.textContent : 'Submit';
             
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'SENDING...';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'SENDING...';
+            }
 
             const formData = new FormData(form);
-            fetch(form.action, {
+            const defaultAction = 'https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec';
+            const submissionUrl = form.action && form.action !== window.location.href ? form.action : defaultAction;
+
+            fetch(submissionUrl, {
                 method: 'POST',
                 body: formData,
                 mode: 'no-cors'
             })
             .then(() => {
-                window.location.href = '/thank-you.html';
+                // Calculate relative prefix depending on directory depth to point to root thank-you.html correctly
+                const parts = window.location.pathname.split('/').filter(Boolean);
+                if (parts.length > 0 && parts[parts.length - 1].includes('.')) {
+                    parts.pop(); // Remove filename if present to get correct folder depth
+                }
+                const prefix = '../'.repeat(parts.length);
+                window.location.href = prefix + 'thank-you.html';
             })
-            .catch(() => {
+            .catch((err) => {
+                console.error("Submission error:", err);
                 alert("Oops! There was a problem submitting your form. Please try again.");
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }
             });
         });
     });
