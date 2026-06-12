@@ -120,12 +120,15 @@
             (function() {
               var video = document.getElementById('hero-video');
               var isMobile = window.innerWidth <= 768;
-              video.src = isMobile 
-                ? 'assets/video/dualcore-immersive-game-experience-design.mp4' 
-                : 'assets/video/dualcore-scalable-game-systems-engineering.mp4';
-              video.poster = isMobile 
-                ? 'assets/images/hero_mobile_poster.webp' 
-                : 'assets/images/hero_desktop_poster.webp';
+              if (isMobile) {
+                // On mobile, show static poster only (saves 4.1MB download and 9s video decoding thread blocking)
+                video.poster = 'assets/images/hero_mobile_poster.webp';
+                video.removeAttribute('autoplay');
+                video.preload = 'none';
+              } else {
+                video.src = 'assets/video/dualcore-scalable-game-systems-engineering.mp4';
+                video.poster = 'assets/images/hero_desktop_poster.webp';
+              }
             })();
           </script>
         </video>
@@ -587,7 +590,7 @@
           <!-- Paapi Gudia -->
           <div class="card project-card-refined" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02);">
             <div class="card-image" style="aspect-ratio: 16/9; width: 100%; overflow: hidden; position: relative;">
-              <img alt="Paapi Gudia PC Shooter" loading="lazy" src="work/game-development/paapi-gudia/assets/paapi-hero-bg-clean.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+              <img alt="Paapi Gudia PC Shooter" loading="lazy" src="work/game-development/paapi-gudia/assets/paapi-hero-bg-clean.webp" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
             </div>
             <div class="card-body" style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
               <span class="label" style="color: var(--core-art); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">PC + VR / Horror</span>
@@ -600,7 +603,7 @@
           <!-- Crazy Planet -->
           <div class="card project-card-refined" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02);">
             <div class="card-image" style="aspect-ratio: 16/9; width: 100%; overflow: hidden; position: relative;">
-              <img alt="Crazy Planet Retro Action" loading="lazy" src="work/game-development/crazy-planet/assets/cp-hero-bg.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+              <img alt="Crazy Planet Retro Action" loading="lazy" src="work/game-development/crazy-planet/assets/cp-hero-bg.webp" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
             </div>
             <div class="card-body" style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
               <span class="label" style="color: var(--core-tech); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Mobile / Action</span>
@@ -613,7 +616,7 @@
           <!-- Room Raider -->
           <div class="card project-card-refined" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02);">
             <div class="card-image" style="aspect-ratio: 16/9; width: 100%; overflow: hidden; position: relative;">
-              <img alt="Room Raider Mixed Reality" loading="lazy" src="work/vr-xr/room-raider/assets/room-raider-thumb.png" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+              <img alt="Room Raider Mixed Reality" loading="lazy" src="work/vr-xr/room-raider/assets/room-raider-thumb.webp" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
             </div>
             <div class="card-body" style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
               <span class="label" style="color: var(--core-tech); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Mixed Reality / Action</span>
@@ -626,7 +629,7 @@
           <!-- Never Open The Door -->
           <div class="card project-card-refined" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02);">
             <div class="card-image" style="aspect-ratio: 16/9; width: 100%; overflow: hidden; position: relative;">
-              <img src="work/game-development/never-open-the-door/assets/never-open-the-door-hero-bg.png" alt="Never Open The Door" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+              <img src="work/game-development/never-open-the-door/assets/never-open-the-door-hero-bg.webp" alt="Never Open The Door" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
             </div>
             <div class="card-body" style="padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column;">
               <span class="label" style="color: var(--core-art); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">PC / Psychological Horror</span>
