@@ -114,7 +114,22 @@
     <section class="hero" id="home">
       <!-- Hybrid Cinematic Video -->
       <div class="hero-video-bg">
-        <video autoplay muted loop playsinline class="hero-video" id="hero-video" preload="none" poster="assets/images/hero_mobile_poster.webp">
+        <video autoplay muted loop playsinline class="hero-video" id="hero-video" preload="none">
+          <!-- Non-reflowing responsive source injection based on userAgent to prevent double downloads and autoplay blocks -->
+          <script>
+            (function() {
+              var video = document.getElementById('hero-video');
+              var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+              if (isMobile) {
+                video.poster = 'assets/images/hero_mobile_poster.webp';
+                video.removeAttribute('autoplay');
+              } else {
+                video.src = 'assets/video/dualcore-scalable-game-systems-engineering.mp4';
+                video.poster = 'assets/images/hero_desktop_poster.webp';
+                video.preload = 'auto';
+              }
+            })();
+          </script>
         </video>
       </div>
       
