@@ -123,8 +123,9 @@
               var video = document.getElementById('hero-video');
               var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
               if (isMobile) {
+                video.src = 'assets/video/hero-mobile.mp4';
                 video.poster = 'assets/images/hero_mobile_poster.webp';
-                video.removeAttribute('autoplay');
+                video.preload = 'auto';
               } else {
                 video.src = 'assets/video/dualcore-scalable-game-systems-engineering.mp4';
                 video.poster = 'assets/images/hero_desktop_poster.webp';
