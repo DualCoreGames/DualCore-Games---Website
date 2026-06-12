@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Responsive Hero Video Loader (prevents parser blocking and forced layout reflows)
+    const initResponsiveVideo = () => {
+        const video = document.getElementById('hero-video');
+        if (!video) return;
+        
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            video.removeAttribute('autoplay');
+            video.preload = 'none';
+        } else {
+            video.poster = 'assets/images/hero_desktop_poster.webp';
+            video.src = 'assets/video/dualcore-scalable-game-systems-engineering.mp4';
+            video.preload = 'auto';
+            video.play().catch(err => console.log("Autoplay blocked:", err));
+        }
+    };
+    initResponsiveVideo();
+
     // 1. Dynamic Keyword Insertion (DKI)
     const updateHeroHeadline = () => {
         const urlParams = new URLSearchParams(window.location.search);

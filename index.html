@@ -114,23 +114,7 @@
     <section class="hero" id="home">
       <!-- Hybrid Cinematic Video -->
       <div class="hero-video-bg">
-        <video autoplay muted loop playsinline class="hero-video" id="hero-video" preload="auto">
-          <!-- Dynamic source injection based on viewport to prevent loading lag and double buffering -->
-          <script>
-            (function() {
-              var video = document.getElementById('hero-video');
-              var isMobile = window.innerWidth <= 768;
-              if (isMobile) {
-                // On mobile, show static poster only (saves 4.1MB download and 9s video decoding thread blocking)
-                video.poster = 'assets/images/hero_mobile_poster.webp';
-                video.removeAttribute('autoplay');
-                video.preload = 'none';
-              } else {
-                video.src = 'assets/video/dualcore-scalable-game-systems-engineering.mp4';
-                video.poster = 'assets/images/hero_desktop_poster.webp';
-              }
-            })();
-          </script>
+        <video autoplay muted loop playsinline class="hero-video" id="hero-video" preload="none" poster="assets/images/hero_mobile_poster.webp">
         </video>
       </div>
       
