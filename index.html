@@ -675,6 +675,10 @@
         <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">Ready to build? Tell us about your project and let's engineer the future together.</p>
       </div>
       <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="contactForm">
+          <!-- Honeypot Field for Anti-Spam -->
+          <div style="display: none;" aria-hidden="true">
+            <input type="text" name="honeypot_field" tabindex="-1" autocomplete="off">
+          </div>
         <div class="form-group">
           <label for="name">Full Name</label>
           <input id="name" name="name" placeholder="John Doe" required="" type="text"/>

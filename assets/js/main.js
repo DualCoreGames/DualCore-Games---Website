@@ -56,6 +56,20 @@ document.addEventListener('DOMContentLoaded', () => {
     forms.forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            
+            // Honeypot spam bot check
+            const honeypot = form.querySelector('input[name="honeypot_field"]');
+            if (honeypot && honeypot.value) {
+                console.warn("Spam submission blocked via honeypot.");
+                const parts = window.location.pathname.split('/').filter(Boolean);
+                if (parts.length > 0 && parts[parts.length - 1].includes('.')) {
+                    parts.pop();
+                }
+                const prefix = '../'.repeat(parts.length);
+                window.location.href = prefix + 'thank-you.html';
+                return;
+            }
+
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn ? submitBtn.textContent : 'Submit';
             
