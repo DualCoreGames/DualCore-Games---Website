@@ -112,18 +112,26 @@
          HERO SECTION
          ======================== -->
     <section class="hero" id="home">
-      <!-- Hybrid Cinematic Video & Interactive Particle Canvas -->
+      <!-- Hybrid Cinematic Video -->
       <div class="hero-video-bg">
-        <video autoplay muted loop playsinline class="hero-video" preload="metadata">
-          <source src="assets/video/dualcore-immersive-game-experience-design.mp4" type="video/mp4" media="(max-width: 768px)">
-          <source src="assets/video/dualcore-scalable-game-systems-engineering.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline class="hero-video" id="hero-video" preload="auto">
+          <!-- Dynamic source injection based on viewport to prevent loading lag and double buffering -->
+          <script>
+            (function() {
+              var video = document.getElementById('hero-video');
+              var isMobile = window.innerWidth <= 768;
+              video.src = isMobile 
+                ? 'assets/video/dualcore-immersive-game-experience-design.mp4' 
+                : 'assets/video/dualcore-scalable-game-systems-engineering.mp4';
+            })();
+          </script>
         </video>
-        
-        <!-- Interactive Particle Canvas -->
-        <canvas id="hero-canvas"></canvas>
       </div>
       
       <div class="hero-overlay" style="background: linear-gradient(to bottom, rgba(5,7,10,0.3) 0%, rgba(5,7,10,0.85) 100%);"></div>
+      
+      <!-- Interactive Particle Canvas -->
+      <canvas id="hero-canvas"></canvas>
       <div class="container hero-content">
         <h1 class="display-1">
           <span class="accent-tech">We Build Scalable Game Systems.</span><br>
