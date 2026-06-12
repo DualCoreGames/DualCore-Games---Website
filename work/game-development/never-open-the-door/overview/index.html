@@ -340,7 +340,7 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="#beta-form" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Join Early Access</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Join Early Access</a></li>
         </ul>
       </nav>
     </div>
@@ -360,7 +360,7 @@
           A first-person psychological horror experience centered around environmental storytelling, slow-burn tension, and a narrative-driven mystery that blurs the boundary between reality and the supernatural.
         </p>
         <div style="display: flex; gap: 1.5rem; align-items: center; justify-content: center; flex-wrap: wrap;">
-          <a href="#beta-form" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700;">Join Early Access</a>
+          <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700;">Join Early Access</a>
           <a href="../case-study/" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">Read Tech Case Study</a>
         </div>
       </div>
@@ -596,29 +596,15 @@
       </div>
     </section>
 
-    <!-- ═══ FUNNEL ═══ -->
-    <section class="funnel-section" id="interest-form">
+    <!-- ═══ B2B PORTFOLIO CTA ═══ -->
+    <section class="narrative-section" id="contact">
       <div class="container">
-        <span style="color: var(--color-accent); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">Early Access Waitlist</span>
-        <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem;">Experience the Nightmare</h2>
-        <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; max-width: 600px; margin: 0 auto 2rem;">Register for the exclusive Private Beta. The first wave of keys will be distributed to our community members directly.</p>
-        
-        <form class="beta-form" id="notd-form">
-          <input type="hidden" name="project" value="Never Open The Door — Early Access" />
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Email Address" required />
-          <input type="text" name="company" placeholder="Studio/Company (Optional)" />
-          <button type="submit" id="submit-btn">Join Private Beta</button>
-        </form>
-
-        <div id="success-message" class="form-success-message">
-          <h4>Access Requested</h4>
-          <p>Your request for the Never Open The Door beta has been received. Our team will review your application and send instructions shortly.</p>
+        <div style="max-width: 650px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--color-accent); padding: 4rem; border-radius: 4px; text-align: center;">
+          <span class="hero-label">Want to Build a Game Like This?</span>
+          <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; margin-top: 1rem;">Let's Design Your Project</h2>
+          <p class="text-muted" style="max-width: 500px; margin: 0 auto 3rem;">We engineer modular, production-ready interactive systems and robust game loops. Reach out to our engineering team to bring your vision to life.</p>
+          <a class="btn btn-primary" href="../../../../contact.html" style="padding: 1.2rem 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;">Start Your Project</a>
         </div>
-
-        <p style="margin-top: 3rem; font-size: 0.9rem; color: rgba(255,255,255,0.4);">
-          Are you a developer? <a href="../case-study/" style="color: var(--color-accent); text-decoration: none;">Read the technical case study</a>.
-        </p>
       </div>
     </section>
     <!-- ═══ DISCOVERY: Other Projects ═══ -->
@@ -694,33 +680,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('notd-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const form = this;
-      const btn = document.getElementById('submit-btn');
-      const successMsg = document.getElementById('success-message');
-      const formData = new FormData(form);
-      const url = "https://script.google.com/macros/s/AKfycbzL5nJtQ82vK991xXXi8r0Bf3d6YJ_Y_mO5o_Z7XQ0t6A4/exec";
-
-      btn.disabled = true;
-      btn.innerText = 'Sending...';
-
-      fetch(url, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-      }).then(() => {
-        form.style.display = 'none';
-        successMsg.style.display = 'block';
-      }).catch(err => {
-        console.error('Submission failed', err);
-        btn.disabled = false;
-        btn.innerText = 'Join Private Beta';
-        alert('There was an error submitting your request. Please try again later.');
-      });
-    });
-  </script>
+  <script defer="" src="../../../../assets/js/main.js"></script>
 </body>
 </html>

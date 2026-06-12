@@ -349,7 +349,7 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="#audit-form" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html?intent=audit" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
         </ul>
       </nav>
     </div>
@@ -543,25 +543,12 @@
     </section>
 
     <!-- ═══ CTA ═══ -->
-    <section class="funnel-section" id="audit-form">
+    <section class="cs-cta" id="audit-form">
       <div class="container">
-        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem;">Ready to Build at This Level?</h2>
-        <p style="color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">DualCore engineers modular, production-ready systems for immersive titles. If you're building a project that demands technical excellence—request an architecture audit.</p>
-        
-        <form class="beta-form" id="audit-form-element">
-          <input type="hidden" name="project" value="Never Open The Door — Technical Audit" />
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Work Email" required />
-          <input type="text" name="company" placeholder="Studio/Company" required />
-          <button type="submit" id="audit-submit-btn">Request Technical Audit</button>
-        </form>
-
-        <div id="audit-success-message" class="form-success-message">
-          <h4>Audit Request Received</h4>
-          <p>Our engineering team will review your inquiry and reach out within 24-48 hours to schedule a consultation.</p>
-        </div>
-
-        <div style="display: flex; gap: 1.5rem; justify-content: center; margin-top: 3rem;">
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem;">Ready for a Technical Architecture Audit?</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">We audit rendering performance, frame-rate bottlenecks, memory leaks, and backend scaling. Request a free evaluation from our engineering team.</p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center;">
+          <a href="../../../../contact.html?intent=audit" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700;">Request Technical Audit</a>
           <a href="../overview/" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">← View Overview</a>
         </div>
       </div>
@@ -604,33 +591,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('audit-form-element').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const form = this;
-      const btn = document.getElementById('audit-submit-btn');
-      const successMsg = document.getElementById('audit-success-message');
-      const formData = new FormData(form);
-      const url = "https://script.google.com/macros/s/AKfycbzL5nJtQ82vK991xXXi8r0Bf3d6YJ_Y_mO5o_Z7XQ0t6A4/exec";
-
-      btn.disabled = true;
-      btn.innerText = 'Sending...';
-
-      fetch(url, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-      }).then(() => {
-        form.style.display = 'none';
-        successMsg.style.display = 'block';
-      }).catch(err => {
-        console.error('Submission failed', err);
-        btn.disabled = false;
-        btn.innerText = 'Request Technical Audit';
-        alert('There was an error submitting your request. Please try again later.');
-      });
-    });
-  </script>
+  <script defer="" src="../../../../assets/js/main.js"></script>
 </body>
 </html>

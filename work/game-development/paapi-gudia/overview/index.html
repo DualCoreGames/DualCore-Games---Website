@@ -248,7 +248,7 @@
           <li class="nav-item"><a class="nav-link" href="../../../../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../../contact.html">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="#contactForm" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Get Beta Access</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../../contact.html" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Get Beta Access</a></li>
         </ul>
       </nav>
     </div>
@@ -269,7 +269,7 @@
         </p>
         
         <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
-          <a href="#contactForm" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Join Private Alpha</a>
+          <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Join Private Alpha</a>
           <a href="../case-study/" class="btn btn-secondary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">Technical Case Study</a>
         </div>
       </div>
@@ -462,33 +462,14 @@
       </div>
     </section>
 
-    <!-- ═══ LEAD CAPTURE ═══ -->
-    <section class="narrative-section" id="contactForm">
+    <!-- ═══ B2B PORTFOLIO CTA ═══ -->
+    <section class="narrative-section" id="contact">
       <div class="container">
-        <div style="max-width: 650px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--color-accent); padding: 4rem; border-radius: 4px;">
-          <div style="text-align: center; margin-bottom: 4rem;">
-            <span class="hero-label">Alpha Recruitment</span>
-            <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem;">Join the Ranks</h2>
-            <p class="text-muted" style="max-width: 500px; margin: 0 auto;">We are recruiting testers for both PC and Standalone VR builds. Sign up below to receive early access instructions.</p>
-          </div>
-          
-          <form id="paapiContactForm" class="contact-form">
-            <input type="hidden" name="project" value="Paapi Gudia Alpha Recruitment">
-            <div class="form-group" style="margin-bottom: 1.5rem;">
-              <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; letter-spacing: 0.1em;">Full Name</label>
-              <input type="text" name="name" required placeholder="John Doe" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 4px; color: #fff;">
-            </div>
-            <div class="form-group" style="margin-bottom: 1.5rem;">
-              <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; letter-spacing: 0.1em;">Email Address</label>
-              <input type="email" name="email" required placeholder="email@example.com" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 4px; color: #fff;">
-            </div>
-            <div class="form-group" style="margin-bottom: 2rem;">
-              <label style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; letter-spacing: 0.1em;">Your Hardware (PC / VR)</label>
-              <textarea name="message" required placeholder="I play on PC and have a Meta Quest 3..." style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 4px; color: #fff; min-height: 100px;"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Submit Alpha Entry</button>
-            <div id="paapi-status" style="margin-top: 1.5rem; text-align: center; display: none;"></div>
-          </form>
+        <div style="max-width: 650px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--color-accent); padding: 4rem; border-radius: 4px; text-align: center;">
+          <span class="hero-label">Want to Build a Game Like This?</span>
+          <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; margin-top: 1rem;">Let's Design Your Project</h2>
+          <p class="text-muted" style="max-width: 500px; margin: 0 auto 3rem;">We engineer modular, production-ready interactive systems and robust game loops. Reach out to our engineering team to bring your vision to life.</p>
+          <a class="btn btn-primary" href="../../../../contact.html" style="padding: 1.2rem 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;">Start Your Project</a>
         </div>
       </div>
     </section>
@@ -564,45 +545,7 @@
     </div>
   </footer>
 
-  <script>
-    // AJAX Form Handler
-    const paapiForm = document.getElementById('paapiContactForm');
-    const paapiStatus = document.getElementById('paapi-status');
-
-    if (paapiForm) {
-      paapiForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const submitBtn = paapiForm.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'Transmitting...';
-        
-        try {
-          await fetch('https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec', {
-            method: 'POST',
-            body: new FormData(paapiForm),
-            mode: 'no-cors'
-          });
-          paapiStatus.style.display = 'block';
-          paapiStatus.style.color = '#00d1ff';
-          paapiStatus.innerHTML = '<strong>Submission Success.</strong> Welcome to the alpha.';
-          paapiForm.reset();
-          submitBtn.innerText = 'Submitted';
-        } catch (error) {
-          paapiStatus.style.display = 'block';
-          paapiStatus.style.color = '#ff3c3c';
-          paapiStatus.innerText = 'Transmission error. Please try again.';
-          submitBtn.disabled = false;
-          submitBtn.innerText = 'Submit Alpha Entry';
-        }
-      });
-    }
-
-    // Mobile Nav
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const navClose = document.querySelector('.nav-close');
-    if (navToggle) navToggle.addEventListener('click', () => navMenu.classList.add('active'));
-    if (navClose) navClose.addEventListener('click', () => navMenu.classList.remove('active'));
-  </script>
+  
+  <script defer="" src="../../../../assets/js/main.js"></script>
 </body>
 </html>

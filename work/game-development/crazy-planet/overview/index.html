@@ -260,7 +260,7 @@
         <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 700px; margin: 0 auto 3.5rem auto;">A vibrant 2D side-scrolling adventure that combines the ruthless challenge of classic arcade platformers with smooth, modern mechanics.</p>
         
         <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
-          <a href="#beta-form" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Get Beta Access</a>
+          <a href="../../../../contact.html" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Get Beta Access</a>
           <a href="../case-study/" class="btn btn-secondary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">Technical Case Study</a>
         </div>
 
@@ -432,37 +432,14 @@
       </div>
     </section>
 
-    <!-- ═══ LEAD CAPTURE ═══ -->
-    <section class="narrative-section" id="beta-form">
+    <!-- ═══ B2B PORTFOLIO CTA ═══ -->
+    <section class="narrative-section" id="contact">
       <div class="container">
-        <div class="beta-form-container">
-          <div style="text-align: center; margin-bottom: 4rem;">
-            <span class="hero-label">Early Access</span>
-            <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem;">Join the Beta</h2>
-            <p class="text-muted" style="max-width: 500px; margin: 0 auto;">Crazy Planet is currently in limited beta. Sign up to get an early invite and help us calibrate the chaos.</p>
-          </div>
-          
-          <form id="contactForm" class="contact-form">
-            <input type="hidden" name="project" value="Crazy Planet Beta Access">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" required placeholder="Name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required placeholder="email@example.com">
-            </div>
-            <div class="form-group">
-              <label for="message">What's your primary mobile OS (iOS/Android)?</label>
-              <textarea id="message" name="message" required placeholder="I use Android / iPhone..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; margin-top: 1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Request Beta Invite</button>
-            <div id="form-status" style="margin-top: 1.5rem; text-align: center; display: none;"></div>
-          </form>
-          
-          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); text-align: center; margin-top: 2rem;">
-            By joining, you agree to our <a href="../../../../privacy-policy.html" style="color: var(--color-accent);">Privacy Policy</a>. We never spam.
-          </p>
+        <div style="max-width: 650px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--color-accent); padding: 4rem; border-radius: 4px; text-align: center;">
+          <span class="hero-label">Want to Build a Game Like This?</span>
+          <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; margin-top: 1rem;">Let's Design Your Project</h2>
+          <p class="text-muted" style="max-width: 500px; margin: 0 auto 3rem;">We engineer modular, production-ready interactive systems and robust game loops. Reach out to our engineering team to bring your vision to life.</p>
+          <a class="btn btn-primary" href="../../../../contact.html" style="padding: 1.2rem 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;">Start Your Project</a>
         </div>
       </div>
     </section>
@@ -541,57 +518,7 @@
     </div>
   </footer>
 
-  <script>
-    // ── AJAX Form Submission Handler ──
-    const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('form-status');
-
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerText;
-        
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'Submitting...';
-        
-        const formData = new FormData(contactForm);
-        
-        try {
-          const response = await fetch('https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec', {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-          });
-
-          formStatus.style.display = 'block';
-          formStatus.style.color = '#00d1ff';
-          formStatus.innerHTML = '<strong>Submission Received.</strong> Welcome to the chaos.';
-          contactForm.reset();
-          submitBtn.innerText = 'Submitted';
-          
-        } catch (error) {
-          formStatus.style.display = 'block';
-          formStatus.style.color = '#ff3c3c';
-          formStatus.innerText = 'Transmission failed. Please try again.';
-          submitBtn.disabled = false;
-          submitBtn.innerText = originalBtnText;
-        }
-      });
-    }
-
-    // Nav Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const navClose = document.querySelector('.nav-close');
-
-    if (navToggle && navMenu) {
-      navToggle.addEventListener('click', () => navMenu.classList.add('active'));
-    }
-    if (navClose && navMenu) {
-      navClose.addEventListener('click', () => navMenu.classList.remove('active'));
-    }
-  </script>
+  
+  <script defer="" src="../../../../assets/js/main.js"></script>
 </body>
 </html>
