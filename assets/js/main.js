@@ -250,4 +250,142 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     })();
 
+    // 6. Interactive Hero Particle Canvas System
+    (function () {
+        const canvas = document.getElementById('hero-canvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        const heroSection = document.querySelector('.hero');
+        if (!heroSection) return;
+
+        let width = canvas.width = heroSection.offsetWidth;
+        let height = canvas.height = heroSection.offsetHeight;
+
+        const particles = [];
+        const maxParticles = window.innerWidth < 768 ? 50 : 120; // Token-efficient particle counts
+        const mouse = { x: null, y: null, active: false, radius: 180 };
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height + height * 0.1;
+                this.size = Math.random() * 2 + 0.8;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.speedY = -Math.random() * 0.5 - 0.15; // slow drift upward
+                this.alpha = Math.random() * 0.5 + 0.15;
+                this.angle = Math.random() * Math.PI * 2;
+                this.spinSpeed = (Math.random() - 0.5) * 0.02;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX + Math.sin(this.angle) * 0.15;
+                this.angle += this.spinSpeed;
+
+                // Mouse attraction effect
+                if (mouse.active && mouse.x !== null && mouse.y !== null) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const distance = Math.hypot(dx, dy);
+
+                    if (distance < mouse.radius) {
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        this.x += (dx / distance) * force * 1.2;
+                        this.y += (dy / distance) * force * 1.2;
+                        this.alpha = Math.min(0.9, this.alpha + 0.04);
+                    }
+                }
+
+                // Recycle particle
+                if (this.y < 0 || this.x < 0 || this.x > width) {
+                    this.reset();
+                    this.y = height;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                
+                // Color transition mapping based on horizontal split philosophy
+                const ratio = this.x / width;
+                let hue;
+                if (ratio < 0.45) {
+                    hue = 190; // Tech/Cyan
+                } else if (ratio > 0.55) {
+                    hue = 25; // Art/Orange
+                } else {
+                    const blend = (ratio - 0.45) / 0.1;
+                    hue = 190 + (25 - 190) * blend; // linear transition in the synergy zone
+                }
+                
+                ctx.fillStyle = `hsla(${hue}, 100%, 70%, ${this.alpha})`;
+                ctx.fill();
+            }
+        }
+
+        // Spawn loop
+        for (let i = 0; i < maxParticles; i++) {
+            particles.push(new Particle());
+        }
+
+        // Hover listeners
+        heroSection.addEventListener('mousemove', (e) => {
+            const rect = heroSection.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+            mouse.active = true;
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            mouse.active = false;
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        // Click shockwave
+        heroSection.addEventListener('mousedown', (e) => {
+            const rect = heroSection.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+            
+            particles.forEach(p => {
+                const dx = p.x - clickX;
+                const dy = p.y - clickY;
+                const distance = Math.hypot(dx, dy);
+                if (distance < 160) {
+                    const force = (160 - distance) / 40;
+                    p.speedX += (dx / distance) * force * 0.8;
+                    p.speedY += (dy / distance) * force * 0.8;
+                }
+            });
+        });
+
+        // Window resize handle
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                width = canvas.width = heroSection.offsetWidth;
+                height = canvas.height = heroSection.offsetHeight;
+            }, 150);
+        });
+
+        // Render loop
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    })();
+
 });

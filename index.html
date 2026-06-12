@@ -112,20 +112,29 @@
          HERO SECTION
          ======================== -->
     <section class="hero" id="home">
+      <!-- Hybrid Cinematic Video & Interactive Particle Canvas -->
       <div class="hero-video-bg">
-        <video autoplay muted loop playsinline class="hero-video">
-          <source src="assets/video/hero.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline class="hero-video" preload="metadata">
+          <source src="assets/video/dualcore-immersive-game-experience-design.mp4" type="video/mp4" media="(max-width: 768px)">
+          <source src="assets/video/dualcore-scalable-game-systems-engineering.mp4" type="video/mp4">
         </video>
+        
+        <!-- Interactive Particle Canvas -->
+        <canvas id="hero-canvas"></canvas>
       </div>
+      
       <div class="hero-overlay" style="background: linear-gradient(to bottom, rgba(5,7,10,0.3) 0%, rgba(5,7,10,0.85) 100%);"></div>
       <div class="container hero-content">
-        <h1 class="display-1">We Build Scalable Game Systems.<br>We Design Memorable Experiences.</h1>
+        <h1 class="display-1">
+          <span class="accent-tech">We Build Scalable Game Systems.</span><br>
+          <span class="accent-art">We Design Memorable Experiences.</span>
+        </h1>
         <p class="lead" style="margin: 0 auto;">
           Engineering-led creative services across PC, mobile, and immersive platforms. 
           DualCore delivers stable architecture and production-ready systems.
         </p>
         <div class="hero-buttons">
-          <a class="btn btn-primary btn-large" href="services/index.html">Explore Our Services</a>
+          <a class="btn btn-primary btn-large" href="contact.html">Start a Project</a>
           <a class="btn btn-secondary btn-large" href="work/index.html">View Project Portfolio</a>
         </div>
       </div>
@@ -181,7 +190,7 @@
   padding: 14rem 0;
   position: relative;
   overflow: hidden;
-  background-image: url('assets/images/ReclairosHomePageBG.png');
+  background-image: url('assets/images/reclairos_bg_desktop.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -274,7 +283,7 @@
   padding: 14rem 0;
   position: relative;
   overflow: hidden;
-  background-image: url('assets/images/philosophy.png');
+  background-image: url('assets/images/philosophy_bg_desktop.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -369,7 +378,7 @@
   padding: 14rem 0;
   position: relative;
   overflow: hidden;
-  background-image: url('assets/images/Why Choose Us.png');
+  background-image: url('assets/images/why_choose_bg_desktop.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -382,7 +391,7 @@
       </h2>
     </div>
 
-    <div class="grid pillar-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem;">
+    <div class="grid pillar-grid" style="margin-bottom: 5rem;">
 
 <!-- SE Card -->
 <div class="card pillar-card" style="
@@ -509,7 +518,7 @@
     </div>
 
 <!-- Metrics Row -->
-<div class="production-metrics" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 4rem; grid-template-columns: repeat(4,1fr); gap: 2rem;">
+<div class="production-metrics">
   <div class="metric-item" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:0;">
     <div style="margin-bottom:1rem;">
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="1.2" stroke-linecap="round">
