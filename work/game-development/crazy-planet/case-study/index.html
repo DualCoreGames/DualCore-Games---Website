@@ -3,12 +3,32 @@
 <head>
   <meta name="view-transition" content="same-origin" />
   <meta charset="utf-8"/>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
+    <!-- Google Tag Manager -->
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
   <!-- End Google Tag Manager -->
 
   <!-- Open Graph -->
@@ -32,10 +52,24 @@
   <style>
     /* ── Case Study Whitepaper Styles ── */
     .cs-hero {
+      position: relative;
       background: #080808;
       padding: 12rem 0 8rem;
       border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
     }
+    .cs-hero__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('../assets/cp-hero-bg.webp');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      filter: saturate(1.2) brightness(0.7);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .cs-hero .container { position: relative; z-index: 2; }
     .cs-label {
       display: inline-block;
       font-size: 0.65rem;
@@ -313,6 +347,7 @@
 
     <!-- ═══ HERO ═══ -->
     <section class="cs-hero">
+      <div class="cs-hero__bg"></div>
       <div class="container">
         <span class="cs-label">Technical Case Study — Project Crazy Planet</span>
         <p class="cs-hero__meta">iOS &nbsp;/&nbsp; Android &nbsp;/&nbsp; Mobile Arcade</p>

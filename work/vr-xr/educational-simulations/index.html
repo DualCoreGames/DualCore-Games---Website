@@ -2,40 +2,243 @@
 <html lang="en">
 <head>
   <meta name="view-transition" content="same-origin" />
-    <meta charset="utf-8"/>
+  <meta charset="utf-8"/>
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
   <!-- End Google Tag Manager -->
 
+  <!-- Open Graph -->
+  <meta content="Educational Simulations | DualCore Games" property="og:title"/>
+  <meta content="Interactive, immersive learning environments built for enterprise-scale deployment across standalone VR headsets." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://dualcoregames.com/work/vr-xr/educational-simulations/" property="og:url"/>
+  <meta content="https://dualcoregames.com/assets/images/social-preview.webp" property="og:image"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Educational Simulations | DualCore Games" name="twitter:title"/>
+  <meta content="Interactive, immersive learning environments built for enterprise-scale deployment across standalone VR headsets." name="twitter:description"/>
+  <meta name="theme-color" content="#00d2ff">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Educational Simulations — Immersive Learning | DualCore Games</title>
+  <link href="https://dualcoregames.com/work/vr-xr/educational-simulations/" rel="canonical"/>
+  <meta content="Interactive, immersive learning environments built for enterprise-scale deployment across standalone VR headsets. Engineered for high-density rendering and tracking." name="description"/>
+  <link href="../../../assets/css/style.css" rel="stylesheet"/>
+  <link href="../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+
+  <style>
+    /* ── Case Study Whitepaper Styles ── */
+    .cs-hero {
+      position: relative;
+      background: radial-gradient(circle at 80% 20%, rgba(0, 210, 255, 0.1) 0%, transparent 60%), #080808;
+      padding: 12rem 0 8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .cs-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cs-hero .container { position: relative; z-index: 2; }
     
-    <!-- Open Graph -->
-    <meta content="Educational Simulations | DualCore Games" property="og:title"/>
-    <meta content="DualCore Games is an independent game development studio." property="og:description"/>
-    <meta content="website" property="og:type"/>
-    <meta content="https://dualcoregames.com/work/vr-xr/educational-simulations/" property="og:url"/>
-    <meta content="https://dualcoregames.com/assets/images/social-preview.webp" property="og:image"/>
-    <!-- Twitter -->
-    <meta content="summary_large_image" name="twitter:card"/>
-    <meta content="Educational Simulations | DualCore Games" name="twitter:title"/>
-    <meta content="DualCore Games is an independent game development studio." name="twitter:description"/>
-    <meta name="theme-color" content="#00d2ff">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Educational Simulations | DualCore Games</title>
-<link href="https://dualcoregames.com/work/vr-xr/educational-simulations/" rel="canonical"/>
-    <meta content="Interactive, immersive learning environments built for enterprise-scale deployment across standalone VR headsets." name="description"/>
-    <link href="../../../assets/css/style.css" rel="stylesheet"/>
-    <link href="../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+    .breadcrumbs {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 2.5rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .breadcrumbs a { color: var(--color-accent); text-decoration: none; }
+    .breadcrumbs span { opacity: 0.3; }
+
+    .cs-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+    .cs-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      color: #fff;
+    }
+    .cs-hero__meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .cs-hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* Project meta grid */
+    .cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    .cs-meta-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .cs-meta-card__label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-meta-card__value { font-size: 0.95rem; font-weight: 700; margin: 0; color: #fff; }
+
+    /* Specification Table */
+    .tech-specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .tech-specs-table th, .tech-specs-table td {
+      padding: 1.2rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .tech-specs-table th {
+      background: rgba(255,255,255,0.03);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-accent);
+      font-weight: 800;
+    }
+    .tech-specs-table td:first-child {
+      font-weight: 700;
+      width: 30%;
+      color: #fff;
+    }
+    .tech-specs-table td {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    .tech-specs-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Sections */
+    .cs-section { padding: 8rem 0; }
+    .cs-section--alt { background: #0c0c0c; }
+    .cs-section-num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cs-section h2 { margin-bottom: 2rem; font-size: clamp(1.8rem, 3vw, 2.5rem); letter-spacing: -0.02em; color: #fff; }
+
+    /* System List Styling */
+    .arch-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 4rem 0;
+    }
+    .arch-list-item {
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .arch-list-item h4 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .arch-list-item p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    /* Split grids */
+    .cs-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-split { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
 </head>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2F3CX5Z"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-<header>
+
+  <header>
     <div class="container header-inner">
       <a class="logo" href="../../../">
         <img alt="DualCore Games Logo" src="../../../assets/images/dualcore-logo.svg"
@@ -47,14 +250,11 @@
           <li class="nav-close-item"><button type="button" aria-label="Close navigation" class="nav-close">✕</button></li>
           <li class="nav-item"><a class="nav-link" href="../../../">Home</a></li>
           <li class="nav-item has-dropdown">
-            <a class="nav-link dropdown-toggle" href="../../../services/">Services <span
-                class="dropdown-icon">▼</span></a>
+            <a class="nav-link dropdown-toggle" href="../../../services/">Services <span class="dropdown-icon">▼</span></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-link" href="../../../services/game-development/">Game
-                  Development</a></li>
+              <li><a class="dropdown-link" href="../../../services/game-development/">Game Development</a></li>
               <li><a class="dropdown-link" href="../../../services/game-art/">Game Art</a></li>
-              <li><a class="dropdown-link" href="../../../services/vr-xr-simulation/">VR/XR
-                  Simulation</a></li>
+              <li><a class="dropdown-link" href="../../../services/vr-xr-simulation/">VR/XR Simulation</a></li>
             </ul>
           </li>
           <li class="nav-item has-dropdown">
@@ -85,124 +285,161 @@
           <li class="nav-item"><a class="nav-link" href="../../../about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="../../../contact">Contact</a></li>
-          <li class="nav-item"><a class="btn btn-primary" href="../../../contact"
-              style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../contact" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
         </ul>
       </nav>
     </div>
   </header>
-<main>
-    <!-- HERO -->
-    <section class="section-padding" style="padding-top: 10rem;">
-        <div class="container">
-            <span class="text-accent" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 1rem;">Work / VR/XR</span>
-            <h1 style="margin-bottom: 1.5rem; font-weight: 900; letter-spacing: -0.02em;">Educational Simulations</h1>
-            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; line-height: 1.6; margin-bottom: 2.5rem;">High-density immersive learning environments engineered for enterprise-scale pedagogical deployment across standalone VR hardware.</p>
-            <div style="margin-bottom: 4rem;">
-                <a class="btn btn-primary" href="#demo-form" style="padding: 1rem 2.5rem; font-size: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Request a Private Demo</a>
-            </div>
+
+  <main>
+    <!-- ═══ HERO ═══ -->
+    <section class="cs-hero">
+      <div class="container">
+        <a href="../../../work/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content;">
+          <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Portfolio
+        </a>
+        <br>
+        <span class="cs-label">Enterprise Case Study</span>
+        <p class="cs-hero__meta">Standalone HMD &nbsp;/&nbsp; Custom Analytics Pipeline</p>
+        <h1>Educational Simulations</h1>
+        <p>High-density immersive learning environments engineered for enterprise-scale pedagogical deployment across standalone VR hardware.</p>
+        
+        <div style="margin-bottom: 4rem;">
+          <a class="btn btn-primary" href="#demo-form" style="padding: 0.85rem 2rem; font-weight: 600; text-decoration: none;">Request a Private Demo</a>
         </div>
+
+        <!-- Project Meta Grid -->
+        <div class="cs-meta-grid">
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Target Platform</span>
+            <p class="cs-meta-card__value">Meta Quest / Pico Standalone</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Framerate</span>
+            <p class="cs-meta-card__value">90 FPS Locked</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Optimization</span>
+            <p class="cs-meta-card__value">Single-Pass Instanced</p>
+          </div>
+          <div class="cs-meta-card" style="border-top: 2px solid rgba(0,210,255,0.4); background: rgba(0,210,255,0.03);">
+            <span class="cs-meta-card__label">Analytics</span>
+            <p class="cs-meta-card__value">Heatmap + Event Log</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Experience Pillars -->
-    <section style="background-color: var(--color-card-bg); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 3rem 0;">
-        <div class="container">
-            <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 2rem;">
-                <div class="card" style="padding: 1.5rem; border-left: 2px solid var(--color-accent);">
-                    <span style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem;">Knowledge Lift</span>
-                    <p class="text-muted" style="font-size: 0.8rem; margin: 0;">+40% retention vs traditional methods.</p>
-                </div>
-                <div class="card" style="padding: 1.5rem; border-left: 2px solid var(--color-accent);">
-                    <span style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem;">90 FPS Native</span>
-                    <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Zero-latency interaction stability.</p>
-                </div>
-                <div class="card" style="padding: 1.5rem; border-left: 2px solid var(--color-accent);">
-                    <span style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem;">Analytics Sync</span>
-                    <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Precision tracking of user progress.</p>
-                </div>
-                <div class="card" style="padding: 1.5rem; border-left: 2px solid var(--color-accent);">
-                    <span style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem;">Scale Ready</span>
-                    <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Optimized for classroom rollouts.</p>
-                </div>
-            </div>
+    <!-- ═══ 01 PROJECT OVERVIEW ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">01 &nbsp;/&nbsp; Project Overview</span>
+        <h2>Technical Summary</h2>
+        <div class="cs-split" style="margin-bottom: 4rem;">
+          <div>
+            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              Our educational simulations leverage spatial learning to increase engagement and retention. The technical focus is on maintaining high-fidelity 3D environments on mobile VR chipsets while logging complex interaction data for pedagogical analysis.
+            </p>
+            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8;">
+              By utilizing aggressive geometry baking and single-pass instanced rendering, we ensure constant 90Hz stability, critical for reducing cognitive load and preventing simulation sickness during learning sessions.
+            </p>
+          </div>
+          <div>
+            <table class="tech-specs-table">
+              <thead>
+                <tr>
+                  <th colspan="2">System Specifications</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Knowledge Lift</td>
+                  <td>+40% retention vs traditional methods</td>
+                </tr>
+                <tr>
+                  <td>Target Framerate</td>
+                  <td>90 FPS native zero-latency stability</td>
+                </tr>
+                <tr>
+                  <td>Telemetry</td>
+                  <td>Precision tracking of student progress</td>
+                </tr>
+                <tr>
+                  <td>Scale</td>
+                  <td>Optimized for large-scale classroom deployment</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Project Overview -->
-    <section class="section-padding">
-        <div class="container">
-            <div style="max-width: 800px;">
-                <h2 style="margin-bottom: 2rem;">Technical Summary</h2>
-                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">Our educational simulations leverage spatial learning to increase engagement and retention. The technical focus is on maintaining high-fidelity 3D environments on mobile VR chipsets while logging complex interaction data for pedagogical analysis.</p>
-                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">By utilizing aggressive geometry baking and single-pass instanced rendering, we ensure constant 90Hz stability, critical for reducing cognitive load and preventing simulation sickness during learning sessions.</p>
-            </div>
+    <!-- ═══ 02 SYSTEM ARCHITECTURE ═══ -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <span class="cs-section-num">02 &nbsp;/&nbsp; System Architecture</span>
+        <h2>High-Density Simulation Pipeline</h2>
+        <p style="color: var(--color-text-muted); max-width: 800px; font-size: 1.1rem; line-height: 1.8; margin-bottom: 4rem;">
+          To support enterprise classrooms, we built a modular architecture focused on data consistency, low-draw-call rendering, and flexible user inputs.
+        </p>
+
+        <div class="arch-list">
+          <div class="arch-list-item">
+            <h4>Analytics Backend</h4>
+            <p>Heatmap and interaction logging for fine-grained student performance metrics. Collects interaction frequency, gaze duration, and task completion speed without dropping frames.</p>
+          </div>
+          <div class="arch-list-item">
+            <h4>Asset Pipeline</h4>
+            <p>Automated LOD (Level of Detail) and draw-call batching for high-density historical environments. Combines multiple texture sheets and bakes lightmaps dynamically to respect standalone GPU thermal limits.</p>
+          </div>
+          <div class="arch-list-item">
+            <h4>Input Abstraction</h4>
+            <p>Unified interaction model supporting both hand-tracking and controller configurations, ensuring accessibility for diverse student demographics.</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Technical Breakdown Grid -->
-    <section class="section-padding" style="background-color: #0c0c0c;">
-        <div class="container">
-            <h2 style="margin-bottom: 4rem;">System Architecture</h2>
-            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
-                <div class="card" style="padding: 2rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">Analytics Backend</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Heatmap and interaction logging for fine-grained student performance metrics.</p>
-                </div>
-                <div class="card" style="padding: 2rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">Asset Pipeline</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Automated LOD and draw-call batching for high-density historical environments.</p>
-                </div>
-                <div class="card" style="padding: 2rem;">
-                    <h4 class="text-accent" style="margin-bottom: 1.5rem;">Input Abstraction</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Unified interaction model supporting both hand-tracking and controllers.</p>
-                </div>
-            </div>
-
-            <div style="height: 320px; width: 100%; background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-top: 3rem;">
-                <span style="color: var(--color-text-muted); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;">Technical Visual Placeholder</span>
-            </div>
+    <!-- ═══ CTA & Demo Form ═══ -->
+    <section class="cs-cta" id="demo-form">
+      <div class="container" style="max-width: 600px;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="cs-label">Enterprise VR</span>
+          <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem; color: #fff;">Request a Private Demo</h2>
+          <p class="text-muted" style="max-width: 500px; margin: 0 auto;">Experience our immersive learning architecture firsthand. Sign up for a technical demo or production consultation.</p>
         </div>
-    </section>
-
-    <!-- Standardized CTA -->
-    <!-- Standardized CTA & Demo Form -->
-    <section class="section-padding" id="demo-form" style="background-color: #0c0c0c; border-top: 1px solid rgba(255,255,255,0.05); padding: 8rem 0;">
-        <div class="container" style="max-width: 600px;">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <span class="rc-label" style="display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-accent); border: 1px solid rgba(0,210,255,0.25); padding: 0.45rem 1.4rem; border-radius: 100px; background: rgba(0,210,255,0.04); margin-bottom: 1.5rem;">Enterprise VR</span>
-                <h2 class="display-2" style="margin-bottom: 1rem;">Request a Private Demo</h2>
-                <p class="text-muted" style="max-width: 500px; margin: 0 auto;">Experience our immersive learning architecture firsthand. Sign up for a technical demo or production consultation.</p>
-            </div>
-            <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="contactForm">
+        <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="contactForm">
           <!-- Honeypot Field for Anti-Spam -->
           <div style="display: none;" aria-hidden="true">
             <input type="text" name="honeypot_field" tabindex="-1" autocomplete="off">
           </div>
-                <input type="hidden" name="project" value="Educational Simulations Demo Request">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input id="name" name="name" placeholder="Name" required="" type="text" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input id="email" name="email" placeholder="email@example.com" required="" type="email" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
-                </div>
-                <div class="form-group">
-                    <label for="industry">Institution / Organization</label>
-                    <input id="industry" name="industry" placeholder="e.g. University, School District, Training Center" required="" type="text" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
-                </div>
-                <div class="form-group">
-                    <label for="message">What is your primary educational focus?</label>
-                    <textarea id="message" name="message" placeholder="STEM / History / Corporate Training..." required="" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"></textarea>
-                </div>
-                <button class="btn btn-primary" style="width: 100%; padding: 1rem;" type="submit">Schedule My Demo</button>
-                <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 1.5rem; text-align: center;">
-                    By joining, you agree to our <a href="../../../privacy-policy" style="color: var(--color-accent);">Privacy Policy</a>. We respond to demo requests within 24 hours.
-                </p>
-            </form>
-        </div>
+          <input type="hidden" name="project" value="Educational Simulations Demo Request">
+          <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
+            <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;">Full Name</label>
+            <input id="name" name="name" placeholder="Name" required="" type="text" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.8rem 1.2rem; border-radius: 4px;"/>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
+            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;">Email Address</label>
+            <input id="email" name="email" placeholder="email@example.com" required="" type="email" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.8rem 1.2rem; border-radius: 4px;"/>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
+            <label for="industry" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;">Institution / Organization</label>
+            <input id="industry" name="industry" placeholder="e.g. University, School District, Training Center" required="" type="text" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.8rem 1.2rem; border-radius: 4px;"/>
+          </div>
+          <div class="form-group" style="margin-bottom: 2rem; text-align: left;">
+            <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;">What is your primary educational focus?</label>
+            <textarea id="message" name="message" placeholder="STEM / History / Corporate Training..." required="" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.8rem 1.2rem; border-radius: 4px; height: 100px; resize: vertical;"></textarea>
+          </div>
+          <button class="btn btn-primary" style="width: 100%; padding: 1.1rem; font-weight: 700; text-transform: uppercase;" type="submit">Schedule My Demo</button>
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 1.5rem; text-align: center;">
+            By joining, you agree to our <a href="../../../privacy-policy" style="color: var(--color-accent);">Privacy Policy</a>. We respond to demo requests within 24 hours.
+          </p>
+        </form>
+      </div>
     </section>
-</main>
+  </main>
+
   <footer>
     <div class="container">
       <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
@@ -225,8 +462,7 @@
         <div class="footer-col">
           <h3>Connect</h3>
           <ul class="footer-links social-links">
-            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a>
-            </li>
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a></li>
             <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
             <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
           </ul>
@@ -238,5 +474,6 @@
       </div>
     </div>
   </footer>
+  <script defer="" src="../../../assets/js/main.js"></script>
 </body>
 </html>
