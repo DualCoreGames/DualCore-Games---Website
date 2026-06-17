@@ -4,28 +4,48 @@
   <meta name="view-transition" content="same-origin" />
   <meta charset="utf-8"/>
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
   <!-- End Google Tag Manager -->
 
   <!-- Open Graph -->
-  <meta content="ShemarooVerse | Immersive Brand Meta-Experience | DualCore Games" property="og:title"/>
-  <meta content="A flagship cinematic meta-experience for the Shemaroo brand, featuring shared social viewing and narrative immersion." property="og:description"/>
+  <meta content="ShemarooVerse — Multiplayer VR Theatre | Jio Immerse | DualCore Games" property="og:title"/>
+  <meta content="A deep-dive into ShemarooVerse on Jio Immerse, JioDive, and JioGlass. A commercial-grade multiplayer VR theatre experience built in Unity with Photon Fusion." property="og:description"/>
   <meta content="website" property="og:type"/>
   <meta content="https://dualcoregames.com/work/vr-xr/shemarooverse/overview/" property="og:url"/>
-  <meta content="https://dualcoregames.com/assets/images/social-preview.webp" property="og:image"/>
+  <meta content="https://dualcoregames.com/work/vr-xr/shemarooverse/assets/shemarooverse-multiplayer-vr-theatre.webp" property="og:image"/>
   <!-- Twitter -->
   <meta content="summary_large_image" name="twitter:card"/>
-  <meta content="ShemarooVerse | Immersive Brand Meta-Experience | DualCore Games" name="twitter:title"/>
-  <meta content="A flagship cinematic meta-experience for the Shemaroo brand, featuring shared social viewing and narrative immersion." name="twitter:description"/>
+  <meta content="ShemarooVerse — Multiplayer VR Theatre | Jio Immerse | DualCore Games" name="twitter:title"/>
+  <meta content="A deep-dive into ShemarooVerse on Jio Immerse, JioDive, and JioGlass. A commercial-grade multiplayer VR theatre experience built in Unity with Photon Fusion." name="twitter:description"/>
   <meta name="theme-color" content="#00d2ff">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>ShemarooVerse — Immersive Brand Experience | DualCore Games</title>
-<link href="https://dualcoregames.com/work/vr-xr/shemarooverse/overview/" rel="canonical"/>
-  <meta content="Experience the future of brand storytelling in ShemarooVerse. Built with shared social viewing and cinematic VR immersion by DualCore Games." name="description"/>
+  <title>ShemarooVerse — Multiplayer VR Theatre | Jio Immerse | DualCore Games</title>
+  <link href="https://dualcoregames.com/work/vr-xr/shemarooverse/overview/" rel="canonical"/>
+  <meta content="Discover ShemarooVerse on Jio Immerse, JioDive, and JioGlass. A multiplayer VR cinema experience with synchronized OTT streaming, spatial audio, and JMR SDK integration." name="description"/>
   <link href="../../../../assets/css/style.css" rel="stylesheet"/>
   <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
 
@@ -34,16 +54,16 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "ShemarooVerse",
-    "description": "A flagship cinematic meta-experience for the Shemaroo brand, featuring shared social viewing and narrative immersion.",
-    "applicationCategory": "Metaverse Experience",
-    "operatingSystem": "Meta Quest, PCVR",
+    "name": "ShemarooVerse on Jio Immerse",
+    "description": "Multiplayer VR Theatre experience built for JioDive and JioGlass devices featuring shared 360° video streaming and spatial voice chat.",
+    "applicationCategory": "Immersive OTT / Social VR",
+    "operatingSystem": "Android (Mobile VR)",
     "author": {
       "@type": "Organization",
       "name": "DualCore Games",
       "url": "https://dualcoregames.com"
     },
-    "image": "https://dualcoregames.com/assets/images/social-preview.webp"
+    "image": "https://dualcoregames.com/work/vr-xr/shemarooverse/assets/shemarooverse-multiplayer-vr-theatre.webp"
   }
   </script>
 
@@ -51,7 +71,7 @@
     /* ── DualCore Signature Styles ── */
     .hero-cinematic {
       position: relative;
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       padding: 12rem 0 8rem;
@@ -62,17 +82,21 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.05) 0%, transparent 70%);
+      background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.08) 0%, transparent 70%);
       pointer-events: none;
+      z-index: 2;
     }
     .hero-cinematic__bg {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: cover;
-      opacity: 0.2;
-      filter: saturate(1.2) brightness(0.6);
+      background-image: url('../assets/shemarooverse-multiplayer-vr-theatre.webp');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.25;
+      filter: saturate(1.2) brightness(0.5);
+      z-index: 1;
     }
-    .hero-cinematic__content { position: relative; z-index: 10; }
+    .hero-cinematic__content { position: relative; z-index: 10; width: 100%; }
     
     .breadcrumbs {
       display: flex;
@@ -102,7 +126,7 @@
     }
 
     .hero-title {
-      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-size: clamp(3rem, 8vw, 5rem);
       font-weight: 900;
       line-height: 0.95;
       letter-spacing: -0.04em;
@@ -163,16 +187,6 @@
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
-    }
-
-    .brand-form-container {
-      max-width: 650px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-top: 3px solid var(--color-accent);
-      padding: 4rem;
-      border-radius: 4px;
     }
 
     @media (max-width: 1000px) {
@@ -244,36 +258,37 @@
   <main>
     <!-- ═══ CINEMATIC HERO ═══ -->
     <section class="hero-cinematic">
-      <img src="../../../../assets/images/placeholder.webp" class="hero-cinematic__bg" alt="ShemarooVerse Meta-Experience">
+      <div class="hero-cinematic__bg"></div>
       <div class="container hero-cinematic__content">
-        <a href="../../../../work/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content; margin-left: auto; margin-right: auto;">
+        <a href="../../../../work/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content;">
           <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Portfolio
         </a>
-        <span class="hero-label">Brand Meta-Experience</span>
+        <br>
+        <span class="hero-label">Multiplayer VR Theatre</span>
         <h1 class="hero-title">ShemarooVerse</h1>
-        <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 700px; margin-bottom: 3.5rem;">The future of brand storytelling. Engineered with shared social viewing and high-fidelity cinematic immersion for global audiences.</p>
+        <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 700px; margin-bottom: 3.5rem;">A commercial-grade multiplayer VR theatre experience developed for JioDive and JioGlass devices. Watch OTT content with friends in a shared immersive space.</p>
         
         <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
-          <a href="#brand-inquiry" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Brand Inquiry</a>
-          <a href="../case-study/" class="btn btn-secondary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">Technical Case Study</a>
+          <a href="#contact" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none;">Start Your Project</a>
+          <a href="../case-study/" class="btn btn-secondary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15); text-decoration: none;">Technical Case Study</a>
         </div>
 
         <!-- Experience Pillars -->
         <div class="feature-grid">
           <div class="feature-card">
             <span class="feature-card__num">01</span>
-            <h3>Narrative Loops</h3>
-            <p>Interactive brand segments that allow fans to live inside their favorite stories with high-fidelity 3D interaction.</p>
+            <h3>Multiplayer Cinema</h3>
+            <p>Real-time room matching and frame-accurate playback synchronisation powered by Photon Fusion networking.</p>
           </div>
           <div class="feature-card">
             <span class="feature-card__num">02</span>
-            <h3>Social Cinema</h3>
-            <p>Proprietary multiplayer sync engine that enables thousands of users to watch and interact with content in real-time.</p>
+            <h3>Spatial Voice Chat</h3>
+            <p>High-quality directional audio communication with acoustic falloff configured for virtual theatre spaces.</p>
           </div>
           <div class="feature-card">
             <span class="feature-card__num">03</span>
-            <h3>Cultural Presence</h3>
-            <p>Detailed recreation of cultural landmarks and brand assets using high-performance mobile-optimized assets.</p>
+            <h3>Hands-Free Navigation</h3>
+            <p>Reliable gaze-based user interaction with optimized dwell-time thresholds designed for mobile VR comfort.</p>
           </div>
         </div>
       </div>
@@ -284,13 +299,13 @@
       <div class="container">
         <div class="narrative-grid">
           <div class="narrative-content">
-            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">01 / Digital Heritage</span>
-            <h2>Cinema Reimagined.</h2>
-            <p>ShemarooVerse is a flagship <strong>Metaversal Experience</strong> built for one of the largest media brands in the world. We translated decades of cinematic history into a production-ready VR platform.</p>
-            <p>By utilizing our <strong>Cinematic Shader Pipeline</strong>, we achieved a "theatrical" visual quality on mobile XR chipsets, allowing fans to experience brand heritage with unparalleled clarity and depth.</p>
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">01 / Immersive OTT Platform</span>
+            <h2>Shared Virtual Cinema</h2>
+            <p>ShemarooVerse transforms traditional, passive OTT viewing into a shared social event. Users authenticate via a secure REST API to retrieve their subscription entitlement before entering a persistent lobby.</p>
+            <p>Built for Reliance Jio's head-mounted display ecosystem (JioDive &amp; JioGlass) running on Android, the application integrates the <strong>JMR SDK</strong> and <strong>AVPro Video Player</strong> to decode and render immersive 360° videos smoothly on mobile chipsets.</p>
           </div>
           <div class="image-frame">
-            <img src="../../../../assets/images/placeholder.webp" alt="Cinematic Environment Detail">
+            <img src="../assets/shemarooverse-virtual-lobby.webp" alt="ShemarooVerse virtual lobby and content selection catalog in VR">
             <div class="image-frame__overlay"></div>
           </div>
         </div>
@@ -302,18 +317,18 @@
       <div class="container">
         <div class="narrative-grid">
           <div class="image-frame" style="order: 2;">
-            <img src="../../../../assets/images/placeholder.webp" alt="Social Interaction Demo">
+            <img src="../assets/shemarooverse-spatial-audio-chat.webp" alt="Multiplayer room and spatial voice communication inside virtual cinema">
             <div class="image-frame__overlay"></div>
           </div>
           <div class="narrative-content" style="order: 1;">
-            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">02 / Synchronized Social</span>
-            <h2>Shared Narratives</h2>
-            <p>At the heart of ShemarooVerse is its <strong>Social Sync Engine</strong>. We developed a low-latency network layer that ensures every user in a virtual cinema sees the same frame of content simultaneously, regardless of their global location.</p>
-            <p>This technical foundation enables high-impact brand events, movie premieres, and fan meetups within a persistent virtual space.</p>
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">02 / Social Multi-User Sync</span>
+            <h2>State-Synchronised World</h2>
+            <p>At the heart of the experience is a robust synchronization layer. Gaze input and UI hover highlights are kept local for lag-free visual response, while state-changing events (like starting content, pausing, or seeking) are mediated via a Host-Authoritative model in Photon Fusion.</p>
+            <p>Photon Voice operates on a parallel, dedicated audio channel, utilizing Voice Activity Detection (VAD) and custom spatial audio falloff to create a natural, lifelike conversation environment inside the virtual theatre.</p>
             <ul class="bullet-list text-muted" style="font-size: 1rem; margin-top: 2rem;">
-              <li>Millisecond-Accurate Video Sync</li>
-              <li>Dynamic Avatar Expressiveness</li>
-              <li>Asset-Streaming Optimization for Mobile</li>
+              <li>Host-Authoritative Playback Actions</li>
+              <li>Dynamic Spatial Audio Chat &amp; Echo Cancellation</li>
+              <li>Hands-Free Dwell-Time Interaction Machine</li>
             </ul>
           </div>
         </div>
@@ -324,9 +339,9 @@
     <section class="narrative-section" id="contact">
       <div class="container">
         <div style="max-width: 650px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--color-accent); padding: 4rem; border-radius: 4px; text-align: center;">
-          <span class="hero-label">Want to Build a Game Like This?</span>
+          <span class="hero-label">Want to Build a VR App Like This?</span>
           <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; margin-top: 1rem;">Let's Design Your Project</h2>
-          <p class="text-muted" style="max-width: 500px; margin: 0 auto 3rem;">We engineer modular, production-ready interactive systems and robust game loops. Reach out to our engineering team to bring your vision to life.</p>
+          <p class="text-muted" style="max-width: 500px; margin: 0 auto 3rem;">We engineer modular, production-ready interactive systems, spatial networking layers, and optimized VR pipelines. Reach out to our engineering team to bring your vision to life.</p>
           <a class="btn btn-primary" href="../../../../contact" style="padding: 1.2rem 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;">Start Your Project</a>
         </div>
       </div>
@@ -369,7 +384,6 @@
     </div>
   </footer>
 
-  
   <script defer="" src="../../../../assets/js/main.js"></script>
 </body>
 </html>
