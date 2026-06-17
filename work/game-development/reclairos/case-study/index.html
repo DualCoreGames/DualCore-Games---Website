@@ -3,12 +3,32 @@
 <head>
   <meta name="view-transition" content="same-origin" />
   <meta charset="utf-8"/>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
+    <!-- Google Tag Manager -->
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
   <!-- End Google Tag Manager -->
 
   <!-- Open Graph -->
@@ -318,6 +338,34 @@
       .cs-hero { padding: 9rem 0 5rem; }
     }
   </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dualcoregames.com/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://dualcoregames.com/work/"}, {"@type": "ListItem", "position": 3, "name": "Game Development", "item": "https://dualcoregames.com/work/game-development/"}, {"@type": "ListItem", "position": 4, "name": "Reclairos", "item": "https://dualcoregames.com/work/game-development/reclairos/overview/"}, {"@type": "ListItem", "position": 5, "name": "Technical Case Study", "item": "https://dualcoregames.com/work/game-development/reclairos/case-study/"}]}</script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Reclairos \u2014 Technical Case Study",
+  "description": "A 2D story-driven tactical tower defense RPG where you assemble an elite squad to reclaim a fractured world.",
+  "genre": [
+    "Tactical RPG",
+    "Tower Defense",
+    "Strategy"
+  ],
+  "gamePlatform": [
+    "Android",
+    "iOS"
+  ],
+  "applicationCategory": "Game",
+  "operatingSystem": "Android, iOS",
+  "author": {
+    "@type": "Organization",
+    "name": "DualCore Games",
+    "url": "https://dualcoregames.com"
+  },
+  "image": "https://dualcoregames.com/work/game-development/reclairos/assets/reclairos-thumbnail.webp",
+  "url": "https://dualcoregames.com/work/game-development/reclairos/case-study/"
+}
+  </script>
 </head>
 
 <body>

@@ -4,12 +4,32 @@
 <head>
   <meta name="view-transition" content="same-origin" />
 <meta charset="utf-8"/>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
+    <!-- Google Tag Manager -->
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
   <!-- End Google Tag Manager -->
   <meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script';">
 
@@ -18,7 +38,7 @@
     <meta content="About | DualCore Games" property="og:title"/>
     <meta content="DualCore Games is an independent game development studio." property="og:description"/>
     <meta content="website" property="og:type"/>
-    <meta content="https://dualcoregames.com/about.html" property="og:url"/>
+    <meta content="https://dualcoregames.com/about/" property="og:url"/>
     <meta content="https://dualcoregames.com/assets/images/social-preview.webp" property="og:image"/>
     <!-- Twitter -->
     <meta content="summary_large_image" name="twitter:card"/>
@@ -28,7 +48,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>About | DualCore Games</title>
 <meta content="DualCore Games is a global independent studio building original IP and production-ready game systems with an engineering-first mindset." name="description"/>
-<link href="https://dualcoregames.com/about" rel="canonical"/>
+<link href="https://dualcoregames.com/about/" rel="canonical"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
@@ -50,7 +70,7 @@
         "@type": "ListItem",
         "position": 2,
         "name": "About",
-        "item": "https://dualcoregames.com/about.html"
+        "item": "https://dualcoregames.com/about/"
       }]
     }
     </script>

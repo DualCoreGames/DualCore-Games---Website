@@ -2,12 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
+    <!-- Google Tag Manager -->
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
   <!-- End Google Tag Manager -->
 
     
@@ -15,7 +35,7 @@
     <meta content="Terms of Service | DualCore Games" property="og:title"/>
     <meta content="DualCore Games is an independent game development studio." property="og:description"/>
     <meta content="website" property="og:type"/>
-    <meta content="https://dualcoregames.com/terms.html" property="og:url"/>
+    <meta content="https://dualcoregames.com/terms/" property="og:url"/>
     <meta content="https://dualcoregames.com/assets/images/social-preview.webp" property="og:image"/>
     <!-- Twitter -->
     <meta content="summary_large_image" name="twitter:card"/>
@@ -25,7 +45,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Terms of Service | DualCore Games</title>
     <meta content="Terms of Service for DualCore Games. Read our terms and conditions." name="description"/>
-    <link href="https://dualcoregames.com/terms" rel="canonical"/>
+    <link href="https://dualcoregames.com/terms/" rel="canonical"/>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>

@@ -3,12 +3,32 @@
 <head>
     <meta name="view-transition" content="same-origin" />
     <meta charset="utf-8" />
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
+    <!-- Google Tag Manager -->
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
   <!-- End Google Tag Manager -->
 
     <meta name="robots" content="noindex, nofollow">
@@ -16,7 +36,7 @@
     <meta content="Technical Request Received | DualCore Games" property="og:title"/>
     <meta content="We have received your technical request. Our engineering team will review it shortly." property="og:description"/>
     <meta content="website" property="og:type"/>
-    <meta content="https://dualcoregames.com/thank-you.html" property="og:url"/>
+    <meta content="https://dualcoregames.com/thank-you/" property="og:url"/>
     <meta content="https://dualcoregames.com/assets/images/social-preview.webp" property="og:image"/>
     <!-- Twitter -->
     <meta content="summary_large_image" name="twitter:card"/>
@@ -25,7 +45,7 @@
     <meta name="theme-color" content="#00d2ff">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Technical Request Received | DualCore Games</title>
-    <link href="https://dualcoregames.com/thank-you" rel="canonical" />
+    <link href="https://dualcoregames.com/thank-you/" rel="canonical" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />

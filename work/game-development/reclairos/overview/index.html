@@ -3,12 +3,32 @@
 <head>
   <meta name="view-transition" content="same-origin" />
   <meta charset="utf-8" />
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P2F3CX5Z');</script>
+    <!-- Google Tag Manager -->
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
   <!-- End Google Tag Manager -->
 
   <!-- SEO -->
@@ -32,7 +52,7 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
   <link href="../../../../assets/css/style.css" rel="stylesheet" />
   <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://dualcoregames.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://dualcoregames.com/work/index.html"},{"@type":"ListItem","position":3,"name":"Game Development","item":"https://dualcoregames.com/work/game-development/index.html"},{"@type":"ListItem","position":4,"name":"Reclairos","item":"https://dualcoregames.com/work/game-development/reclairos/overview/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://dualcoregames.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://dualcoregames.com/work/index/"},{"@type":"ListItem","position":3,"name":"Game Development","item":"https://dualcoregames.com/work/game-development/index/"},{"@type":"ListItem","position":4,"name":"Reclairos","item":"https://dualcoregames.com/work/game-development/reclairos/overview/"}]}</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -840,7 +860,7 @@
           <!-- Hitter -->
           <div class="rc-roster-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/Hitter.png" alt="Hitter" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/Hitter.webp" alt="Hitter" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">The Hitter</h3>
@@ -861,7 +881,7 @@
           <!-- Knight -->
           <div class="rc-roster-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/knight.png" alt="Knight" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/knight.webp" alt="Knight" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">The Knight</h3>
@@ -882,7 +902,7 @@
           <!-- Hawk Eye -->
           <div class="rc-roster-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/hawktho eye.png" alt="Hawk Eye" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/hawktho eye.webp" alt="Hawk Eye" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">Hawk Eye</h3>
@@ -903,7 +923,7 @@
           <!-- Armored Axeman -->
           <div class="rc-roster-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/armored axeman.png" alt="Armored Axeman" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/armored axeman.webp" alt="Armored Axeman" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Armored Axeman</h3>
@@ -924,7 +944,7 @@
           <!-- Fire Knight -->
           <div class="rc-roster-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/fireknight.png" alt="Fire Knight" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/fireknight.webp" alt="Fire Knight" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Fire Knight</h3>
@@ -945,7 +965,7 @@
           <!-- Guardian Knight -->
           <div class="rc-roster-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/gaurdian knight.png" alt="Guardian Knight" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/gaurdian knight.webp" alt="Guardian Knight" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Guardian Knight</h3>
@@ -966,7 +986,7 @@
           <!-- Priest -->
           <div class="rc-roster-card" data-tier="warlord-emperor">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/healer.png" alt="Priest" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/healer.webp" alt="Priest" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Warlord Ally Unit</span>
             <h3 class="rc-roster-card__title">The Priest</h3>
@@ -987,7 +1007,7 @@
           <!-- King -->
           <div class="rc-roster-card" data-tier="warlord-emperor">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/King.png" alt="King" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/King.webp" alt="King" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Emperor Ally Unit</span>
             <h3 class="rc-roster-card__title">The King</h3>
