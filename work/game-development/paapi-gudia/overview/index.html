@@ -392,11 +392,10 @@
         <span class="hero-label">Gameplay Walkthrough</span>
         <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">Witness the Terror</h2>
         <p class="text-muted" style="max-width: 600px; margin: 0 auto;">A look at the cross-platform rendering and immersive VR combat mechanics.</p>
-        <div class="video-container">
-          <video controls poster="../assets/Gameplayscrenshot3.webp">
-            <source src="../assets/Paapi Gudia - VR - Trailer walkthrough.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        <div class="video-container" style="position: relative;">
+          <div class="video-facade" data-video="pg" style="position: absolute; inset: 0; cursor: pointer; background-image: url('../assets/Gameplayscrenshot3.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
+            <div class="play-button" style="width: 80px; height: 80px; background: rgba(0,210,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #05070a; box-shadow: 0 0 30px rgba(0,210,255,0.4); transition: transform 0.2s ease, background 0.2s ease;">▶</div>
+          </div>
         </div>
       </div>
     </section>

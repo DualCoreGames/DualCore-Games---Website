@@ -433,4 +433,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })();
 
+    // 8. Obfuscated YouTube Video Facade Loader
+    (function() {
+        const videoMap = {
+            "mv": "d21uQWxkbDFGY2c=", // Mayaaverse
+            "cp": "M3pBUHhvNlhWN2M=", // Crazy Planet
+            "rc": "WUttUHpkLUVDdDg=", // Reclairos
+            "rr": "eDI3WnY2d2lDNXc=", // Room Raider
+            "pg": "SjJNQXl5eFY1ejQ="  // Paapi Gudia
+        };
+
+        const getVid = (key) => atob(videoMap[key] || '');
+
+        const facades = document.querySelectorAll('.video-facade');
+        facades.forEach(facade => {
+            facade.addEventListener('click', () => {
+                const videoKey = facade.getAttribute('data-video');
+                const videoId = getVid(videoKey);
+                if (!videoId) return;
+
+                // Create iframe
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('src', `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1`);
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+                iframe.setAttribute('allowfullscreen', 'true');
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = 'none';
+
+                // Replace facade content
+                facade.innerHTML = '';
+                facade.appendChild(iframe);
+            });
+        });
+    })();
+
 });
