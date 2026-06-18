@@ -468,4 +468,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })();
 
+    // 9. Interactive Portfolio Filter Tabs
+    (function() {
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const sections = document.querySelectorAll('.portfolio-section');
+        
+        if (filterTabs.length > 0 && sections.length > 0) {
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    const category = tab.getAttribute('data-category');
+                    if (!category) return;
+                    
+                    e.preventDefault();
+                    
+                    // Toggle active tab class
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Show/hide sections with transition
+                    sections.forEach(section => {
+                        const secCat = section.getAttribute('data-category');
+                        if (category === 'all' || secCat === category) {
+                            section.classList.remove('hidden');
+                        } else {
+                            section.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        }
+    })();
+
 });
