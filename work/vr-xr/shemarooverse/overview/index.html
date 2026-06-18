@@ -96,7 +96,12 @@
       filter: saturate(1.2) brightness(0.5);
       z-index: 1;
     }
-    .hero-cinematic__content { position: relative; z-index: 10; width: 100%; }
+    .hero-cinematic__content { 
+      position: relative; 
+      z-index: 10; 
+      width: 100%; 
+      text-align: center;
+    }
     
     .breadcrumbs {
       display: flex;
@@ -293,21 +298,38 @@
     <section class="hero-cinematic">
       <div class="hero-cinematic__bg"></div>
       <div class="container hero-cinematic__content">
-        <a href="../../../../work/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content;">
+        <a href="../../../../work/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content; margin-left: auto; margin-right: auto;">
           <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Portfolio
         </a>
         <br>
         <span class="hero-label">Multiplayer VR Theatre</span>
         <h1 class="hero-title">ShemarooVerse</h1>
-        <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 700px; margin-bottom: 3.5rem;">A commercial-grade multiplayer VR theatre experience developed for JioDive and JioGlass devices. Watch OTT content with friends in a shared immersive space.</p>
+        <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 700px; margin: 0 auto 3.5rem auto;">A commercial-grade multiplayer VR theatre experience developed for JioDive and JioGlass devices. Watch OTT content with friends in a shared immersive space.</p>
         
-        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
           <a href="#contact" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none;">Start Your Project</a>
           <a href="../case-study/" class="btn btn-secondary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15); text-decoration: none;">Technical Case Study</a>
         </div>
+      </div>
+    </section>
 
-        <!-- Experience Pillars -->
-        <div class="feature-grid">
+    <!-- ═══ PROJECT STRIP ═══ -->
+    <section style="background: #080808; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Platform</span><strong style="font-size: 0.95rem;">JioDive • JioGlass</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Engine</span><strong style="font-size: 0.95rem;">Unity</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">SDKs &amp; Plugins</span><strong style="font-size: 0.95rem;">JMR SDK • Photon Fusion</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Genre</span><strong style="font-size: 0.95rem;">Multiplayer Shared VR Cinema</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Core Tech</span><strong style="font-size: 0.95rem;">State-Sync &amp; 360° Video</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Experience Pillars -->
+    <section style="padding: 4rem 0;">
+      <div class="container">
+        <div class="feature-grid" style="margin-top: 0;">
           <div class="feature-card">
             <span class="feature-card__num">01</span>
             <h3>Multiplayer Cinema</h3>
