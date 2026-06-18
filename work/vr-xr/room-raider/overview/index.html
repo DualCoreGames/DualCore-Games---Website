@@ -261,7 +261,39 @@
       .feature-grid { grid-template-columns: 1fr; }
       .dev-form-container { padding: 2.5rem; }
     }
-  </style>
+  
+    @media (max-width: 480px) {
+      /* Responsive grid collapse overrides */
+      .rc-squad__grid, .squad__grid, .grid, [style*="grid-template-columns: repeat(5, 1fr)"], [style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+      .rc-snapshot__grid, .snapshot__grid, [style*="grid-template-columns: repeat(2, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      .rc-gameplay__row, .gameplay__row {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      .rc-flow, .flow {
+        grid-template-columns: 1fr !important;
+      }
+      .rc-roster__grid, .roster__grid {
+        grid-template-columns: 1fr !important;
+      }
+      .rc-hero__tagline, .hero__tagline {
+        font-size: 1.25rem !important;
+      }
+      .rc-section__title, .section__title {
+        font-size: 1.6rem !important;
+      }
+      /* Ensure absolute overlay or flagship elements fit */
+      .flagship-logo-overlay {
+        max-width: 75% !important;
+      }
+    }
+</style>
 </head>
 
 <body>
