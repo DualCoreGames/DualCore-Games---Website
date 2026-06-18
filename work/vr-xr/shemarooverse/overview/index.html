@@ -189,6 +189,39 @@
       background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
     }
 
+    /* Specifications Table */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .specs-table th, .specs-table td {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .specs-table th {
+      background: rgba(255,255,255,0.03);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      font-weight: 800;
+    }
+    .specs-table td {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+    .specs-table td:first-child {
+      font-weight: 700;
+      color: #fff;
+      width: 30%;
+    }
+
     @media (max-width: 1000px) {
       .narrative-grid { grid-template-columns: 1fr; gap: 4rem; }
       .feature-grid { grid-template-columns: 1fr; }
@@ -330,6 +363,49 @@
               <li>Dynamic Spatial Audio Chat &amp; Echo Cancellation</li>
               <li>Hands-Free Dwell-Time Interaction Machine</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 03 TECHNICAL SPECIFICATIONS ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">03 / Specs &amp; Integration</span>
+            <h2>Optimized Mobile VR Deployment</h2>
+            <p>To deliver frame-rate critical multiplayer entertainment on standalone Android VR devices, the build enforces strict heap controls and limits rendering draw calls via static batching.</p>
+            <table class="specs-table">
+              <thead>
+                <tr>
+                  <th>Platform Feature</th>
+                  <th>Implementation Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Target Devices</td>
+                  <td>JioDive • JioGlass (Android Mobile VR)</td>
+                </tr>
+                <tr>
+                  <td>Networking SDK</td>
+                  <td>Photon Fusion (State-Sync) + Photon Voice (Spatial Audio)</td>
+                </tr>
+                <tr>
+                  <td>Video Decoding</td>
+                  <td>AVPro Video player with Android hardware acceleration</td>
+                </tr>
+                <tr>
+                  <td>Integration SDK</td>
+                  <td>JMR SDK (Reliance Jio native interface)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="image-frame">
+            <img src="../assets/shemarooverse-android-vr-performance.webp" alt="ShemarooVerse Android VR rendering performance profiling and optimization">
+            <div class="image-frame__overlay"></div>
           </div>
         </div>
       </div>
