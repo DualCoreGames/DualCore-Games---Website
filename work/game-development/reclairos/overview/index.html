@@ -686,6 +686,36 @@
       padding: 2rem 1rem;
       height: 100%;
     }
+
+    /* ── Enemy Archive — Orange Theme Overrides ── */
+    .rc-roster-tab--active.rc-enemy-tab {
+      background: var(--color-accent-secondary);
+      color: #080808;
+      border-color: var(--color-accent-secondary);
+      box-shadow: 0 0 20px rgba(255, 122, 24, 0.35);
+    }
+    .rc-roster-tab.rc-enemy-tab:hover {
+      background: rgba(255, 122, 24, 0.08);
+      border-color: rgba(255, 122, 24, 0.3);
+      color: #fff;
+    }
+    .rc-enemy-card {
+      border-top: 3px solid var(--color-accent-secondary) !important;
+    }
+    .rc-enemy-card:hover {
+      box-shadow: 0 16px 36px rgba(255, 122, 24, 0.12), 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+      background: rgba(255, 122, 24, 0.04) !important;
+    }
+    .rc-enemy-card .rc-roster-card__badge {
+      color: var(--color-accent-secondary);
+      border: 1px solid rgba(255, 122, 24, 0.55);
+      background: rgba(255, 122, 24, 0.12);
+      text-shadow: 0 0 12px rgba(255, 122, 24, 0.4);
+    }
+    .rc-enemy-card .rc-roster-card__img-wrap {
+      background: rgba(255, 122, 24, 0.08);
+      border: 1px solid rgba(255, 122, 24, 0.2);
+    }
   </style>
 </head>
 
@@ -857,16 +887,16 @@
 
         <!-- Filter tabs -->
         <div class="rc-roster-tabs">
-          <button type="button" class="rc-roster-tab rc-roster-tab--active" data-filter="all">All Units</button>
-          <button type="button" class="rc-roster-tab" data-filter="basic">Basic Allies</button>
-          <button type="button" class="rc-roster-tab" data-filter="elite">Elite Allies</button>
-          <button type="button" class="rc-roster-tab" data-filter="warlord-emperor">Warlords &amp; Emperor</button>
+          <button type="button" class="rc-roster-tab rc-roster-tab--active rc-ally-tab" data-filter="all">All Units</button>
+          <button type="button" class="rc-roster-tab rc-ally-tab" data-filter="basic">Basic Allies</button>
+          <button type="button" class="rc-roster-tab rc-ally-tab" data-filter="elite">Elite Allies</button>
+          <button type="button" class="rc-roster-tab rc-ally-tab" data-filter="warlord-emperor">Warlords &amp; Emperor</button>
         </div>
 
         <!-- Grid -->
         <div class="rc-roster__grid" id="roster-grid">
           <!-- Hitter -->
-          <div class="rc-roster-card" data-tier="basic">
+          <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
               <img src="../assets/Hitter.png" alt="Hitter" class="rc-roster-card__img" loading="lazy">
             </div>
@@ -887,7 +917,7 @@
           </div>
 
           <!-- Knight -->
-          <div class="rc-roster-card" data-tier="basic">
+          <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
               <img src="../assets/knight.png" alt="Knight" class="rc-roster-card__img" loading="lazy">
             </div>
@@ -908,7 +938,7 @@
           </div>
 
           <!-- Hawk Eye -->
-          <div class="rc-roster-card" data-tier="basic">
+          <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
               <img src="../assets/hawktho eye.png" alt="Hawk Eye" class="rc-roster-card__img" loading="lazy">
             </div>
@@ -929,7 +959,7 @@
           </div>
 
           <!-- Armored Axeman -->
-          <div class="rc-roster-card" data-tier="elite">
+          <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
               <img src="../assets/armored axeman.png" alt="Armored Axeman" class="rc-roster-card__img" loading="lazy">
             </div>
@@ -950,7 +980,7 @@
           </div>
 
           <!-- Fire Knight -->
-          <div class="rc-roster-card" data-tier="elite">
+          <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
               <img src="../assets/fireknight.png" alt="Fire Knight" class="rc-roster-card__img" loading="lazy">
             </div>
@@ -971,7 +1001,7 @@
           </div>
 
           <!-- Guardian Knight -->
-          <div class="rc-roster-card" data-tier="elite">
+          <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
               <img src="../assets/gaurdian knight.png" alt="Guardian Knight" class="rc-roster-card__img" loading="lazy">
             </div>
@@ -992,7 +1022,7 @@
           </div>
 
           <!-- Priest -->
-          <div class="rc-roster-card" data-tier="warlord-emperor">
+          <div class="rc-roster-card rc-ally-card" data-tier="warlord-emperor">
             <div class="rc-roster-card__img-wrap">
               <img src="../assets/healer.png" alt="Priest" class="rc-roster-card__img" loading="lazy">
             </div>
@@ -1013,7 +1043,7 @@
           </div>
 
           <!-- King -->
-          <div class="rc-roster-card" data-tier="warlord-emperor">
+          <div class="rc-roster-card rc-ally-card" data-tier="warlord-emperor">
             <div class="rc-roster-card__img-wrap">
               <img src="../assets/King.png" alt="King" class="rc-roster-card__img" loading="lazy">
             </div>
@@ -1034,7 +1064,7 @@
           </div>
 
           <!-- Coming Soon Card -->
-          <div class="rc-roster-card rc-roster-card--coming-soon" data-tier="basic elite warlord-emperor" style="border-style: dashed; border-color: rgba(0, 209, 255, 0.3); background: rgba(0, 209, 255, 0.01);">
+          <div class="rc-roster-card rc-roster-card--coming-soon rc-ally-card" data-tier="basic elite warlord-emperor" style="border-style: dashed; border-color: rgba(0, 209, 255, 0.3); background: rgba(0, 209, 255, 0.01);">
             <div>
               <div class="rc-roster-card__img-wrap" style="width: 80px; height: 80px; border-radius: 50%; border-style: dashed; background: transparent; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: rgba(0, 209, 255, 0.4); margin-bottom: 1.5rem;">
                 ❓
@@ -1044,6 +1074,209 @@
               <p class="rc-roster-card__desc" style="color: rgba(255, 255, 255, 0.4); font-size: 0.78rem; line-height: 1.6; max-width: 240px; margin: 0;">New Warlords and elite units are currently in development to join the fight to reclaim Reclairos.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══ RECLAIROS ENEMY ARCHIVE ═══ -->
+    <section class="rc-roster-section" id="enemy-archive" style="background-color: #080808; border-top: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <span class="rc-section__eyebrow" style="color: var(--color-accent-secondary);">Threat Assessment</span>
+        <h2 class="rc-section__title">Reclairos Enemy Archive: Forces of Darkness</h2>
+        <p class="rc-section__sub">Study the demonic legions led by Ashrak Doomcaller. Filter by creature tier or threat level to prepare your strategy.</p>
+
+        <!-- Filter tabs -->
+        <div class="rc-roster-tabs">
+          <button type="button" class="rc-roster-tab rc-roster-tab--active rc-enemy-tab" data-filter="all">All Enemies</button>
+          <button type="button" class="rc-roster-tab rc-enemy-tab" data-filter="basic">Minions &amp; Beasts</button>
+          <button type="button" class="rc-roster-tab rc-enemy-tab" data-filter="elite">Elite Warriors</button>
+          <button type="button" class="rc-roster-tab rc-enemy-tab" data-filter="boss">Commanders &amp; Legends</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="rc-roster__grid" id="enemy-grid">
+          
+          <!-- Goblin -->
+          <div class="rc-roster-card rc-enemy-card" data-tier="basic">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/goblin.png" alt="Goblin" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Basic Monster</span>
+            <h3 class="rc-roster-card__title">Goblin</h3>
+            <p class="rc-roster-card__role">Single Target Attack</p>
+            <p class="rc-roster-card__desc">Goblins are lower-ranked creatures serving under Ignar’s command. They carry out the demon army’s basic missions, attacking villages and following orders from stronger monsters.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Threat</span>
+                <span class="rc-roster-card__meta-val">A fast-spawning minion. While low in health, they can quickly overwhelm your defenses if ignored or deployed in large numbers.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story &amp; Lore</span>
+                <span class="rc-roster-card__meta-val">Small compared to other creatures, but still far stronger than an ordinary human, representing the core frontline infantry of Ignar's raiding parties.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evil Eye -->
+          <div class="rc-roster-card rc-enemy-card" data-tier="basic">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/evil eye.png" alt="Evil Eye" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Flying Demon Creature</span>
+            <h3 class="rc-roster-card__title">Evil Eye</h3>
+            <p class="rc-roster-card__role">Area Damage Attack</p>
+            <p class="rc-roster-card__desc">A common but dangerous creature within the demon army. Evil Eyes attack from above, creating chaos in battle by striking warriors from the sky and weakening defenses before the main forces arrive.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Threat</span>
+                <span class="rc-roster-card__meta-val">Aerial attacker capable of bypassing heavy frontline defenses to directly target support units and escort characters.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story &amp; Lore</span>
+                <span class="rc-roster-card__meta-val">Many underestimate them, but ignoring the skies has led countless armies to defeat. They serve as scouting beasts for the commanders.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Axeltronic -->
+          <div class="rc-roster-card rc-enemy-card" data-tier="elite">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/axeltronic.png" alt="Axeltronic" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Electric Warrior</span>
+            <h3 class="rc-roster-card__title">Axeltronic</h3>
+            <p class="rc-roster-card__role">Single Target Attack</p>
+            <p class="rc-roster-card__desc">Born from ancient storms and forgotten lightning energy, Axeltronic is a monster formed from pure electricity. His body carries violent currents powerful enough to destroy anyone who stands against him.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Threat</span>
+                <span class="rc-roster-card__meta-val">Strikes with deadly precision and overwhelming electric force. His attacks stun single targets and leave defenders temporarily powerless.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story &amp; Lore</span>
+                <span class="rc-roster-card__meta-val">Known as one of Ignar’s strongest warriors, he is channeled to break down fortified gates and heavily armored knights.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Boulder Guy -->
+          <div class="rc-roster-card rc-enemy-card" data-tier="elite">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/boulderguy.png" alt="Boulder Guy" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Ancient Heavy Guardian</span>
+            <h3 class="rc-roster-card__title">Boulder Guy</h3>
+            <p class="rc-roster-card__role">Area Damage Attack</p>
+            <p class="rc-roster-card__desc">The unstoppable protector chosen to guard Ashrak Doomcaller himself. Do not judge Boulder Guy by his slow movement; his blade is capable of crushing whole columns of defenders.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Threat</span>
+                <span class="rc-roster-card__meta-val">Extremely high defensive parameters. Deals heavy cleaving area damage. Requires concentrated ranged fire to take down.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story &amp; Lore</span>
+                <span class="rc-roster-card__meta-val">Legends say those who faced him never lived long enough to witness his sword swing. His presence alone was enough to make villages surrender.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Elite Orc -->
+          <div class="rc-roster-card rc-enemy-card" data-tier="elite">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/elite orc.png" alt="Elite Orc" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Orc Warrior</span>
+            <h3 class="rc-roster-card__title">Elite Orc</h3>
+            <p class="rc-roster-card__role">Area Control Attack</p>
+            <p class="rc-roster-card__desc">Elite Orcs are among the strongest fighters of the Orc clans, trained for destruction and conquest. They lead brutal raids across the lands, capturing villages, hunting humans, and spreading fear.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Threat</span>
+                <span class="rc-roster-card__meta-val">A dangerous frontline brawler. Knocks back friendly units and controls the field of combat with sweeping hammer attacks.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story &amp; Lore</span>
+                <span class="rc-roster-card__meta-val">Under the command of the demon army, they serve as the shock troops responsible for breaking down fortified human towns.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Orc Rider -->
+          <div class="rc-roster-card rc-enemy-card" data-tier="elite">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/orc rider.png" alt="Orc Rider" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Orc Commander</span>
+            <h3 class="rc-roster-card__title">Orc Rider</h3>
+            <p class="rc-roster-card__role">Heavy Assault Attack</p>
+            <p class="rc-roster-card__desc">A powerful evolution of the Orc warriors, the Orc Rider stands above ordinary members of his clan. Known for leading swift cavalry invasions to expand the reach of darkness.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Threat</span>
+                <span class="rc-roster-card__meta-val">Fast charging unit that bypasses early setups. He commands local Orc squads, boosting their attack parameters in battle.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story &amp; Lore</span>
+                <span class="rc-roster-card__meta-val">When an Orc Rider appears, war has already reached the gates. They act as vanguard commanders for Ashrak's operations.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ignar -->
+          <div class="rc-roster-card rc-enemy-card" data-tier="boss">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/ignaar.png" alt="Ignar" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Demon Commander</span>
+            <h3 class="rc-roster-card__title">Ignar</h3>
+            <p class="rc-roster-card__role">Massive Destruction Attack</p>
+            <p class="rc-roster-card__desc">The right hand of Ashrak Doomcaller. Created from smokeless fire, Ignar became one of the most feared beings in history. His name alone was enough to spread terror across kingdoms.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Threat</span>
+                <span class="rc-roster-card__meta-val">Immune to basic steel weapons. Melts physical defenses and burns entire lanes with massive area-of-effect heat waves.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story &amp; Lore</span>
+                <span class="rc-roster-card__meta-val">Blades could not harm him, and metal weapons melted before they could reach his burning body. Ignar was not sent to fight battles; he was sent to erase them.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Ancient Guardian -->
+          <div class="rc-roster-card rc-enemy-card" data-tier="boss">
+            <div class="rc-roster-card__img-wrap">
+              <img src="../assets/Gaurdian.png" alt="The Ancient Guardian" class="rc-roster-card__img" loading="lazy">
+            </div>
+            <span class="rc-roster-card__badge">Mythical Entity</span>
+            <h3 class="rc-roster-card__title">The Ancient Guardian</h3>
+            <p class="rc-roster-card__role">Unknown Attack Pattern</p>
+            <p class="rc-roster-card__desc">Older than the kingdoms. Older than the wars. The Ancient Guardian belongs to no army and follows no ruler. He does not serve Ashrak, demons, or mankind.</p>
+            <div class="rc-roster-card__meta-grid">
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Gameplay Threat</span>
+                <span class="rc-roster-card__meta-val">A legendary boss unit. Attack patterns and vulnerabilities are completely undocumented, making encounters extremely high-risk.</span>
+              </div>
+              <div class="rc-roster-card__meta-item">
+                <span class="rc-roster-card__meta-label">Story &amp; Lore</span>
+                <span class="rc-roster-card__meta-val">Hidden beyond the known world, this sleeping legend protects the gateway to the unseen realm. Those who disturb his rest seek survival, not victory.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enemy Coming Soon Card -->
+          <div class="rc-roster-card rc-enemy-card rc-roster-card--coming-soon" data-tier="basic elite boss-coming" style="border-style: dashed; border-color: rgba(255, 122, 24, 0.3); background: rgba(255, 122, 24, 0.01);">
+            <div>
+              <div class="rc-roster-card__img-wrap" style="width: 80px; height: 80px; border-radius: 50%; border-style: dashed; background: transparent; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: rgba(255, 122, 24, 0.4); margin-bottom: 1.5rem;">
+                🔥
+              </div>
+              <h3 class="rc-roster-card__title" style="color: rgba(255, 255, 255, 0.6); font-size: 1.15rem; margin-bottom: 0.5rem;">More Threats Await</h3>
+              <p class="rc-roster-card__role" style="color: rgba(255, 122, 24, 0.6); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Demonic Reinforcements</p>
+              <p class="rc-roster-card__desc" style="color: rgba(255, 255, 255, 0.4); font-size: 0.78rem; line-height: 1.6; max-width: 240px; margin: 0;">Ashrak's army grows stronger. New demon types and boss creatures are being summoned to the frontline.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1299,16 +1532,15 @@
       });
 
       // Roster filtering logic
-      const rosterTabs = document.querySelectorAll('.rc-roster-tab');
-      const rosterCards = document.querySelectorAll('.rc-roster-card');
+      const allyTabs = document.querySelectorAll('.rc-ally-tab');
+      const allyCards = document.querySelectorAll('.rc-ally-card');
 
-      function filterRoster(filterValue) {
-        rosterCards.forEach(card => {
+      function filterAlly(filterValue) {
+        allyCards.forEach(card => {
           const cardTier = card.getAttribute('data-tier');
           let shouldShow = false;
 
           if (filterValue === 'all') {
-            // Hide the coming soon card in the 'All' view for perfect grid symmetry
             shouldShow = (cardTier !== 'basic elite warlord-emperor');
           } else {
             shouldShow = cardTier.split(' ').includes(filterValue);
@@ -1316,7 +1548,6 @@
 
           if (shouldShow) {
             card.style.display = 'flex';
-            // Re-trigger fade transition
             card.style.opacity = '0';
             card.style.transform = 'translateY(8px)';
             setTimeout(() => {
@@ -1330,20 +1561,59 @@
         });
       }
 
-      rosterTabs.forEach(tab => {
+      allyTabs.forEach(tab => {
         tab.addEventListener('click', () => {
-          // Remove active class from all tabs
-          rosterTabs.forEach(t => t.classList.remove('rc-roster-tab--active'));
-          // Add active class to clicked tab
+          allyTabs.forEach(t => t.classList.remove('rc-roster-tab--active'));
           tab.classList.add('rc-roster-tab--active');
 
           const filterValue = tab.getAttribute('data-filter');
-          filterRoster(filterValue);
+          filterAlly(filterValue);
         });
       });
 
-      // Run on initial load to filter the roster immediately (hides the Coming Soon card in 'All' view)
-      filterRoster('all');
+      filterAlly('all');
+
+      // Enemy Archive filtering logic
+      const enemyTabs = document.querySelectorAll('.rc-enemy-tab');
+      const enemyCards = document.querySelectorAll('.rc-enemy-card');
+
+      function filterEnemy(filterValue) {
+        enemyCards.forEach(card => {
+          const cardTier = card.getAttribute('data-tier');
+          let shouldShow = false;
+
+          if (filterValue === 'all') {
+            shouldShow = (cardTier !== 'basic elite boss-coming');
+          } else {
+            shouldShow = cardTier.split(' ').includes(filterValue);
+          }
+
+          if (shouldShow) {
+            card.style.display = 'flex';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(8px)';
+            setTimeout(() => {
+              card.style.transition = 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      enemyTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          enemyTabs.forEach(t => t.classList.remove('rc-roster-tab--active'));
+          tab.classList.add('rc-roster-tab--active');
+
+          const filterValue = tab.getAttribute('data-filter');
+          filterEnemy(filterValue);
+        });
+      });
+
+      filterEnemy('all');
     </script>
 
     <!-- ═══ DISCOVERY: Other Projects ═══ -->
