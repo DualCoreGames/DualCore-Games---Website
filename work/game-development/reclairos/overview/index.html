@@ -842,14 +842,21 @@
       justify-content: center;
     }
     .rc-lightbox__img {
-      max-width: 100%;
+      max-width: 90vw;
       max-height: 85vh;
+      width: auto;
+      height: auto;
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
       object-fit: contain;
       transform: scale(0.9); /* Starts slightly shrunk */
       transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); /* Smooth elastic pop */
+    }
+    @media (min-width: 768px) {
+      .rc-lightbox__img {
+        min-width: 70vw; /* Scale up smaller screenshot assets on desktop */
+      }
     }
     .rc-lightbox--active .rc-lightbox__img {
       transform: scale(1); /* Pops out to full size */
