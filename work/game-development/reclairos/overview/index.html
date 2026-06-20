@@ -687,6 +687,36 @@
       height: 100%;
     }
 
+    /* ── Resistance Roster — Cyan Theme Overrides ── */
+    .rc-roster-tab--active.rc-ally-tab {
+      background: var(--color-accent);
+      color: #080808;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 20px rgba(0, 209, 255, 0.35);
+    }
+    .rc-roster-tab.rc-ally-tab:hover {
+      background: rgba(0, 209, 255, 0.08);
+      border-color: rgba(0, 209, 255, 0.3);
+      color: #fff;
+    }
+    .rc-ally-card {
+      border-top: 3px solid var(--color-accent) !important;
+    }
+    .rc-ally-card:hover {
+      box-shadow: 0 16px 36px rgba(0, 209, 255, 0.12), 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+      background: rgba(0, 209, 255, 0.04) !important;
+    }
+    .rc-ally-card .rc-roster-card__badge {
+      color: var(--color-accent);
+      border: 1px solid rgba(0, 209, 255, 0.55);
+      background: rgba(0, 209, 255, 0.12);
+      text-shadow: 0 0 12px rgba(0, 209, 255, 0.4);
+    }
+    .rc-ally-card .rc-roster-card__img-wrap {
+      background: rgba(0, 209, 255, 0.08);
+      border: 1px solid rgba(0, 209, 255, 0.2);
+    }
+
     /* ── Enemy Archive — Orange Theme Overrides ── */
     .rc-roster-tab--active.rc-enemy-tab {
       background: var(--color-accent-secondary);
@@ -898,7 +928,7 @@
           <!-- Hitter -->
           <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/Hitter.png" alt="Hitter" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/Hitter.webp" alt="Hitter" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">The Hitter</h3>
@@ -919,7 +949,7 @@
           <!-- Knight -->
           <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/knight.png" alt="Knight" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/knight.webp" alt="Knight" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">The Knight</h3>
@@ -940,7 +970,7 @@
           <!-- Hawk Eye -->
           <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/hawktho eye.png" alt="Hawk Eye" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/hawktho eye.webp" alt="Hawk Eye" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">Hawk Eye</h3>
@@ -961,7 +991,7 @@
           <!-- Armored Axeman -->
           <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/armored axeman.png" alt="Armored Axeman" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/armored axeman.webp" alt="Armored Axeman" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Armored Axeman</h3>
@@ -982,7 +1012,7 @@
           <!-- Fire Knight -->
           <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/fireknight.png" alt="Fire Knight" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/fireknight.webp" alt="Fire Knight" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Fire Knight</h3>
@@ -1003,7 +1033,7 @@
           <!-- Guardian Knight -->
           <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/gaurdian knight.png" alt="Guardian Knight" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/gaurdian knight.webp" alt="Guardian Knight" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Guardian Knight</h3>
@@ -1024,7 +1054,7 @@
           <!-- Priest -->
           <div class="rc-roster-card rc-ally-card" data-tier="warlord-emperor">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/healer.png" alt="Priest" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/healer.webp" alt="Priest" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Warlord Ally Unit</span>
             <h3 class="rc-roster-card__title">The Priest</h3>
@@ -1045,7 +1075,7 @@
           <!-- King -->
           <div class="rc-roster-card rc-ally-card" data-tier="warlord-emperor">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/King.png" alt="King" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/King.webp" alt="King" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Emperor Ally Unit</span>
             <h3 class="rc-roster-card__title">The King</h3>
@@ -1100,7 +1130,7 @@
           <!-- Goblin -->
           <div class="rc-roster-card rc-enemy-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/goblin.png" alt="Goblin" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/goblin.webp" alt="Goblin" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Monster</span>
             <h3 class="rc-roster-card__title">Goblin</h3>
@@ -1121,7 +1151,7 @@
           <!-- Evil Eye -->
           <div class="rc-roster-card rc-enemy-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/evil eye.png" alt="Evil Eye" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/evil eye.webp" alt="Evil Eye" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Flying Demon Creature</span>
             <h3 class="rc-roster-card__title">Evil Eye</h3>
@@ -1142,7 +1172,7 @@
           <!-- Axeltronic -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/axeltronic.png" alt="Axeltronic" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/axeltronic.webp" alt="Axeltronic" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Electric Warrior</span>
             <h3 class="rc-roster-card__title">Axeltronic</h3>
@@ -1163,7 +1193,7 @@
           <!-- Boulder Guy -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/boulderguy.png" alt="Boulder Guy" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/boulderguy.webp" alt="Boulder Guy" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Ancient Heavy Guardian</span>
             <h3 class="rc-roster-card__title">Boulder Guy</h3>
@@ -1184,7 +1214,7 @@
           <!-- Elite Orc -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/elite orc.png" alt="Elite Orc" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/elite orc.webp" alt="Elite Orc" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Orc Warrior</span>
             <h3 class="rc-roster-card__title">Elite Orc</h3>
@@ -1205,7 +1235,7 @@
           <!-- Orc Rider -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/orc rider.png" alt="Orc Rider" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/orc rider.webp" alt="Orc Rider" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Orc Commander</span>
             <h3 class="rc-roster-card__title">Orc Rider</h3>
@@ -1226,7 +1256,7 @@
           <!-- Ignar -->
           <div class="rc-roster-card rc-enemy-card" data-tier="boss">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/ignaar.png" alt="Ignar" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/ignaar.webp" alt="Ignar" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Demon Commander</span>
             <h3 class="rc-roster-card__title">Ignar</h3>
@@ -1247,7 +1277,7 @@
           <!-- The Ancient Guardian -->
           <div class="rc-roster-card rc-enemy-card" data-tier="boss">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/Gaurdian.png" alt="The Ancient Guardian" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/Gaurdian.webp" alt="The Ancient Guardian" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Mythical Entity</span>
             <h3 class="rc-roster-card__title">The Ancient Guardian</h3>
@@ -1321,39 +1351,20 @@
             <span class="rc-img-caption">World Environment</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ═══ THREAT INTEL — Enemy Archetypes (Combat Intel placeholders) ═══ -->
-    <section class="rc-section rc-section--dark" style="padding-top: 13rem;">
-      <div class="container">
-        <span class="rc-section__eyebrow">Know Your Enemy</span>
-        <h2 class="rc-section__title">Combat Intel: Data-Driven Enemy Archetypes</h2>
-        <p class="rc-section__sub">Wave-based enemy archetypes designed with hard counters. Encounter them unprepared, and your escort won't survive.</p>
-        <div class="rc-threat__grid">
-          <div class="rc-threat-card">
-            <img alt="Reclairos — Aggressive Melee combat zone" loading="lazy" src="../assets/reclairos-environment-02.webp" width="600" height="450" />
-            <div class="rc-threat-card__overlay">
-              <span class="rc-threat-card__tag">Combat Intel — Archetype 01</span>
-              <p class="rc-threat-card__name">Aggressive Melee</p>
-              <p class="rc-threat-card__desc">Rushes the escort directly. High pressure, low HP. Counter: Frontline Vanguards + Sentinel slows.</p>
-            </div>
+        <!-- Bottom row 2 (Environment screenshots) -->
+        <div class="rc-gameplay__row" style="margin-top: 1.5rem;">
+          <div class="rc-gameplay__row-thumb">
+            <img alt="Reclairos — Aggressive Melee combat zone" loading="lazy" src="../assets/reclairos-environment-02.webp" width="400" height="160" style="width:100%; height: 160px; object-fit: cover; display: block;" />
+            <span class="rc-img-caption">Aggressive Melee</span>
           </div>
-          <div class="rc-threat-card">
-            <img alt="Reclairos — Heavy Defender combat zone" loading="lazy" src="../assets/reclairos-environment-03.webp" width="600" height="450" />
-            <div class="rc-threat-card__overlay">
-              <span class="rc-threat-card__tag">Combat Intel — Archetype 02</span>
-              <p class="rc-threat-card__name">Heavy Defender</p>
-              <p class="rc-threat-card__desc">Blocks the lane. Absorbs damage. Counter: Breaker burst damage + flanking Ranger pressure.</p>
-            </div>
+          <div class="rc-gameplay__row-thumb">
+            <img alt="Reclairos — Heavy Defender combat zone" loading="lazy" src="../assets/reclairos-environment-03.webp" width="400" height="160" style="width:100%; height: 160px; object-fit: cover; display: block;" />
+            <span class="rc-img-caption">Heavy Defender</span>
           </div>
-          <div class="rc-threat-card">
-            <img alt="Reclairos — Fast Disruptor combat zone" loading="lazy" src="../assets/reclairos-environment-04.webp" width="600" height="450" />
-            <div class="rc-threat-card__overlay">
-              <span class="rc-threat-card__tag">Combat Intel — Archetype 03</span>
-              <p class="rc-threat-card__name">Fast Disruptor</p>
-              <p class="rc-threat-card__desc">Bypasses the frontline. Targets ranged and support units at the rear. Counter: Sentinel traps + Vanguard reposition.</p>
-            </div>
+          <div class="rc-gameplay__row-thumb">
+            <img alt="Reclairos — Fast Disruptor combat zone" loading="lazy" src="../assets/reclairos-environment-04.webp" width="400" height="160" style="width:100%; height: 160px; object-fit: cover; display: block;" />
+            <span class="rc-img-caption">Fast Disruptor</span>
           </div>
         </div>
       </div>
