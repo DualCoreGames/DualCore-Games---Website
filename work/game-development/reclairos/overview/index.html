@@ -746,6 +746,260 @@
       background: rgba(255, 122, 24, 0.08);
       border: 1px solid rgba(255, 122, 24, 0.2);
     }
+
+    /* ── Interactive Media Gallery ── */
+    .rc-gallery__viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #05070a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      margin-bottom: 1.5rem;
+      cursor: zoom-in;
+    }
+    .rc-gallery__viewport img, .rc-gallery__viewport iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+    .rc-gallery__thumbs {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 209, 255, 0.3) transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+    .rc-gallery__thumbs::-webkit-scrollbar {
+      height: 4px;
+    }
+    .rc-gallery__thumbs::-webkit-scrollbar-thumb {
+      background: rgba(0, 209, 255, 0.3);
+      border-radius: 2px;
+    }
+    .rc-gallery__thumb-item {
+      flex: 0 0 120px;
+      aspect-ratio: 16/9;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s ease, border-color 0.2s ease;
+    }
+    .rc-gallery__thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .rc-gallery__thumb-item:hover {
+      opacity: 0.9;
+    }
+    .rc-gallery__thumb-item.active {
+      opacity: 1;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 10px rgba(0, 209, 255, 0.25);
+    }
+    .rc-gallery__thumb-item.active.is-enemy {
+      border-color: var(--color-accent-secondary);
+      box-shadow: 0 0 10px rgba(255, 122, 24, 0.25);
+    }
+
+    /* ── Lightbox Modal ── */
+    .rc-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 7, 10, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .rc-lightbox--active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .rc-lightbox__content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+    }
+    .rc-lightbox__img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      object-fit: contain;
+    }
+    .rc-lightbox__close {
+      position: absolute;
+      top: -2.5rem;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      line-height: 1;
+    }
+
+    /* ── Blueprint Flow Schematic ── */
+    .rc-flow-schematic {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+    @media (max-width: 900px) {
+      .rc-flow-schematic {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+    }
+    @media (max-width: 576px) {
+      .rc-flow-schematic {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+    .rc-flow-node {
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .rc-flow-node::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 10%; right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+      opacity: 0.7;
+    }
+    .rc-flow-node:nth-child(even)::before {
+      background: linear-gradient(90deg, transparent, var(--color-accent-secondary), transparent);
+    }
+    .rc-flow-node:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 209, 255, 0.25);
+      box-shadow: 0 10px 30px rgba(0, 209, 255, 0.05);
+    }
+    .rc-flow-node:nth-child(even):hover {
+      border-color: rgba(255, 122, 24, 0.25);
+      box-shadow: 0 10px 30px rgba(255, 122, 24, 0.05);
+    }
+    .rc-flow-node__num {
+      font-family: monospace;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: rgba(0, 209, 255, 0.12);
+      line-height: 1;
+      margin-bottom: 1rem;
+      display: block;
+      transition: color 0.3s ease;
+    }
+    .rc-flow-node:nth-child(even) .rc-flow-node__num {
+      color: rgba(255, 122, 24, 0.12);
+    }
+    .rc-flow-node:hover .rc-flow-node__num {
+      color: rgba(0, 209, 255, 0.4);
+    }
+    .rc-flow-node:nth-child(even):hover .rc-flow-node__num {
+      color: rgba(255, 122, 24, 0.4);
+    }
+    .rc-flow-node__label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .rc-flow-node:nth-child(even) .rc-flow-node__label {
+      color: var(--color-accent-secondary);
+    }
+    .rc-flow-node__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+    .rc-flow-node__desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Tech Spec Cards (Built Different) ── */
+    .rc-tech-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .rc-tech-card {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 2.25rem 1.75rem;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .rc-tech-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--color-accent);
+    }
+    .rc-tech-card:nth-child(even)::after {
+      background: var(--color-accent-secondary);
+    }
+    .rc-tech-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+    }
+    .rc-tech-card__tag {
+      font-size: 0.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .rc-tech-card:nth-child(even) .rc-tech-card__tag {
+      color: var(--color-accent-secondary);
+    }
+    .rc-tech-card__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .rc-tech-card__desc {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
   </style>
 </head>
 
@@ -906,6 +1160,20 @@
             <p class="rc-squad-card__fn">Applies slows, stuns, and traps. Counters fast disruptors. Low DPS, maximum utility.</p>
           </div>
         </div>
+    </section>
+
+<!-- ═══ VIDEO TRAILER SECTION ═══ -->
+    <section class="rc-section rc-section--dark" style="padding: 6rem 0;">
+      <div class="container" style="text-align: center;">
+        <span class="rc-section__eyebrow">Gameplay Walkthrough</span>
+        <h2 class="rc-section__title" style="margin-bottom: 1rem;">Experience Reclairos</h2>
+        <p class="rc-section__sub" style="max-width: 600px; margin: 0 auto 3rem auto;">A full technical walkthrough of tactical unit deployment, combat loops, and lane defense.</p>
+        <div style="max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.05); position: relative; background: #000; aspect-ratio: 16/9;">
+          <div class="video-facade" data-video="rc" style="position: absolute; inset: 0; cursor: pointer; background-image: url('../assets/reclairos-thumbnail.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
+            <div class="play-button" style="width: 80px; height: 80px; background: rgba(0,210,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #05070a; box-shadow: 0 0 30px rgba(0,210,255,0.4); transition: transform 0.2s ease, background 0.2s ease;">▶</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ RECLAIROS ALLY ROSTER ═══ -->
@@ -1318,56 +1586,43 @@
         <h2 class="rc-section__title">Reclairos Gameplay Showcase & Mechanics</h2>
         <p class="rc-section__sub">Escort mechanics, ability use, and unit deployment — all in a single lane. Every decision has consequence.</p>
 
-        <!-- Primary 2-up layout -->
-        <div class="rc-gameplay__grid">
-          <div class="rc-gameplay__main">
-            <img alt="Reclairos — escort mission combat in lane" loading="lazy" src="../assets/reclairos-gameplay-01.webp" width="800" height="500" />
-            <span class="rc-img-caption">Escort Mechanics</span>
+        <!-- Primary Swappable Gallery layout -->
+        <div class="rc-gallery">
+          <div class="rc-gallery__viewport" id="rc-gallery-viewport">
+            <img id="rc-gallery-active-img" alt="Reclairos — Escort Mechanics" src="../assets/reclairos-gameplay-01.webp" />
           </div>
-          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-            <div class="rc-gameplay__thumb">
-              <img alt="Reclairos — unit deployment in lane" loading="lazy" src="../assets/reclairos-gameplay-02.webp" width="400" height="200" />
-              <span class="rc-img-caption">Unit Deployment</span>
+          
+          <div class="rc-gallery__thumbs">
+            <!-- Thumbs row -->
+            <div class="rc-gallery__thumb-item active" data-src="../assets/reclairos-gameplay-01.webp" data-alt="Reclairos — Escort Mechanics">
+              <img src="../assets/reclairos-gameplay-01.webp" alt="Thumb 1">
             </div>
-            <div class="rc-gameplay__thumb">
-              <img alt="Reclairos — ability use and spellcasting" loading="lazy" src="../assets/reclairos-gameplay-03.webp" width="400" height="200" />
-              <span class="rc-img-caption">Ability Use</span>
+            <div class="rc-gallery__thumb-item" data-src="../assets/reclairos-gameplay-02.webp" data-alt="Reclairos — Unit Deployment">
+              <img src="../assets/reclairos-gameplay-02.webp" alt="Thumb 2">
+            </div>
+            <div class="rc-gallery__thumb-item" data-src="../assets/reclairos-gameplay-03.webp" data-alt="Reclairos — Ability Spellcasting">
+              <img src="../assets/reclairos-gameplay-03.webp" alt="Thumb 3">
+            </div>
+            <div class="rc-gallery__thumb-item" data-src="../assets/reclairos-gameplay-04.webp" data-alt="Reclairos — Combat Encounter">
+              <img src="../assets/reclairos-gameplay-04.webp" alt="Thumb 4">
+            </div>
+            <div class="rc-gallery__thumb-item" data-src="../assets/reclairos-gameplay-05.webp" data-alt="Reclairos — Combat Action">
+              <img src="../assets/reclairos-gameplay-05.webp" alt="Thumb 5">
+            </div>
+            <div class="rc-gallery__thumb-item" data-src="../assets/reclairos-environment-01.webp" data-alt="Reclairos — World Environment">
+              <img src="../assets/reclairos-environment-01.webp" alt="Thumb 6">
+            </div>
+            <div class="rc-gallery__thumb-item is-enemy" data-src="../assets/reclairos-environment-02.webp" data-alt="Reclairos — Stormy Outpost">
+              <img src="../assets/reclairos-environment-02.webp" alt="Thumb 7">
+            </div>
+            <div class="rc-gallery__thumb-item is-enemy" data-src="../assets/reclairos-environment-03.webp" data-alt="Reclairos — Ashrak's Threshold">
+              <img src="../assets/reclairos-environment-03.webp" alt="Thumb 8">
+            </div>
+            <div class="rc-gallery__thumb-item is-enemy" data-src="../assets/reclairos-environment-04.webp" data-alt="Reclairos — Demon Rift Zone">
+              <img src="../assets/reclairos-environment-04.webp" alt="Thumb 9">
             </div>
           </div>
         </div>
-
-        <!-- Bottom row -->
-        <div class="rc-gameplay__row">
-          <div class="rc-gameplay__row-thumb">
-            <img alt="Reclairos combat encounter detail" loading="lazy" src="../assets/reclairos-gameplay-04.webp" width="400" height="160" style="width:100%; height: 160px; object-fit: cover; display: block;" />
-            <span class="rc-img-caption">Combat Encounter</span>
-          </div>
-          <div class="rc-gameplay__row-thumb">
-            <img alt="Reclairos elite encounter" loading="lazy" src="../assets/reclairos-gameplay-05.webp" width="400" height="160" style="width:100%; height: 160px; object-fit: cover; display: block;" />
-            <span class="rc-img-caption">Elite Wave</span>
-          </div>
-          <div class="rc-gameplay__row-thumb">
-            <img alt="Reclairos world environment" loading="lazy" src="../assets/reclairos-environment-01.webp" width="400" height="160" style="width:100%; height: 160px; object-fit: cover; display: block;" />
-            <span class="rc-img-caption">World Environment</span>
-          </div>
-        </div>
-
-        <!-- Bottom row 2 (Environment screenshots) -->
-        <div class="rc-gameplay__row" style="margin-top: 1.5rem;">
-          <div class="rc-gameplay__row-thumb">
-            <img alt="Reclairos — Aggressive Melee combat zone" loading="lazy" src="../assets/reclairos-environment-02.webp" width="400" height="160" style="width:100%; height: 160px; object-fit: cover; display: block;" />
-            <span class="rc-img-caption">Aggressive Melee</span>
-          </div>
-          <div class="rc-gameplay__row-thumb">
-            <img alt="Reclairos — Heavy Defender combat zone" loading="lazy" src="../assets/reclairos-environment-03.webp" width="400" height="160" style="width:100%; height: 160px; object-fit: cover; display: block;" />
-            <span class="rc-img-caption">Heavy Defender</span>
-          </div>
-          <div class="rc-gameplay__row-thumb">
-            <img alt="Reclairos — Fast Disruptor combat zone" loading="lazy" src="../assets/reclairos-environment-04.webp" width="400" height="160" style="width:100%; height: 160px; object-fit: cover; display: block;" />
-            <span class="rc-img-caption">Fast Disruptor</span>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- ═══ COMBAT CYCLE FLOW ═══ -->
@@ -1376,29 +1631,32 @@
         <span class="rc-section__eyebrow">The Combat Cycle</span>
         <h2 class="rc-section__title">Dynamic Combat: Story-Driven Encounter Loops</h2>
         <p class="rc-section__sub">Reclairos doesn't drop you into combat cold. Every encounter has context, stakes, and consequence.</p>
-        <div style="background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 4rem 2rem;">
-          <div class="rc-flow">
-            <div class="rc-flow__step">
-              <span class="rc-flow__num">01</span>
-              <span class="rc-flow__label">Narrative</span>
-              <p class="rc-flow__title">Story Beat</p>
-            </div>
-            <div class="rc-flow__step">
-              <span class="rc-flow__num">02</span>
-              <span class="rc-flow__label">Preparation</span>
-              <p class="rc-flow__title">Pre-Battle Prep</p>
-            </div>
-            <div class="rc-flow__step">
-              <span class="rc-flow__num">03</span>
-              <span class="rc-flow__label">Execution</span>
-              <p class="rc-flow__title">Combat Encounter</p>
-            </div>
-            <div class="rc-flow__step">
-              <span class="rc-flow__num">04</span>
-              <span class="rc-flow__label">Consequence</span>
-              <p class="rc-flow__title">Escort Resolution</p>
-            </div>
+        <div class="rc-flow-schematic">
+          <div class="rc-flow-node">
+            <span class="rc-flow-node__num">01</span>
+            <span class="rc-flow-node__label">System 01 // Narrative</span>
+            <h3 class="rc-flow-node__title">Story Beat</h3>
+            <p class="rc-flow-node__desc">Every battle begins with narrative context. High-stakes encounters set up objectives and stakes, ensuring you aren't fighting cold.</p>
           </div>
+          <div class="rc-flow-node">
+            <span class="rc-flow-node__num">02</span>
+            <span class="rc-flow-node__label">System 02 // Preparation</span>
+            <h3 class="rc-flow-node__title">Pre-Battle Prep</h3>
+            <p class="rc-flow-node__desc">Inspect incoming enemy waves, read terrain modifications, and construct the class synergies of your 5-person squad.</p>
+          </div>
+          <div class="rc-flow-node">
+            <span class="rc-flow-node__num">03</span>
+            <span class="rc-flow-node__label">System 03 // Execution</span>
+            <h3 class="rc-flow-node__title">Combat Encounter</h3>
+            <p class="rc-flow-node__desc">Deploy defenders, cast spells, and guide the moving escort through active lanes against aggressive enemy waves.</p>
+          </div>
+          <div class="rc-flow-node">
+            <span class="rc-flow-node__num">04</span>
+            <span class="rc-flow-node__label">System 04 // Consequence</span>
+            <h3 class="rc-flow-node__title">Escort Resolution</h3>
+            <p class="rc-flow-node__desc">Escort health dictates resource distribution, story paths, and squad experience multipliers in the next level.</p>
+          </div>
+        </div>
         </div>
       </div>
     </section>
@@ -1408,8 +1666,33 @@
       <div class="container" style="text-align: center;">
         <span class="rc-section__eyebrow">What Sets It Apart</span>
         <h2 class="rc-section__title" style="margin-bottom: 4rem;">Built Different</h2>
-        <div class="rc-features">
-          <div class="rc-feature-pill">Escort-Based Dynamic Combat</div>
+        <div class="rc-tech-cards">
+          <div class="rc-tech-card">
+            <span class="rc-tech-card__tag">Core System</span>
+            <h3 class="rc-tech-card__title">Escort-Based Lane Combat</h3>
+            <p class="rc-tech-card__desc">A shifting battlefield where friendly units must escort a moving payload, creating dynamic choke points and active lane defense variables.</p>
+          </div>
+          <div class="rc-tech-card">
+            <span class="rc-tech-card__tag">Framework</span>
+            <h3 class="rc-tech-card__title">Episodic Chapter Structure</h3>
+            <p class="rc-tech-card__desc">Campaign levels grouped into narrative chapters, slowly introducing dual-wave mechanics and complex terrain hazards.</p>
+          </div>
+          <div class="rc-tech-card">
+            <span class="rc-tech-card__tag">AI Systems</span>
+            <h3 class="rc-tech-card__title">Data-Driven Enemy Behaviors</h3>
+            <p class="rc-tech-card__desc">Demonic enemies programmed with target priorities, group coordination, and unique attack categories like area control or aerial assault.</p>
+          </div>
+          <div class="rc-tech-card">
+            <span class="rc-tech-card__tag">Performance</span>
+            <h3 class="rc-tech-card__title">Mobile-First Integrity</h3>
+            <p class="rc-tech-card__desc">Custom rendering engine parameters optimized for high-refresh 60 FPS performance on standard Android and iOS devices.</p>
+          </div>
+          <div class="rc-tech-card">
+            <span class="rc-tech-card__tag">Squad Meta</span>
+            <h3 class="rc-tech-card__title">5 Specialization Classes</h3>
+            <p class="rc-tech-card__desc">Build layouts featuring defensive tanks, area damage breakers, swift rangers, supportive healers, and legendary warlord entities.</p>
+          </div>
+        </div>
           <div class="rc-feature-pill">Episodic Narrative Structure</div>
           <div class="rc-feature-pill">Data-Driven Enemy Behaviors</div>
           <div class="rc-feature-pill">Mobile-First Performance</div>
@@ -1439,20 +1722,6 @@
               <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-accent); margin-bottom: 0.5rem;">Late Chapters</p>
               <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0; line-height: 1.6;">Three+ archetypes. Elite enemies. Aggressive escort pathing.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ VIDEO TRAILER SECTION ═══ -->
-    <section class="rc-section rc-section--dark" style="padding: 6rem 0;">
-      <div class="container" style="text-align: center;">
-        <span class="rc-section__eyebrow">Gameplay Walkthrough</span>
-        <h2 class="rc-section__title" style="margin-bottom: 1rem;">Experience Reclairos</h2>
-        <p class="rc-section__sub" style="max-width: 600px; margin: 0 auto 3rem auto;">A full technical walkthrough of tactical unit deployment, combat loops, and lane defense.</p>
-        <div style="max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.05); position: relative; background: #000; aspect-ratio: 16/9;">
-          <div class="video-facade" data-video="rc" style="position: absolute; inset: 0; cursor: pointer; background-image: url('../assets/reclairos-thumbnail.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
-            <div class="play-button" style="width: 80px; height: 80px; background: rgba(0,210,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #05070a; box-shadow: 0 0 30px rgba(0,210,255,0.4); transition: transform 0.2s ease, background 0.2s ease;">▶</div>
           </div>
         </div>
       </div>
@@ -1705,5 +1974,14 @@
   </footer>
 
   <script defer="" src="../../../../assets/js/main.js"></script>
+
+  <!-- Fullscreen Zoom Lightbox -->
+  <div class="rc-lightbox" id="rc-lightbox">
+    <div class="rc-lightbox__content">
+      <button class="rc-lightbox__close" id="rc-lightbox-close">&times;</button>
+      <img src="" alt="Fullscreen image" class="rc-lightbox__img" id="rc-lightbox-img" />
+    </div>
+  </div>
+
 </body>
 </html>
