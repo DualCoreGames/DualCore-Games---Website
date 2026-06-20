@@ -1176,6 +1176,32 @@
       </div>
     </section>
 
+
+    <!-- ═══ THE LORE: A KINGDOM SHATTERED ═══ -->
+    <section class="rc-section rc-section--alt" id="world-lore" style="border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+          <div>
+            <span class="rc-section__eyebrow" style="text-align: left; margin-bottom: 0.5rem;">The Fractured Realm</span>
+            <h2 class="rc-section__title" style="text-align: left; margin-bottom: 1.5rem;">A Kingdom Broken. A Legend Forgotten.</h2>
+            <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+              When the Void gates ripped across the skies of Reclairos, the royal defenses fell in a single night. Ashrak Doomcaller’s legions poured into the rifts, consuming towns and turning ancient protectors into brainwashed guardians.
+            </p>
+            <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.8;">
+              Exiled to the outer border, the Prince must guide the Resonator Crystal back to the heart of the capital. This crystal is the only weapon capable of sealing the rifts—but it must be escorted across hazard-filled lanes. Your squad is the last defense.
+            </p>
+          </div>
+          <div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+            <img alt="Reclairos world lore - Prince leading the resistance" src="../assets/reclairos-environment-01.webp" style="width: 100%; height: auto; display: block;" />
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 60%); display: flex; align-items: flex-end; padding: 2rem;">
+              <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-accent);">Lore Entry #04 // The Long Return</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <!-- ═══ RECLAIROS ALLY ROSTER ═══ -->
     <section class="rc-roster-section" id="ally-roster">
       <div class="container">
@@ -1589,7 +1615,10 @@
         <!-- Primary Swappable Gallery layout -->
         <div class="rc-gallery">
           <div class="rc-gallery__viewport" id="rc-gallery-viewport">
+            <button class="rc-gallery__nav rc-gallery__nav--prev" id="rc-gallery-prev" aria-label="Previous image">&lt;</button>
             <img id="rc-gallery-active-img" alt="Reclairos — Escort Mechanics" src="../assets/reclairos-gameplay-01.webp" />
+            <button class="rc-gallery__nav rc-gallery__nav--next" id="rc-gallery-next" aria-label="Next image">&gt;</button>
+            <div class="rc-gallery__counter" id="rc-gallery-counter">1 / 9</div>
           </div>
           
           <div class="rc-gallery__thumbs">
@@ -1693,13 +1722,51 @@
             <p class="rc-tech-card__desc">Build layouts featuring defensive tanks, area damage breakers, swift rangers, supportive healers, and legendary warlord entities.</p>
           </div>
         </div>
-          <div class="rc-feature-pill">Episodic Narrative Structure</div>
-          <div class="rc-feature-pill">Data-Driven Enemy Behaviors</div>
-          <div class="rc-feature-pill">Mobile-First Performance</div>
-          <div class="rc-feature-pill">5 Elite Squad Classes</div>
         </div>
       </div>
     </section>
+
+
+    <!-- ═══ TECHNICAL ART SPECIFICATIONS ═══ -->
+    <section class="rc-section rc-section--alt" id="tech-specs" style="border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <span class="rc-section__eyebrow">Technical Details</span>
+        <h2 class="rc-section__title">Game Specifications & Performance Metrics</h2>
+        <p class="rc-section__sub">For development leads and partners. The engine, rendering capabilities, and architectural details powering Reclairos.</p>
+        
+        <table class="tech-specs-table" style="width:100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.9rem; color: var(--color-text-muted);">
+          <thead>
+            <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); text-align: left;">
+              <th style="padding: 1rem; color: #fff; font-weight: 700;">Specification Parameter</th>
+              <th style="padding: 1rem; color: #fff; font-weight: 700;">Technical Implementation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 1rem; font-weight: 700; color: var(--color-accent);">Game Engine & Version</td>
+              <td style="padding: 1rem;">Unity 2026.1 LTS (Long Term Support)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 1rem; font-weight: 700; color: var(--color-accent);">Target Platforms</td>
+              <td style="padding: 1rem;">Android 12+ (Vulkan), iOS 15.0+ (Metal)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 1rem; font-weight: 700; color: var(--color-accent);">Graphics Pipeline</td>
+              <td style="padding: 1rem;">Universal Render Pipeline (URP) with custom lightweight shader layers</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 1rem; font-weight: 700; color: var(--color-accent);">Performance Benchmarks</td>
+              <td style="padding: 1rem;">Solid 60 FPS on mid-tier test hardware (Snapdragon 845 / Apple A12)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 1rem; font-weight: 700; color: var(--color-accent);">Multiplayer Networking</td>
+              <td style="padding: 1rem;">Asynchronous Escort Leaderboards and encrypted database profiles</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
 
     <!-- ═══ WORLD EXPLORATION — Map / Episodic Narrative ═══ -->
     <section class="rc-section rc-section--alt">
@@ -1977,10 +2044,12 @@
 
   <!-- Fullscreen Zoom Lightbox -->
   <div class="rc-lightbox" id="rc-lightbox">
+    <button class="rc-lightbox__nav rc-lightbox__nav--prev" id="rc-lightbox-prev" aria-label="Previous image">&lt;</button>
     <div class="rc-lightbox__content">
       <button class="rc-lightbox__close" id="rc-lightbox-close">&times;</button>
       <img src="" alt="Fullscreen image" class="rc-lightbox__img" id="rc-lightbox-img" />
     </div>
+    <button class="rc-lightbox__nav rc-lightbox__nav--next" id="rc-lightbox-next" aria-label="Next image">&gt;</button>
   </div>
 
 </body>
