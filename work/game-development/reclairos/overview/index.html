@@ -812,7 +812,6 @@
       box-shadow: 0 0 10px rgba(255, 122, 24, 0.25);
     }
 
-    /* ── Lightbox Modal ── */
     .rc-lightbox {
       position: fixed;
       inset: 0;
@@ -825,11 +824,13 @@
       justify-content: center;
       opacity: 0;
       visibility: hidden;
+      pointer-events: none;
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
     .rc-lightbox--active {
       opacity: 1;
       visibility: visible;
+      pointer-events: auto;
     }
     .rc-lightbox__content {
       position: relative;
@@ -2207,17 +2208,20 @@
       }
 
       // Lightbox Modal Controls
-      viewport.addEventListener('click', () => {
+      activeImg.addEventListener('click', (e) => {
+        e.stopPropagation();
         openLightbox();
       });
 
       function openLightbox() {
         stopAutoplay();
         const currentThumb = thumbs[currentIndex];
-        lightboxImg.src = currentThumb.getAttribute('data-src');
-        lightboxImg.alt = currentThumb.getAttribute('data-alt');
-        lightbox.classList.add('rc-lightbox--active');
-        document.body.style.overflow = 'hidden';
+        if (currentThumb) {
+          lightboxImg.src = currentThumb.getAttribute('data-src');
+          lightboxImg.alt = currentThumb.getAttribute('data-alt');
+          lightbox.classList.add('rc-lightbox--active');
+          document.body.style.overflow = 'hidden';
+        }
       }
 
       function closeLightbox() {
