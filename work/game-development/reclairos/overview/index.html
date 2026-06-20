@@ -80,42 +80,54 @@
     .rc-hero {
       position: relative;
       min-height: 100vh;
+      min-height: 100svh;
       display: flex;
-      align-items: flex-end;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
       overflow: hidden;
       background: #080808;
     }
     .rc-hero__bg {
       position: absolute;
       inset: 0;
-      background-image: url('../assets/reclairos-hero.webp?v=2');
-      background-size: cover;
-      background-position: center top;
-      opacity: 0.75;
-      filter: saturate(0.8);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.82;
+      filter: saturate(0.85);
+      display: block;
     }
     .rc-hero__overlay {
       position: absolute;
       inset: 0;
+      /* Desktop: clear at top, strong dark band at bottom third where text lives */
       background: linear-gradient(to bottom,
-        rgba(8,8,8,0.0) 0%,
-        rgba(8,8,8,0.0) 45%,
-        rgba(8,8,8,0.6) 68%,
-        rgba(8,8,8,0.92) 85%,
+        rgba(8,8,8,0.15) 0%,
+        rgba(8,8,8,0.0) 30%,
+        rgba(8,8,8,0.0) 48%,
+        rgba(8,8,8,0.55) 65%,
+        rgba(8,8,8,0.88) 80%,
         rgba(8,8,8,1) 100%
       );
     }
-    .rc-hero__inner {
-      position: relative;
-      z-index: 2;
+    /* Badge strip at top of hero */
+    .rc-hero__top {
+      position: absolute;
+      top: 5.5rem;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      padding: 0 2rem 7rem;
+      gap: 0.75rem;
+      z-index: 3;
       width: 100%;
+      padding: 0 2rem;
+      pointer-events: none;
     }
+    .rc-hero__top > * { pointer-events: auto; }
     .rc-label {
       display: inline-block;
       font-size: 0.65rem;
@@ -126,22 +138,10 @@
       border: 1px solid rgba(0,209,255,0.55);
       padding: 0.4rem 1.2rem;
       border-radius: 100px;
-      background: rgba(0,209,255,0.12);
+      background: rgba(8,8,8,0.6);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       text-shadow: 0 0 12px rgba(0,209,255,0.4);
-    }
-    /* Top-level container for breadcrumbs and flagship text */
-    .rc-hero__top {
-      position: absolute;
-      top: 5.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      z-index: 3;
-      width: 100%;
-      padding: 0 2rem;
     }
     .rc-hero .rc-label {
       position: relative;
@@ -149,34 +149,37 @@
       white-space: nowrap;
       z-index: 3;
     }
-    /* sr-only: h1 exists for SEO/a11y but art carries the visual title */
-    .rc-hero__title-hidden {
-      position: absolute;
-      width: 1px; height: 1px;
-      padding: 0; margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border: 0;
+    /* Content block — overlays the dark gradient at the bottom */
+    .rc-hero__inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem 5rem;
+      width: 100%;
+      /* Push content into the dark gradient zone */
+      margin-top: auto;
     }
     .rc-hero__tagline {
-      font-size: clamp(1.3rem, 3vw, 1.9rem);
-      font-weight: 600;
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      font-weight: 700;
       max-width: 640px;
-      line-height: 1.45;
+      line-height: 1.4;
       margin-bottom: 1.5rem;
-      color: rgba(255,255,255,0.95);
-      text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+      color: #fff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9);
     }
     .rc-hero__desc {
       max-width: 540px;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
     }
     .rc-hero__desc p {
       font-size: 1rem;
       line-height: 1.8;
-      color: rgba(255,255,255,0.7);
-      text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+      color: rgba(255,255,255,0.72);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.8);
     }
 
     /* Snapshot strip */
@@ -1146,6 +1149,353 @@
       border: 1px solid rgba(0, 209, 255, 0.3) !important;
       box-shadow: 0 0 12px rgba(0, 209, 255, 0.25);
     }
+
+    /* ── Voice Log Player ── */
+    .voice-log-player {
+      background: rgba(0, 209, 255, 0.02);
+      border: 1px solid rgba(0, 209, 255, 0.15);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-top: 2.25rem;
+      box-shadow: 0 8px 32px rgba(0, 209, 255, 0.03);
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+    }
+    .voice-log-player::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; width: 3px; height: 100%;
+      background: var(--color-accent);
+    }
+    .voice-log-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0, 209, 255, 0.12);
+      border: 1px solid rgba(0, 209, 255, 0.4);
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 209, 255, 0.2);
+      flex-shrink: 0;
+    }
+    .voice-log-btn:hover {
+      background: var(--color-accent);
+      color: #05070a;
+      box-shadow: 0 0 15px rgba(0, 209, 255, 0.5);
+      transform: scale(1.05);
+    }
+    .voice-log-waveform {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 24px;
+      flex-grow: 1;
+    }
+    .voice-log-bar {
+      width: 3px;
+      background: var(--color-accent);
+      opacity: 0.65;
+      border-radius: 2px;
+      animation: bounceWave 1.2s ease-in-out infinite alternate;
+      transform-origin: bottom;
+    }
+    /* Stagger wave animations */
+    .voice-log-bar:nth-child(1) { height: 30%; animation-delay: 0.1s; }
+    .voice-log-bar:nth-child(2) { height: 75%; animation-delay: 0.3s; }
+    .voice-log-bar:nth-child(3) { height: 45%; animation-delay: 0.5s; }
+    .voice-log-bar:nth-child(4) { height: 90%; animation-delay: 0.2s; }
+    .voice-log-bar:nth-child(5) { height: 55%; animation-delay: 0.4s; }
+    .voice-log-bar:nth-child(6) { height: 70%; animation-delay: 0.6s; }
+    .voice-log-bar:nth-child(7) { height: 35%; animation-delay: 0.15s; }
+    .voice-log-bar:nth-child(8) { height: 85%; animation-delay: 0.35s; }
+    .voice-log-bar:nth-child(9) { height: 50%; animation-delay: 0.55s; }
+    .voice-log-bar:nth-child(10) { height: 60%; animation-delay: 0.25s; }
+
+    @keyframes bounceWave {
+      0% { transform: scaleY(0.3); }
+      100% { transform: scaleY(1.1); }
+    }
+
+    /* ── Holographic Story HUD ── */
+    .rc-hud-container {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+    .rc-hud-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      background-size: 100% 4px, 6px 100%;
+      z-index: 3;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+    .rc-hud-bracket {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border: 2px solid var(--color-accent);
+      z-index: 4;
+      pointer-events: none;
+    }
+    .rc-hud-bracket--tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+    .rc-hud-bracket--tr { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+    .rc-hud-bracket--bl { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+    .rc-hud-bracket--br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+    .rc-hud-tag {
+      position: absolute;
+      top: 12px;
+      left: 36px;
+      font-family: monospace;
+      font-size: 0.65rem;
+      color: var(--color-accent);
+      background: rgba(5,7,10,0.85);
+      padding: 0.15rem 0.5rem;
+      border: 1px solid rgba(0,209,255,0.3);
+      border-radius: 4px;
+      letter-spacing: 0.1em;
+      z-index: 4;
+      pointer-events: none;
+      font-weight: 700;
+    }
+    .rc-hud-panel-enemy .rc-hud-bracket {
+      border-color: var(--color-accent-secondary);
+    }
+    .rc-hud-panel-enemy .rc-hud-tag {
+      color: var(--color-accent-secondary);
+      border-color: rgba(255,122,24,0.3);
+    }
+
+    /* ── Tactical Intel Grid ── */
+    .intel-report-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 1.25rem;
+      text-align: left;
+    }
+    .intel-report-item {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+    }
+    .intel-report-label {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+    .intel-report-val {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .intel-report-val--highlight {
+      color: var(--color-accent);
+    }
+    .intel-report-val--warning {
+      color: var(--color-accent-secondary);
+    }
+
+    /* ── Diagnostics Loading Animation ── */
+    .diag-progress-wrap {
+      display: none;
+      margin-top: 1.5rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .diag-progress-track {
+      height: 4px;
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+    .diag-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--color-accent);
+      border-radius: 2px;
+      box-shadow: 0 0 10px var(--color-accent);
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .diag-status-text {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--color-accent);
+    }
+
+    /* ── FAQ Open Outline Glow ── */
+    .rc-faq-item:hover {
+      border-color: rgba(255, 255, 255, 0.12) !important;
+      background: rgba(255,255,255,0.02) !important;
+    }
+    .rc-faq-item--open {
+      box-shadow: 0 0 20px rgba(0, 209, 255, 0.05);
+    }
+
+    @media (max-width: 576px) {
+      .intel-report-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+
+    /* ── Responsive Grids Helper ── */
+    .rc-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .rc-map-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .rc-compat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .rc-compat-select {
+      display: block;
+      width: 100%;
+      height: 48px;
+      padding: 0 2.75rem 0 1rem;
+      background: rgba(5,7,10,0.6);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: #fff;
+      outline: none;
+      font-size: 16px; /* Prevents iOS auto-zoom */
+      font-family: inherit;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300D1FF' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1.15rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+    .rc-compat-select:hover {
+      border-color: rgba(0, 209, 255, 0.45);
+      background-color: rgba(5,7,10,0.75);
+    }
+    .rc-compat-select:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 8px rgba(0, 209, 255, 0.25);
+      background-color: rgba(5,7,10,0.85);
+    }
+    .rc-discovery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .rc-story-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .rc-discovery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .rc-map-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .rc-hero {
+        /* Lock section to viewport — prevent content overflow gap */
+        height: 100svh;
+        min-height: unset;
+      }
+      .rc-hero__bg {
+        /* Portrait image — anchor top of image (sky/castle) to top of section */
+        object-position: center top;
+      }
+      .rc-hero__overlay {
+        /* Mobile: image fades from 45% → fully black at 82% */
+        background: linear-gradient(to bottom,
+          rgba(8,8,8,0.15) 0%,
+          rgba(8,8,8,0.0) 18%,
+          rgba(8,8,8,0.0) 42%,
+          rgba(8,8,8,0.65) 62%,
+          rgba(8,8,8,0.95) 78%,
+          rgba(8,8,8,1) 88%
+        );
+      }
+      /* ── KEY FIX: drop badges OUT of the image area on mobile ── */
+      /* Pull rc-hero__top out of absolute positioning so it joins
+         the flex flow at the bottom, sitting above the title text  */
+      .rc-hero__top {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        padding: 0 1.5rem;
+        gap: 0.5rem;
+        /* Take the auto-margin so it and rc-hero__inner both sit at bottom */
+        margin-top: auto;
+        margin-bottom: 0.75rem;
+      }
+      /* Remove the auto-margin from inner since rc-hero__top now owns it */
+      .rc-hero__inner {
+        padding: 0 1.5rem 3rem;
+        margin-top: 0;
+      }
+      .rc-hero__inner h1 {
+        font-size: clamp(1.15rem, 5.5vw, 1.5rem) !important;
+        margin-bottom: 0.85rem !important;
+      }
+      .rc-hero__desc {
+        margin-bottom: 1.75rem;
+      }
+      .rc-hero__desc p {
+        font-size: 0.88rem;
+      }
+      .rc-compat-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .rc-compat-card {
+        padding: 1.5rem !important;
+      }
+    }
   </style>
 </head>
 
@@ -1211,7 +1561,16 @@
 
     <!-- ═══ HERO — Full-Bleed Cinematic ═══ -->
     <section class="rc-hero">
-      <div class="rc-hero__bg" role="img" aria-label="Reclairos — fractured world key art"></div>
+      <picture>
+        <source srcset="../assets/reclairos-hero-mobile.webp?v=4" media="(max-width: 768px)" type="image/webp">
+        <img
+          class="rc-hero__bg"
+          src="../assets/reclairos-hero.webp?v=2"
+          alt="Reclairos — fractured world key art showing the Prince's squad standing before a dark fortress"
+          fetchpriority="high"
+          decoding="async"
+        >
+      </picture>
       <div class="rc-hero__overlay"></div>
       <!-- Top Hero Brand Details (pinned to top of screen) -->
       <div class="rc-hero__top">
@@ -1224,8 +1583,10 @@
       </div>
 
       <div class="rc-hero__inner">
+        <!-- Spacer that pushes content down — scales with viewport so text lands in the gradient zone -->
+        <div class="rc-hero__spacer" style="flex: 1; min-height: 3rem;"></div>
         <!-- h1: visible, semantic, and optimized for search engine indexing -->
-        <h1 class="rc-hero__title" style="font-size: clamp(1.3rem, 3.2vw, 2rem); font-weight: 700; max-width: 680px; line-height: 1.45; margin-bottom: 1.5rem; color: rgba(255,255,255,0.95); text-shadow: 0 2px 4px rgba(0,0,0,0.9); letter-spacing: -0.01em; text-align: center;">
+        <h1 class="rc-hero__title" style="font-size: clamp(1.35rem, 3.2vw, 2.1rem); font-weight: 800; max-width: 680px; line-height: 1.4; margin-bottom: 1.25rem; color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,1); letter-spacing: -0.01em; text-align: center;">
           Reclairos &mdash; The world is broken. Reclaim it, one wave at a time.
         </h1>
         <div class="rc-hero__desc">
@@ -1329,7 +1690,7 @@
       <div style="position: absolute; bottom: -10%; left: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,122,24,0.03) 0%, transparent 70%); pointer-events: none; z-index: 1;"></div>
 
       <div class="container" style="position: relative; z-index: 2;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+        <div class="rc-story-grid">
           <!-- Left Column: Story Core & Hook -->
           <div>
             <span class="rc-section__eyebrow" style="text-align: left; margin-bottom: 0.5rem; letter-spacing: 0.15em;">The Fractured Realm</span>
@@ -1338,18 +1699,41 @@
             </h2>
             
             <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
-              When the dark <strong style="color: var(--color-accent);">Void Gates</strong> ripped open the skies of Reclairos, the ancient royal defenses crumbled in a single night. <strong style="color: #fff;">Ashrak Doomcaller's</strong> demonic legions poured into the rifts, corrupting once-peaceful lands and turning the kingdom's ancient defenders into brainwashed, hostile guardians.
+              When the dark <strong style="color: var(--color-accent-secondary);">Void Gates</strong> ripped open the skies of Reclairos, the <strong style="color: var(--color-accent);">ancient royal defenses</strong> crumbled in a single night. <strong style="color: var(--color-accent-secondary);">Ashrak Doomcaller's</strong> <strong style="color: var(--color-accent-secondary);">demonic legions</strong> poured into the <strong style="color: var(--color-accent-secondary);">rifts</strong>, corrupting once-peaceful lands and turning the kingdom's ancient defenders into brainwashed, <strong style="color: var(--color-accent-secondary);">hostile guardians</strong>.
             </p>
             <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 2rem;">
-              Exiled to the desolate outer borders, the Prince must lead a desperate resistance. Your mission: protect and guide the <strong style="color: var(--color-accent);">Resonator Crystal</strong>—the realm's last hope to seal the rifts—across hazard-filled combat zones.
+              Exiled to the desolate outer borders, the <strong style="color: var(--color-accent);">Prince</strong> must lead a <strong style="color: var(--color-accent);">desperate resistance</strong>. Your mission: protect and guide the <strong style="color: var(--color-accent);">Resonator Crystal</strong>—the realm's last hope to seal the <strong style="color: var(--color-accent-secondary);">rifts</strong>—across hazard-filled combat zones.
             </p>
             
             <!-- Pull Quote Card -->
             <div style="background: rgba(0, 209, 255, 0.02); border-left: 3px solid var(--color-accent); padding: 1.5rem; border-radius: 0 12px 12px 0; border-top: 1px solid rgba(0,209,255,0.05); border-right: 1px solid rgba(0,209,255,0.05); border-bottom: 1px solid rgba(0,209,255,0.05); box-shadow: 0 10px 25px rgba(0, 209, 255, 0.03);">
               <p style="font-size: 0.95rem; font-style: italic; color: #fff; line-height: 1.6; margin-bottom: 0.75rem;">
-                "The crystal must reach the heart of the Capital. If the light goes out, the rifts remain open forever. Stand your ground!"
+                "The <strong style="color: var(--color-accent);">crystal</strong> must reach the heart of the Capital. If the <strong style="color: var(--color-accent);">light</strong> goes out, the <strong style="color: var(--color-accent-secondary);">rifts</strong> remain open forever. Stand your ground!"
               </p>
               <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--color-accent); letter-spacing: 0.1em;">— The Prince of Reclairos</span>
+            </div>
+
+            <!-- Voice Log Transmission Player -->
+            <div class="voice-log-player">
+              <button type="button" class="voice-log-btn" id="voice-play-btn" aria-label="Listen to voice log">▶</button>
+              <div style="flex-grow: 1;">
+                <span style="display: block; font-family: monospace; font-size: 0.65rem; color: var(--color-accent); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem;">Voice Transmission // Decrypted Log</span>
+                <span id="voice-status" style="display: block; font-size: 0.85rem; font-weight: 700; color: #fff; line-height: 1.2;">COMMS_FEED_SECURE_04.wav</span>
+              </div>
+              <div class="voice-log-waveform" id="voice-wave" style="display: none;">
+                <div class="voice-log-bar"></div>
+                <div class="voice-log-bar"></div>
+                <div class="voice-log-bar"></div>
+                <div class="voice-log-bar"></div>
+                <div class="voice-log-bar"></div>
+                <div class="voice-log-bar"></div>
+                <div class="voice-log-bar"></div>
+                <div class="voice-log-bar"></div>
+                <div class="voice-log-bar"></div>
+                <div class="voice-log-bar"></div>
+              </div>
+              <!-- Hidden mock audio element -->
+              <audio id="voice-audio" src="" preload="auto" style="display: none;"></audio>
             </div>
           </div>
 
@@ -1363,37 +1747,123 @@
 
             <!-- Content Panel 1 -->
             <div id="rc-lore-log-fall" class="rc-lore-panel" style="display: block;">
-              <div style="position: relative; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.05); aspect-ratio: 16/9;">
-                <img alt="The Fall of the Capital - Void gates consuming the skies" src="../assets/reclairos-environment-02.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              <div class="rc-hud-container rc-hud-panel-enemy">
+                <div class="rc-hud-bracket rc-hud-bracket--tl"></div>
+                <div class="rc-hud-bracket rc-hud-bracket--tr"></div>
+                <div class="rc-hud-bracket rc-hud-bracket--bl"></div>
+                <div class="rc-hud-bracket rc-hud-bracket--br"></div>
+                <span class="rc-hud-tag">SATELLITE BRIEF // ARCHIVE_902</span>
+                <img alt="The Fall of the Capital - Void gates consuming the skies of Aethelgard" src="../assets/reclairos-environment-02.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
               </div>
               <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Chapter I: The Ruin of Aethelgard</h4>
               <p style="font-size: 0.88rem; line-height: 1.6; color: var(--color-text-muted); margin: 0;">
                 The capital of Aethelgard stood for a thousand years as a beacon of power. When Ashrak Doomcaller activated the primary Void obelisks, the city's ancient stone defenses were rent apart in minutes. The sky turned a violet hue, and the capital became the epicenter of the rift zones.
               </p>
+              <!-- Tactical Intel Grid -->
+              <div class="intel-report-grid">
+                <div class="intel-report-item">
+                  <span class="intel-report-label">Threat Level</span>
+                  <span class="intel-report-val intel-report-val--warning">Critical (Void Swarms)</span>
+                </div>
+                <div class="intel-report-item">
+                  <span class="intel-report-label">Key Mission</span>
+                  <span class="intel-report-val">Seize Void Gates</span>
+                </div>
+                <div class="intel-report-item">
+                  <span class="intel-report-label">Tactical Reward</span>
+                  <span class="intel-report-val intel-report-val--highlight">Unlocks "The Knight"</span>
+                </div>
+              </div>
             </div>
 
             <!-- Content Panel 2 -->
             <div id="rc-lore-log-vow" class="rc-lore-panel" style="display: none;">
-              <div style="position: relative; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.05); aspect-ratio: 16/9;">
-                <img alt="The Prince of Reclairos guiding the Resonator Crystal" src="../assets/reclairos-environment-01.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              <div class="rc-hud-container">
+                <div class="rc-hud-bracket rc-hud-bracket--tl"></div>
+                <div class="rc-hud-bracket rc-hud-bracket--tr"></div>
+                <div class="rc-hud-bracket rc-hud-bracket--bl"></div>
+                <div class="rc-hud-bracket rc-hud-bracket--br"></div>
+                <span class="rc-hud-tag">SATELLITE BRIEF // LIVE_FEED_01</span>
+                <img alt="The Prince of Reclairos guiding the moving Resonator Crystal payload" src="../assets/reclairos-environment-01.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
               </div>
               <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Chapter II: The Resonator's Journey</h4>
               <p style="font-size: 0.88rem; line-height: 1.6; color: var(--color-text-muted); margin: 0;">
                 Exiled to the outer boundary walls, the Prince gathered the remaining loyal knights and vanguards. He made a vow: to escort the Resonator Crystal back through corrupted territories, facing hostile guardians and hazards, to seal the rifts once and for all.
               </p>
+              <!-- Tactical Intel Grid -->
+              <div class="intel-report-grid">
+                <div class="intel-report-item">
+                  <span class="intel-report-label">Threat Level</span>
+                  <span class="intel-report-val" style="color: #ffcc00;">High (Demons)</span>
+                </div>
+                <div class="intel-report-item">
+                  <span class="intel-report-label">Key Mission</span>
+                  <span class="intel-report-val">Protect Crystal</span>
+                </div>
+                <div class="intel-report-item">
+                  <span class="intel-report-label">Tactical Reward</span>
+                  <span class="intel-report-val intel-report-val--highlight">Unlocks "Hawk Eye"</span>
+                </div>
+              </div>
             </div>
 
             <!-- Content Panel 3 -->
             <div id="rc-lore-log-threat" class="rc-lore-panel" style="display: none;">
-              <div style="position: relative; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.05); aspect-ratio: 16/9;">
-                <img alt="Demonic rifts corrupting the environment" src="../assets/reclairos-environment-04.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              <div class="rc-hud-container rc-hud-panel-enemy">
+                <div class="rc-hud-bracket rc-hud-bracket--tl"></div>
+                <div class="rc-hud-bracket rc-hud-bracket--tr"></div>
+                <div class="rc-hud-bracket rc-hud-bracket--bl"></div>
+                <div class="rc-hud-bracket rc-hud-bracket--br"></div>
+                <span class="rc-hud-tag">SATELLITE BRIEF // DANGER_DETECTION</span>
+                <img alt="Void obelisks corrupting the terrain in the Demon Rift Zone" src="../assets/reclairos-environment-04.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
               </div>
               <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Void Corruption: The Demon Rift Zone</h4>
               <p style="font-size: 0.88rem; line-height: 1.6; color: var(--color-text-muted); margin: 0;">
                 As the Void energy bleeds into Reclairos, it warps the land and turns wildlife aggressive. Ashrak's heavy defenders block the paths, and fast disruptors harass the escort payload. Understanding how to counter these anomalies is the key to squad survival.
               </p>
+              <!-- Tactical Intel Grid -->
+              <div class="intel-report-grid">
+                <div class="intel-report-item">
+                  <span class="intel-report-label">Threat Level</span>
+                  <span class="intel-report-val intel-report-val--warning">Catastrophic</span>
+                </div>
+                <div class="intel-report-item">
+                  <span class="intel-report-label">Key Mission</span>
+                  <span class="intel-report-val">Purge Demon Rifts</span>
+                </div>
+                <div class="intel-report-item">
+                  <span class="intel-report-label">Tactical Reward</span>
+                  <span class="intel-report-val intel-report-val--highlight">Unlocks "Armored Axeman"</span>
+                </div>
+              </div>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ WORLD EXPLORATION — Map / Episodic Narrative ═══ -->
+    <section class="rc-section rc-section--alt" id="world-map-exploration">
+      <div class="container" style="text-align: center;">
+        <span class="rc-section__eyebrow">World Exploration</span>
+        <h2 class="rc-section__title">World Exploration: Episodic Narrative Chapters</h2>
+        <p class="rc-section__sub">Reclairos features exploration-based chapter progression, taking your squad through dense villages, ancient ruins, and high-tension encounter zones across a fractured, episodic world.</p>
+        <div style="max-width: 960px; margin: 0 auto;">
+          <img alt="Detailed world map of Reclairos showing exploration zones, encounter regions, and chapter progression" loading="lazy" src="../assets/reclairos-map.webp?v=2" class="rc-map__img" width="960" height="540" />
+          <div class="rc-map-grid">
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem;">
+              <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-accent); margin-bottom: 0.5rem;">Early Chapters</p>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0; line-height: 1.6;">Single archetype waves. Teaching class roles through play.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem;">
+              <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-accent); margin-bottom: 0.5rem;">Mid Chapters</p>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0; line-height: 1.6;">Two archetype combinations. Encounters require class synergy.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem;">
+              <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-accent); margin-bottom: 0.5rem;">Late Chapters</p>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0; line-height: 1.6;">Three+ archetypes. Elite enemies. Aggressive escort pathing.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1420,7 +1890,7 @@
           <!-- Hitter -->
           <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/Hitter.webp" alt="Hitter" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/Hitter.webp" alt="Reclairos Ally Unit - The Hitter, low-cost single-target attacker" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">The Hitter</h3>
@@ -1441,7 +1911,7 @@
           <!-- Knight -->
           <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/knight.webp" alt="Knight" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/knight.webp" alt="Reclairos Ally Unit - The Knight, durable frontline tank defender" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">The Knight</h3>
@@ -1462,7 +1932,7 @@
           <!-- Hawk Eye -->
           <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/hawktho eye.webp" alt="Hawk Eye" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/hawktho eye.webp" alt="Reclairos Ally Unit - Hawk Eye, single-target ranged archer" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">Hawk Eye</h3>
@@ -1483,7 +1953,7 @@
           <!-- Armored Axeman -->
           <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/armored axeman.webp" alt="Armored Axeman" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/armored axeman.webp" alt="Reclairos Elite Ally Unit - Armored Axeman, area damage tank" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Armored Axeman</h3>
@@ -1504,7 +1974,7 @@
           <!-- Fire Knight -->
           <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/fireknight.webp" alt="Fire Knight" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/fireknight.webp" alt="Reclairos Elite Ally Unit - Fire Knight, flame strike spellcaster" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Fire Knight</h3>
@@ -1525,7 +1995,7 @@
           <!-- Guardian Knight -->
           <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/gaurdian knight.webp" alt="Guardian Knight" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/gaurdian knight.webp" alt="Reclairos Elite Ally Unit - Guardian Knight, shield-blocker tank" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Guardian Knight</h3>
@@ -1546,7 +2016,7 @@
           <!-- Priest -->
           <div class="rc-roster-card rc-ally-card" data-tier="warlord-emperor">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/healer.webp" alt="Priest" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/healer.webp" alt="Reclairos Warlord Unit - The Healer Priest, holy healing warden" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Warlord Ally Unit</span>
             <h3 class="rc-roster-card__title">The Priest</h3>
@@ -1567,7 +2037,7 @@
           <!-- King -->
           <div class="rc-roster-card rc-ally-card" data-tier="warlord-emperor">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/King.webp" alt="King" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/King.webp" alt="Reclairos Warlord Unit - The King, ultimate vanguard commander" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Emperor Ally Unit</span>
             <h3 class="rc-roster-card__title">The King</h3>
@@ -1622,7 +2092,7 @@
           <!-- Goblin -->
           <div class="rc-roster-card rc-enemy-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/goblin.webp" alt="Goblin" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/goblin.webp" alt="Reclairos Enemy Unit - Goblin Scout, fast lane infiltrator" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Monster</span>
             <h3 class="rc-roster-card__title">Goblin</h3>
@@ -1643,7 +2113,7 @@
           <!-- Evil Eye -->
           <div class="rc-roster-card rc-enemy-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/evil eye.webp" alt="Evil Eye" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/evil eye.webp" alt="Reclairos Enemy Unit - Evil Eye, ranged magic disruptor" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Flying Demon Creature</span>
             <h3 class="rc-roster-card__title">Evil Eye</h3>
@@ -1664,7 +2134,7 @@
           <!-- Axeltronic -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/axeltronic.webp" alt="Axeltronic" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/axeltronic.webp" alt="Reclairos Enemy Unit - Axeltronic, mechanical lane shockwave disruptor" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Electric Warrior</span>
             <h3 class="rc-roster-card__title">Axeltronic</h3>
@@ -1685,7 +2155,7 @@
           <!-- Boulder Guy -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/boulderguy.webp" alt="Boulder Guy" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/boulderguy.webp" alt="Reclairos Elite Enemy Unit - Boulder Guy, high HP stone tank" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Ancient Heavy Guardian</span>
             <h3 class="rc-roster-card__title">Boulder Guy</h3>
@@ -1706,7 +2176,7 @@
           <!-- Elite Orc -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/elite orc.webp" alt="Elite Orc" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/elite orc.webp" alt="Reclairos Elite Enemy Unit - Elite Orc, heavy melee commander" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Orc Warrior</span>
             <h3 class="rc-roster-card__title">Elite Orc</h3>
@@ -1727,7 +2197,7 @@
           <!-- Orc Rider -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/orc rider.webp" alt="Orc Rider" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/orc rider.webp" alt="Reclairos Elite Enemy Unit - Orc Rider, charging cavalry commander" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Orc Commander</span>
             <h3 class="rc-roster-card__title">Orc Rider</h3>
@@ -1748,7 +2218,7 @@
           <!-- Ignar -->
           <div class="rc-roster-card rc-enemy-card" data-tier="boss">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/ignaar.webp" alt="Ignar" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/ignaar.webp" alt="Reclairos Demon Boss - Ignar, fire-knight commander of the Void" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Demon Commander</span>
             <h3 class="rc-roster-card__title">Ignar</h3>
@@ -1769,7 +2239,7 @@
           <!-- The Ancient Guardian -->
           <div class="rc-roster-card rc-enemy-card" data-tier="boss">
             <div class="rc-roster-card__img-wrap">
-              <img src="../assets/Gaurdian.webp" alt="The Ancient Guardian" class="rc-roster-card__img" loading="lazy">
+              <img src="../assets/Gaurdian.webp" alt="Reclairos Ancient Boss - The Ancient Guardian, corrupted stone protector" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Mythical Entity</span>
             <h3 class="rc-roster-card__title">The Ancient Guardian</h3>
@@ -1972,6 +2442,11 @@
             <h3 class="rc-tech-card__title">5 Specialization Classes</h3>
             <p class="rc-tech-card__desc">Build layouts featuring defensive tanks, area damage breakers, swift rangers, supportive healers, and legendary warlord entities.</p>
           </div>
+          <div class="rc-tech-card">
+            <span class="rc-tech-card__tag">Level Hazard</span>
+            <h3 class="rc-tech-card__title">Interactive Lane Hazards</h3>
+            <p class="rc-tech-card__desc">Environmental threats like shifting barricades, active void storms, and direct path alterations that force real-time squad adjustments.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -2022,10 +2497,10 @@
           </h3>
           <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">Select your device parameters below to check real-time target framerate and performance benchmarks.</p>
           
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+          <div class="rc-compat-grid">
             <div>
               <label for="rc-checker-os" style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Operating System</label>
-              <select id="rc-checker-os" style="width: 100%; padding: 0.8rem; background: rgba(5,7,10,0.6); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: #fff; outline: none; font-size: 0.9rem;">
+              <select id="rc-checker-os" class="rc-compat-select">
                 <option value="android-high">Android 12+ (Vulkan support)</option>
                 <option value="android-low">Android 9-11 (GLES 3.0 support)</option>
                 <option value="ios-high">iOS 15+ (Metal support - A12+ Chip)</option>
@@ -2034,7 +2509,7 @@
             </div>
             <div>
               <label for="rc-checker-ram" style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Device System Memory</label>
-              <select id="rc-checker-ram" style="width: 100%; padding: 0.8rem; background: rgba(5,7,10,0.6); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: #fff; outline: none; font-size: 0.9rem;">
+              <select id="rc-checker-ram" class="rc-compat-select">
                 <option value="ram-8">8 GB RAM or higher (Premium)</option>
                 <option value="ram-6">6 GB RAM (Standard)</option>
                 <option value="ram-4">4 GB RAM (Mid-tier)</option>
@@ -2045,6 +2520,17 @@
           
           <button id="rc-run-diagnostic-btn" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Run Performance Match</button>
           
+          <!-- Diagnostics Loading Progress -->
+          <div class="diag-progress-wrap" id="rc-diag-progress-wrap">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="diag-status-text" id="rc-diag-progress-text" style="display: inline;">[0.0s] Connecting to Unity Engine profiling layer...</span>
+              <span style="font-family: monospace; font-size: 0.75rem; color: var(--color-accent);" id="rc-diag-progress-pct">0%</span>
+            </div>
+            <div class="diag-progress-track">
+              <div class="diag-progress-bar" id="rc-diag-progress-bar"></div>
+            </div>
+          </div>
+          
           <div id="rc-diagnostic-result" style="display: none; margin-top: 1.5rem; padding: 1.5rem; border-radius: 8px; border: 1px dashed rgba(255,255,255,0.1); background: rgba(255,255,255,0.01);">
             <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
               <span id="rc-diag-status-badge" style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 4px; letter-spacing: 0.05em;"></span>
@@ -2054,34 +2540,6 @@
           </div>
         </div>
       </div>
-    </section>
-
-
-    <!-- ═══ WORLD EXPLORATION — Map / Episodic Narrative ═══ -->
-    <section class="rc-section rc-section--alt">
-      <div class="container" style="text-align: center;">
-        <span class="rc-section__eyebrow">World Exploration</span>
-        <h2 class="rc-section__title">World Exploration: Episodic Narrative Chapters</h2>
-        <p class="rc-section__sub">Reclairos features exploration-based chapter progression, taking your squad through dense villages, ancient ruins, and high-tension encounter zones across a fractured, episodic world.</p>
-        <div style="max-width: 960px; margin: 0 auto;">
-          <img alt="Detailed world map of Reclairos showing exploration zones, encounter regions, and chapter progression" loading="lazy" src="../assets/reclairos-map.webp?v=2" class="rc-map__img" width="960" height="540" />
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem;">
-            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem;">
-              <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-accent); margin-bottom: 0.5rem;">Early Chapters</p>
-              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0; line-height: 1.6;">Single archetype waves. Teaching class roles through play.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem;">
-              <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-accent); margin-bottom: 0.5rem;">Mid Chapters</p>
-              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0; line-height: 1.6;">Two archetype combinations. Encounters require class synergy.</p>
-            </div>
-            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem;">
-              <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-accent); margin-bottom: 0.5rem;">Late Chapters</p>
-              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0; line-height: 1.6;">Three+ archetypes. Elite enemies. Aggressive escort pathing.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ═══ B2B BRIDGE ═══ -->
     <section class="rc-bridge">
@@ -2522,58 +2980,101 @@
         }
       });
 
-      // Compatibility Checker Logic
+      // Compatibility Checker Logic with simulated diagnostic loader
       const osSelect = document.getElementById('rc-checker-os');
       const ramSelect = document.getElementById('rc-checker-ram');
       const diagBtn = document.getElementById('rc-run-diagnostic-btn');
+      const progressWrap = document.getElementById('rc-diag-progress-wrap');
+      const progressBar = document.getElementById('rc-diag-progress-bar');
+      const progressText = document.getElementById('rc-diag-progress-text');
+      const progressPct = document.getElementById('rc-diag-progress-pct');
       const resultDiv = document.getElementById('rc-diagnostic-result');
       const statusBadge = document.getElementById('rc-diag-status-badge');
       const fpsSpan = document.getElementById('rc-diag-fps');
       const diagText = document.getElementById('rc-diag-text');
 
-      if (diagBtn && osSelect && ramSelect && resultDiv) {
+      if (diagBtn && osSelect && ramSelect && resultDiv && progressWrap) {
         diagBtn.addEventListener('click', () => {
-          const os = osSelect.value;
-          const ram = ramSelect.value;
-          
-          let status = 'Premium';
-          let fps = '60 FPS Ultra';
-          let badgeBg = 'rgba(0, 209, 255, 0.15)';
-          let badgeColor = 'var(--color-accent)';
-          let border = '1px solid rgba(0, 209, 255, 0.3)';
-          let text = 'Your hardware exceeds all target specs. Custom shaders, shadows, dynamic lighting, and high-fidelity post-processing will run at a locked 60 FPS.';
+          // Hide previous results if any
+          resultDiv.style.display = 'none';
+          diagBtn.disabled = true;
+          diagBtn.textContent = 'Profiling Device...';
 
-          if (os.includes('low') || ram === 'ram-2') {
-            status = 'Legacy / Min Spec';
-            fps = '30-40 FPS Low';
-            badgeBg = 'rgba(255, 122, 24, 0.15)';
-            badgeColor = 'var(--color-accent-secondary)';
-            border = '1px solid rgba(255, 122, 24, 0.3)';
-            text = 'Your device meets minimum specifications. The rendering pipeline will automatically trigger lightweight shader fallbacks and disable depth-of-field effects to optimize performance.';
-          } else if (ram === 'ram-4') {
-            status = 'Standard Compatible';
-            fps = '50-60 FPS Medium';
-            badgeBg = 'rgba(255, 255, 255, 0.1)';
-            badgeColor = '#fff';
-            border = '1px solid rgba(255, 255, 255, 0.2)';
-            text = 'Fully compatible. URP lightweight rendering parameters will run smoothly with standard post-processing effects and active resolution scaling.';
-          }
+          // Show progress wrap
+          progressWrap.style.display = 'block';
+          progressBar.style.width = '0%';
+          progressPct.textContent = '0%';
 
-          statusBadge.textContent = status;
-          statusBadge.style.background = badgeBg;
-          statusBadge.style.color = badgeColor;
-          fpsSpan.textContent = `| Target: ${fps}`;
-          diagText.textContent = text;
-          resultDiv.style.border = border;
-          
-          resultDiv.style.display = 'block';
-          resultDiv.style.opacity = '0';
-          resultDiv.style.transform = 'translateY(5px)';
+          const steps = [
+            { t: 0, text: '[0.0s] Connecting to Unity Engine URP profiling layer...' },
+            { t: 300, text: '[0.4s] Checking OS version and hardware renderer capabilities...' },
+            { t: 700, text: '[0.8s] Analyzing RAM and device target memory parameters...' },
+            { t: 1100, text: '[1.2s] Running target shader render pass simulation...' }
+          ];
+
+          steps.forEach(step => {
+            setTimeout(() => {
+              progressText.textContent = step.text;
+              const percent = Math.round((step.t / 1100) * 100);
+              progressPct.textContent = `${percent}%`;
+            }, step.t);
+          });
+
+          // Animate the bar width smoothly
           setTimeout(() => {
-            resultDiv.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-            resultDiv.style.opacity = '1';
-            resultDiv.style.transform = 'translateY(0)';
-          }, 10);
+            progressBar.style.width = '100%';
+          }, 50);
+
+          // Once complete, show result
+          setTimeout(() => {
+            progressWrap.style.display = 'none';
+            diagBtn.disabled = false;
+            diagBtn.textContent = 'Run Performance Match';
+
+            const os = osSelect.value;
+            const ram = ramSelect.value;
+            
+            let status = 'Premium';
+            let fps = '60 FPS Ultra';
+            let badgeBg = 'rgba(0, 209, 255, 0.15)';
+            let badgeColor = 'var(--color-accent)';
+            let border = '1px solid rgba(0, 209, 255, 0.3)';
+            let text = 'Your hardware exceeds all target specs. Custom shaders, shadows, dynamic lighting, and high-fidelity post-processing will run at a locked 60 FPS.';
+
+            if (os.includes('low') || ram === 'ram-2') {
+              status = 'Legacy / Min Spec';
+              fps = '30-40 FPS Low';
+              badgeBg = 'rgba(255, 122, 24, 0.15)';
+              badgeColor = 'var(--color-accent-secondary)';
+              border = '1px solid rgba(255, 122, 24, 0.3)';
+              text = 'Your device meets minimum specifications. The rendering pipeline will automatically trigger lightweight shader fallbacks and disable depth-of-field effects to optimize performance.';
+            } else if (ram === 'ram-4') {
+              status = 'Standard Compatible';
+              fps = '50-60 FPS Medium';
+              badgeBg = 'rgba(255, 255, 255, 0.1)';
+              badgeColor = '#fff';
+              border = '1px solid rgba(255, 255, 255, 0.2)';
+              text = 'Fully compatible. URP lightweight rendering parameters will run smoothly with standard post-processing effects and active resolution scaling.';
+            }
+
+            statusBadge.textContent = status;
+            statusBadge.style.background = badgeBg;
+            statusBadge.style.color = badgeColor;
+            fpsSpan.textContent = `| Target: ${fps}`;
+            diagText.textContent = text;
+            resultDiv.style.border = border;
+            
+            resultDiv.style.display = 'block';
+            resultDiv.style.opacity = '0';
+            resultDiv.style.transform = 'translateY(5px)';
+            setTimeout(() => {
+              resultDiv.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+              resultDiv.style.opacity = '1';
+              resultDiv.style.transform = 'translateY(0)';
+              // Scroll down to the result card smoothly
+              resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 10);
+          }, 1400);
         });
       }
 
@@ -2641,6 +3142,88 @@
         });
       });
 
+      // Voice Log Audio & Waveform mock comms feed decryptor
+      const voicePlayBtn = document.getElementById('voice-play-btn');
+      const voiceWave = document.getElementById('voice-wave');
+      const voiceStatus = document.getElementById('voice-status');
+      let audioCtx = null;
+      let voicePlaying = false;
+      let mockAudioTimer = null;
+      let signalInterval = null;
+
+      function playSciFiSignal() {
+        try {
+          if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          }
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+          
+          // Simple synth beep sequence
+          const osc = audioCtx.createOscillator();
+          const gainNode = audioCtx.createGain();
+          osc.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+          
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(110, audioCtx.currentTime); // Low comms hum
+          osc.frequency.linearRampToValueAtTime(160, audioCtx.currentTime + 0.15);
+          osc.frequency.exponentialRampToValueAtTime(70, audioCtx.currentTime + 0.45);
+          
+          gainNode.gain.setValueAtTime(0.06, audioCtx.currentTime);
+          gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
+          
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.8);
+        } catch (e) {
+          console.warn('Web Audio API not supported or blocked by user gesture policy', e);
+        }
+      }
+
+      if (voicePlayBtn && voiceWave && voiceStatus) {
+        voicePlayBtn.addEventListener('click', () => {
+          if (voicePlaying) {
+            // Stop Comms Playback
+            voicePlaying = false;
+            voicePlayBtn.textContent = '▶';
+            voiceWave.style.display = 'none';
+            voiceStatus.textContent = 'COMMS_FEED_SECURE_04.wav';
+            clearInterval(mockAudioTimer);
+            clearInterval(signalInterval);
+          } else {
+            // Start Comms Playback
+            voicePlaying = true;
+            voicePlayBtn.textContent = '■';
+            voiceWave.style.display = 'flex';
+            voiceStatus.textContent = 'DECRYPTING CORRUPTED TRANSMISSION...';
+            
+            let duration = 0;
+            playSciFiSignal();
+            signalInterval = setInterval(() => {
+              if (voicePlaying) playSciFiSignal();
+            }, 1200);
+
+            mockAudioTimer = setInterval(() => {
+              duration += 1;
+              if (duration === 2) {
+                voiceStatus.textContent = '"Comrades, Ashrak\'s forces have blocked the gates..."';
+              } else if (duration === 5) {
+                voiceStatus.textContent = '"...Crystal power at 40%... Hold the escort lane!"';
+              } else if (duration >= 8) {
+                // End playback
+                voicePlaying = false;
+                voicePlayBtn.textContent = '▶';
+                voiceWave.style.display = 'none';
+                voiceStatus.textContent = 'COMMS_FEED_SECURE_04.wav (Playback complete)';
+                clearInterval(mockAudioTimer);
+                clearInterval(signalInterval);
+              }
+            }, 1000);
+          }
+        });
+      }
+
       // Start looping
       startAutoplay();
       });
@@ -2656,7 +3239,7 @@
           </div>
           <a href="../../../../work/" class="text-accent" style="font-weight: 600; font-size: 0.9rem; text-decoration: none; color: var(--core-tech);">View All Work &rarr;</a>
         </div>
-        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+        <div class="rc-discovery-grid">
           <!-- Paapi Gudia -->
           <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
             <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative;">
