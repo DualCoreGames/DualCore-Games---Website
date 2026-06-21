@@ -55,10 +55,8 @@
         media="(max-width: 768px)" fetchpriority="high">
   <link rel="preload" as="image" href="../assets/reclairos-hero.webp?v=2"
         media="(min-width: 769px)" fetchpriority="high">
-  <!-- Non-blocking stylesheet: preload then swap to stylesheet on load -->
-  <link rel="preload" href="../../../../assets/css/style.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="../../../../assets/css/style.css" rel="stylesheet"></noscript>
+  <!-- Render-blocking: must load before paint to prevent CLS -->
+  <link href="../../../../assets/css/style.css" rel="stylesheet">
   <link href="../../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://dualcoregames.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://dualcoregames.com/work/index/"},{"@type":"ListItem","position":3,"name":"Game Development","item":"https://dualcoregames.com/work/game-development/index/"},{"@type":"ListItem","position":4,"name":"Reclairos","item":"https://dualcoregames.com/work/game-development/reclairos/overview/"}]}</script>
   <script type="application/ld+json">
@@ -1516,7 +1514,7 @@
   <header>
     <div class="container header-inner">
       <a class="logo" href="../../../../">
-        <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg" style="height: 48px; width: auto; display: block;" />
+        <img alt="DualCore Games Logo" src="../../../../assets/images/dualcore-logo.svg" width="160" height="48" style="height: 48px; width: auto; display: block;" />
       </a>
       <nav>
         <button type="button" aria-label="Toggle navigation" class="nav-toggle">☰</button>
@@ -1575,6 +1573,7 @@
           class="rc-hero__bg"
           src="../assets/reclairos-hero.webp?v=2"
           alt="Reclairos — fractured world key art showing the Prince's squad standing before a dark fortress"
+          width="2752" height="1536"
           fetchpriority="high"
           decoding="async"
         >
@@ -3284,7 +3283,7 @@
     <div class="container">
       <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
         <div class="footer-brand">
-          <img alt="DualCore Games Logo" loading="lazy" src="../../../../assets/images/dualcore-logo.svg" style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" />
+          <img alt="DualCore Games Logo" loading="lazy" src="../../../../assets/images/dualcore-logo.svg" width="134" height="40" style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" />
           <p>Game development studio building original IP and production-ready interactive systems.</p>
         </div>
         <div class="footer-col">
@@ -3321,7 +3320,7 @@
     <button class="rc-lightbox__nav rc-lightbox__nav--prev" id="rc-lightbox-prev" aria-label="Previous image">&lt;</button>
     <div class="rc-lightbox__content">
       <button class="rc-lightbox__close" id="rc-lightbox-close">&times;</button>
-      <img src="" alt="Fullscreen image" class="rc-lightbox__img" id="rc-lightbox-img" />
+      <img src="" alt="" class="rc-lightbox__img" id="rc-lightbox-img" aria-hidden="true" />
     </div>
     <button class="rc-lightbox__nav rc-lightbox__nav--next" id="rc-lightbox-next" aria-label="Next image">&gt;</button>
   </div>
