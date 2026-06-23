@@ -1,12 +1,12 @@
 # Project State
 
-> **Last Updated**: 2026-06-06
+> **Last Updated**: 2026-06-23
 
 ## Current Milestone
 **v2.0 — Mobile-First Excellence**
 
 ## Status Summary
-Project initialized for site-wide mobile responsiveness. Critical layout adjustments completed. Phase 4 complete: Resolved Reclairos overview page hero section alignment overlaps, centered the breadcrumbs, and successfully added the interactive character roster section.
+Project completed for site-wide mobile responsiveness, mobile performance optimization, and layout safety. Phase 4 completed: Optimized homepage hero video loading (removing video on mobile in favor of WebP), converted large PNG assets to WebP yielding 91.5% size reduction globally, verified mobile menu close touch targets, and stacked case-study meta grids to single-column layout on mobile devices.
 
 ## Project Progress
 
