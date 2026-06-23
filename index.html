@@ -148,18 +148,20 @@
          HERO SECTION
          ======================== -->
     <section class="hero" id="home">
-      <!-- Hybrid Cinematic Video -->
       <div class="hero-video-bg">
         <video autoplay muted loop playsinline class="hero-video" id="hero-video" preload="none">
           <!-- Non-reflowing responsive source injection based on userAgent to prevent double downloads and autoplay blocks -->
           <script>
             (function() {
               var video = document.getElementById('hero-video');
+              var container = video.parentElement;
               var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
               if (isMobile) {
-                video.src = 'assets/video/hero-mobile.mp4';
-                video.poster = 'assets/images/hero_mobile_poster.webp';
-                video.preload = 'auto';
+                video.remove();
+                container.style.backgroundImage = "url('assets/images/hero_mobile_poster.webp')";
+                container.style.backgroundSize = "cover";
+                container.style.backgroundPosition = "center center";
+                container.style.opacity = "0.85";
               } else {
                 video.src = 'assets/video/dualcore-scalable-game-systems-engineering.mp4';
                 video.poster = 'assets/images/hero_desktop_poster.webp';
