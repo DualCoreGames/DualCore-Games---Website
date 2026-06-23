@@ -39,4 +39,8 @@
     overflow-x: hidden !important;
     width: 100% !important;
   }
+  /* Case study metadata grid single-column stacking */
+  .cs-meta-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
