@@ -7,6 +7,10 @@
     display: inline-flex;
     align-items: center;
   }
+  .nav-close {
+    min-width: 48px;
+    min-height: 48px;
+  }
 }
 @media (max-width: 768px) {
   /* Footer inline style override */
@@ -38,5 +42,9 @@
   html, body {
     overflow-x: hidden !important;
     width: 100% !important;
+  }
+  /* Case study metadata grid single-column stacking */
+  .cs-meta-grid {
+    grid-template-columns: 1fr !important;
   }
 }
