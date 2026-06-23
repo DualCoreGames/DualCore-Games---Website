@@ -25,6 +25,6 @@
 **Requirements**: REQ-04, REQ-05
 
 ### Phase 4: Project Deep-Dive & Polish
-**Status**: ⬜ Not Started
+**Status**: ⬜ In Progress
 **Objective**: Refine project-specific pages (Overview/Case Study) and final responsiveness verification.
 **Requirements**: REQ-07
