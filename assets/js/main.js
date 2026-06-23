@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const messageField = document.querySelector('#message');
         const projectField = document.querySelector('#project');
 
-        if (window.location.pathname.includes('contact.html')) {
+        if (window.location.pathname.includes('/contact/')) {
             if (intent === 'specs') {
                 if (contactH1) contactH1.textContent = "Get Production Pipeline Specs";
                 if (contactSub) contactSub.textContent = "Enter your details below to receive our latest B2B production pipeline specifications.";
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     parts.pop();
                 }
                 const prefix = '../'.repeat(parts.length);
-                window.location.href = prefix + 'thank-you.html';
+                window.location.href = prefix + 'thank-you/';
                 return;
             }
 
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     parts.pop(); // Remove filename if present to get correct folder depth
                 }
                 const prefix = '../'.repeat(parts.length);
-                window.location.href = prefix + 'thank-you.html';
+                window.location.href = prefix + 'thank-you/';
             })
             .catch((err) => {
                 console.error("Submission error:", err);
