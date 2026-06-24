@@ -32,20 +32,20 @@
   <!-- End Google Tag Manager -->
 
   <!-- Open Graph -->
-  <meta content="Technical Art Benchmarks | DualCore Games" property="og:title"/>
-  <meta content="A series of intensive R&D projects exploring the boundaries of mobile and PC rendering capabilities without utilizing engine defaults." property="og:description"/>
+  <meta content="Environment & Level Design Study | DualCore Games" property="og:title"/>
+  <meta content="Scenic and urban environments designed with a focus on spatial composition, player navigation, and performance-aware world building." property="og:description"/>
   <meta content="website" property="og:type"/>
-  <meta content="https://dualcoregames.com/work/game-art/technical-art-benchmarks/" property="og:url"/>
+  <meta content="https://dualcoregames.com/work/game-art/environment-art/" property="og:url"/>
   <meta content="https://dualcoregames.com/assets/images/social-preview.webp" property="og:image"/>
   <!-- Twitter -->
   <meta content="summary_large_image" name="twitter:card"/>
-  <meta content="Technical Art Benchmarks | DualCore Games" name="twitter:title"/>
-  <meta content="A series of intensive R&D projects exploring the boundaries of mobile and PC rendering capabilities without utilizing engine defaults." property="og:description"/>
+  <meta content="Environment & Level Design Study | DualCore Games" name="twitter:title"/>
+  <meta content="Scenic and urban environments designed with a focus on spatial composition, player navigation, and performance-aware world building." property="og:description"/>
   <meta name="theme-color" content="#00d2ff">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Technical Art Benchmarks — R&amp;D Shaders &amp; Scripting | DualCore Games</title>
-  <link href="https://dualcoregames.com/work/game-art/technical-art-benchmarks/" rel="canonical"/>
-  <meta content="Technical Art Benchmarks project overview, showing custom terrain generators, HLSL lighting shaders, and draw call profiling." name="description"/>
+  <title>Environment & Level Design — Showcase | DualCore Games</title>
+  <link href="https://dualcoregames.com/work/game-art/environment-art/" rel="canonical"/>
+  <meta content="Scenic and urban environment layouts optimized for real-time mobile and PC game engines. Exploration of terrain splines, modular building blocks, and light baking." name="description"/>
   <link href="../../../assets/css/style.css" rel="stylesheet"/>
   <link href="../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
   
@@ -71,8 +71,8 @@
     },{
       "@type": "ListItem",
       "position": 4,
-      "name": "Technical Art Benchmarks",
-      "item": "https://dualcoregames.com/work/game-art/technical-art-benchmarks/"
+      "name": "Environment Art",
+      "item": "https://dualcoregames.com/work/game-art/environment-art/"
     }]
   }
   </script>
@@ -81,7 +81,7 @@
     /* ── Case Study Whitepaper Styles ── */
     .cs-hero {
       position: relative;
-      background: radial-gradient(circle at 80% 20%, rgba(255, 122, 24, 0.08) 0%, transparent 60%), #080808;
+      background: radial-gradient(circle at 80% 20%, rgba(255, 122, 24, 0.06) 0%, transparent 60%), #080808;
       padding: 12rem 0 8rem;
       border-bottom: 1px solid rgba(255,255,255,0.05);
       overflow: hidden;
@@ -219,57 +219,72 @@
     }
     .cs-section h2 { margin-bottom: 2rem; font-size: clamp(1.8rem, 3vw, 2.5rem); letter-spacing: -0.02em; color: #fff; }
 
-    /* System List Styling */
-    .arch-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 4rem 0;
-    }
-    .arch-list-item {
+    /* Project Cards inside Showcase */
+    .project-showcase-item {
       background: rgba(255,255,255,0.01);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 2.5rem;
-      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 3.5rem;
+      margin-bottom: 4rem;
     }
-    .arch-list-item h4 {
-      font-size: 1.25rem;
+    .project-showcase-item:last-child {
+      margin-bottom: 0;
+    }
+    .project-showcase-item h3 {
+      font-size: 2rem;
       font-weight: 800;
       margin-top: 0;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       color: #fff;
     }
-    .arch-list-item p {
+    
+    .tech-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: rgba(0,210,255,0.06);
+      border: 1px solid rgba(0,210,255,0.15);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
       font-size: 0.95rem;
-      line-height: 1.7;
+      line-height: 1.6;
       color: var(--color-text-muted);
-      margin: 0;
+    }
+    .bullet-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 800;
     }
 
     /* Split grids */
     .cs-split {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    /* Image Frame */
-    .narrative-image-container {
-      margin: 4rem 0;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      overflow: hidden;
-      aspect-ratio: 16/9;
-    }
-    .narrative-image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
     }
 
     @media (max-width: 768px) {
       .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
-      .cs-split { grid-template-columns: 1fr; gap: 2rem; }
+      .cs-split { grid-template-columns: 1fr; gap: 2.5rem; }
+      .project-showcase-item { padding: 2rem; }
     }
   </style>
 </head>
@@ -337,149 +352,205 @@
     <!-- ═══ HERO ═══ -->
     <section class="cs-hero">
       <div class="container">
-        <a href="../../../work/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content;">
-          <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Portfolio
+        <a href="../../../work/game-art/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content;">
+          <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Game Art
         </a>
         <br>
-        <span class="cs-label">R&amp;D Case Study</span>
-        <p class="cs-hero__meta">Custom Pipelines &nbsp;/&nbsp; Shader Optimisation</p>
-        <h1>Technical Art Benchmarks</h1>
-        <p>A series of intensive R&amp;D projects exploring the boundaries of mobile and PC rendering capabilities without relying on standard engine-default setups.</p>
-        
-        <div style="margin-bottom: 4rem;">
-          <a class="btn btn-primary" href="#contact-form" style="padding: 0.85rem 2rem; font-weight: 600; text-decoration: none;">Request Consultation</a>
-        </div>
+        <span class="cs-label">Design Studies</span>
+        <p class="cs-hero__meta">Level Design &nbsp;/&nbsp; Technical Art Systems</p>
+        <h1>Environment &amp; Level Design</h1>
+        <p>A curated collection of scenic and urban layouts designed for spatial storytelling, structured player navigation, and strict hardware performance limits.</p>
 
         <!-- Project Meta Grid -->
         <div class="cs-meta-grid">
           <div class="cs-meta-card">
-            <span class="cs-meta-card__label">Platform</span>
-            <p class="cs-meta-card__value">Cross-Platform (Mobile/PC)</p>
+            <span class="cs-meta-card__label">Engines</span>
+            <p class="cs-meta-card__value">Unity &amp; Unreal Engine</p>
           </div>
           <div class="cs-meta-card">
-            <span class="cs-meta-card__label">Engine</span>
-            <p class="cs-meta-card__value">Unity Custom URP &amp; HDRP</p>
+            <span class="cs-meta-card__label">Role</span>
+            <p class="cs-meta-card__value">Tech Art &amp; Design</p>
           </div>
           <div class="cs-meta-card">
-            <span class="cs-meta-card__label">Draw Calls</span>
-            <p class="cs-meta-card__value">Reduced up to 60%</p>
+            <span class="cs-meta-card__label">Focus</span>
+            <p class="cs-meta-card__value">Spatial Pacing &amp; LODs</p>
           </div>
-          <div class="cs-meta-card" style="border-top: 2px solid rgba(255,122,24,0.4); background: rgba(255,122,24,0.03);">
-            <span class="cs-meta-card__label">Status</span>
-            <p class="cs-meta-card__value">Ongoing Internal R&amp;D</p>
+          <div class="cs-meta-card" style="border-top: 2px solid rgba(0,210,255,0.4); background: rgba(0,210,255,0.03);">
+            <span class="cs-meta-card__label">Workflow</span>
+            <p class="cs-meta-card__value">Modular &amp; Baked</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ 01 PROJECT OVERVIEW ═══ -->
+    <!-- ═══ SHOWCASE SECTIONS ═══ -->
     <section class="cs-section">
       <div class="container">
-        <span class="cs-section-num">01 &nbsp;/&nbsp; Project Overview</span>
-        <h2>Shaders, Scripting, and Optimization</h2>
-        <div class="cs-split" style="margin-bottom: 4rem;">
-          <div>
-            <h4 style="margin-top: 0; color: #fff;">The Challenge</h4>
-            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-              Standard engines introduce bloated asset loading cycles, heavy material setups, and high vertex overheads. The challenge was building lightweight rendering procedures that yield cinematic environments on constrained platforms.
-            </p>
-            <h4 style="color: #fff;">The Solution</h4>
-            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8;">
-              We authored HLSL shaders, developed custom procedural mesh generation modules, and programmed modular script pipelines. These tools bypass engine limitations and fit high-fidelity textures into narrow visual budgets.
-            </p>
-          </div>
-          <div>
-            <table class="tech-specs-table">
-              <thead>
-                <tr>
-                  <th colspan="2">R&amp;D Benchmarks</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Memory Footprint</td>
-                  <td>-60% VRAM requirements</td>
-                </tr>
-                <tr>
-                  <td>Asset Fidelity</td>
-                  <td>High-definition shader lighting response</td>
-                </tr>
-                <tr>
-                  <td>Terrain Systems</td>
-                  <td>Bespoke procedural modeling generators</td>
-                </tr>
-                <tr>
-                  <td>VFX Integration</td>
-                  <td>Lightweight GPU-driven particle arrays</td>
-                </tr>
-              </tbody>
-            </table>
+        
+        <!-- Project 1: Delhi City -->
+        <div class="project-showcase-item">
+          <span class="cs-section-num">01 &nbsp;/&nbsp; Urban Environment study</span>
+          <h3>Delhi City Environment</h3>
+          <span class="tech-badge">Unity</span>
+          <span class="tech-badge">Bakery Lightmapper</span>
+          <span class="tech-badge">PC Target</span>
+          
+          <div class="cs-split">
+            <div>
+              <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                Designing a city environment is focused on controlling spatial rhythms—believable streets, height variations, and intersections that organically reveal metropolitan structures. This project captures the density of a busy urban layout while staying highly optimized for real-time rendering.
+              </p>
+              
+              <h4 style="color: #fff; font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem; font-weight: 700;">Key Design Choices:</h4>
+              <ul class="bullet-list">
+                <li><strong>Monotony Breaks:</strong> Structural height variation breaks up the metropolitan skyline.</li>
+                <li><strong>Gradual Reveal:</strong> Street layouts are organized so the environment loads without visual pop-ins or heavy processing stutters.</li>
+                <li><strong>Bakery Lightmapping:</strong> High-fidelity lightmaps baked manually using Bakery to completely eliminate expensive real-time calculations.</li>
+              </ul>
+            </div>
+            
+            <div>
+              <table class="tech-specs-table" style="margin-top: 0;">
+                <thead>
+                  <tr>
+                    <th colspan="2">Performance Snapshot</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Target Frame Rate</td>
+                    <td>70–90 FPS stable rendering</td>
+                  </tr>
+                  <tr>
+                    <td>Draw Calls</td>
+                    <td>~210 batch count limit</td>
+                  </tr>
+                  <tr>
+                    <td>Polygons</td>
+                    <td>~160k triangles limit</td>
+                  </tr>
+                  <tr>
+                    <td>Optimizations</td>
+                    <td>Texture atlasing, Occlusion culling, Modular assets</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
-        <div class="narrative-image-container">
-          <img src="assets/tech-art-rendering.webp" alt="High-fidelity 3D spaceship hangar rendering demonstrating custom shaders and volumetric fog">
+        <!-- Project 2: Mountain Road -->
+        <div class="project-showcase-item" style="margin-top: 6rem;">
+          <span class="cs-section-num">02 &nbsp;/&nbsp; Terrain Environment Study</span>
+          <h3>Mountain Road Racing Level</h3>
+          <span class="tech-badge">Unity Splines</span>
+          <span class="tech-badge">PC &amp; Mobile</span>
+          <span class="tech-badge">Foliage LODs</span>
+          
+          <div class="cs-split">
+            <div>
+              <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                A scenic driving highway designed to balance high-speed gameplay mechanics with massive terrain scales. Turn curvatures are calculated to mimic mountain roads, giving players clear sightlines for driving maneuvers at high speeds.
+              </p>
+              
+              <h4 style="color: #fff; font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem; font-weight: 700;">Key Design Choices:</h4>
+              <ul class="bullet-list">
+                <li><strong>Spline-Based Road Layout:</strong> Generating natural road curves wrapping dynamically around elevation details.</li>
+                <li><strong>Foliage Performance:</strong> Vegetation density is strictly managed with custom LOD parameters adjusting based on distances.</li>
+                <li><strong>Lightweight Shaders:</strong> Water surfaces and reflection planes rely on customized lightweight shaders to minimize GPU pixel overhead.</li>
+              </ul>
+            </div>
+            
+            <div>
+              <table class="tech-specs-table" style="margin-top: 0;">
+                <thead>
+                  <tr>
+                    <th colspan="2">System Specifications</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Environment Type</td>
+                    <td>Spline Racing Highway</td>
+                  </tr>
+                  <tr>
+                    <td>Target Platforms</td>
+                    <td>PC &amp; Mobile cross-compatibility</td>
+                  </tr>
+                  <tr>
+                    <td>Geometry Baking</td>
+                    <td>Distant mesh detail optimizations</td>
+                  </tr>
+                  <tr>
+                    <td>LOD Tuning</td>
+                    <td>Dynamic vegetation density control</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
+
+        <!-- Project 3: Mobile Platformer -->
+        <div class="project-showcase-item" style="margin-top: 6rem;">
+          <span class="cs-section-num">03 &nbsp;/&nbsp; Low-Poly Level Study</span>
+          <h3>Mobile Platformer Level</h3>
+          <span class="tech-badge">Unity Mobile</span>
+          <span class="tech-badge">Low-Poly Assets</span>
+          <span class="tech-badge">Stylized Post-Process</span>
+          
+          <div class="cs-split">
+            <div>
+              <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                A stylized platformer level designed for mobile devices. The key design focus centers around visual readability, clear platform spacing, and open sightlines, ensuring players can navigate smoothly without mechanical confusion.
+              </p>
+              
+              <h4 style="color: #fff; font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem; font-weight: 700;">Key Design Choices:</h4>
+              <ul class="bullet-list">
+                <li><strong>Readability First:</strong> Clean platform spaces and color-graded highlights guide player directions naturally.</li>
+                <li><strong>Mobile Budgeting:</strong> Low-poly geometric designs preserve rendering budgets on older mobile devices.</li>
+                <li><strong>Atmospheric Polish:</strong> Soft light setups combined with localized post-processing color grading yield visual polish without hardware stress.</li>
+              </ul>
+            </div>
+            
+            <div>
+              <table class="tech-specs-table" style="margin-top: 0;">
+                <thead>
+                  <tr>
+                    <th colspan="2">Mobile Specs</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Asset Style</td>
+                    <td>Stylized Low-Poly Geometry</td>
+                  </tr>
+                  <tr>
+                    <td>Visual Tuning</td>
+                    <td>Post-processing &amp; Color Grading</td>
+                  </tr>
+                  <tr>
+                    <td>Framerate Target</td>
+                    <td>60 FPS locked on mobile chipsets</td>
+                  </tr>
+                  <tr>
+                    <td>Inputs Supported</td>
+                    <td>Mobile touchscreen controls layout</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ═══ 02 SYSTEM ARCHITECTURE ═══ -->
-    <section class="cs-section cs-section--alt">
+    <!-- ═══ CTA ═══ -->
+    <section class="cs-cta" style="padding: 8rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); background: #080808;">
       <div class="container">
-        <span class="cs-section-num">02 &nbsp;/&nbsp; System Architecture</span>
-        <h2>Rendering &amp; Mesh Logic</h2>
-        <p style="color: var(--color-text-muted); max-width: 800px; font-size: 1.1rem; line-height: 1.8; margin-bottom: 4rem;">
-          These benchmarks generated internal libraries that accelerate asset baking, lighting projection, and terrain generation.
-        </p>
-
-        <div class="arch-list">
-          <div class="arch-list-item">
-            <h4>Bespoke Terrain Generator</h4>
-            <p>Scripted custom terrain heightmaps to dynamic mesh loaders, replacing traditional terrain asset tools that degrade performance.</p>
-          </div>
-          <div class="arch-list-item">
-            <h4>Custom Lighting Shader</h4>
-            <p>Bypassed default Unity shaders to implement HLSL material structures that accurately react to lighting gradients while minimizing shader passes.</p>
-          </div>
-          <div class="arch-list-item">
-            <h4>Vertex &amp; Draw-Call Pruner</h4>
-            <p>Strict runtime draw call profiling and mesh combining algorithms that maintain smooth framerates on low-tier targets.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ CTA & Demo Form ═══ -->
-    <section class="cs-cta" id="contact-form">
-      <div class="container" style="max-width: 600px;">
-        <div style="text-align: center; margin-bottom: 3rem;">
-          <span class="cs-label">Technical Art</span>
-          <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem; color: #fff;">Start Your Project</h2>
-          <p class="text-muted" style="max-width: 500px; margin: 0 auto;">Ready to optimize your graphics pipeline or develop custom shaders? Let's talk.</p>
-        </div>
-        <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="contactForm">
-          <!-- Honeypot Field for Anti-Spam -->
-          <div style="display: none;" aria-hidden="true">
-            <input type="text" name="honeypot_field" tabindex="-1" autocomplete="off">
-          </div>
-          <input type="hidden" name="project" value="Technical Art Benchmarks Inquiry">
-          <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
-            <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;">Full Name</label>
-            <input id="name" name="name" placeholder="John Doe" required="" type="text" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.8rem 1.2rem; border-radius: 4px;"/>
-          </div>
-          <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
-            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;">Email Address</label>
-            <input id="email" name="email" placeholder="john@example.com" required="" type="email" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.8rem 1.2rem; border-radius: 4px;"/>
-          </div>
-          <div class="form-group" style="margin-bottom: 2rem; text-align: left;">
-            <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;">Briefly describe your requirements</label>
-            <textarea id="message" name="message" placeholder="Custom shaders, engine optimization, environment art..." required="" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.8rem 1.2rem; border-radius: 4px; height: 100px; resize: vertical;"></textarea>
-          </div>
-          <button class="btn btn-primary" style="width: 100%; padding: 1.1rem; font-weight: 700; text-transform: uppercase;" type="submit">Submit Inquiry</button>
-          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 1.5rem; text-align: center;">
-            By submitting, you agree to our <a href="../../../privacy-policy" style="color: var(--color-accent);">Privacy Policy</a>. We respond to inquiries within 24-48 hours.
-          </p>
-        </form>
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 2rem; color: #fff;">Bring Technical Detail To Your Worlds</h2>
+        <a class="btn btn-primary" href="../../../contact/">Discuss Your Project</a>
       </div>
     </section>
   </main>
