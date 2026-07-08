@@ -1,5 +1,17 @@
 User-agent: *
 Allow: /
 
+# Block duplicate index.html paths
+Disallow: /index.html
+Disallow: /*/index.html
+
+# Block legacy WordPress paths & queries
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/
+Disallow: /wp-login.php
+Disallow: /*?s=*
+Disallow: /*?ver=*
+
 Sitemap: https://dualcoregames.com/sitemap.xml
 
