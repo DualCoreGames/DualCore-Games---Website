@@ -108,6 +108,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 5. Nav Toggle & Accessibility
+    document.querySelectorAll('.has-dropdown').forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        if (toggle && menu) {
+            const href = toggle.getAttribute('href');
+            const text = toggle.textContent.trim().replace('▼', '').trim();
+            if (!menu.querySelector('.mobile-overview-link')) {
+                const li = document.createElement('li');
+                li.className = 'mobile-overview-link';
+                const label = text === 'Services' ? 'All Services / Overview →' : 'All Projects / Overview →';
+                li.innerHTML = `<a class="dropdown-link" href="${href}" style="font-weight: 700; color: var(--core-tech);">${label}</a>`;
+                
+                menu.insertBefore(li, menu.firstChild);
+                
+                const divider = document.createElement('li');
+                divider.className = 'mobile-overview-divider dropdown-divider';
+                menu.insertBefore(divider, menu.children[1]);
+            }
+        }
+    });
+
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navClose = document.querySelector('.nav-close');
@@ -497,6 +518,196 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         }
+    })();
+
+    // 10. Interactive Subpage Hero Grid Animation
+    (function () {
+        const mainSection = document.querySelector('main > section:first-of-type');
+        const isHomepage = document.querySelector('section.hero') !== null;
+        
+        // Only run on subpages
+        if (!mainSection || isHomepage) return;
+
+        // Dynamically inject canvas element
+        const canvas = document.createElement('canvas');
+        canvas.className = 'subpage-hero-canvas';
+        canvas.style.position = 'absolute';
+        canvas.style.inset = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.zIndex = '1';
+        canvas.style.pointerEvents = 'none';
+
+        // Prepare parent container styles
+        if (getComputedStyle(mainSection).position === 'static') {
+            mainSection.style.position = 'relative';
+        }
+        const container = mainSection.querySelector('.container');
+        if (container) {
+            container.style.position = 'relative';
+            container.style.zIndex = '2';
+        }
+
+        mainSection.insertBefore(canvas, mainSection.firstChild);
+
+        // Animation logic
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        const mouse = { x: null, y: null, active: false, radius: 120 };
+        const nodes = [];
+
+        // Generate grid node positions
+        class GridNode {
+            constructor(x, y) {
+                this.baseX = x;
+                this.baseY = y;
+                this.x = x;
+                this.y = y;
+                this.angle = Math.random() * Math.PI * 2;
+                this.speed = 0.01 + Math.random() * 0.01;
+                this.range = 5 + Math.random() * 5; // slow floating range
+            }
+
+            update() {
+                // Gentle breathing drift
+                this.angle += this.speed;
+                let targetX = this.baseX + Math.sin(this.angle) * this.range;
+                let targetY = this.baseY + Math.cos(this.angle) * this.range;
+
+                // Mouse interaction / warp grid field
+                if (mouse.active && mouse.x !== null && mouse.y !== null) {
+                    const dx = mouse.x - targetX;
+                    const dy = mouse.y - targetY;
+                    const dist = Math.hypot(dx, dy);
+
+                    if (dist < mouse.radius) {
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        // Pull nodes gently toward mouse
+                        targetX += (dx / dist) * force * 14;
+                        targetY += (dy / dist) * force * 14;
+                    }
+                }
+
+                this.x += (targetX - this.x) * 0.1;
+                this.y += (targetY - this.y) * 0.1;
+            }
+        }
+
+        const initGrid = () => {
+            nodes.length = 0;
+            width = canvas.width = mainSection.offsetWidth;
+            height = canvas.height = mainSection.offsetHeight;
+            
+            // Optimize grid spacing: wider spacing on mobile to reduce rendering nodes
+            const gridSpacing = width < 768 ? 120 : 80;
+
+            for (let x = 0; x < width + gridSpacing; x += gridSpacing) {
+                const col = [];
+                for (let y = 0; y < height + gridSpacing; y += gridSpacing) {
+                    col.push(new GridNode(x, y));
+                }
+                nodes.push(col);
+            }
+        };
+
+        // Event Listeners
+        const handleMouseMove = (e) => {
+            const rect = mainSection.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+            mouse.active = true;
+        };
+
+        const handleTouchMove = (e) => {
+            if (e.touches.length > 0) {
+                const rect = mainSection.getBoundingClientRect();
+                mouse.x = e.touches[0].clientX - rect.left;
+                mouse.y = e.touches[0].clientY - rect.top;
+                mouse.active = true;
+            }
+        };
+
+        mainSection.addEventListener('mousemove', handleMouseMove, { passive: true });
+        mainSection.addEventListener('touchmove', handleTouchMove, { passive: true });
+
+        mainSection.addEventListener('mouseleave', () => { mouse.active = false; }, { passive: true });
+        mainSection.addEventListener('touchend', () => { mouse.active = false; }, { passive: true });
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(initGrid, 150);
+        }, { passive: true });
+
+        // Animation Loop
+        const animate = () => {
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw Warp Grid Lines
+            ctx.lineWidth = 1;
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = 0; j < nodes[i].length; j++) {
+                    const node = nodes[i][j];
+                    if (!node) continue;
+                    node.update();
+
+                    // Connect to right neighbor (horizontal line)
+                    if (i < nodes.length - 1) {
+                        const rightNode = nodes[i + 1][j];
+                        if (rightNode) {
+                            ctx.beginPath();
+                            ctx.moveTo(node.x, node.y);
+                            ctx.lineTo(rightNode.x, rightNode.y);
+                            
+                            const ratio = node.x / width;
+                            const opacity = 0.02 + (mouse.active ? (1 - Math.min(Math.hypot(mouse.x - node.x, mouse.y - node.y), 200)/200) * 0.04 : 0);
+                            ctx.strokeStyle = `hsla(${ratio < 0.5 ? 190 : 25}, 100%, 70%, ${opacity})`;
+                            ctx.stroke();
+                        }
+                    }
+
+                    // Connect to bottom neighbor (vertical line)
+                    if (j < nodes[i].length - 1) {
+                        const bottomNode = nodes[i][j + 1];
+                        if (bottomNode) {
+                            ctx.beginPath();
+                            ctx.moveTo(node.x, node.y);
+                            ctx.lineTo(bottomNode.x, bottomNode.y);
+                            
+                            const ratio = node.x / width;
+                            const opacity = 0.02 + (mouse.active ? (1 - Math.min(Math.hypot(mouse.x - node.x, mouse.y - node.y), 200)/200) * 0.04 : 0);
+                            ctx.strokeStyle = `hsla(${ratio < 0.5 ? 190 : 25}, 100%, 70%, ${opacity})`;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            // Draw glowing node points
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = 0; j < nodes[i].length; j++) {
+                    const node = nodes[i][j];
+                    if (!node) continue;
+                    const ratio = node.x / width;
+                    const distToMouse = mouse.active && mouse.x !== null ? Math.hypot(mouse.x - node.x, mouse.y - node.y) : 999;
+                    
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, distToMouse < 100 ? 2 : 1, 0, Math.PI * 2);
+                    
+                    const hue = ratio < 0.45 ? 190 : (ratio > 0.55 ? 25 : 190 + (25 - 190) * ((ratio - 0.45)/0.1));
+                    const alpha = distToMouse < 120 ? 0.3 + (1 - distToMouse/120) * 0.45 : 0.08;
+                    
+                    ctx.fillStyle = `hsla(${hue}, 100%, 70%, ${alpha})`;
+                    ctx.fill();
+                }
+            }
+
+            requestAnimationFrame(animate);
+        };
+
+        // Initialize
+        initGrid();
+        animate();
     })();
 
 });
