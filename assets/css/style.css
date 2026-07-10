@@ -48,3 +48,16 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+/* mobile overview links hidden on desktop */
+.mobile-overview-link, .mobile-overview-divider {
+  display: none !important;
+}
+@media (max-width: 1024px) {
+  .mobile-overview-link {
+    display: block !important;
+  }
+  .mobile-overview-divider {
+    display: block !important;
+  }
+}
