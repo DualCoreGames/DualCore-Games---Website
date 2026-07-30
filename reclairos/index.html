@@ -36,7 +36,7 @@
   <meta content="A systems-driven mobile tower defense RPG. Join the Private Beta — assemble your elite squad and fight for a fractured world." property="og:description"/>
   <meta content="website" property="og:type"/>
   <meta content="https://dualcoregames.com/reclairos/" property="og:url"/>
-  <meta content="https://dualcoregames.com/work/game-development/reclairos/assets/reclairos-thumbnail.webp" property="og:image" />
+  <meta content="https://dualcoregames.com/reclairos/assets/reclairos-thumbnail.webp" property="og:image" />
   <meta content="summary_large_image" name="twitter:card"/>
   <meta content="Reclairos | The World is Broken. Reclaim It." name="twitter:title"/>
   <meta content="A systems-driven mobile tower defense RPG. Join the Private Beta — assemble your elite squad and fight for a fractured world." name="twitter:description"/>
@@ -51,9 +51,9 @@
       onload="this.onload=null;this.rel='stylesheet'" rel="preload" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
   <!-- Critical: preload LCP hero images — start download before parser hits <picture> -->
-  <link rel="preload" as="image" href="../work/game-development/reclairos/assets/reclairos-hero-mobile.webp?v=4"
+  <link rel="preload" as="image" href="assets/reclairos-hero-mobile.webp?v=4"
         media="(max-width: 768px)" fetchpriority="high">
-  <link rel="preload" as="image" href="../work/game-development/reclairos/assets/reclairos-hero.webp?v=2"
+  <link rel="preload" as="image" href="assets/reclairos-hero.webp?v=2"
         media="(min-width: 769px)" fetchpriority="high">
   <!-- Render-blocking: must load before paint to prevent CLS -->
   <link href="../assets/css/style.css" rel="stylesheet">
@@ -74,7 +74,7 @@
       "name": "DualCore Games",
       "url": "https://dualcoregames.com"
     },
-    "image": "https://dualcoregames.com/work/game-development/reclairos/assets/reclairos-thumbnail.webp",
+    "image": "https://dualcoregames.com/reclairos/assets/reclairos-thumbnail.webp",
     "url": "https://dualcoregames.com/reclairos/"
   }
   </script>
@@ -1506,7 +1506,7 @@
     /* ── Mega Tab System ── */
     .mega-tabs-container {
       position: sticky;
-      top: 0;
+      top: 70px;
       z-index: 100;
       background: rgba(5,7,10,0.95);
       backdrop-filter: blur(12px);
@@ -1548,9 +1548,26 @@
   <style>
 /* ── Reclairos Case Study — Technical Whitepaper Styles ── */
     .cs-hero {
+      position: relative;
       background: #080808;
       padding: 12rem 0 8rem;
       border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .cs-hero__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('assets/reclairos-hero-bg.webp');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      filter: saturate(1.2) brightness(0.7) blur(8px);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .cs-hero .container {
+      position: relative;
+      z-index: 2;
     }
     .cs-label {
       display: inline-block;
@@ -1865,17 +1882,17 @@
             <a class="nav-link dropdown-toggle" href="../work/">Portfolio <span class="dropdown-icon">▼</span></a>
             <ul class="dropdown-menu">
               <li class="dropdown-header">Game Development</li>
-              <li><a class="dropdown-link sub-link" href="../work/game-development/paapi-gudia/overview/">Paapi Gudia</a></li>
-              <li><a class="dropdown-link sub-link" href="../work/game-development/crazy-planet/overview/">Crazy Planet</a></li>
-              <li><a class="dropdown-link sub-link" href="../work/game-development/never-open-the-door/overview/">Never Open The Door</a></li>
+              <li><a class="dropdown-link sub-link" href="../work/game-development/paapi-gudia/">Paapi Gudia</a></li>
+              <li><a class="dropdown-link sub-link" href="../work/game-development/crazy-planet/">Crazy Planet</a></li>
+              <li><a class="dropdown-link sub-link" href="../work/game-development/never-open-the-door/">Never Open The Door</a></li>
               <li><a class="dropdown-link category-link" href="../work/game-development/">View All Game Dev →</a></li>
               
               <li class="dropdown-divider"></li>
               
               <li class="dropdown-header">VR / XR</li>
-              <li><a class="dropdown-link sub-link" href="../work/vr-xr/room-raider/overview/">Room Raider</a></li>
-              <li><a class="dropdown-link sub-link" href="../work/vr-xr/shemarooverse/overview/">Shemarooverse</a></li>
-              <li><a class="dropdown-link sub-link" href="../work/vr-xr/mayaaverse/overview/">Mayaaverse</a></li>
+              <li><a class="dropdown-link sub-link" href="../work/vr-xr/room-raider/">Room Raider</a></li>
+              <li><a class="dropdown-link sub-link" href="../work/vr-xr/shemarooverse/">Shemarooverse</a></li>
+              <li><a class="dropdown-link sub-link" href="../work/vr-xr/mayaaverse/">Mayaaverse</a></li>
               <li><a class="dropdown-link category-link" href="../work/vr-xr/">View All VR/XR →</a></li>
               
               <li class="dropdown-divider"></li>
@@ -1895,15 +1912,30 @@
   </header>
 
   <main>
+<!-- ── Mega Tab Navigation ── -->
+  <div class="mega-tabs-container">
+    <div class="mega-tabs-inner">
+      <div class="mega-tabs">
+        <button class="mega-tab active" id="tab-btn-overview" onclick="window.switchTab('overview')">Project Overview</button>
+        <button class="mega-tab" id="tab-btn-casestudy" onclick="window.switchTab('casestudy')">Engineering Deep Dive</button>
+      </div>
+    </div>
+  </div>
 
 
-    <!-- ═══ HERO — Full-Bleed Cinematic ═══ -->
+
+    
+    
+    <!-- ═══ ELITE SQUAD ROSTER ═══ -->
+    
+  <div id="tab-overview" class="mega-tab-content active">
+<!-- ═══ HERO — Full-Bleed Cinematic ═══ -->
     <section class="rc-hero">
       <picture>
-        <source srcset="../work/game-development/reclairos/assets/reclairos-hero-mobile.webp?v=4" media="(max-width: 768px)" type="image/webp">
+        <source srcset="assets/reclairos-hero-mobile.webp?v=4" media="(max-width: 768px)" type="image/webp">
         <img
           class="rc-hero__bg"
-          src="../work/game-development/reclairos/assets/reclairos-hero.webp?v=2"
+          src="assets/reclairos-hero.webp?v=2"
           alt="Reclairos — fractured world key art showing the Prince's squad standing before a dark fortress"
           width="2752" height="1536"
           fetchpriority="high"
@@ -1913,10 +1945,6 @@
       <div class="rc-hero__overlay"></div>
       <!-- Top Hero Brand Details (pinned to top of screen) -->
       <div class="rc-hero__top">
-        <!-- Breadcrumbs -->
-        <a href="../work/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content; margin-left: auto; margin-right: auto;">
-          <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Portfolio
-        </a>
         <!-- Pill badge -->
         <span class="rc-label">Flagship Project &mdash; Private Beta Open</span>
       </div>
@@ -1935,7 +1963,7 @@
       </div>
     </section>
 
-    <!-- ═══ PROJECT SNAPSHOT ═══ -->
+<!-- ═══ PROJECT SNAPSHOT ═══ -->
     <section class="rc-snapshot">
       <div class="container">
         <div class="rc-snapshot__grid">
@@ -1963,18 +1991,7 @@
       </div>
     </section>
 
-    <!-- ═══ ELITE SQUAD ROSTER ═══ -->
-    
-  <!-- ── Mega Tab Navigation ── -->
-  <div class="mega-tabs-container">
-    <div class="mega-tabs-inner">
-      <div class="mega-tabs">
-        <button class="mega-tab active" id="tab-btn-overview" onclick="window.switchTab('overview')">Project Overview</button>
-        <button class="mega-tab" id="tab-btn-casestudy" onclick="window.switchTab('casestudy')">Engineering Deep Dive</button>
-      </div>
-    </div>
-  </div>
-<div id="tab-overview" class="mega-tab-content active"><section class="rc-section">
+<section class="rc-section">
       <div class="container">
         <span class="rc-section__eyebrow">Your Commanders</span>
         <h2 class="rc-section__title">Assemble Your Elite Squad: Tactical RPG Class Synergy</h2>
@@ -2025,7 +2042,7 @@
         <h2 class="rc-section__title" style="margin-bottom: 1rem;">Experience Reclairos</h2>
         <p class="rc-section__sub" style="max-width: 600px; margin: 0 auto 3rem auto;">A full technical walkthrough of tactical unit deployment, combat loops, and lane defense.</p>
         <div style="max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.05); position: relative; background: #000; aspect-ratio: 16/9;">
-          <div class="video-facade" data-video="rc" style="position: absolute; inset: 0; cursor: pointer; background-image: url('../work/game-development/reclairos/assets/reclairos-thumbnail.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
+          <div class="video-facade" data-video="rc" style="position: absolute; inset: 0; cursor: pointer; background-image: url('assets/reclairos-thumbnail.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
             <div class="play-button" style="width: 80px; height: 80px; background: rgba(0,210,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #05070a; box-shadow: 0 0 30px rgba(0,210,255,0.4); transition: transform 0.2s ease, background 0.2s ease;">▶</div>
           </div>
         </div>
@@ -2102,7 +2119,7 @@
                 <div class="rc-hud-bracket rc-hud-bracket--bl"></div>
                 <div class="rc-hud-bracket rc-hud-bracket--br"></div>
                 <span class="rc-hud-tag">SATELLITE BRIEF // ARCHIVE_902</span>
-                <img alt="The Fall of the Capital - Void gates consuming the skies of Aethelgard" src="../work/game-development/reclairos/assets/reclairos-environment-02.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                <img alt="The Fall of the Capital - Void gates consuming the skies of Aethelgard" src="assets/reclairos-environment-02.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
               </div>
               <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Chapter I: The Ruin of Aethelgard</h4>
               <p style="font-size: 0.88rem; line-height: 1.6; color: var(--color-text-muted); margin: 0;">
@@ -2133,7 +2150,7 @@
                 <div class="rc-hud-bracket rc-hud-bracket--bl"></div>
                 <div class="rc-hud-bracket rc-hud-bracket--br"></div>
                 <span class="rc-hud-tag">SATELLITE BRIEF // LIVE_FEED_01</span>
-                <img alt="The Prince of Reclairos guiding the moving Resonator Crystal payload" src="../work/game-development/reclairos/assets/reclairos-environment-01.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                <img alt="The Prince of Reclairos guiding the moving Resonator Crystal payload" src="assets/reclairos-environment-01.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
               </div>
               <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Chapter II: The Resonator's Journey</h4>
               <p style="font-size: 0.88rem; line-height: 1.6; color: var(--color-text-muted); margin: 0;">
@@ -2164,7 +2181,7 @@
                 <div class="rc-hud-bracket rc-hud-bracket--bl"></div>
                 <div class="rc-hud-bracket rc-hud-bracket--br"></div>
                 <span class="rc-hud-tag">SATELLITE BRIEF // DANGER_DETECTION</span>
-                <img alt="Void obelisks corrupting the terrain in the Demon Rift Zone" src="../work/game-development/reclairos/assets/reclairos-environment-04.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                <img alt="Void obelisks corrupting the terrain in the Demon Rift Zone" src="assets/reclairos-environment-04.webp" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
               </div>
               <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Void Corruption: The Demon Rift Zone</h4>
               <p style="font-size: 0.88rem; line-height: 1.6; color: var(--color-text-muted); margin: 0;">
@@ -2199,7 +2216,7 @@
         <h2 class="rc-section__title">World Exploration: Episodic Narrative Chapters</h2>
         <p class="rc-section__sub">Reclairos features exploration-based chapter progression, taking your squad through dense villages, ancient ruins, and high-tension encounter zones across a fractured, episodic world.</p>
         <div style="max-width: 960px; margin: 0 auto;">
-          <img alt="Detailed world map of Reclairos showing exploration zones, encounter regions, and chapter progression" loading="lazy" src="../work/game-development/reclairos/assets/reclairos-map.webp?v=2" class="rc-map__img" width="960" height="540" />
+          <img alt="Detailed world map of Reclairos showing exploration zones, encounter regions, and chapter progression" loading="lazy" src="assets/reclairos-map.webp?v=2" class="rc-map__img" width="960" height="540" />
           <div class="rc-map-grid">
             <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem;">
               <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-accent); margin-bottom: 0.5rem;">Early Chapters</p>
@@ -2239,7 +2256,7 @@
           <!-- Hitter -->
           <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/Hitter.webp" alt="Reclairos Ally Unit - The Hitter, low-cost single-target attacker" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/Hitter.webp" alt="Reclairos Ally Unit - The Hitter, low-cost single-target attacker" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">The Hitter</h3>
@@ -2260,7 +2277,7 @@
           <!-- Knight -->
           <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/knight.webp" alt="Reclairos Ally Unit - The Knight, durable frontline tank defender" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/knight.webp" alt="Reclairos Ally Unit - The Knight, durable frontline tank defender" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">The Knight</h3>
@@ -2281,7 +2298,7 @@
           <!-- Hawk Eye -->
           <div class="rc-roster-card rc-ally-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/hawktho eye.webp" alt="Reclairos Ally Unit - Hawk Eye, single-target ranged archer" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/hawktho eye.webp" alt="Reclairos Ally Unit - Hawk Eye, single-target ranged archer" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Ally Unit</span>
             <h3 class="rc-roster-card__title">Hawk Eye</h3>
@@ -2302,7 +2319,7 @@
           <!-- Armored Axeman -->
           <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/armored axeman.webp" alt="Reclairos Elite Ally Unit - Armored Axeman, area damage tank" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/armored axeman.webp" alt="Reclairos Elite Ally Unit - Armored Axeman, area damage tank" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Armored Axeman</h3>
@@ -2323,7 +2340,7 @@
           <!-- Fire Knight -->
           <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/fireknight.webp" alt="Reclairos Elite Ally Unit - Fire Knight, flame strike spellcaster" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/fireknight.webp" alt="Reclairos Elite Ally Unit - Fire Knight, flame strike spellcaster" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Fire Knight</h3>
@@ -2344,7 +2361,7 @@
           <!-- Guardian Knight -->
           <div class="rc-roster-card rc-ally-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/gaurdian knight.webp" alt="Reclairos Elite Ally Unit - Guardian Knight, shield-blocker tank" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/gaurdian knight.webp" alt="Reclairos Elite Ally Unit - Guardian Knight, shield-blocker tank" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Elite Ally Unit</span>
             <h3 class="rc-roster-card__title">Guardian Knight</h3>
@@ -2365,7 +2382,7 @@
           <!-- Priest -->
           <div class="rc-roster-card rc-ally-card" data-tier="warlord-emperor">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/healer.webp" alt="Reclairos Warlord Unit - The Healer Priest, holy healing warden" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/healer.webp" alt="Reclairos Warlord Unit - The Healer Priest, holy healing warden" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Warlord Ally Unit</span>
             <h3 class="rc-roster-card__title">The Priest</h3>
@@ -2386,7 +2403,7 @@
           <!-- King -->
           <div class="rc-roster-card rc-ally-card" data-tier="warlord-emperor">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/King.webp" alt="Reclairos Warlord Unit - The King, ultimate vanguard commander" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/King.webp" alt="Reclairos Warlord Unit - The King, ultimate vanguard commander" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Emperor Ally Unit</span>
             <h3 class="rc-roster-card__title">The King</h3>
@@ -2441,7 +2458,7 @@
           <!-- Goblin -->
           <div class="rc-roster-card rc-enemy-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/goblin.webp" alt="Reclairos Enemy Unit - Goblin Scout, fast lane infiltrator" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/goblin.webp" alt="Reclairos Enemy Unit - Goblin Scout, fast lane infiltrator" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Basic Monster</span>
             <h3 class="rc-roster-card__title">Goblin</h3>
@@ -2462,7 +2479,7 @@
           <!-- Evil Eye -->
           <div class="rc-roster-card rc-enemy-card" data-tier="basic">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/evil eye.webp" alt="Reclairos Enemy Unit - Evil Eye, ranged magic disruptor" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/evil eye.webp" alt="Reclairos Enemy Unit - Evil Eye, ranged magic disruptor" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Flying Demon Creature</span>
             <h3 class="rc-roster-card__title">Evil Eye</h3>
@@ -2483,7 +2500,7 @@
           <!-- Axeltronic -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/axeltronic.webp" alt="Reclairos Enemy Unit - Axeltronic, mechanical lane shockwave disruptor" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/axeltronic.webp" alt="Reclairos Enemy Unit - Axeltronic, mechanical lane shockwave disruptor" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Electric Warrior</span>
             <h3 class="rc-roster-card__title">Axeltronic</h3>
@@ -2504,7 +2521,7 @@
           <!-- Boulder Guy -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/boulderguy.webp" alt="Reclairos Elite Enemy Unit - Boulder Guy, high HP stone tank" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/boulderguy.webp" alt="Reclairos Elite Enemy Unit - Boulder Guy, high HP stone tank" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Ancient Heavy Guardian</span>
             <h3 class="rc-roster-card__title">Boulder Guy</h3>
@@ -2525,7 +2542,7 @@
           <!-- Elite Orc -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/elite orc.webp" alt="Reclairos Elite Enemy Unit - Elite Orc, heavy melee commander" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/elite orc.webp" alt="Reclairos Elite Enemy Unit - Elite Orc, heavy melee commander" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Orc Warrior</span>
             <h3 class="rc-roster-card__title">Elite Orc</h3>
@@ -2546,7 +2563,7 @@
           <!-- Orc Rider -->
           <div class="rc-roster-card rc-enemy-card" data-tier="elite">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/orc rider.webp" alt="Reclairos Elite Enemy Unit - Orc Rider, charging cavalry commander" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/orc rider.webp" alt="Reclairos Elite Enemy Unit - Orc Rider, charging cavalry commander" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Orc Commander</span>
             <h3 class="rc-roster-card__title">Orc Rider</h3>
@@ -2567,7 +2584,7 @@
           <!-- Ignar -->
           <div class="rc-roster-card rc-enemy-card" data-tier="boss">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/ignaar.webp" alt="Reclairos Demon Boss - Ignar, fire-knight commander of the Void" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/ignaar.webp" alt="Reclairos Demon Boss - Ignar, fire-knight commander of the Void" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Demon Commander</span>
             <h3 class="rc-roster-card__title">Ignar</h3>
@@ -2588,7 +2605,7 @@
           <!-- The Ancient Guardian -->
           <div class="rc-roster-card rc-enemy-card" data-tier="boss">
             <div class="rc-roster-card__img-wrap">
-              <img src="../work/game-development/reclairos/assets/Gaurdian.webp" alt="Reclairos Ancient Boss - The Ancient Guardian, corrupted stone protector" class="rc-roster-card__img" loading="lazy">
+              <img src="assets/Gaurdian.webp" alt="Reclairos Ancient Boss - The Ancient Guardian, corrupted stone protector" class="rc-roster-card__img" loading="lazy">
             </div>
             <span class="rc-roster-card__badge">Mythical Entity</span>
             <h3 class="rc-roster-card__title">The Ancient Guardian</h3>
@@ -2633,39 +2650,39 @@
         <div class="rc-gallery">
           <div class="rc-gallery__viewport" id="rc-gallery-viewport">
             <button class="rc-gallery__nav rc-gallery__nav--prev" id="rc-gallery-prev" aria-label="Previous image">&lt;</button>
-            <img id="rc-gallery-active-img" alt="Reclairos — Escort Mechanics" src="../work/game-development/reclairos/assets/reclairos-gameplay-01.webp" />
+            <img id="rc-gallery-active-img" alt="Reclairos — Escort Mechanics" src="assets/reclairos-gameplay-01.webp" />
             <button class="rc-gallery__nav rc-gallery__nav--next" id="rc-gallery-next" aria-label="Next image">&gt;</button>
             <div class="rc-gallery__counter" id="rc-gallery-counter">1 / 9</div>
           </div>
           
           <div class="rc-gallery__thumbs">
             <!-- Thumbs row -->
-            <div class="rc-gallery__thumb-item active" data-src="../work/game-development/reclairos/assets/reclairos-gameplay-01.webp" data-alt="Reclairos — Escort Mechanics">
-              <img src="../work/game-development/reclairos/assets/reclairos-gameplay-01.webp" alt="Thumb 1">
+            <div class="rc-gallery__thumb-item active" data-src="assets/reclairos-gameplay-01.webp" data-alt="Reclairos — Escort Mechanics">
+              <img src="assets/reclairos-gameplay-01.webp" alt="Thumb 1">
             </div>
-            <div class="rc-gallery__thumb-item" data-src="../work/game-development/reclairos/assets/reclairos-gameplay-02.webp" data-alt="Reclairos — Unit Deployment">
-              <img src="../work/game-development/reclairos/assets/reclairos-gameplay-02.webp" alt="Thumb 2">
+            <div class="rc-gallery__thumb-item" data-src="assets/reclairos-gameplay-02.webp" data-alt="Reclairos — Unit Deployment">
+              <img src="assets/reclairos-gameplay-02.webp" alt="Thumb 2">
             </div>
-            <div class="rc-gallery__thumb-item" data-src="../work/game-development/reclairos/assets/reclairos-gameplay-03.webp" data-alt="Reclairos — Ability Spellcasting">
-              <img src="../work/game-development/reclairos/assets/reclairos-gameplay-03.webp" alt="Thumb 3">
+            <div class="rc-gallery__thumb-item" data-src="assets/reclairos-gameplay-03.webp" data-alt="Reclairos — Ability Spellcasting">
+              <img src="assets/reclairos-gameplay-03.webp" alt="Thumb 3">
             </div>
-            <div class="rc-gallery__thumb-item" data-src="../work/game-development/reclairos/assets/reclairos-gameplay-04.webp" data-alt="Reclairos — Combat Encounter">
-              <img src="../work/game-development/reclairos/assets/reclairos-gameplay-04.webp" alt="Thumb 4">
+            <div class="rc-gallery__thumb-item" data-src="assets/reclairos-gameplay-04.webp" data-alt="Reclairos — Combat Encounter">
+              <img src="assets/reclairos-gameplay-04.webp" alt="Thumb 4">
             </div>
-            <div class="rc-gallery__thumb-item" data-src="../work/game-development/reclairos/assets/reclairos-gameplay-05.webp" data-alt="Reclairos — Combat Action">
-              <img src="../work/game-development/reclairos/assets/reclairos-gameplay-05.webp" alt="Thumb 5">
+            <div class="rc-gallery__thumb-item" data-src="assets/reclairos-gameplay-05.webp" data-alt="Reclairos — Combat Action">
+              <img src="assets/reclairos-gameplay-05.webp" alt="Thumb 5">
             </div>
-            <div class="rc-gallery__thumb-item" data-src="../work/game-development/reclairos/assets/reclairos-environment-01.webp" data-alt="Reclairos — World Environment">
-              <img src="../work/game-development/reclairos/assets/reclairos-environment-01.webp" alt="Thumb 6">
+            <div class="rc-gallery__thumb-item" data-src="assets/reclairos-environment-01.webp" data-alt="Reclairos — World Environment">
+              <img src="assets/reclairos-environment-01.webp" alt="Thumb 6">
             </div>
-            <div class="rc-gallery__thumb-item is-enemy" data-src="../work/game-development/reclairos/assets/reclairos-environment-02.webp" data-alt="Reclairos — Stormy Outpost">
-              <img src="../work/game-development/reclairos/assets/reclairos-environment-02.webp" alt="Thumb 7">
+            <div class="rc-gallery__thumb-item is-enemy" data-src="assets/reclairos-environment-02.webp" data-alt="Reclairos — Stormy Outpost">
+              <img src="assets/reclairos-environment-02.webp" alt="Thumb 7">
             </div>
-            <div class="rc-gallery__thumb-item is-enemy" data-src="../work/game-development/reclairos/assets/reclairos-environment-03.webp" data-alt="Reclairos — Ashrak's Threshold">
-              <img src="../work/game-development/reclairos/assets/reclairos-environment-03.webp" alt="Thumb 8">
+            <div class="rc-gallery__thumb-item is-enemy" data-src="assets/reclairos-environment-03.webp" data-alt="Reclairos — Ashrak's Threshold">
+              <img src="assets/reclairos-environment-03.webp" alt="Thumb 8">
             </div>
-            <div class="rc-gallery__thumb-item is-enemy" data-src="../work/game-development/reclairos/assets/reclairos-environment-04.webp" data-alt="Reclairos — Demon Rift Zone">
-              <img src="../work/game-development/reclairos/assets/reclairos-environment-04.webp" alt="Thumb 9">
+            <div class="rc-gallery__thumb-item is-enemy" data-src="assets/reclairos-environment-04.webp" data-alt="Reclairos — Demon Rift Zone">
+              <img src="assets/reclairos-environment-04.webp" alt="Thumb 9">
             </div>
           </div>
         </div>
@@ -3617,16 +3634,17 @@
   </section></div></div></div><!-- /tab-overview -->
 <div id="tab-casestudy" class="mega-tab-content"><!-- ═══ HERO ═══ -->
     <section class="cs-hero">
+      <div class="cs-hero__bg"></div>
       <div class="container">
-        <!-- Breadcrumbs -->
-        <a href="../work/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content; margin-left: auto; margin-right: auto;">
-          <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Portfolio
-        </a>
         <span class="cs-label">Technical Case Study — Confidential</span>
         <p class="cs-hero__meta">Android &amp; iOS &nbsp;/&nbsp; Unity URP &nbsp;/&nbsp; 2D Story-Driven Tower Defense RPG</p>
         <h1>Reclairos<br><span style="color: var(--color-text-muted); font-weight: 400; font-size: 0.55em; letter-spacing: 0;">Engineering Case Study</span></h1>
         <p>A technical deep-dive into the architecture, engineering challenges, and design decisions behind a modular, story-driven mobile tower defense RPG — built for stable performance on mid-range hardware at every stage of development.</p>
-        <a href="javascript:void(0)" onclick="window.switchTab('overview')" class="btn btn-secondary" style="padding: 0.85rem 2rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">← View Game Overview</a>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem;">
+          <a href="#cs-beta-form" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Join the Private Beta</a>
+        </div>
+
+        
 
         <!-- Project Meta -->
         <div class="cs-meta-grid">
@@ -4026,7 +4044,7 @@
         <p>DualCore engineers modular, production-ready game systems for mobile, PC, and XR. If you're building a title that demands performance, data-driven design, and long-term scalability — let's talk.</p>
         <div class="cs-cta__btns">
           <a href="../contact/?intent=audit" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Request Technical Audit</a>
-          <a href="javascript:void(0)" onclick="window.switchTab('overview')" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15);">← View Game Overview</a>
+
         </div>
       </div>
     </section>
@@ -4122,9 +4140,632 @@
   </div>
 
 
+<!-- ═══ PRIVATE BETA FORM — SINGLE UNIFIED LEAD CAPTURE ═══ -->
+    <section class="rc-beta" id="cs-beta-form">
+      <div class="container" style="max-width: 600px;">
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+          <span class="rc-label">Limited Access</span>
+          <h2 style="font-size: 2.5rem; font-weight: 900; margin: 1.5rem 0 1rem; letter-spacing: -0.02em;">Join the Reclairos Private Beta</h2>
+          <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.7; max-width: 480px; margin: 0 auto;">Experience the next evolution of mobile strategy. Sign up to receive an early access invite and production updates — directly from the team building it.</p>
+        </div>
+        <div id="csReclairosSuccessMessage" class="rc-success-message">
+          <h3>Submission Successful</h3>
+          <p>Technical Request Received. Our engineering team will review and respond within 24-48 hours.</p>
+        </div>
+        <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="csReclairosBetaForm">
+          <!-- Honeypot Field for Anti-Spam -->
+          <div style="display: none;" aria-hidden="true">
+            <input type="text" name="honeypot_field" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="project" value="Reclairos Private Beta">
+          <div class="form-group">
+            <label for="cs-rc-name">Full Name</label>
+            <input id="cs-rc-name" name="name" placeholder="Your name" required="" type="text" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
+          </div>
+          <div class="form-group">
+            <label for="cs-rc-email">Email Address</label>
+            <input id="cs-rc-email" name="email" placeholder="email@example.com" required="" type="email" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
+          </div>
+                    <div class="form-group">
+             <label for="cs-rc-platform">Preferred Platform</label>
+             <select id="cs-rc-platform" name="platform" required style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 100%; padding: 0.9rem 1rem; border-radius: var(--radius-sm); font-family: var(--font-primary); font-size: 0.95rem;">
+               <option value="">Select your platform</option>
+               <option value="Android">Android</option>
+               <option value="iOS">iOS</option>
+               <option value="Both">Both (Android &amp; iOS)</option>
+             </select>
+           </div>
+           <input type="hidden" name="source_page" value="Reclairos Beta Waitlist">
+          <button class="btn btn-primary" style="width: 100%; padding: 1.1rem; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;" type="submit">Secure My Beta Invite</button>
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 1.5rem; text-align: center;">
+            By joining, you agree to our <a href="../privacy-policy/" style="color: var(--color-accent);">Privacy Policy</a>. We only send high-value updates — no spam.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('csReclairosBetaForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        const button = form.querySelector('button[type="submit"]');
+        const successMessage = document.getElementById('csReclairosSuccessMessage');
+        
+        // Disable button and change text
+        button.disabled = true;
+        button.textContent = 'Sending...';
+        
+        const formData = new FormData(form);
+        
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors' // Handle Google Apps Script redirect behavior silently
+        })
+        .then(() => {
+          // On success (or redirection ignored by no-cors)
+          form.style.display = 'none';
+          successMessage.style.display = 'block';
+          // Ensure we scroll to the message if it's out of view
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          button.disabled = false;
+          button.textContent = 'Secure My Beta Invite';
+          alert('Something went wrong. Please try again.');
+        });
+      });
+
+      // Roster filtering logic
+      const allyTabs = document.querySelectorAll('.rc-ally-tab');
+      const allyCards = document.querySelectorAll('.rc-ally-card');
+
+      function filterAlly(filterValue) {
+        allyCards.forEach(card => {
+          const cardTier = card.getAttribute('data-tier');
+          let shouldShow = false;
+
+          if (filterValue === 'all') {
+            shouldShow = (cardTier !== 'basic elite warlord-emperor');
+          } else {
+            shouldShow = cardTier.split(' ').includes(filterValue);
+          }
+
+          if (shouldShow) {
+            card.style.display = 'flex';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(8px)';
+            setTimeout(() => {
+              card.style.transition = 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      allyTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          allyTabs.forEach(t => t.classList.remove('rc-roster-tab--active'));
+          tab.classList.add('rc-roster-tab--active');
+
+          const filterValue = tab.getAttribute('data-filter');
+          filterAlly(filterValue);
+        });
+      });
+
+      filterAlly('all');
+
+      // Enemy Archive filtering logic
+      const enemyTabs = document.querySelectorAll('.rc-enemy-tab');
+      const enemyCards = document.querySelectorAll('.rc-enemy-card');
+
+      function filterEnemy(filterValue) {
+        enemyCards.forEach(card => {
+          const cardTier = card.getAttribute('data-tier');
+          let shouldShow = false;
+
+          if (filterValue === 'all') {
+            shouldShow = (cardTier !== 'basic elite boss-coming');
+          } else {
+            shouldShow = cardTier.split(' ').includes(filterValue);
+          }
+
+          if (shouldShow) {
+            card.style.display = 'flex';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(8px)';
+            setTimeout(() => {
+              card.style.transition = 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      enemyTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          enemyTabs.forEach(t => t.classList.remove('rc-roster-tab--active'));
+          tab.classList.add('rc-roster-tab--active');
+
+          const filterValue = tab.getAttribute('data-filter');
+          filterEnemy(filterValue);
+        });
+      });
+
+      filterEnemy('all');
+
+      // ── Swappable Gallery Logic ──
+      const gallery = document.querySelector('.rc-gallery');
+      const activeImg = document.getElementById('rc-gallery-active-img');
+      const prevBtn = document.getElementById('rc-gallery-prev');
+      const nextBtn = document.getElementById('rc-gallery-next');
+      const counter = document.getElementById('rc-gallery-counter');
+      const thumbs = document.querySelectorAll('.rc-gallery__thumb-item');
+      const thumbsContainer = document.querySelector('.rc-gallery__thumbs');
+      const viewport = document.getElementById('rc-gallery-viewport');
+
+      // Lightbox Elements
+      const lightbox = document.getElementById('rc-lightbox');
+      const lightboxImg = document.getElementById('rc-lightbox-img');
+      const lightboxClose = document.getElementById('rc-lightbox-close');
+      const lightboxPrev = document.getElementById('rc-lightbox-prev');
+      const lightboxNext = document.getElementById('rc-lightbox-next');
+
+      let currentIndex = 0;
+      let autoplayTimer = null;
+      const autoplayInterval = 5000;
+
+      function updateGallery(index) {
+        if (index < 0) index = thumbs.length - 1;
+        if (index >= thumbs.length) index = 0;
+        currentIndex = index;
+
+        const currentThumb = thumbs[currentIndex];
+        const newSrc = currentThumb.getAttribute('data-src');
+        const newAlt = currentThumb.getAttribute('data-alt');
+
+        // Apply visual fade transition
+        activeImg.style.opacity = '0';
+        setTimeout(() => {
+          activeImg.src = newSrc;
+          activeImg.alt = newAlt;
+          activeImg.style.opacity = '1';
+        }, 150);
+
+        // Active class toggle
+        thumbs.forEach(t => t.classList.remove('active'));
+        currentThumb.classList.add('active');
+
+        // Counter text
+        counter.textContent = `${currentIndex + 1} / ${thumbs.length}`;
+
+        // Accent theme dynamically shifts to secondary accent for enemy shots
+        if (currentThumb.classList.contains('is-enemy')) {
+          gallery.classList.add('rc-gallery--enemy-active');
+        } else {
+          gallery.classList.remove('rc-gallery--enemy-active');
+        }
+
+        // Keep active thumbnail scrolled into view center
+        const trackWidth = thumbsContainer.clientWidth;
+        const thumbOffset = currentThumb.offsetLeft;
+        const thumbWidth = currentThumb.clientWidth;
+        thumbsContainer.scrollTo({
+          left: thumbOffset - (trackWidth / 2) + (thumbWidth / 2),
+          behavior: 'smooth'
+        });
+      }
+
+      function nextSlide() {
+        updateGallery(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        updateGallery(currentIndex - 1);
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(nextSlide, autoplayInterval);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      // Autoplay suspension on hover
+      viewport.addEventListener('mouseenter', stopAutoplay);
+      viewport.addEventListener('mouseleave', startAutoplay);
+
+      // Prev/Next slide triggers
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prevSlide();
+        startAutoplay();
+      });
+
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextSlide();
+        startAutoplay();
+      });
+
+      // Thumbnail clicks
+      thumbs.forEach((thumb, idx) => {
+        thumb.addEventListener('click', () => {
+          updateGallery(idx);
+          startAutoplay();
+        });
+      });
+
+      // Swipe gesture controls on desktop/mobile viewports
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      viewport.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      viewport.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      function handleSwipe() {
+        const threshold = 50;
+        if (touchStartX - touchEndX > threshold) {
+          nextSlide();
+          startAutoplay();
+        } else if (touchEndX - touchStartX > threshold) {
+          prevSlide();
+          startAutoplay();
+        }
+      }
+
+      // Lightbox Modal Controls
+      activeImg.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox();
+      });
+
+      function openLightbox() {
+        stopAutoplay();
+        const currentThumb = thumbs[currentIndex];
+        if (currentThumb) {
+          lightboxImg.src = currentThumb.getAttribute('data-src');
+          lightboxImg.alt = currentThumb.getAttribute('data-alt');
+          lightbox.classList.add('rc-lightbox--active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('rc-lightbox--active');
+        document.body.style.overflow = '';
+        startAutoplay();
+      }
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const newIndex = currentIndex - 1 < 0 ? thumbs.length - 1 : currentIndex - 1;
+        updateGallery(newIndex);
+        lightboxImg.src = thumbs[newIndex].getAttribute('data-src');
+        lightboxImg.alt = thumbs[newIndex].getAttribute('data-alt');
+      });
+
+      lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const newIndex = currentIndex + 1 >= thumbs.length ? 0 : currentIndex + 1;
+        updateGallery(newIndex);
+        lightboxImg.src = thumbs[newIndex].getAttribute('data-src');
+        lightboxImg.alt = thumbs[newIndex].getAttribute('data-alt');
+      });
+
+      // Swipe support in full screen Lightbox modal
+      let lightboxTouchStartX = 0;
+      let lightboxTouchEndX = 0;
+
+      lightbox.addEventListener('touchstart', (e) => {
+        lightboxTouchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      lightbox.addEventListener('touchend', (e) => {
+        lightboxTouchEndX = e.changedTouches[0].screenX;
+        handleLightboxSwipe();
+      }, { passive: true });
+
+      function handleLightboxSwipe() {
+        const threshold = 50;
+        if (lightboxTouchStartX - lightboxTouchEndX > threshold) {
+          lightboxNext.click();
+        } else if (lightboxTouchEndX - lightboxTouchStartX > threshold) {
+          lightboxPrev.click();
+        }
+      }
+
+      // Keyboard navigation (arrows and escape key)
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('rc-lightbox--active')) return;
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+          lightboxNext.click();
+        } else if (e.key === 'ArrowLeft') {
+          lightboxPrev.click();
+        }
+      });
+
+      // Compatibility Checker Logic with simulated diagnostic loader
+      const osSelect = document.getElementById('rc-checker-os');
+      const ramSelect = document.getElementById('rc-checker-ram');
+      const diagBtn = document.getElementById('rc-run-diagnostic-btn');
+      const progressWrap = document.getElementById('rc-diag-progress-wrap');
+      const progressBar = document.getElementById('rc-diag-progress-bar');
+      const progressText = document.getElementById('rc-diag-progress-text');
+      const progressPct = document.getElementById('rc-diag-progress-pct');
+      const resultDiv = document.getElementById('rc-diagnostic-result');
+      const statusBadge = document.getElementById('rc-diag-status-badge');
+      const fpsSpan = document.getElementById('rc-diag-fps');
+      const diagText = document.getElementById('rc-diag-text');
+
+      if (diagBtn && osSelect && ramSelect && resultDiv && progressWrap) {
+        diagBtn.addEventListener('click', () => {
+          // Hide previous results if any
+          resultDiv.style.display = 'none';
+          diagBtn.disabled = true;
+          diagBtn.textContent = 'Profiling Device...';
+
+          // Show progress wrap
+          progressWrap.style.display = 'block';
+          progressBar.style.width = '0%';
+          progressPct.textContent = '0%';
+
+          const steps = [
+            { t: 0, text: '[0.0s] Connecting to Unity Engine URP profiling layer...' },
+            { t: 300, text: '[0.4s] Checking OS version and hardware renderer capabilities...' },
+            { t: 700, text: '[0.8s] Analyzing RAM and device target memory parameters...' },
+            { t: 1100, text: '[1.2s] Running target shader render pass simulation...' }
+          ];
+
+          steps.forEach(step => {
+            setTimeout(() => {
+              progressText.textContent = step.text;
+              const percent = Math.round((step.t / 1100) * 100);
+              progressPct.textContent = `${percent}%`;
+            }, step.t);
+          });
+
+          // Animate the bar width smoothly
+          setTimeout(() => {
+            progressBar.style.width = '100%';
+          }, 50);
+
+          // Once complete, show result
+          setTimeout(() => {
+            progressWrap.style.display = 'none';
+            diagBtn.disabled = false;
+            diagBtn.textContent = 'Run Performance Match';
+
+            const os = osSelect.value;
+            const ram = ramSelect.value;
+            
+            let status = 'Premium';
+            let fps = '60 FPS Ultra';
+            let badgeBg = 'rgba(0, 209, 255, 0.15)';
+            let badgeColor = 'var(--color-accent)';
+            let border = '1px solid rgba(0, 209, 255, 0.3)';
+            let text = 'Your hardware exceeds all target specs. Custom shaders, shadows, dynamic lighting, and high-fidelity post-processing will run at a locked 60 FPS.';
+
+            if (os.includes('low') || ram === 'ram-2') {
+              status = 'Legacy / Min Spec';
+              fps = '30-40 FPS Low';
+              badgeBg = 'rgba(255, 122, 24, 0.15)';
+              badgeColor = 'var(--color-accent-secondary)';
+              border = '1px solid rgba(255, 122, 24, 0.3)';
+              text = 'Your device meets minimum specifications. The rendering pipeline will automatically trigger lightweight shader fallbacks and disable depth-of-field effects to optimize performance.';
+            } else if (ram === 'ram-4') {
+              status = 'Standard Compatible';
+              fps = '50-60 FPS Medium';
+              badgeBg = 'rgba(255, 255, 255, 0.1)';
+              badgeColor = '#fff';
+              border = '1px solid rgba(255, 255, 255, 0.2)';
+              text = 'Fully compatible. URP lightweight rendering parameters will run smoothly with standard post-processing effects and active resolution scaling.';
+            }
+
+            statusBadge.textContent = status;
+            statusBadge.style.background = badgeBg;
+            statusBadge.style.color = badgeColor;
+            fpsSpan.textContent = `| Target: ${fps}`;
+            diagText.textContent = text;
+            resultDiv.style.border = border;
+            
+            resultDiv.style.display = 'block';
+            resultDiv.style.opacity = '0';
+            resultDiv.style.transform = 'translateY(5px)';
+            setTimeout(() => {
+              resultDiv.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+              resultDiv.style.opacity = '1';
+              resultDiv.style.transform = 'translateY(0)';
+              // Scroll down to the result card smoothly
+              resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 10);
+          }, 1400);
+        });
+      }
+
+      // FAQ Accordion Trigger
+      const faqTriggers = document.querySelectorAll('.rc-faq-trigger');
+      
+      faqTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const item = trigger.closest('.rc-faq-item');
+          const content = item.querySelector('.rc-faq-content');
+          const icon = item.querySelector('.rc-faq-icon');
+          const isOpen = item.classList.contains('rc-faq-item--open');
+          
+          // Close all FAQ items first
+          document.querySelectorAll('.rc-faq-item').forEach(i => {
+            i.classList.remove('rc-faq-item--open');
+            i.querySelector('.rc-faq-content').style.maxHeight = '0';
+            i.querySelector('.rc-faq-icon').style.transform = 'rotate(0deg)';
+            i.querySelector('.rc-faq-icon').textContent = '+';
+            i.style.background = 'rgba(255,255,255,0.015)';
+            i.style.borderColor = 'rgba(255,255,255,0.06)';
+          });
+          
+          if (!isOpen) {
+            item.classList.add('rc-faq-item--open');
+            content.style.maxHeight = `${content.scrollHeight}px`;
+            icon.style.transform = 'rotate(45deg)';
+            icon.textContent = '×';
+            item.style.background = 'rgba(255,255,255,0.03)';
+            item.style.borderColor = 'rgba(0, 209, 255, 0.2)';
+          }
+        });
+      });
+
+      // Interactive Lore Tabs Trigger
+      const loreTabs = document.querySelectorAll('.rc-lore-tab');
+      const lorePanels = document.querySelectorAll('.rc-lore-panel');
+
+      loreTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active classes
+          loreTabs.forEach(t => {
+            t.classList.remove('rc-lore-tab--active');
+            t.style.color = 'var(--color-text-muted)';
+          });
+          lorePanels.forEach(p => p.style.display = 'none');
+
+          // Add active class to clicked tab
+          tab.classList.add('rc-lore-tab--active');
+          tab.style.color = '#fff';
+
+          // Show corresponding panel
+          const logId = tab.getAttribute('data-log');
+          const activePanel = document.getElementById(`rc-lore-log-${logId}`);
+          if (activePanel) {
+            activePanel.style.display = 'block';
+            activePanel.style.opacity = '0';
+            activePanel.style.transform = 'translateY(8px)';
+            setTimeout(() => {
+              activePanel.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+              activePanel.style.opacity = '1';
+              activePanel.style.transform = 'translateY(0)';
+            }, 10);
+          }
+        });
+      });
+
+      // Voice Log Audio & Waveform mock comms feed decryptor
+      const voicePlayBtn = document.getElementById('voice-play-btn');
+      const voiceWave = document.getElementById('voice-wave');
+      const voiceStatus = document.getElementById('voice-status');
+      let audioCtx = null;
+      let voicePlaying = false;
+      let mockAudioTimer = null;
+      let signalInterval = null;
+
+      function playSciFiSignal() {
+        try {
+          if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          }
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+          
+          // Simple synth beep sequence
+          const osc = audioCtx.createOscillator();
+          const gainNode = audioCtx.createGain();
+          osc.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+          
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(110, audioCtx.currentTime); // Low comms hum
+          osc.frequency.linearRampToValueAtTime(160, audioCtx.currentTime + 0.15);
+          osc.frequency.exponentialRampToValueAtTime(70, audioCtx.currentTime + 0.45);
+          
+          gainNode.gain.setValueAtTime(0.06, audioCtx.currentTime);
+          gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
+          
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.8);
+        } catch (e) {
+          console.warn('Web Audio API not supported or blocked by user gesture policy', e);
+        }
+      }
+
+      if (voicePlayBtn && voiceWave && voiceStatus) {
+        voicePlayBtn.addEventListener('click', () => {
+          if (voicePlaying) {
+            // Stop Comms Playback
+            voicePlaying = false;
+            voicePlayBtn.textContent = '▶';
+            voiceWave.style.display = 'none';
+            voiceStatus.textContent = 'COMMS_FEED_SECURE_04.wav';
+            clearInterval(mockAudioTimer);
+            clearInterval(signalInterval);
+          } else {
+            // Start Comms Playback
+            voicePlaying = true;
+            voicePlayBtn.textContent = '■';
+            voiceWave.style.display = 'flex';
+            voiceStatus.textContent = 'DECRYPTING CORRUPTED TRANSMISSION...';
+            
+            let duration = 0;
+            playSciFiSignal();
+            signalInterval = setInterval(() => {
+              if (voicePlaying) playSciFiSignal();
+            }, 1200);
+
+            mockAudioTimer = setInterval(() => {
+              duration += 1;
+              if (duration === 2) {
+                voiceStatus.textContent = '"Comrades, Ashrak\'s forces have blocked the gates..."';
+              } else if (duration === 5) {
+                voiceStatus.textContent = '"...Crystal power at 40%... Hold the escort lane!"';
+              } else if (duration >= 8) {
+                // End playback
+                voicePlaying = false;
+                voicePlayBtn.textContent = '▶';
+                voiceWave.style.display = 'none';
+                voiceStatus.textContent = 'COMMS_FEED_SECURE_04.wav (Playback complete)';
+                clearInterval(mockAudioTimer);
+                clearInterval(signalInterval);
+              }
+            }, 1000);
+          }
+        });
+      }
+
+      // Start looping
+      startAutoplay();
+      });
+    </script>
+</div><!-- /tab-casestudy -->
   <script>
     // Tab switching for Overview / Case Study
     window.switchTab = function(tabName) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       document.querySelectorAll('.mega-tab-content').forEach(function(el) {
         el.classList.remove('active');
       });
