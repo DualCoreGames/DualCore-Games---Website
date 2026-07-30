@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="view-transition" content="same-origin" />
+  <meta charset="utf-8"/>
+  <!-- Google Tag Manager -->
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Open Graph -->
+  <meta content="Technical Art Benchmarks | DualCore Games" property="og:title"/>
+  <meta content="A series of intensive R&D projects exploring the boundaries of mobile and PC rendering capabilities without utilizing engine defaults." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://dualcoregames.com/work/game-art/technical-art-benchmarks/" property="og:url"/>
+  <meta content="https://dualcoregames.com/assets/images/social-preview.webp" property="og:image"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Technical Art Benchmarks | DualCore Games" name="twitter:title"/>
+  <meta content="A series of intensive R&D projects exploring the boundaries of mobile and PC rendering capabilities without utilizing engine defaults." property="og:description"/>
+  <meta name="theme-color" content="#00d2ff">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Technical Art Benchmarks — R&amp;D Shaders &amp; Scripting | DualCore Games</title>
+  <link href="https://dualcoregames.com/work/game-art/technical-art-benchmarks/" rel="canonical"/>
+  <meta content="Technical Art Benchmarks project overview, showing custom terrain generators, HLSL lighting shaders, and draw call profiling." name="description"/>
+  <link href="../../../assets/css/style.css" rel="stylesheet"/>
+  <link href="../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dualcoregames.com/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Work",
+      "item": "https://dualcoregames.com/work/"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Game Art",
+      "item": "https://dualcoregames.com/work/game-art/"
+    },{
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Technical Art Benchmarks",
+      "item": "https://dualcoregames.com/work/game-art/technical-art-benchmarks/"
+    }]
+  }
+  </script>
+
+  <style>
+    /* ── Case Study Whitepaper Styles ── */
+    .cs-hero {
+      position: relative;
+      background: radial-gradient(circle at 80% 20%, rgba(255, 122, 24, 0.08) 0%, transparent 60%), #080808;
+      padding: 12rem 0 8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .cs-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cs-hero .container { position: relative; z-index: 2; }
+    
+    .breadcrumbs {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 2.5rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .breadcrumbs a { color: var(--color-accent); text-decoration: none; }
+    .breadcrumbs span { opacity: 0.3; }
+
+    .cs-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+    .cs-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      color: #fff;
+    }
+    .cs-hero__meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .cs-hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* Project meta grid */
+    .cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    .cs-meta-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .cs-meta-card__label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-meta-card__value { font-size: 0.95rem; font-weight: 700; margin: 0; color: #fff; }
+
+    /* Specification Table */
+    .tech-specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .tech-specs-table th, .tech-specs-table td {
+      padding: 1.2rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .tech-specs-table th {
+      background: rgba(255,255,255,0.03);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-accent);
+      font-weight: 800;
+    }
+    .tech-specs-table td:first-child {
+      font-weight: 700;
+      width: 30%;
+      color: #fff;
+    }
+    .tech-specs-table td {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    .tech-specs-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Sections */
+    .cs-section { padding: 8rem 0; }
+    .cs-section--alt { background: #0c0c0c; }
+    .cs-section-num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cs-section h2 { margin-bottom: 2rem; font-size: clamp(1.8rem, 3vw, 2.5rem); letter-spacing: -0.02em; color: #fff; }
+
+    /* System List Styling */
+    .arch-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 4rem 0;
+    }
+    .arch-list-item {
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .arch-list-item h4 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .arch-list-item p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    /* Split grids */
+    .cs-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    /* Image Frame */
+    .narrative-image-container {
+      margin: 4rem 0;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+    .narrative-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-split { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2F3CX5Z"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="../../../">
+        <img alt="DualCore Games Logo" src="../../../assets/images/dualcore-logo.svg"
+          style="height: 48px; width: auto; display: block;" />
+      </a>
+      <nav>
+        <button type="button" aria-label="Toggle navigation" class="nav-toggle">☰</button>
+        <ul class="nav-menu">
+          <li class="nav-close-item"><button type="button" aria-label="Close navigation" class="nav-close">✕</button></li>
+          <li class="nav-item"><a class="nav-link" href="../../../">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/reclairos/">Reclairos</a></li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="../../../services/">Services <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-link" href="../../../services/game-development/">Game Development</a></li>
+              <li><a class="dropdown-link" href="../../../services/game-art/">Game Art</a></li>
+              <li><a class="dropdown-link" href="../../../services/vr-xr-simulation/">VR/XR Simulation</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle active" href="../../../work/">Portfolio <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Game Development</li>
+              <li><a class="dropdown-link sub-link" href="../../../work/game-development/paapi-gudia/">Paapi Gudia</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../work/game-development/crazy-planet/">Crazy Planet</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../work/game-development/never-open-the-door/">Never Open The Door</a></li>
+              <li><a class="dropdown-link category-link" href="../../../work/game-development/">View All Game Dev →</a></li>
+              
+              <li class="dropdown-divider"></li>
+              
+              <li class="dropdown-header">VR / XR</li>
+              <li><a class="dropdown-link sub-link" href="../../../work/vr-xr/room-raider/">Room Raider</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../work/vr-xr/shemarooverse/">Shemarooverse</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../work/vr-xr/mayaaverse/">Mayaaverse</a></li>
+              <li><a class="dropdown-link category-link" href="../../../work/vr-xr/">View All VR/XR →</a></li>
+              
+              <li class="dropdown-divider"></li>
+              
+              <li class="dropdown-header">Game Art</li>
+              <li><a class="dropdown-link sub-link" href="../../../work/game-art/technical-art-benchmarks/">Technical Art Benchmarks</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../work/game-art/environment-art/">Environment Art</a></li>
+              <li><a class="dropdown-link category-link" href="../../../work/game-art/">View All Game Art →</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../../../about/">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../contact/">Contact</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../contact/" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══ HERO ═══ -->
+    <section class="cs-hero">
+      <div class="container">
+        <a href="../../../work/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content;">
+          <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Portfolio
+        </a>
+        <br>
+        <span class="cs-label">R&amp;D Case Study</span>
+        <p class="cs-hero__meta">Custom Pipelines &nbsp;/&nbsp; Shader Optimisation</p>
+        <h1>Technical Art Benchmarks</h1>
+        <p>A series of intensive R&amp;D projects exploring the boundaries of mobile and PC rendering capabilities without relying on standard engine-default setups.</p>
+        
+        <div style="margin-bottom: 4rem;">
+          <a class="btn btn-primary" href="#contact-form" style="padding: 0.85rem 2rem; font-weight: 600; text-decoration: none;">Request Consultation</a>
+        </div>
+
+        <!-- Project Meta Grid -->
+        <div class="cs-meta-grid">
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Platform</span>
+            <p class="cs-meta-card__value">Cross-Platform (Mobile/PC)</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Engine</span>
+            <p class="cs-meta-card__value">Unity Custom URP &amp; HDRP</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Draw Calls</span>
+            <p class="cs-meta-card__value">Reduced up to 60%</p>
+          </div>
+          <div class="cs-meta-card" style="border-top: 2px solid rgba(255,122,24,0.4); background: rgba(255,122,24,0.03);">
+            <span class="cs-meta-card__label">Status</span>
+            <p class="cs-meta-card__value">Ongoing Internal R&amp;D</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 01 PROJECT OVERVIEW ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">01 &nbsp;/&nbsp; Project Overview</span>
+        <h2>Shaders, Scripting, and Optimization</h2>
+        <div class="cs-split" style="margin-bottom: 4rem;">
+          <div>
+            <h4 style="margin-top: 0; color: #fff;">The Challenge</h4>
+            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              Standard engines introduce bloated asset loading cycles, heavy material setups, and high vertex overheads. The challenge was building lightweight rendering procedures that yield cinematic environments on constrained platforms.
+            </p>
+            <h4 style="color: #fff;">The Solution</h4>
+            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8;">
+              We authored HLSL shaders, developed custom procedural mesh generation modules, and programmed modular script pipelines. These tools bypass engine limitations and fit high-fidelity textures into narrow visual budgets.
+            </p>
+          </div>
+          <div>
+            <table class="tech-specs-table">
+              <thead>
+                <tr>
+                  <th colspan="2">R&amp;D Benchmarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Memory Footprint</td>
+                  <td>-60% VRAM requirements</td>
+                </tr>
+                <tr>
+                  <td>Asset Fidelity</td>
+                  <td>High-definition shader lighting response</td>
+                </tr>
+                <tr>
+                  <td>Terrain Systems</td>
+                  <td>Bespoke procedural modeling generators</td>
+                </tr>
+                <tr>
+                  <td>VFX Integration</td>
+                  <td>Lightweight GPU-driven particle arrays</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="narrative-image-container">
+          <img src="assets/tech-art-rendering.webp" alt="High-fidelity 3D spaceship hangar rendering demonstrating custom shaders and volumetric fog">
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 SYSTEM ARCHITECTURE ═══ -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <span class="cs-section-num">02 &nbsp;/&nbsp; System Architecture</span>
+        <h2>Rendering &amp; Mesh Logic</h2>
+        <p style="color: var(--color-text-muted); max-width: 800px; font-size: 1.1rem; line-height: 1.8; margin-bottom: 4rem;">
+          These benchmarks generated internal libraries that accelerate asset baking, lighting projection, and terrain generation.
+        </p>
+
+        <div class="arch-list">
+          <div class="arch-list-item">
+            <h4>Bespoke Terrain Generator</h4>
+            <p>Scripted custom terrain heightmaps to dynamic mesh loaders, replacing traditional terrain asset tools that degrade performance.</p>
+          </div>
+          <div class="arch-list-item">
+            <h4>Custom Lighting Shader</h4>
+            <p>Bypassed default Unity shaders to implement HLSL material structures that accurately react to lighting gradients while minimizing shader passes.</p>
+          </div>
+          <div class="arch-list-item">
+            <h4>Vertex &amp; Draw-Call Pruner</h4>
+            <p>Strict runtime draw call profiling and mesh combining algorithms that maintain smooth framerates on low-tier targets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA & Demo Form ═══ -->
+    <section class="cs-cta" id="contact-form">
+      <div class="container" style="max-width: 600px;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="cs-label">Technical Art</span>
+          <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem; color: #fff;">Start Your Project</h2>
+          <p class="text-muted" style="max-width: 500px; margin: 0 auto;">Ready to optimize your graphics pipeline or develop custom shaders? Let's talk.</p>
+        </div>
+        <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="contactForm">
+          <!-- Honeypot Field for Anti-Spam -->
+          <div style="display: none;" aria-hidden="true">
+            <input type="text" name="honeypot_field" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="project" value="Technical Art Benchmarks Inquiry">
+          <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
+            <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;">Full Name</label>
+            <input id="name" name="name" placeholder="John Doe" required="" type="text" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.8rem 1.2rem; border-radius: 4px;"/>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
+            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;">Email Address</label>
+            <input id="email" name="email" placeholder="john@example.com" required="" type="email" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.8rem 1.2rem; border-radius: 4px;"/>
+          </div>
+          <div class="form-group" style="margin-bottom: 2rem; text-align: left;">
+            <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem;">Briefly describe your requirements</label>
+            <textarea id="message" name="message" placeholder="Custom shaders, engine optimization, environment art..." required="" style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.8rem 1.2rem; border-radius: 4px; height: 100px; resize: vertical;"></textarea>
+          </div>
+          <button class="btn btn-primary" style="width: 100%; padding: 1.1rem; font-weight: 700; text-transform: uppercase;" type="submit">Submit Inquiry</button>
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 1.5rem; text-align: center;">
+            By submitting, you agree to our <a href="../../../privacy-policy" style="color: var(--color-accent);">Privacy Policy</a>. We respond to inquiries within 24-48 hours.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+        <div class="footer-brand">
+          <img alt="DualCore Games Logo" loading="lazy" src="../../../assets/images/dualcore-logo.svg"
+            style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" />
+          <p>Game development studio building original IP and production-ready interactive systems.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="../../../">Home</a></li>
+            <li><a href="../../../services/">Services</a></li>
+            <li><a href="../../../work/">Work</a></li>
+            <li><a href="../../../about/">About</a></li>
+            <li><a href="../../../blog/">Blog</a></li>
+            <li><a href="../../../contact/">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <ul class="footer-links social-links">
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a></li>
+            <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
+            <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center; opacity: 0.75; font-size: 0.7rem; padding-top: 2rem;">
+        <p>© 2026 DualCore Games | <a href="../../../privacy-policy">Privacy Policy</a> | <a href="../../../terms">Terms of Service</a></p>
+        <p style="max-width: 600px; line-height: 1.6;">Unity is a trademark of Unity Technologies. DualCore Games is not affiliated with or endorsed by Unity Technologies. Android is a trademark of Google LLC. Unreal Engine is a trademark of Epic Games, Inc. Meta, Photon, and other marks are the property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+  <script defer="" src="../../../assets/js/main.js"></script>
+</body>
+</html>

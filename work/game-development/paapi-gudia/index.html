@@ -73,8 +73,10 @@
       position: relative;
       min-height: 85vh;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      padding: 12rem 0 8rem;
+      padding: 4rem 0 3rem;
       background: #080a08;
       overflow: hidden;
     }
@@ -430,6 +432,8 @@
     .cs-challenge:last-child { border-bottom: none; margin-bottom: 0; }
     .cs-challenge__header {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
       gap: 1.5rem;
       margin-bottom: 3rem;
@@ -573,6 +577,7 @@
               
               <li class="dropdown-header">Game Art</li>
               <li><a class="dropdown-link sub-link" href="../../../work/game-art/technical-art-benchmarks/">Technical Art Benchmarks</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../work/game-art/environment-art/">Environment Art</a></li>
               <li><a class="dropdown-link category-link" href="../../../work/game-art/">View All Game Art →</a></li>
             </ul>
           </li>
@@ -718,8 +723,14 @@
         <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">Witness the Terror</h2>
         <p class="text-muted" style="max-width: 600px; margin: 0 auto;">A look at the cross-platform rendering and immersive VR combat mechanics.</p>
         <div class="video-container" style="position: relative;">
-          <div class="video-facade" data-video="pg" style="position: absolute; inset: 0; cursor: pointer; background-image: url('assets/Gameplayscrenshot3.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
-            <div class="play-button" style="width: 80px; height: 80px; background: rgba(0,210,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #05070a; box-shadow: 0 0 30px rgba(0,210,255,0.4); transition: transform 0.2s ease, background 0.2s ease;">▶</div>
+          <div class="video-facade" data-video="pg" style="position: absolute; inset: 0; cursor: pointer; background-image: url('assets/Gameplayscrenshot3.webp'); background-size: cover; background-position: center; display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; justify-content: center;">
+            <div class="play-button" style="width: 80px; height: 80px; background: rgba(0,210,255,0.9); border-radius: 50%; display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; justify-content: center; font-size: 2rem; color: #05070a; box-shadow: 0 0 30px rgba(0,210,255,0.4); transition: transform 0.2s ease, background 0.2s ease;">▶</div>
           </div>
         </div>
       </div>
@@ -761,7 +772,10 @@
           <div class="gallery-item"><img loading="lazy" src="assets/Gameplayscrenshot3.webp" alt="Paapi Gudia Boss Encounter"></div>
           <div class="gallery-item"><img loading="lazy" src="assets/Gameplayscreenshot4.webp" alt="Paapi Gudia Environment 2"></div>
           <div class="gallery-item"><img loading="lazy" src="assets/Gameplayscreenshot5.webp" alt="Paapi Gudia Combat 2"></div>
-          <div class="gallery-item" style="background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.1);"><span style="color: rgba(255,255,255,0.2); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">More coming soon</span></div>
+          <div class="gallery-item" style="background: rgba(255,255,255,0.02); display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.1);"><span style="color: rgba(255,255,255,0.2); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">More coming soon</span></div>
         </div>
       </div>
     </section>
@@ -798,7 +812,10 @@
     </section>
 
     <!-- Cinematic Banner -->
-    <section style="position: relative; height: 50vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #000;">
+    <section style="position: relative; height: 50vh; display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; justify-content: center; overflow: hidden; background: #000;">
       <img src="assets/paapi-hero-bg.webp" alt="Paapi Gudia Background" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(0.5);">
       <div style="position: relative; z-index: 10; text-align: center;">
         <h2 style="font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.04em;">Scale Your Vision.</h2>
