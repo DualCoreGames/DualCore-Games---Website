@@ -222,41 +222,36 @@
 </div>
 </section>
 </main>
-<!-- Lead Capture Section -->
-<section class="section-padding" style="background-color: var(--color-card-bg); border-top: 1px solid var(--color-border);">
-<div class="container" style="max-width: 600px;">
-<div style="text-align: center; margin-bottom: 3rem;">
-<h2 style="margin-bottom: 1rem;">Start Your Project</h2>
-<p class="text-muted" style="max-width: 500px; margin: 0 auto;">Ready to build? Tell us about your project and let's engineer the future together.</p>
-</div>
-<form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="contactForm">
-          <!-- Honeypot Field for Anti-Spam -->
-          <div style="display: none;" aria-hidden="true">
-            <input type="text" name="honeypot_field" tabindex="-1" autocomplete="off">
-          </div>
-<div class="form-group">
-<label for="name">Full Name</label>
-<input id="name" name="name" placeholder="John Doe" required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="email">Email Address</label>
-<input id="email" name="email" placeholder="john@example.com" required="" type="email"/>
-</div>
-<div class="form-group">
-<label for="project">Project Type</label>
-<input id="project" name="project" placeholder="e.g. Mobile Game, Engine Optimization" required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="message">Message</label>
-<textarea id="message" name="message" placeholder="Briefly describe your requirements..." required=""></textarea>
-</div>
-<button class="btn btn-primary" style="width: 100%;" type="submit">Submit Inquiry</button>
-<p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 1.5rem; text-align: center;">
-By submitting this form, you agree to our Privacy Policy. Our engineering team typically responds within 24-48 hours.
-</p>
-</form>
-</div>
-</section>
+  <!-- Newsletter CTA -->
+  <section class="section-padding" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle);">
+    <div class="container" style="max-width: 560px;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="label-accent">Stay in the Loop</span>
+        <h2 style="margin-top: 0.75rem; margin-bottom: 1rem;">Engineering Updates</h2>
+        <p style="color: var(--text-secondary); max-width: 460px; margin: 0 auto;">Technical deep-dives and studio updates — delivered when we publish. No spam.</p>
+      </div>
+      <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="newsletterForm" style="display: flex; flex-direction: column; gap: 1rem;">
+        <!-- Honeypot -->
+        <div style="display: none;" aria-hidden="true">
+          <input type="text" name="honeypot_field" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="source_page" value="Blog Newsletter">
+        <input type="hidden" name="project" value="Newsletter Subscription">
+        <div class="form-group">
+          <label for="nl-name">Your Name</label>
+          <input id="nl-name" name="name" placeholder="Your name" required type="text"/>
+        </div>
+        <div class="form-group">
+          <label for="nl-email">Email Address</label>
+          <input id="nl-email" name="email" placeholder="email@example.com" required type="email"/>
+        </div>
+        <button class="btn btn-primary" style="width: 100%; padding: 0.95rem;" type="submit">Subscribe to Updates</button>
+        <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center; margin: 0;">
+          By subscribing, you agree to our <a href="privacy-policy/" style="color: var(--core-tech);">Privacy Policy</a>. Unsubscribe anytime.
+        </p>
+      </form>
+    </div>
+  </section>
 <!-- Unified Footer -->
   <footer>
     <div class="container">

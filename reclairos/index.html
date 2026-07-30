@@ -2699,10 +2699,16 @@
             <label for="rc-email">Email Address</label>
             <input id="rc-email" name="email" placeholder="email@example.com" required="" type="email" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
           </div>
-          <div class="form-group">
-            <label for="rc-message">Why are you interested in Reclairos?</label>
-            <textarea id="rc-message" name="message" placeholder="I love strategy games / I'm a mobile RPG player..." required="" rows="4" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"></textarea>
-          </div>
+                    <div class="form-group">
+             <label for="rc-platform">Preferred Platform</label>
+             <select id="rc-platform" name="platform" required style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 100%; padding: 0.9rem 1rem; border-radius: var(--radius-sm); font-family: var(--font-primary); font-size: 0.95rem;">
+               <option value="">Select your platform</option>
+               <option value="Android">Android</option>
+               <option value="iOS">iOS</option>
+               <option value="Both">Both (Android &amp; iOS)</option>
+             </select>
+           </div>
+           <input type="hidden" name="source_page" value="Reclairos Beta Waitlist">
           <button class="btn btn-primary" style="width: 100%; padding: 1.1rem; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;" type="submit">Secure My Beta Invite</button>
           <p style="font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 1.5rem; text-align: center;">
             By joining, you agree to our <a href="../privacy-policy/" style="color: var(--color-accent);">Privacy Policy</a>. We only send high-value updates — no spam.

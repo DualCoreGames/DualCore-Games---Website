@@ -1,4 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // ── Anti-Spam Interceptor ──────────────────────────────────────────────────
+  // Blacklist of known spam patterns. If matched, show fake success and do NOT
+  // send the form data or fire any GTM events.
+  const SPAM_BLACKLIST = [
+    /\$[0-9,]+,000/i,         // Money amounts like $27,000,000
+    /casino/i,
+    /jackpot/i,
+    /meumini\.link/i,
+    /cut\.gl/i,
+    /linkypay/i,
+    /earn.*per.*day/i,
+    /make.*money.*online/i,
+    /adult.*content/i,
+    /xxx/i,
+    /viagra/i,
+    /cialis/i,
+    /\bseo\b.*service/i,     // SEO service spam
+    /buy.*backlinks/i,
+    /crypto.*investment/i,
+    /binary.*options/i,
+  ];
+
+  function isSpam(formData) {
+    const fieldsToCheck = ['message', 'project', 'name', 'email'];
+    for (const field of fieldsToCheck) {
+      const value = formData.get(field) || '';
+      for (const pattern of SPAM_BLACKLIST) {
+        if (pattern.test(value)) {
+          console.warn('[AntiSpam] Blocked submission matching pattern:', pattern);
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+  // ─────────────────────────────────────────────────────────────────────────────
+
     // 1. Dynamic Keyword Insertion (DKI)
     const updateHeroHeadline = () => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -52,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 4. Form Submission & AJAX Redirect
-    const forms = document.querySelectorAll('form.contact-form, form.beta-form, #contactForm, #contactFormTwo, #reclairosBetaForm, #paapiContactForm, #roomRaiderForm, #audit-form-element, #notd-form');
+    const forms = document.querySelectorAll('form.contact-form, form.beta-form, #contactForm, #contactFormTwo, #reclairosBetaForm, #paapiContactForm, #roomRaiderForm, #audit-form-element, #notd-form, #newsletterForm');
     forms.forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -66,7 +103,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     parts.pop();
                 }
                 const prefix = '../'.repeat(parts.length);
-                window.location.href = prefix + 'thank-you/';
+                
+          // Fire GTM generate_lead event for legitimate submissions
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              'event': 'generate_lead',
+              'form_id': form.id || 'unknown',
+              'source_page': window.location.pathname
+            });
+          }
+
+          window.location.href = prefix + 'thank-you/';
                 return;
             }
 
