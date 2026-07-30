@@ -571,9 +571,9 @@ document.addEventListener('DOMContentLoaded', () => {
     (function () {
         const mainSection = document.querySelector('main > section:first-of-type');
         const isHomepage = document.querySelector('section.hero') !== null;
-        
-        // Only run on subpages
-        if (!mainSection || isHomepage) return;
+        // Only run on parent/listing pages — not on project pages or homepage
+        const pageType = document.body ? document.body.getAttribute('data-page-type') : null;
+        if (!mainSection || isHomepage || pageType !== 'parent') return;
 
         // Dynamically inject canvas element
         const canvas = document.createElement('canvas');
