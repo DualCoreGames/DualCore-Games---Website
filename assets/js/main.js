@@ -96,24 +96,32 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Honeypot spam bot check
             const honeypot = form.querySelector('input[name="honeypot_field"]');
-            if (honeypot && honeypot.value) {
-                console.warn("Spam submission blocked via honeypot.");
-                const parts = window.location.pathname.split('/').filter(Boolean);
-                if (parts.length > 0 && parts[parts.length - 1].includes('.')) {
-                    parts.pop();
-                }
-                const prefix = '../'.repeat(parts.length);
-                
-          // Fire GTM generate_lead event for legitimate submissions
-          if (window.dataLayer) {
-            window.dataLayer.push({
-              'event': 'generate_lead',
-              'form_id': form.id || 'unknown',
-              'source_page': window.location.pathname
-            });
-          }
+            
+            const spamKeywords = [
+                "seo ranking", "seo agency", "backlinks", "guest post", "buy traffic", 
+                "crypto", "forex", "trading signals", "whatsapp +", "telegram: @", 
+                "jackpot", "$27,000,000", "http://", "https://", "mega.nz", "telegra.ph",
+                "psychophysical", "satellite weapons", "gru report"
+            ];
+            const messageField = form.querySelector('textarea[name="message"]');
+            const nameField = form.querySelector('input[name="name"]');
+            const messageContent = messageField ? messageField.value.toLowerCase() : "";
+            const nameContent = nameField ? nameField.value.toLowerCase() : "";
+            const isSpam = spamKeywords.some(keyword => messageContent.includes(keyword) || nameContent.includes(keyword));
 
-          window.location.href = prefix + 'thank-you/';
+            if ((honeypot && honeypot.value) || isSpam) {
+                console.warn("Spam submission blocked.");
+                const submitBtn = form.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'SENDING...';
+                    setTimeout(() => {
+                        submitBtn.textContent = 'MESSAGE SENT';
+                        submitBtn.style.backgroundColor = '#10B981';
+                        submitBtn.style.color = '#fff';
+                        submitBtn.style.borderColor = '#10B981';
+                    }, 800);
+                }
                 return;
             }
 
@@ -135,6 +143,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 mode: 'no-cors'
             })
             .then(() => {
+                // Fire GTM generate_lead event for legitimate submissions
+                if (window.dataLayer) {
+                    window.dataLayer.push({
+                        'event': 'generate_lead',
+                        'form_id': form.id || 'unknown',
+                        'source_page': window.location.pathname
+                    });
+                }
+                
                 // Calculate relative prefix depending on directory depth to point to root thank-you.html correctly
                 const parts = window.location.pathname.split('/').filter(Boolean);
                 if (parts.length > 0 && parts[parts.length - 1].includes('.')) {

@@ -1,85 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>https://dualcoregames.com/</loc>
-   </url>
-   <url>
       <loc>https://dualcoregames.com/about/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
    </url>
    <url>
       <loc>https://dualcoregames.com/blog/</loc>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/contact/</loc>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/services/</loc>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/services/game-development/</loc>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/services/game-art/</loc>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/services/vr-xr-simulation/</loc>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/blog/vr-simulation-architecture/</loc>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/blog/scalable-multiplayer-infrastructure/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
    <url>
       <loc>https://dualcoregames.com/blog/optimizing-mobile-60fps/</loc>
-   </url>
-   
-   <url>
-      <loc>https://dualcoregames.com/reclairos/</loc>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/work/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/</loc>
-   <url>
-      <loc>https://dualcoregames.com/work/game-development/paapi-gudia/</loc>
+      <loc>https://dualcoregames.com/blog/scalable-multiplayer-infrastructure/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/never-open-the-door/</loc>
+      <loc>https://dualcoregames.com/blog/vr-simulation-architecture/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/game-development/crazy-planet/</loc>
-   </url>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/work/vr-xr/</loc>
-   <url>
-      <loc>https://dualcoregames.com/work/vr-xr/shemarooverse/</loc>
+      <loc>https://dualcoregames.com/contact/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://dualcoregames.com/work/vr-xr/room-raider/</loc>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/work/vr-xr/mayaaverse/</loc>
-   </url>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/work/vr-xr/educational-simulations/</loc>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/work/game-art/</loc>
-   </url>
-   <url>
-      <loc>https://dualcoregames.com/work/game-art/technical-art-benchmarks/</loc>
+      <loc>https://dualcoregames.com/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>1.0</priority>
    </url>
    <url>
       <loc>https://dualcoregames.com/privacy-policy/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/reclairos/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/services/game-art/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/services/game-development/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/services/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/services/vr-xr-simulation/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
    </url>
    <url>
       <loc>https://dualcoregames.com/terms/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
    <url>
       <loc>https://dualcoregames.com/work/game-art/environment-art/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-art/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-art/technical-art-benchmarks/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/crazy-planet/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/never-open-the-door/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/game-development/paapi-gudia/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/vr-xr/educational-simulations/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/vr-xr/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/vr-xr/mayaaverse/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/vr-xr/room-raider/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://dualcoregames.com/work/vr-xr/shemarooverse/</loc>
+      <lastmod>2026-07-31</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
    </url>
 </urlset>

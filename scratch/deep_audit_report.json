@@ -1,0 +1,32 @@
+{
+  "404.html": [
+    "Meta description too short (64 chars)"
+  ],
+  "privacy-policy/index.html": [
+    "Meta description too short (65 chars)"
+  ],
+  "terms/index.html": [
+    "Meta description too short (67 chars)"
+  ],
+  "work/vr-xr/educational-simulations/index.html": [
+    "Meta description too long (165 chars)",
+    "Missing <h1> tag"
+  ],
+  "work/vr-xr/shemarooverse/index.html": [
+    "Meta description too long (169 chars)"
+  ],
+  "work/vr-xr/room-raider/index.html": [
+    "Meta description too long (166 chars)"
+  ],
+  "work/game-art/environment-art/index.html": [
+    "Meta description too long (163 chars)",
+    "Missing <h1> tag"
+  ],
+  "work/game-art/technical-art-benchmarks/index.html": [
+    "Missing <h1> tag"
+  ],
+  "reclairos/index.html": [
+    "Image missing 'src' attribute",
+    "Image missing 'alt' text (src: )"
+  ]
+}
