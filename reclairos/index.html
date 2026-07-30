@@ -1519,7 +1519,7 @@
       padding: 0 1.65rem;
     }
     .mega-tabs {
-      display: flex;
+      display: flex; justify-content: center;
       gap: 0;
     }
     .mega-tab {
@@ -1544,6 +1544,295 @@
     .mega-tab-content { display: none; }
     .mega-tab-content.active { display: block; }
 
+  </style>
+  <style>
+/* ── Reclairos Case Study — Technical Whitepaper Styles ── */
+    .cs-hero {
+      background: #080808;
+      padding: 12rem 0 8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .cs-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+    .cs-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .cs-hero__meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .cs-hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* Project meta grid */
+    .cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    .cs-meta-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .cs-meta-card__label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-meta-card__value { font-size: 0.95rem; font-weight: 700; margin: 0; }
+
+    /* Benchmark strip */
+    .cs-benchmarks {
+      background: linear-gradient(135deg, rgba(0,210,255,0.06) 0%, rgba(0,0,0,0) 60%);
+      border-top: 1px solid rgba(0,210,255,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 5rem 0;
+    }
+    .cs-bench-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .cs-bench-card {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(0,210,255,0.15);
+      border-top: 3px solid var(--color-accent);
+      border-radius: 14px;
+      background: rgba(0,210,255,0.03);
+    }
+    .cs-bench-card__stat {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .cs-bench-card__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .cs-bench-card__sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin: 0;
+    }
+
+    /* Sections */
+    .cs-section { padding: 8rem 0; }
+    .cs-section--alt { background: #0c0c0c; }
+    .cs-section-num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cs-section h2 { margin-bottom: 3rem; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+
+    /* Table styles */
+    .cs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .cs-table th {
+      text-align: left;
+      padding: 1rem 1.5rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      border-bottom: 1px solid rgba(0,210,255,0.2);
+      background: rgba(0,210,255,0.04);
+    }
+    .cs-table td {
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .cs-table td:first-child { font-weight: 700; white-space: nowrap; }
+    .cs-table td.text-muted { color: var(--color-text-muted); }
+    .cs-table tr:hover td { background: rgba(255,255,255,0.01); }
+
+    /* Architecture layers */
+    .cs-arch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .cs-arch-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .cs-arch-card__layer {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-arch-card h4 { font-size: 0.95rem; margin-bottom: 0.75rem; font-weight: 700; }
+    .cs-arch-card p { font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; }
+
+    /* Problem/Solution split */
+    .cs-challenge { margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .cs-challenge:last-child { border-bottom: none; margin-bottom: 0; }
+    .cs-challenge__header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .cs-challenge__num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.1);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .cs-challenge__header h3 { font-size: 1.4rem; margin: 0; }
+    .cs-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .cs-split__col--problem {
+      background: rgba(255,60,60,0.04);
+      border: 1px solid rgba(255,60,60,0.12);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__col--solution {
+      background: rgba(0,210,255,0.04);
+      border: 1px solid rgba(0,210,255,0.15);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__tag {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      display: block;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .cs-split__tag--problem { color: rgba(255,100,100,0.9); background: rgba(255,60,60,0.08); }
+    .cs-split__tag--solution { color: var(--color-accent); background: rgba(0,210,255,0.08); }
+    .cs-split__col h4 { font-size: 1rem; margin-bottom: 1.25rem; font-weight: 700; }
+    .cs-bullet-list { list-style: none; padding: 0; margin: 0; }
+    .cs-bullet-list li {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      line-height: 1.6;
+    }
+    .cs-bullet-list li:last-child { border-bottom: none; }
+    .cs-bullet-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.2);
+    }
+    .cs-split__col--solution .cs-bullet-list li::before { color: rgba(0,210,255,0.4); }
+
+    /* Takeaways */
+    .cs-takeaway {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: start;
+    }
+    .cs-takeaway:last-child { border-bottom: none; }
+    .cs-takeaway__num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.12);
+      line-height: 1;
+      padding-top: 0.2rem;
+    }
+    .cs-takeaway--featured .cs-takeaway__num { color: rgba(0,210,255,0.3); }
+    .cs-takeaway h4 { margin-bottom: 0.75rem; font-size: 1rem; font-weight: 700; }
+    .cs-takeaway p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+    .cs-takeaway--featured {
+      background: rgba(0,210,255,0.03);
+      border: 1px solid rgba(0,210,255,0.12);
+      border-radius: 14px;
+      padding: 2.5rem;
+      margin: 0 0 1.5rem;
+    }
+
+    /* CTA */
+    .cs-cta {
+      background: linear-gradient(to bottom, #0c0c0c, #080808);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 10rem 0;
+      text-align: center;
+    }
+    .cs-cta h2 { margin-bottom: 1rem; font-size: 2.2rem; font-weight: 900; }
+    .cs-cta p { color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .cs-cta__btns { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .cs-arch-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-bench-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    }
+    @media (max-width: 768px) {
+      .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-split { grid-template-columns: 1fr; }
+      .cs-arch-grid { grid-template-columns: 1fr; }
+      .cs-section { padding: 5rem 0; }
+      .cs-hero { padding: 9rem 0 5rem; }
+    }
   </style>
 </head>
 
@@ -2602,17 +2891,7 @@
       </div>
 
     <!-- ═══ B2B BRIDGE ═══ -->
-    <section class="rc-bridge">
-      <div class="container">
-        <span class="rc-bridge__label">For Engineers &amp; Studio Partners</span>
-        <h2>Interested in the Architecture?</h2>
-        <p>Read the full technical breakdown — 9-layer modular system, Animator Override pattern with 40% memory savings, ScriptableObject no-code balancing, and the path from 18 to 60 FPS on Snapdragon 665.</p>
-        <div class="rc-bridge__btns">
-          <a href="?tab=casestudy" class="btn btn-primary" id="see-engineering-btn" style="padding: 1rem 2.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">See Engineering Architecture</a>
-          <a href="../contact/" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.2);">Build Your Game</a>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- ═══ GAME FAQ SECTION ═══ -->
     <section class="rc-section rc-section--alt" id="game-faq" style="border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
@@ -3309,26 +3588,26 @@
           <!-- Paapi Gudia -->
           <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
             <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative;">
-              <img alt="Paapi Gudia" loading="lazy" src="../../paapi-gudia/assets/paapi-hero-bg-clean.webp" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+              <img alt="Paapi Gudia" loading="lazy" src="../work/game-development/paapi-gudia/assets/paapi-hero-bg-clean.webp" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
             </div>
             <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
               <span style="font-size: 0.65rem; font-weight: 800; color: var(--core-art); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">PC + VR Horror</span>
               <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Paapi Gudia</h3>
               <div style="margin-top: auto;">
-                <a href="../../paapi-gudia/overview/" style="color: var(--core-tech); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+                <a href="../work/game-development/paapi-gudia/" style="color: var(--core-tech); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
               </div>
             </div>
           </div>
           <!-- Never Open The Door -->
           <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
             <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative;">
-              <img alt="Never Open The Door" loading="lazy" src="../../never-open-the-door/assets/never-open-the-door-hero-bg.webp" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+              <img alt="Never Open The Door" loading="lazy" src="../work/game-development/never-open-the-door/assets/never-open-the-door-hero-bg.webp" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
             </div>
             <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
               <span style="font-size: 0.65rem; font-weight: 800; color: var(--core-tech); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Psychological Horror</span>
               <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Never Open The Door</h3>
               <div style="margin-top: auto;">
-                <a href="../../never-open-the-door/overview/" style="color: var(--core-tech); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+                <a href="../work/game-development/never-open-the-door/" style="color: var(--core-tech); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
               </div>
             </div>
           </div>
@@ -3767,26 +4046,26 @@
           <!-- Paapi Gudia -->
           <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
             <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative;">
-              <img alt="Paapi Gudia" loading="lazy" src="../../paapi-gudia/assets/paapi-hero-bg-clean.webp" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+              <img alt="Paapi Gudia" loading="lazy" src="../work/game-development/paapi-gudia/assets/paapi-hero-bg-clean.webp" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
             </div>
             <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
               <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">PC + VR Horror</span>
               <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Paapi Gudia</h3>
               <div style="margin-top: auto;">
-                <a href="../../paapi-gudia/overview/" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+                <a href="../work/game-development/paapi-gudia/" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
               </div>
             </div>
           </div>
           <!-- Never Open The Door -->
           <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
             <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative;">
-              <img alt="Never Open The Door" loading="lazy" src="../../never-open-the-door/assets/never-open-the-door-hero-bg.webp" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
+              <img alt="Never Open The Door" loading="lazy" src="../work/game-development/never-open-the-door/assets/never-open-the-door-hero-bg.webp" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" />
             </div>
             <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
               <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Psychological Horror</span>
               <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Never Open The Door</h3>
               <div style="margin-top: auto;">
-                <a href="../../never-open-the-door/overview/" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+                <a href="../work/game-development/never-open-the-door/" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
               </div>
             </div>
           </div>

@@ -89,7 +89,7 @@
     .hero-cinematic__bg {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: url('../assets/shemarooverse-multiplayer-vr-theatre.webp');
+      background-image: url('assets/shemarooverse-multiplayer-vr-theatre.webp');
       background-size: cover;
       background-position: center;
       opacity: 0.25;
@@ -280,7 +280,7 @@
       padding: 0 1.65rem;
     }
     .mega-tabs {
-      display: flex;
+      display: flex; justify-content: center;
       gap: 0;
     }
     .mega-tab {
@@ -305,6 +305,290 @@
     .mega-tab-content { display: none; }
     .mega-tab-content.active { display: block; }
 
+  </style>
+  <style>
+/* ── Case Study Whitepaper Styles ── */
+    .cs-hero {
+      position: relative;
+      background: #080808;
+      padding: 12rem 0 8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .cs-hero__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('assets/shemarooverse-multiplayer-vr-theatre.webp');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      filter: saturate(1.2) brightness(0.7);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .cs-hero .container { position: relative; z-index: 2; }
+    .cs-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+    .cs-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .cs-hero__meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .cs-hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* Project meta grid */
+    .cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    .cs-meta-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .cs-meta-card__label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-meta-card__value { font-size: 0.95rem; font-weight: 700; margin: 0; }
+
+    /* Specification Table */
+    .tech-specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .tech-specs-table th, .tech-specs-table td {
+      padding: 1.2rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .tech-specs-table th {
+      background: rgba(255,255,255,0.03);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-accent);
+      font-weight: 800;
+    }
+    .tech-specs-table td:first-child {
+      font-weight: 700;
+      width: 30%;
+      color: #fff;
+    }
+    .tech-specs-table td {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    .tech-specs-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Sections */
+    .cs-section { padding: 8rem 0; }
+    .cs-section--alt { background: #0c0c0c; }
+    .cs-section-num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cs-section h2 { margin-bottom: 2rem; font-size: clamp(1.8rem, 3vw, 2.5rem); letter-spacing: -0.02em; }
+
+    /* Highlights */
+    .highlight-banner {
+      background: rgba(0,210,255,0.03);
+      border-left: 4px solid var(--color-accent);
+      padding: 2.5rem;
+      border-radius: 0 12px 12px 0;
+      margin: 4rem 0;
+    }
+    .highlight-banner p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+    }
+
+    /* Architecture List Styling */
+    .arch-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 4rem 0;
+    }
+    .arch-list-item {
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .arch-list-item h4 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .arch-list-item p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    /* Challenges & Solutions */
+    .cs-challenge { margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .cs-challenge:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .cs-challenge__header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .cs-challenge__num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.1);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .cs-challenge__header h3 { font-size: 1.5rem; margin: 0; font-weight: 800; }
+    .cs-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .cs-split__col--problem {
+      background: rgba(255,60,60,0.03);
+      border: 1px solid rgba(255,60,60,0.1);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+    .cs-split__col--solution {
+      background: rgba(0,210,255,0.03);
+      border: 1px solid rgba(0,210,255,0.12);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+    .cs-split__tag {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+    }
+    .cs-split__tag--problem { color: rgba(255,100,100,0.9); background: rgba(255,60,60,0.08); }
+    .cs-split__tag--solution { color: var(--color-accent); background: rgba(0,210,255,0.08); }
+    .cs-split__col h4 { font-size: 1.1rem; margin-bottom: 1.25rem; font-weight: 700; color: #fff; }
+    .cs-bullet-list { list-style: none; padding: 0; margin: 0; }
+    .cs-bullet-list li {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      line-height: 1.6;
+    }
+    .cs-bullet-list li:last-child { border-bottom: none; }
+    .cs-bullet-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.2);
+    }
+    .cs-split__col--solution .cs-bullet-list li::before { color: rgba(0,210,255,0.4); }
+
+    /* Takeaways */
+    .cs-takeaway {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: start;
+    }
+    .cs-takeaway:last-child { border-bottom: none; }
+    .cs-takeaway__num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.12);
+      line-height: 1;
+    }
+    .cs-takeaway h4 { margin-bottom: 0.75rem; font-size: 1.1rem; font-weight: 700; color: #fff; }
+    .cs-takeaway p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+    /* CTA */
+    .cs-cta {
+      background: linear-gradient(to bottom, #0c0c0c, #080808);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 10rem 0;
+      text-align: center;
+    }
+
+    /* Large Image Frame */
+    .narrative-image-container {
+      margin: 4rem 0;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+    .narrative-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-split { grid-template-columns: 1fr; gap: 2rem; }
+    }
   </style>
 </head>
 
@@ -447,7 +731,7 @@
             <p>Built for Reliance Jio's head-mounted display ecosystem (JioDive &amp; JioGlass) running on Android, the application integrates the <strong>JMR SDK</strong> and <strong>AVPro Video Player</strong> to decode and render immersive 360° videos smoothly on mobile chipsets.</p>
           </div>
           <div class="image-frame">
-            <img src="../assets/shemarooverse-virtual-lobby.webp" alt="ShemarooVerse virtual lobby and content selection catalog in VR">
+            <img src="assets/shemarooverse-virtual-lobby.webp" alt="ShemarooVerse virtual lobby and content selection catalog in VR">
             <div class="image-frame__overlay"></div>
           </div>
         </div>
@@ -459,7 +743,7 @@
       <div class="container">
         <div class="narrative-grid">
           <div class="image-frame" style="order: 2;">
-            <img src="../assets/shemarooverse-spatial-audio-chat.webp" alt="Multiplayer room and spatial voice communication inside virtual cinema">
+            <img src="assets/shemarooverse-spatial-audio-chat.webp" alt="Multiplayer room and spatial voice communication inside virtual cinema">
             <div class="image-frame__overlay"></div>
           </div>
           <div class="narrative-content" style="order: 1;">
@@ -513,7 +797,7 @@
             </table>
           </div>
           <div class="image-frame">
-            <img src="../assets/shemarooverse-android-vr-performance.webp" alt="ShemarooVerse Android VR rendering performance profiling and optimization">
+            <img src="assets/shemarooverse-android-vr-performance.webp" alt="ShemarooVerse Android VR rendering performance profiling and optimization">
             <div class="image-frame__overlay"></div>
           </div>
         </div>
@@ -869,7 +1153,7 @@
         </table>
 
         <div class="narrative-image-container">
-          <img src="../assets/shemarooverse-android-vr-performance.webp" alt="Unity Android CPU/GPU Profiling graph showing optimized JMR SDK frames and network tick rates">
+          <img src="assets/shemarooverse-android-vr-performance.webp" alt="Unity Android CPU/GPU Profiling graph showing optimized JMR SDK frames and network tick rates">
         </div>
 
         <h3 style="margin-bottom: 2rem; font-weight: 800;">Gaze Interaction State Machine</h3>
