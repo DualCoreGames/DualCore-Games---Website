@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="view-transition" content="same-origin" />
+  <meta charset="utf-8"/>
+  <!-- Google Tag Manager -->
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Open Graph -->
+  <meta content="ShemarooVerse — Multiplayer VR Theatre | Jio Immerse | DualCore Games" property="og:title"/>
+  <meta content="A deep-dive into ShemarooVerse on Jio Immerse, JioDive, and JioGlass. A commercial-grade multiplayer VR theatre experience built in Unity with Photon Fusion." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://dualcoregames.com/work/vr-xr/shemarooverse/" property="og:url"/>
+  <meta content="https://dualcoregames.com/work/vr-xr/shemarooverse/assets/shemarooverse-multiplayer-vr-theatre.webp" property="og:image"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="ShemarooVerse — Multiplayer VR Theatre | Jio Immerse | DualCore Games" name="twitter:title"/>
+  <meta content="A deep-dive into ShemarooVerse on Jio Immerse, JioDive, and JioGlass. A commercial-grade multiplayer VR theatre experience built in Unity with Photon Fusion." name="twitter:description"/>
+  <meta name="theme-color" content="#00d2ff">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ShemarooVerse — Multiplayer VR Theatre | Jio Immerse | DualCore Games</title>
+  <link href="https://dualcoregames.com/work/vr-xr/shemarooverse/" rel="canonical"/>
+  <meta content="Discover ShemarooVerse on Jio Immerse, JioDive, and JioGlass. A multiplayer VR cinema experience with synchronized OTT streaming, spatial audio, and JMR SDK integration." name="description"/>
+  <link href="../../../assets/css/style.css" rel="stylesheet"/>
+  <link href="../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+
+  <!-- WebApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ShemarooVerse on Jio Immerse",
+    "description": "Multiplayer VR Theatre experience built for JioDive and JioGlass devices featuring shared 360° video streaming and spatial voice chat.",
+    "applicationCategory": "Immersive OTT / Social VR",
+    "operatingSystem": "Android (Mobile VR)",
+    "author": {
+      "@type": "Organization",
+      "name": "DualCore Games",
+      "url": "https://dualcoregames.com"
+    },
+    "image": "https://dualcoregames.com/work/vr-xr/shemarooverse/assets/shemarooverse-multiplayer-vr-theatre.webp"
+  }
+  </script>
+
+  <style>
+    /* ── DualCore Signature Styles ── */
+    .hero-cinematic {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      padding: 12rem 0 8rem;
+      background: #05080a;
+      overflow: hidden;
+    }
+    .hero-cinematic::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .hero-cinematic__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('../assets/shemarooverse-multiplayer-vr-theatre.webp');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.25;
+      filter: saturate(1.2) brightness(0.5);
+      z-index: 1;
+    }
+    .hero-cinematic__content { 
+      position: relative; 
+      z-index: 10; 
+      width: 100%; 
+      text-align: center;
+    }
+    
+    .breadcrumbs {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 2.5rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .breadcrumbs a { color: var(--color-accent); text-decoration: none; }
+    .breadcrumbs span { opacity: 0.3; }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    /* Cards & Interactivity */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-top: 3px solid #00D1FF;
+      padding: 2.5rem;
+      transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), background 0.4s ease;
+    }
+    .feature-card:hover {
+      transform: scale(1.03);
+      background: rgba(0,210,255,0.04);
+    }
+    .feature-card__num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+      letter-spacing: 0.2em;
+    }
+    .feature-card h3 { font-size: 1.25rem; margin-bottom: 1rem; font-weight: 800; }
+    .feature-card p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+    /* Narrative Sections */
+    .narrative-section { padding: 10rem 0; position: relative; }
+    .narrative-section--alt { background: #080808; }
+    .narrative-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .narrative-content h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 2rem; letter-spacing: -0.02em; }
+    .narrative-content p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-muted); margin-bottom: 2rem; }
+    
+    .image-frame {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+    .image-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .image-frame__overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+    }
+
+    /* Specifications Table */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .specs-table th, .specs-table td {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .specs-table th {
+      background: rgba(255,255,255,0.03);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      font-weight: 800;
+    }
+    .specs-table td {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+    .specs-table td:first-child {
+      font-weight: 700;
+      color: #fff;
+      width: 30%;
+    }
+
+    @media (max-width: 1000px) {
+      .narrative-grid { grid-template-columns: 1fr; gap: 4rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+  
+    @media (max-width: 480px) {
+      /* Responsive grid collapse overrides */
+      .rc-squad__grid, .squad__grid, .grid, [style*="grid-template-columns: repeat(5, 1fr)"], [style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+      .rc-snapshot__grid, .snapshot__grid, [style*="grid-template-columns: repeat(2, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      .rc-gameplay__row, .gameplay__row {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      .rc-flow, .flow {
+        grid-template-columns: 1fr !important;
+      }
+      .rc-roster__grid, .roster__grid {
+        grid-template-columns: 1fr !important;
+      }
+      .rc-hero__tagline, .hero__tagline {
+        font-size: 1.25rem !important;
+      }
+      .rc-section__title, .section__title {
+        font-size: 1.6rem !important;
+      }
+      /* Ensure absolute overlay or flagship elements fit */
+      .flagship-logo-overlay {
+        max-width: 75% !important;
+      }
+    }
+
+    /* ── Mega Tab System ── */
+    .mega-tabs-container {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,7,10,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mega-tabs-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.65rem;
+    }
+    .mega-tabs {
+      display: flex;
+      gap: 0;
+    }
+    .mega-tab {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.55);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 1.1rem 2rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .mega-tab:hover { color: rgba(255,255,255,0.85); }
+    .mega-tab.active {
+      color: #00d2ff;
+      border-bottom-color: #00d2ff;
+    }
+    .mega-tab-content { display: none; }
+    .mega-tab-content.active { display: block; }
+
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2F3CX5Z"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="../../../">
+        <img alt="DualCore Games Logo" src="../../../assets/images/dualcore-logo.svg"
+          style="height: 48px; width: auto; display: block;" />
+      </a>
+      <nav>
+        <button type="button" aria-label="Toggle navigation" class="nav-toggle">☰</button>
+        <ul class="nav-menu">
+          <li class="nav-close-item"><button type="button" aria-label="Close navigation" class="nav-close">✕</button></li>
+          <li class="nav-item"><a class="nav-link" href="../../../">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/reclairos/">Reclairos</a></li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="../../../services/">Services <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-link" href="../../../services/game-development/">Game Development</a></li>
+              <li><a class="dropdown-link" href="../../../services/game-art/">Game Art</a></li>
+              <li><a class="dropdown-link" href="../../../services/vr-xr-simulation/">VR/XR Simulation</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="../../../work/">Portfolio <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Game Development</li>
+              <li><a class="dropdown-link sub-link" href="../../../work/game-development/paapi-gudia/overview/">Paapi Gudia</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../work/game-development/crazy-planet/overview/">Crazy Planet</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../work/game-development/never-open-the-door/overview/">Never Open The Door</a></li>
+              <li><a class="dropdown-link category-link" href="../../../work/game-development/">View All Game Dev →</a></li>
+              
+              <li class="dropdown-divider"></li>
+              
+              <li class="dropdown-header">VR / XR</li>
+              <li><a class="dropdown-link sub-link" href="../../../work/vr-xr/room-raider/overview/">Room Raider</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../work/vr-xr/shemarooverse/overview/">Shemarooverse</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../work/vr-xr/mayaaverse/overview/">Mayaaverse</a></li>
+              <li><a class="dropdown-link category-link" href="../../../work/vr-xr/">View All VR/XR →</a></li>
+              
+              <li class="dropdown-divider"></li>
+              
+              <li class="dropdown-header">Game Art</li>
+              <li><a class="dropdown-link sub-link" href="../../../work/game-art/technical-art-benchmarks/">Technical Art Benchmarks</a></li>
+              <li><a class="dropdown-link category-link" href="../../../work/game-art/">View All Game Art →</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../../../about/">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../contact/">Contact</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../contact/" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══ CINEMATIC HERO ═══ -->
+    <section class="hero-cinematic">
+      <div class="hero-cinematic__bg"></div>
+      <div class="container hero-cinematic__content">
+        <a href="../../../work/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content; margin-left: auto; margin-right: auto;">
+          <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Portfolio
+        </a>
+        <br>
+        <span class="hero-label">Multiplayer VR Theatre</span>
+        <h1 class="hero-title">ShemarooVerse</h1>
+        <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 700px; margin: 0 auto 3.5rem auto;">A commercial-grade multiplayer VR theatre experience developed for JioDive and JioGlass devices. Watch OTT content with friends in a shared immersive space.</p>
+        
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+          <a href="#contact.html" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none;">Start Your Project</a>
+          <a href="?tab=casestudy" class="btn btn-secondary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15); text-decoration: none;">Technical Case Study</a>
+        </div>
+      </div>
+    </section>
+
+  <!-- ── Mega Tab Navigation ── -->
+  <div class="mega-tabs-container">
+    <div class="mega-tabs-inner">
+      <div class="mega-tabs">
+        <button class="mega-tab active" id="tab-btn-overview" onclick="window.switchTab('overview')">Project Overview</button>
+        <button class="mega-tab" id="tab-btn-casestudy" onclick="window.switchTab('casestudy')">Engineering Deep Dive</button>
+      </div>
+    </div>
+  </div>
+
+<div id="tab-overview" class="mega-tab-content active">
+
+    <!-- ═══ PROJECT STRIP ═══ -->
+    <section style="background: #080808; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Platform</span><strong style="font-size: 0.95rem;">JioDive • JioGlass</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Engine</span><strong style="font-size: 0.95rem;">Unity</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">SDKs &amp; Plugins</span><strong style="font-size: 0.95rem;">JMR SDK • Photon Fusion</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Genre</span><strong style="font-size: 0.95rem;">Multiplayer Shared VR Cinema</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Core Tech</span><strong style="font-size: 0.95rem;">State-Sync &amp; 360° Video</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Experience Pillars -->
+    <section style="padding: 4rem 0;">
+      <div class="container">
+        <div class="feature-grid" style="margin-top: 0;">
+          <div class="feature-card">
+            <span class="feature-card__num">01</span>
+            <h3>Multiplayer Cinema</h3>
+            <p>Real-time room matching and frame-accurate playback synchronisation powered by Photon Fusion networking.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">02</span>
+            <h3>Spatial Voice Chat</h3>
+            <p>High-quality directional audio communication with acoustic falloff configured for virtual theatre spaces.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">03</span>
+            <h3>Hands-Free Navigation</h3>
+            <p>Reliable gaze-based user interaction with optimized dwell-time thresholds designed for mobile VR comfort.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 01 PROJECT OVERVIEW ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">01 / Immersive OTT Platform</span>
+            <h2>Shared Virtual Cinema</h2>
+            <p>ShemarooVerse transforms traditional, passive OTT viewing into a shared social event. Users authenticate via a secure REST API to retrieve their subscription entitlement before entering a persistent lobby.</p>
+            <p>Built for Reliance Jio's head-mounted display ecosystem (JioDive &amp; JioGlass) running on Android, the application integrates the <strong>JMR SDK</strong> and <strong>AVPro Video Player</strong> to decode and render immersive 360° videos smoothly on mobile chipsets.</p>
+          </div>
+          <div class="image-frame">
+            <img src="../assets/shemarooverse-virtual-lobby.webp" alt="ShemarooVerse virtual lobby and content selection catalog in VR">
+            <div class="image-frame__overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 SYSTEMIC DESIGN ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="image-frame" style="order: 2;">
+            <img src="../assets/shemarooverse-spatial-audio-chat.webp" alt="Multiplayer room and spatial voice communication inside virtual cinema">
+            <div class="image-frame__overlay"></div>
+          </div>
+          <div class="narrative-content" style="order: 1;">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">02 / Social Multi-User Sync</span>
+            <h2>State-Synchronised World</h2>
+            <p>At the heart of the experience is a robust synchronization layer. Gaze input and UI hover highlights are kept local for lag-free visual response, while state-changing events (like starting content, pausing, or seeking) are mediated via a Host-Authoritative model in Photon Fusion.</p>
+            <p>Photon Voice operates on a parallel, dedicated audio channel, utilizing Voice Activity Detection (VAD) and custom spatial audio falloff to create a natural, lifelike conversation environment inside the virtual theatre.</p>
+            <ul class="bullet-list text-muted" style="font-size: 1rem; margin-top: 2rem;">
+              <li>Host-Authoritative Playback Actions</li>
+              <li>Dynamic Spatial Audio Chat &amp; Echo Cancellation</li>
+              <li>Hands-Free Dwell-Time Interaction Machine</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 03 TECHNICAL SPECIFICATIONS ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">03 / Specs &amp; Integration</span>
+            <h2>Optimized Mobile VR Deployment</h2>
+            <p>To deliver frame-rate critical multiplayer entertainment on standalone Android VR devices, the build enforces strict heap controls and limits rendering draw calls via static batching.</p>
+            <table class="specs-table">
+              <thead>
+                <tr>
+                  <th>Platform Feature</th>
+                  <th>Implementation Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Target Devices</td>
+                  <td>JioDive • JioGlass (Android Mobile VR)</td>
+                </tr>
+                <tr>
+                  <td>Networking SDK</td>
+                  <td>Photon Fusion (State-Sync) + Photon Voice (Spatial Audio)</td>
+                </tr>
+                <tr>
+                  <td>Video Decoding</td>
+                  <td>AVPro Video player with Android hardware acceleration</td>
+                </tr>
+                <tr>
+                  <td>Integration SDK</td>
+                  <td>JMR SDK (Reliance Jio native interface)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="image-frame">
+            <img src="../assets/shemarooverse-android-vr-performance.webp" alt="ShemarooVerse Android VR rendering performance profiling and optimization">
+            <div class="image-frame__overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ B2B PORTFOLIO CTA ═══ -->
+    <section class="narrative-section" id="contact">
+      <div class="container">
+        <div style="max-width: 650px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--color-accent); padding: 4rem; border-radius: 4px; text-align: center;">
+          <span class="hero-label">Want to Build a VR App Like This?</span>
+          <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; margin-top: 1rem;">Let's Design Your Project</h2>
+          <p class="text-muted" style="max-width: 500px; margin: 0 auto 3rem;">We engineer modular, production-ready interactive systems, spatial networking layers, and optimized VR pipelines. Reach out to our engineering team to bring your vision to life.</p>
+          <a class="btn btn-primary" href="../../../contact/" style="padding: 1.2rem 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;">Start Your Project</a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /tab-overview -->
+<div id="tab-casestudy" class="mega-tab-content"><!-- ═══ HERO ═══ -->
+    <section class="cs-hero">
+      <div class="cs-hero__bg"></div>
+      <div class="container">
+        <span class="cs-label">Technical Case Study</span>
+        <p class="cs-hero__meta">Jio Immerse / JioDive / JioGlass &nbsp;/&nbsp; Unity &amp; Photon Fusion</p>
+        <h1>ShemarooVerse<br><span style="color: var(--color-text-muted); font-weight: 400; font-size: 0.55em; letter-spacing: 0;">Multiplayer VR Theatre Architecture</span></h1>
+        <p>A deep-dive into the engineering, architecture, and technical problem-solving behind a commercial-grade multiplayer VR theatre experience built for Jio's proprietary head-mounted display ecosystem.</p>
+        <a href="javascript:void(0)" onclick="window.switchTab('overview')" class="btn btn-secondary" style="padding: 0.85rem 2rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15); text-decoration: none;">← View Overview</a>
+
+        <!-- Project Meta -->
+        <div class="cs-meta-grid">
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Engine</span>
+            <p class="cs-meta-card__value">Unity</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Target Platform</span>
+            <p class="cs-meta-card__value">JioDive • JioGlass</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Multiplayer Stack</span>
+            <p class="cs-meta-card__value">Photon Fusion &amp; Voice</p>
+          </div>
+          <div class="cs-meta-card" style="border-top: 2px solid rgba(0,210,255,0.4); background: rgba(0,210,255,0.03);">
+            <span class="cs-meta-card__label">Interaction</span>
+            <p class="cs-meta-card__value">Gaze Input (JMR SDK)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 01 PROJECT OVERVIEW ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">01 &nbsp;/&nbsp; Project Overview</span>
+        <h2>Socialising Immersive OTT</h2>
+        <div class="cs-split" style="margin-bottom: 4rem;">
+          <div>
+            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              <strong>ShemarooVerse On Jio Immerse</strong> is a fully immersive, multi-user VR entertainment experience developed for the JioImmerse platform. The application transforms passive OTT streaming into an interactive social event, allowing users to enter a virtual theatre, watch immersive 360° video streams together, and converse in real time using directional voice chat.
+            </p>
+            <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.8;">
+              The system targets Android-based mobile VR (JioDive and JioGlass), relying on Reliance Jio's proprietary VR ecosystems. Built as a social cinema, the platform guarantees that spontaneous reactions and shared moments are synchronized globally across real-world network variations.
+            </p>
+          </div>
+          <div>
+            <h4 style="margin-top: 0; color: #fff;">Technical Specifications</h4>
+            <table class="tech-specs-table">
+              <thead>
+                <tr>
+                  <th colspan="2">Platform &amp; Engine Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Platform</td>
+                  <td>JioDive • JioGlass (Android Mobile VR)</td>
+                </tr>
+                <tr>
+                  <td>Engine</td>
+                  <td>Unity</td>
+                </tr>
+                <tr>
+                  <td>SDKs &amp; Plugins</td>
+                  <td>JMR SDK • Photon Fusion • Photon Voice • AVPro Video</td>
+                </tr>
+                <tr>
+                  <td>Genre &amp; Mode</td>
+                  <td>Multiplayer Shared Virtual Cinema / Immersive OTT</td>
+                </tr>
+                <tr>
+                  <td>Core Tech</td>
+                  <td>Gaze Interaction, REST API, 360° Video, Voice Chat</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="highlight-banner">
+          <p><strong>WHY VR THEATRE?</strong> A shared virtual cinema replaces physical distances with social presence — enabling spontaneous conversations, laughter, and collective emotions. Capturing this layer of social immersion is the unique value proposition of multiplayer OTT in VR.</p>
+        </div>
+
+        <h3 style="margin-top: 5rem; margin-bottom: 2rem; font-weight: 800;">Application Summary</h3>
+        <table class="tech-specs-table" style="margin-bottom: 4rem;">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Core Experience</td>
+              <td>Shared virtual theatre for Shemaroo OTT content</td>
+            </tr>
+            <tr>
+              <td>User Action</td>
+              <td>Navigate virtual space, select content, watch together</td>
+            </tr>
+            <tr>
+              <td>Multiplayer</td>
+              <td>Multiple simultaneous users in a shared VR room via Photon Fusion</td>
+            </tr>
+            <tr>
+              <td>Voice Chat</td>
+              <td>Real-time spatial voice communication between users via Photon Voice</td>
+            </tr>
+            <tr>
+              <td>Content Delivery</td>
+              <td>Secure OTT streaming via REST API integration</td>
+            </tr>
+            <tr>
+              <td>Video Format</td>
+              <td>360° immersive video via AVPro Video Player</td>
+            </tr>
+            <tr>
+              <td>Input Method</td>
+              <td>Gaze-based interaction (head-mounted display) via JMR SDK</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ═══ 02 SYSTEM ARCHITECTURE ═══ -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <span class="cs-section-num">02 &nbsp;/&nbsp; System Architecture</span>
+        <h2>The Multiplayer OTT Stack</h2>
+        <p style="color: var(--color-text-muted); max-width: 800px; font-size: 1.1rem; line-height: 1.8; margin-bottom: 4rem;">
+          ShemarooVerse is architectured with a layered design pattern: hardware/OS abstractions are handled by the JMR SDK and Photon network, while custom Unity singletons drive gameplay loop state, user inputs, and REST endpoints.
+        </p>
+
+        <h3 style="margin-bottom: 2rem; font-weight: 800;">High-Level Layer Architecture</h3>
+        <table class="tech-specs-table" style="margin-bottom: 5rem;">
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Responsibility</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hardware / OS Layer</td>
+              <td>JioDive / JioGlass Android runtime, sensor fusion, 3DoF/6DoF head tracking</td>
+            </tr>
+            <tr>
+              <td>JMR SDK</td>
+              <td>Device optimization, VR rendering, display lens corrections for Jio hardware</td>
+            </tr>
+            <tr>
+              <td>Photon Fusion</td>
+              <td>Real-time room management, state synchronization, client RPCs</td>
+            </tr>
+            <tr>
+              <td>Photon Voice</td>
+              <td>Low-latency, spatialized voice communication with Voice Activity Detection (VAD)</td>
+            </tr>
+            <tr>
+              <td>Unity Engine</td>
+              <td>Render pipeline, scene management, Canvas UI, audio systems</td>
+            </tr>
+            <tr>
+              <td>AVPro Video Player</td>
+              <td>Highly optimized equirectangular 360° video decoding on mobile GPU</td>
+            </tr>
+            <tr>
+              <td>REST API Layer</td>
+              <td>Authentication, user subscriptions, content catalog retrieval, secure CDN URL resolution</td>
+            </tr>
+            <tr>
+              <td>Custom Game Systems</td>
+              <td>GazeInteractionManager, UIController, ContentManager, SessionManager, AvatarController</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-bottom: 2rem; font-weight: 800;">Core Unity Systems</h3>
+        <div class="arch-list">
+          <div class="arch-list-item">
+            <h4>GazeInteractionManager</h4>
+            <p>Responsible for all user input in the application. Casts a gaze ray from the headset's forward vector and performs raycasts against interactive UI elements and world objects. Implements dwell-time activation (gaze-hold for configurable duration) to trigger selections, providing reliable hands-free interaction without physical controllers.</p>
+          </div>
+          <div class="arch-list-item">
+            <h4>SessionManager</h4>
+            <p>Manages the Photon Fusion network lifecycle — room creation, joining, leaving, and graceful disconnect handling. Synchronises session state (which content is playing, playback position, user list) across all connected clients using Photon's state synchronisation primitives.</p>
+          </div>
+          <div class="arch-list-item">
+            <h4>ContentManager</h4>
+            <p>Handles all communication with the backend REST APIs — authentication, catalogue retrieval, stream URL resolution, and entitlement verification. Passes validated stream URLs to AVPro Video Player for 360° playback initiation.</p>
+          </div>
+          <div class="arch-list-item">
+            <h4>AvatarController</h4>
+            <p>Manages remote user avatar representation in the shared space. Receives networked head transform data via Photon Fusion and applies it to avatar rigs, giving remote users visible presence and directional context during voice conversations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 03 CHALLENGES & SOLUTIONS ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">03 &nbsp;/&nbsp; Challenges &amp; Solutions</span>
+        <h2>Engineering Brand &amp; Network Synchronization</h2>
+
+        <!-- Challenge 1 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">01</span>
+            <h3>Gaze-Based Input Synchronization</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Local Gaze vs. Networked Authority</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Gaze vectors are entirely local to individual HMDs. In a multiplayer theater, one user's drift can cause conflicting UI highlights. Additionally, accidental dwelling could trigger playback commands globally, disrupting others.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Host-Authoritative Gaze RPCs</h4>
+              <p style="font-size: 0.9rem; line-height: 1.6; color: var(--color-text-muted);">We implemented a Host-Authority topology. Local dwell-time completes at 1.5 seconds, sending a request RPC to the session host. Only the host updates the shared session state, preventing conflict. Interactive zones use dual-radius loops (inner activation, outer cancel) to accommodate micro-drifts.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">02</span>
+            <h3>Mobile VR Performance Limits</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Thermal Throttling &amp; Draw Calls</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">JioDive and JioGlass are powered by Android mobile SOCs with tight thermal constraints. Concurrent 360° video decoding, multiple player avatar meshes, and network processing drop framerates below the 60 FPS comfort threshold.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Tiered Rendering &amp; Tick-Rate Caps</h4>
+              <p style="font-size: 0.9rem; line-height: 1.6; color: var(--color-text-muted);">We optimized the 360° video rendering onto a low-polygon equirectangular SphereMesh. Remote avatars use an LOD system and tick at 15Hz. We enabled Fixed Foveated Rendering and customized Jio-specific lens distortion shaders via JMR SDK, compiling in native ARM64 IL2CPP.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge 3 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">03</span>
+            <h3>Video Desync Across Mobile Connections</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Jitter &amp; Buffering Gaps</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Real-world mobile connections (4G/Wi-Fi) suffer from high jitter. Clients buffering independently caused their local timelines to slip, resulting in players watching different parts of the same stream.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>NTP Host-Anchor &amp; Pause Loops</h4>
+              <p style="font-size: 0.9rem; line-height: 1.6; color: var(--color-text-muted);">We created `SyncedVideoController` which syncs client clocks using Photon's network time. If a client drifts beyond 0.5 seconds of the host, it seeks silently. If any client enters a buffering state, it notifies the host, which halts playback for all players and resumes when all report ready.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge 4 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">04</span>
+            <h3>OTT DRM Security &amp; Entitlements</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Token Expiry in Immersive Spaces</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Integrating secure OTT channels inside Unity requires token-based authentication. If token refresh or URL fetching triggers blocking web dialogs, it breaks immersion and closes the VR application runtime.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Background JWT Refresh Lifecycle</h4>
+              <p style="font-size: 0.9rem; line-height: 1.6; color: var(--color-text-muted);">An async `APIManager` handles API communication off the main thread. Tokens are refreshed silently in-memory at 80% TTL. Temporary stream URLs are re-fetched 60 seconds before expiration without pausing playback, mapping any connection errors to floating peripheral alerts.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ 04 MULTIPLAYER SYSTEMS ═══ -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <span class="cs-section-num">04 &nbsp;/&nbsp; Multiplayer &amp; Social Systems Architecture</span>
+        <h2>Networking &amp; Voice Topography</h2>
+        <p style="color: var(--color-text-muted); max-width: 700px; font-size: 1rem; line-height: 1.75; margin-bottom: 4rem;">
+          To ensure social presence is comfortable and lag-free, Photon Voice and Photon Fusion run on independent data threads.
+        </p>
+
+        <h3 style="margin-bottom: 2rem; font-weight: 800;">Photon Fusion Network Topology</h3>
+        <table class="tech-specs-table" style="margin-bottom: 5rem;">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Room Host</td>
+              <td>Authoritative game state, video synchronization, room event management</td>
+            </tr>
+            <tr>
+              <td>Photon Cloud</td>
+              <td>Relays RPC calls, matchmaking lobby management, room discovery</td>
+            </tr>
+            <tr>
+              <td>NetworkObject</td>
+              <td>Synchronized elements (e.g. avatars, video controller state, UI sync panels)</td>
+            </tr>
+            <tr>
+              <td>RPC System</td>
+              <td>Sends local user play, pause, seek triggers to Host; issues notifications</td>
+            </tr>
+            <tr>
+              <td>State Sync</td>
+              <td>Low-overhead synchronization of player position transforms and room catalogs</td>
+            </tr>
+            <tr>
+              <td>Photon Voice</td>
+              <td>Handles direct audio stream compression, transport, and decoding</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="narrative-image-container">
+          <img src="../assets/shemarooverse-android-vr-performance.webp" alt="Unity Android CPU/GPU Profiling graph showing optimized JMR SDK frames and network tick rates">
+        </div>
+
+        <h3 style="margin-bottom: 2rem; font-weight: 800;">Gaze Interaction State Machine</h3>
+        <table class="tech-specs-table" style="margin-bottom: 5rem;">
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Transition Logic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>IDLE</td>
+              <td>No interactive canvas inside gaze ray. Cursor renders as a neutral central dot.</td>
+            </tr>
+            <tr>
+              <td>HOVERING</td>
+              <td>Gaze ray hits interactive object. Visual cursor animates. Dwell timer begins.</td>
+            </tr>
+            <tr>
+              <td>DWELLING</td>
+              <td>Gaze held inside element zone. Progress ring fills over 1.5s. Exits if gaze drifts.</td>
+            </tr>
+            <tr>
+              <td>ACTIVATED</td>
+              <td>Dwell timer completes. Local feedback plays; request RPC is sent to Host. Returns to IDLE.</td>
+            </tr>
+            <tr>
+              <td>BLOCKED</td>
+              <td>Host rejects request (e.g., non-admin seeks). Rejection animation triggers. Returns to IDLE.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-bottom: 2rem; font-weight: 800;">Voice Chat Architecture</h3>
+        <ul class="bullet-list text-muted" style="font-size: 1rem; line-height: 1.8;">
+          <li>Runs on a dedicated UDP audio channel to preserve network bandwidth for state synchronization.</li>
+          <li>Voice Activity Detection (VAD) prevents idle room noise from broadcasting.</li>
+          <li>Spatial audio attenuation curves map to physical VR theater dimensions, rendering player voices relative to avatar coordinates.</li>
+          <li>Echo cancellation enabled via Jio's HMD microphone integration within the JMR SDK.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══ 05 TAKEAWAYS ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">05 &nbsp;/&nbsp; Key Engineering Takeaways</span>
+        <h2>Validation &amp; Takeaways</h2>
+        
+        <div style="margin-top: 3rem;">
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">1</span>
+            <div>
+              <h4>Host Authority Solves Gaze Conflict</h4>
+              <p>Gaze-based hands-free selection is highly responsive but prone to accidental double-triggers. Decoupling hover feedback from execution via host verification prevents race conditions and makes UI actions reliable.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">2</span>
+            <div>
+              <h4>Target Hardware Profiling is Paramount</h4>
+              <p>On mobile HMDs like JioDive, 360° video decoding takes nearly 30–40% of the overall GPU budget. Code optimization must be performed on-device via ADB and Android GPU Inspector from day one, not retrofitted at the end.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">3</span>
+            <div>
+              <h4>Video Sync is a Distributed Clock Challenge</h4>
+              <p>Achieving shared cinema playback requires synchronizing to a single clock timeline. A host-anchored network timestamp with dynamic, silent drift correction (under 0.5 seconds) is far more stable than trying to sync individual video frames.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">4</span>
+            <div>
+              <h4>HMD SDK Customizations are Non-Negotiable</h4>
+              <p>Standard Android builds do not output correct lens distortion parameters or handle display refresh cycles for JioDive and JioGlass. Tight integration of the JMR SDK is essential to provide comfortable, motion-sickness-free viewing.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">5</span>
+            <div>
+              <h4>Photon Fusion + Photon Voice are Highly Compatible</h4>
+              <p>The host-client model maps perfectly onto shared media environments. Keeping the audio transport channel isolated from the game state keeps networking traffic efficient and clean.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">6</span>
+            <div>
+              <h4>Proactive Security Refresh Maintains Immersion</h4>
+              <p>DRM authentication and token cycles must run silently in the background. Interrupting a movie stream with a blocking login popup breaks user presence. Proactive refresh cycles are the correct way to handle secure OTT in VR.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">7</span>
+            <div>
+              <h4>Social Presence is the Product</h4>
+              <p>User testing consistently proved that hearing a friend's voice and turning to see their avatar was the primary reason to choose VR OTT over standard mobile displays. Presence quality beats visual fidelity for social VR applications.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cs-cta">
+      <div class="container">
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem;">Ready to Build Your Immersive Vision?</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">DualCore Games specializes in multiplayer VR engineering, JMR SDK development, and secure OTT streaming platforms. Let's build together.</p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center;">
+          <a href="../../../contact/" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700; text-decoration: none;">Start a Project</a>
+          <a href="javascript:void(0)" onclick="window.switchTab('overview')" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-weight: 600; background: transparent; border: 1px solid rgba(255,255,255,0.15); text-decoration: none;">← View Overview</a>
+        </div>
+      </div>
+    </section>
+</div><!-- /tab-casestudy -->
+
+</main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+        <div class="footer-brand">
+          <img alt="DualCore Games Logo" loading="lazy" src="../../../assets/images/dualcore-logo.svg"
+            style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" />
+          <p>Game development studio building original IP and production-ready interactive systems.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="../../../">Home</a></li>
+            <li><a href="../../../services/">Services</a></li>
+            <li><a href="../../../work/">Work</a></li>
+            <li><a href="../../../about/">About</a></li>
+            <li><a href="../../../blog/">Blog</a></li>
+            <li><a href="../../../contact/">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <ul class="footer-links social-links">
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank">LinkedIn</a></li>
+            <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank">X (Twitter)</a></li>
+            <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center; opacity: 0.75; font-size: 0.7rem; padding-top: 2rem;">
+        <p>© 2026 DualCore Games | <a href="../../../privacy-policy">Privacy Policy</a> | <a href="../../../terms">Terms of Service</a></p>
+        <p style="max-width: 600px; line-height: 1.6;">Unity is a trademark of Unity Technologies. DualCore Games is not affiliated with or endorsed by Unity Technologies. Android is a trademark of Google LLC. Unreal Engine is a trademark of Epic Games, Inc. Meta, Photon, and other marks are the property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script defer="" src="../../../assets/js/main.js"></script>
+
+  <script>
+    window.switchTab = function(tabName) {
+      document.querySelectorAll('.mega-tab-content').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.mega-tab').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      var targetContent = document.getElementById('tab-' + tabName);
+      var targetBtn = document.getElementById('tab-btn-' + tabName);
+      if (targetContent) targetContent.classList.add('active');
+      if (targetBtn) targetBtn.classList.add('active');
+      var url = new URL(window.location.href);
+      if (tabName === 'overview') {
+        url.searchParams.delete('tab');
+      } else {
+        url.searchParams.set('tab', tabName);
+      }
+      history.replaceState(null, '', url.toString());
+    };
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var tab = params.get('tab');
+      if (tab) { window.switchTab(tab); }
+    })();
+  </script>
+
+</body>
+</html>
