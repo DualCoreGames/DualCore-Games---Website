@@ -4094,6 +4094,50 @@
         </div>
       </div>
     </section>
+<!-- ═══ PRIVATE BETA FORM — SINGLE UNIFIED LEAD CAPTURE ═══ -->
+    <section class="rc-beta" id="cs-beta-form">
+      <div class="container" style="max-width: 600px;">
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+          <span class="rc-label">Limited Access</span>
+          <h2 style="font-size: 2.5rem; font-weight: 900; margin: 1.5rem 0 1rem; letter-spacing: -0.02em;">Join the Reclairos Private Beta</h2>
+          <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.7; max-width: 480px; margin: 0 auto;">Experience the next evolution of mobile strategy. Sign up to receive an early access invite and production updates — directly from the team building it.</p>
+        </div>
+        <div id="csReclairosSuccessMessage" class="rc-success-message">
+          <h3>Submission Successful</h3>
+          <p>Technical Request Received. Our engineering team will review and respond within 24-48 hours.</p>
+        </div>
+        <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="csReclairosBetaForm">
+          <!-- Honeypot Field for Anti-Spam -->
+          <div style="display: none;" aria-hidden="true">
+            <input type="text" name="honeypot_field" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="project" value="Reclairos Private Beta">
+          <div class="form-group">
+            <label for="cs-rc-name">Full Name</label>
+            <input id="cs-rc-name" name="name" placeholder="Your name" required="" type="text" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
+          </div>
+          <div class="form-group">
+            <label for="cs-rc-email">Email Address</label>
+            <input id="cs-rc-email" name="email" placeholder="email@example.com" required="" type="email" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
+          </div>
+                    <div class="form-group">
+             <label for="cs-rc-platform">Preferred Platform</label>
+             <select id="cs-rc-platform" name="platform" required style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 100%; padding: 0.9rem 1rem; border-radius: var(--radius-sm); font-family: var(--font-primary); font-size: 0.95rem;">
+               <option value="">Select your platform</option>
+               <option value="Android">Android</option>
+               <option value="iOS">iOS</option>
+               <option value="Both">Both (Android &amp; iOS)</option>
+             </select>
+           </div>
+           <input type="hidden" name="source_page" value="Reclairos Beta Waitlist">
+          <button class="btn btn-primary" style="width: 100%; padding: 1.1rem; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;" type="submit">Secure My Beta Invite</button>
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 1.5rem; text-align: center;">
+            By joining, you agree to our <a href="../privacy-policy/" style="color: var(--color-accent);">Privacy Policy</a>. We only send high-value updates — no spam.
+          </p>
+        </form>
+      </div>
+    </section>
+
 </div><!-- /tab-casestudy -->
 
 </main>
@@ -4153,50 +4197,6 @@
     <button class="rc-lightbox__nav rc-lightbox__nav--next" id="rc-lightbox-next" aria-label="Next image">&gt;</button>
   </div>
 
-
-<!-- ═══ PRIVATE BETA FORM — SINGLE UNIFIED LEAD CAPTURE ═══ -->
-    <section class="rc-beta" id="cs-beta-form">
-      <div class="container" style="max-width: 600px;">
-        <div style="text-align: center; margin-bottom: 3.5rem;">
-          <span class="rc-label">Limited Access</span>
-          <h2 style="font-size: 2.5rem; font-weight: 900; margin: 1.5rem 0 1rem; letter-spacing: -0.02em;">Join the Reclairos Private Beta</h2>
-          <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.7; max-width: 480px; margin: 0 auto;">Experience the next evolution of mobile strategy. Sign up to receive an early access invite and production updates — directly from the team building it.</p>
-        </div>
-        <div id="csReclairosSuccessMessage" class="rc-success-message">
-          <h3>Submission Successful</h3>
-          <p>Technical Request Received. Our engineering team will review and respond within 24-48 hours.</p>
-        </div>
-        <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="csReclairosBetaForm">
-          <!-- Honeypot Field for Anti-Spam -->
-          <div style="display: none;" aria-hidden="true">
-            <input type="text" name="honeypot_field" tabindex="-1" autocomplete="off">
-          </div>
-          <input type="hidden" name="project" value="Reclairos Private Beta">
-          <div class="form-group">
-            <label for="cs-rc-name">Full Name</label>
-            <input id="cs-rc-name" name="name" placeholder="Your name" required="" type="text" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
-          </div>
-          <div class="form-group">
-            <label for="cs-rc-email">Email Address</label>
-            <input id="cs-rc-email" name="email" placeholder="email@example.com" required="" type="email" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff;"/>
-          </div>
-                    <div class="form-group">
-             <label for="cs-rc-platform">Preferred Platform</label>
-             <select id="cs-rc-platform" name="platform" required style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 100%; padding: 0.9rem 1rem; border-radius: var(--radius-sm); font-family: var(--font-primary); font-size: 0.95rem;">
-               <option value="">Select your platform</option>
-               <option value="Android">Android</option>
-               <option value="iOS">iOS</option>
-               <option value="Both">Both (Android &amp; iOS)</option>
-             </select>
-           </div>
-           <input type="hidden" name="source_page" value="Reclairos Beta Waitlist">
-          <button class="btn btn-primary" style="width: 100%; padding: 1.1rem; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;" type="submit">Secure My Beta Invite</button>
-          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 1.5rem; text-align: center;">
-            By joining, you agree to our <a href="../privacy-policy/" style="color: var(--color-accent);">Privacy Policy</a>. We only send high-value updates — no spam.
-          </p>
-        </form>
-      </div>
-    </section>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
@@ -4775,7 +4775,6 @@
       startAutoplay();
       });
     </script>
-</div><!-- /tab-casestudy -->
   <script>
     // Tab switching for Overview / Case Study
     window.switchTab = function(tabName) {
