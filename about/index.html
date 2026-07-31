@@ -247,7 +247,7 @@
 <p class="text-muted" style="font-size: 1.15rem; max-width: 750px; margin: 0 auto 3rem auto; line-height: 1.6;">We partner
                     with studios, startups, and enterprises to architect systems that are commercially viable and
                     technically resilient.</p>
-<a class="btn btn-primary" href="../contact/" style="padding: 14px 32px;">Start a Project</a>
+<a class="btn btn-primary" href="#contactForm" style="padding: 14px 32px;">Start a Project</a>
 </div>
 </section>
 <!-- Production Experience -->
@@ -351,7 +351,177 @@
     transform: translateY(-8px) scale(1.02);
     border-color: var(--color-accent);
   }
+  /* Timeline CSS */
+  .timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--color-accent), var(--color-orange), transparent);
+    transform: translateX(-50%);
+  }
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 2rem 3rem;
+  }
+  .timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+  }
+  .timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+  }
+  .timeline-dot {
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: #05070a;
+    border: 3px solid var(--color-accent);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+  }
+  .timeline-item:nth-child(odd) .timeline-dot {
+    right: -10px;
+  }
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: -10px;
+  }
+  .timeline-content {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 2.5rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .timeline-content:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,255,255,0.2);
+  }
+  @media (max-width: 768px) {
+    .timeline-line { left: 30px; }
+    .timeline-item { width: 100%; left: 0 !important; padding: 2rem 1.5rem 2rem 5rem; text-align: left !important; }
+    .timeline-dot { left: 20px !important; }
+  }
+
+  /* Tech Stack CSS */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+  .tech-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 2.5rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  .tech-card:hover {
+    background: rgba(255,255,255,0.04);
+    transform: translateY(-10px);
+    border-color: var(--color-accent);
+    box-shadow: 0 15px 30px rgba(0,210,255,0.1);
+  }
+  .tech-card svg, .tech-card img {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.5rem auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    display: block;
+  }
+  .tech-card:hover svg, .tech-card:hover img {
+    opacity: 1;
+  }
+
+  /* Core Disciplines CSS */
+  .discipline-card {
+    background: #161a22;
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+    height: 100%;
+  }
+  .discipline-card:hover {
+    transform: translateY(-10px);
+    background: #1c212b;
+    border-color: rgba(255, 122, 24, 0.4);
+  }
+  .discipline-card svg {
+    margin-bottom: 1.5rem;
+    color: var(--color-orange);
+    width: 48px;
+    height: 48px;
+  }
 </style>
+
+<!-- Our Journey / Timeline -->
+<section class="section-padding" style="background-color: var(--color-bg); border-bottom: 1px solid rgba(255,255,255,0.05);">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 4rem;">
+      <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem;">Our <span class="text-accent">Journey</span></h2>
+      <p class="text-muted" style="font-size: 1.15rem; max-width: 600px; margin: 0 auto;">From a small dedicated team to a scalable interactive studio.</p>
+    </div>
+    
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="text-accent" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">2020</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Foundation & Early Prototypes</h3>
+          <p class="text-muted" style="line-height: 1.6; margin: 0;">DualCore Games was established with a singular vision: merging high-end engineering with artistic excellence. We began experimenting with custom architecture and C# optimizations.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="text-accent" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">2022</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Scaling Up & First Commercial Release</h3>
+          <p class="text-muted" style="line-height: 1.6; margin: 0;">Expanded our team and finalized our first commercial titles, implementing robust multiplayer systems and modular art pipelines.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="text-accent" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">2024</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">VR/XR & Enterprise Partnerships</h3>
+          <p class="text-muted" style="line-height: 1.6; margin: 0;">Ventured into high-fidelity VR simulations, partnering with enterprise clients to deliver scalable immersive training and educational software.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="text-accent" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">2026</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Reclairos & Next-Gen Systems</h3>
+          <p class="text-muted" style="line-height: 1.6; margin: 0;">Focused on our flagship original IP, Reclairos, while cementing our reputation as a premium co-development partner for global studios.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section-padding" style="background-color: #05070a; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;">
 <div style="position: absolute; top: -20%; left: -10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(0,210,255,0.05) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
@@ -437,6 +607,39 @@
 </div>
 </section>
 
+<!-- Technology Stack -->
+<section class="section-padding" style="background-color: #0d0d0d; border-bottom: 1px solid rgba(255,255,255,0.05);">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem;">Tools of the <span class="text-orange">Trade</span></h2>
+      <p class="text-muted" style="font-size: 1.15rem; max-width: 600px; margin: 0 auto;">Our core technology stack engineered for scale.</p>
+    </div>
+    
+    <div class="tech-grid">
+      <div class="tech-card">
+        <img src="../assets/images/tech/unity.svg" alt="Unity Engine" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'><path d=\'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5\'/></svg>'">
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Unity</h3>
+        <p class="text-muted" style="font-size: 0.9rem; margin: 0;">Core Engine</p>
+      </div>
+      <div class="tech-card">
+        <img src="../assets/images/tech/csharp.svg" alt="C#" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'white\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><polyline points=\'16 18 22 12 16 6\'></polyline><polyline points=\'8 6 2 12 8 18\'></polyline></svg>'">
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">C#</h3>
+        <p class="text-muted" style="font-size: 0.9rem; margin: 0;">Architecture</p>
+      </div>
+      <div class="tech-card">
+        <img src="../assets/images/tech/blender.svg" alt="Blender" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'white\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\'></path><polyline points=\'7.5 4.21 12 6.81 16.5 4.21\'></polyline><polyline points=\'7.5 19.79 7.5 14.6 3 12\'></polyline><polyline points=\'21 12 16.5 14.6 16.5 19.79\'></polyline><polyline points=\'3.27 6.96 12 12.01 20.73 6.96\'></polyline><line x1=\'12\' y1=\'22.08\' x2=\'12\' y2=\'12\'></line></svg>'">
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Blender</h3>
+        <p class="text-muted" style="font-size: 0.9rem; margin: 0;">3D Modeling</p>
+      </div>
+      <div class="tech-card">
+        <img src="../assets/images/tech/photon.svg" alt="Photon" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'white\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><circle cx=\'12\' cy=\'12\' r=\'10\'></circle><line x1=\'12\' y1=\'16\' x2=\'12\' y2=\'12\'></line><line x1=\'12\' y1=\'8\' x2=\'12.01\' y2=\'8\'></line></svg>'">
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Photon</h3>
+        <p class="text-muted" style="font-size: 0.9rem; margin: 0;">Multiplayer SDK</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Meet the Team -->
 <section class="section-padding" style="background-color: var(--color-bg); border-bottom: 1px solid rgba(255,255,255,0.05);">
 <div class="container">
@@ -500,30 +703,30 @@
 
 <!-- Core Disciplines -->
 <section class="section-padding" style="background-color: var(--color-bg);">
-<div class="container">
-<h2 style="text-align: center; margin-bottom: 4rem; font-size: clamp(2rem, 4vw, 3rem);">Core Technical
-                    Disciplines</h2>
-<div class="grid disciplines-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem;">
-<div style="text-align: center;">
-<h3 style="color: #fff; margin-bottom: 1.25rem; font-size: 1.5rem; font-weight: 700;">Efficiency
-                        </h3>
-<p class="text-muted" style="line-height: 1.7;">Optimized workflows and modular systems that
-                            accelerate development while maintaining code clarity and maintainability.</p>
-</div>
-<div style="text-align: center;">
-<h3 style="color: #fff; margin-bottom: 1.25rem; font-size: 1.5rem; font-weight: 700;">Stability
-                        </h3>
-<p class="text-muted" style="line-height: 1.7;">Rigorous testing, architectural standards, and
-                            performance benchmarking to ensure consistent execution across hardware environments.</p>
-</div>
-<div style="text-align: center;">
-<h3 style="color: #fff; margin-bottom: 1.25rem; font-size: 1.5rem; font-weight: 700;">
-                            Scalability</h3>
-<p class="text-muted" style="line-height: 1.7;">Systems designed for expansion — from content
-                            updates and multiplayer growth to long-term platform evolution.</p>
-</div>
-</div>
-</div>
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 4rem; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;">Core Technical <span class="text-accent">Disciplines</span></h2>
+    <div class="grid disciplines-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem;">
+      
+      <div class="discipline-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <h3 style="color: #fff; margin-bottom: 1.25rem; font-size: 1.5rem; font-weight: 700;">Efficiency</h3>
+        <p class="text-muted" style="line-height: 1.7; margin: 0;">Optimized workflows and modular systems that accelerate development while maintaining code clarity and maintainability.</p>
+      </div>
+
+      <div class="discipline-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <h3 style="color: #fff; margin-bottom: 1.25rem; font-size: 1.5rem; font-weight: 700;">Stability</h3>
+        <p class="text-muted" style="line-height: 1.7; margin: 0;">Rigorous testing, architectural standards, and performance benchmarking to ensure consistent execution across hardware environments.</p>
+      </div>
+
+      <div class="discipline-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        <h3 style="color: #fff; margin-bottom: 1.25rem; font-size: 1.5rem; font-weight: 700;">Scalability</h3>
+        <p class="text-muted" style="line-height: 1.7; margin: 0;">Systems designed for expansion — from content updates and multiplayer growth to long-term platform evolution.</p>
+      </div>
+
+    </div>
+  </div>
 </section>
 <!-- Original IP & Internal Development -->
 <section class="section-padding" style="background-color: #121212; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
@@ -548,7 +751,7 @@
 <h2 style="margin-bottom: 1rem; font-size: clamp(2rem, 4vw, 3rem);">Let’s Build Systems That Last.</h2>
 <p class="text-muted" style="margin-bottom: 3rem; font-size: 1.2rem; max-width: 700px; margin-left: auto; margin-right: auto;">If you are developing a scalable game, immersive simulation, or production-ready
                     interactive system, we’re ready to architect it with you.</p>
-<a class="btn btn-primary" href="../contact/" style="padding: 14px 32px;">Start a Project</a>
+<a class="btn btn-primary" href="#contactForm" style="padding: 14px 32px;">Start a Project</a>
 </div>
 </section>
 

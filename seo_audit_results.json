@@ -1,0 +1,12 @@
+{
+  "stats": {
+    "total_pages": 31,
+    "missing_title": 0,
+    "missing_desc": 0,
+    "missing_h1": 0,
+    "multiple_h1": 0,
+    "missing_canonical": 0,
+    "mismatched_canonical": 0
+  },
+  "issues": []
+}
