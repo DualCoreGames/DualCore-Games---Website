@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="view-transition" content="same-origin" />
+  <meta charset="utf-8"/>
+    <!-- Google Tag Manager -->
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Open Graph -->
+  <meta content="Never Open The Door | Psychological Horror Game | DualCore Games" property="og:title"/>
+  <meta content="A psychological horror experience engineered around environmental storytelling, controlled pacing, and narrative-driven system design. Build by DualCore Games." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://dualcoregames.com/work/game-development/never-open-the-door/" property="og:url"/>
+  <meta content="https://dualcoregames.com/work/game-development/never-open-the-door/assets/notd-screenshot-01.webp" property="og:image"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Never Open The Door | Psychological Horror Game | DualCore Games" name="twitter:title"/>
+  <meta content="A psychological horror experience engineered around environmental storytelling, controlled pacing, and narrative-driven system design. Build by DualCore Games." name="twitter:description"/>
+  <meta name="theme-color" content="#8B2FC9">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Never Open The Door | Horror Game | DualCore Games</title>
+<link href="https://dualcoregames.com/portfolio/game-development/never-open-the-door/" rel="canonical"/>
+  <meta content="Experience systemic psychological horror where narrative discovery directly influences environmental behavior. Built by DualCore Games." name="description"/>
+  <link href="../../../assets/css/style.css" rel="stylesheet"/>
+  <link href="../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+
+  <!-- VideoGame JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Never Open The Door",
+    "description": "A psychological horror experience engineered around environmental storytelling and narrative-triggered system design.",
+    "genre": ["Psychological Horror", "Systemic Horror", "First-Person Mystery"],
+    "gamePlatform": ["PC"],
+    "applicationCategory": "Game",
+    "author": {
+      "@type": "Organization",
+      "name": "DualCore Games",
+      "url": "https://dualcoregames.com"
+    },
+    "image": "https://dualcoregames.com/work/game-development/never-open-the-door/assets/notd-screenshot-01.webp"
+  }
+  </script>
+
+  <style>
+    /* ── DualCore Signature Styles ── */
+    .hero-cinematic {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 8rem 0;
+      background: #050505;
+      overflow: hidden;
+    }
+    .hero-cinematic__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      filter: none;
+      pointer-events: none;
+    }
+    .hero-cinematic::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(139, 47, 201, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-cinematic__content { 
+      position: relative; 
+      z-index: 10;
+      text-align: center;
+    }
+    
+    .breadcrumbs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 2.5rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .breadcrumbs a { color: var(--color-accent); text-decoration: none; }
+    .breadcrumbs span { opacity: 0.3; }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #8B2FC9;
+      border: 1px solid rgba(139,47,201,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(139,47,201,0.04);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    /* Cards & Interactivity */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-top: 3px solid #00D1FF; /* Signature Border */
+      padding: 2.5rem;
+      transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), background 0.4s ease;
+    }
+    .feature-card:hover {
+      transform: scale(1.03); /* Signature Hover */
+      background: rgba(0,210,255,0.04);
+      box-shadow: 0 0 20px rgba(0, 209, 255, 0.05);
+    }
+    .feature-card__num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+      letter-spacing: 0.2em;
+    }
+    .feature-card h3 { font-size: 1.25rem; margin-bottom: 1rem; font-weight: 800; }
+    .feature-card p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+    /* Narrative Sections */
+    .narrative-section { padding: 8rem 0; position: relative; }
+    .narrative-section--alt { background: #080808; border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03); }
+    .narrative-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .narrative-content h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+    
+    /* Core Loop Pipeline Diagram */
+    .pipeline-wrapper {
+      margin-top: 4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .pipeline-step {
+      flex: 1;
+      min-width: 200px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 2.5rem 2rem;
+      position: relative;
+      border-radius: 8px;
+    }
+    .pipeline-step::after {
+      content: '→';
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-accent);
+      font-weight: 900;
+      z-index: 2;
+    }
+    .pipeline-step:last-child::after { content: none; }
+    .pipeline-step__title { font-size: 1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.1em; color: var(--color-accent); }
+    .pipeline-step__desc { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; }
+
+    /* Roster Grid / Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .gallery-card {
+      aspect-ratio: 16/9;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 3px solid #8B2FC9;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .gallery-card img {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .gallery-card:hover img { transform: scale(1.05); }
+    
+    .gallery-large { grid-column: span 2; aspect-ratio: 21/9; }
+
+    /* Single Form Funnel */
+    .funnel-section {
+      padding: 8rem 0;
+      background: linear-gradient(to bottom, #050505, #0a0a0a);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+    }
+    .beta-form {
+      max-width: 500px;
+      margin: 3rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .beta-form input {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem 1.5rem;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+    .beta-form input:focus { border-color: var(--color-accent); outline: none; }
+    .beta-form button {
+      background: var(--color-accent);
+      color: #000;
+      border: none;
+      padding: 1rem 2rem;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .beta-form button:hover { background: #fff; transform: translateY(-2px); }
+    .beta-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    
+    .form-success-message {
+        display: none;
+        background: rgba(0, 210, 255, 0.05);
+        border: 1px solid rgba(0, 210, 255, 0.2);
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+        text-align: center;
+        animation: fadeIn 0.5s ease forwards;
+    }
+    .form-success-message h4 { color: var(--color-accent); margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: 800; }
+    .form-success-message p { color: var(--color-text-muted); font-size: 0.9rem; margin: 0; line-height: 1.5; }
+
+    @media (max-width: 992px) {
+      .narrative-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .pipeline-step::after { content: '↓'; right: auto; left: 50%; bottom: -1rem; top: auto; transform: translateX(-50%); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-large { grid-column: span 1; aspect-ratio: 16/9; }
+    }
+    @media (max-width: 576px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+  
+    @media (max-width: 480px) {
+      /* Responsive grid collapse overrides */
+      .rc-squad__grid, .squad__grid, .grid, [style*="grid-template-columns: repeat(5, 1fr)"], [style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+      .rc-snapshot__grid, .snapshot__grid, [style*="grid-template-columns: repeat(2, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      .rc-gameplay__row, .gameplay__row {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      .rc-flow, .flow {
+        grid-template-columns: 1fr !important;
+      }
+      .rc-roster__grid, .roster__grid {
+        grid-template-columns: 1fr !important;
+      }
+      .rc-hero__tagline, .hero__tagline {
+        font-size: 1.25rem !important;
+      }
+      .rc-section__title, .section__title {
+        font-size: 1.6rem !important;
+      }
+      /* Ensure absolute overlay or flagship elements fit */
+      .flagship-logo-overlay {
+        max-width: 75% !important;
+      }
+    }
+
+    /* ── Mega Tab System ── */
+    .mega-tabs-container {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,7,10,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mega-tabs-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.65rem;
+    }
+    .mega-tabs {
+      display: flex; justify-content: center;
+      gap: 0;
+    }
+    .mega-tab {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.55);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 1.1rem 2rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .mega-tab:hover { color: rgba(255,255,255,0.85); }
+    .mega-tab.active {
+      color: #00d2ff;
+      border-bottom-color: #00d2ff;
+    }
+    .mega-tab-content { display: none; }
+    .mega-tab-content.active { display: block; }
+
+  </style>
+  <style>
+/* ── Case Study Whitepaper Styles ── */
+    .cs-hero {
+      position: relative;
+      background: #080808;
+      min-height: calc(100svh - 125px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .cs-hero__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('assets/never-open-the-door-hero-bg.webp');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.25;
+      filter: saturate(1.1) brightness(0.65) blur(1.5px);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .cs-hero .container { position: relative; z-index: 2; }
+    .cs-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #00D1FF;
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+    .cs-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .cs-hero__meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .cs-hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* Project meta grid */
+    .cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    .cs-meta-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .cs-meta-card__label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-meta-card__value { font-size: 0.95rem; font-weight: 700; margin: 0; }
+
+    /* Benchmark strip */
+    .cs-benchmarks {
+      background: linear-gradient(135deg, rgba(0,210,255,0.06) 0%, rgba(0,0,0,0) 60%);
+      border-top: 1px solid rgba(0,210,255,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 5rem 0;
+    }
+    .cs-bench-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .cs-bench-card {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(0,210,255,0.15);
+      border-top: 3px solid var(--color-accent);
+      border-radius: 14px;
+      background: rgba(0,210,255,0.03);
+    }
+    .cs-bench-card__stat {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .cs-bench-card__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .cs-bench-card__sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin: 0;
+    }
+
+    /* Sections */
+    .cs-section { padding: 8rem 0; }
+    .cs-section--alt { background: #0c0c0c; }
+    .cs-section-num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cs-section h2 { margin-bottom: 3rem; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+
+    /* Problem/Solution split */
+    .cs-challenge { margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .cs-challenge:last-child { border-bottom: none; margin-bottom: 0; }
+    .cs-challenge__header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .cs-challenge__num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.1);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .cs-challenge__header h3 { font-size: 1.4rem; margin: 0; }
+    .cs-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .cs-split__col--problem {
+      background: rgba(255,60,60,0.04);
+      border: 1px solid rgba(255,60,60,0.12);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__col--solution {
+      background: rgba(0,210,255,0.04);
+      border: 1px solid rgba(0,210,255,0.15);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__tag {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      display: block;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .cs-split__tag--problem { color: rgba(255,100,100,0.9); background: rgba(255,60,60,0.08); }
+    .cs-split__tag--solution { color: var(--color-accent); background: rgba(0,210,255,0.08); }
+    .cs-split__col h4 { font-size: 1rem; margin-bottom: 1.25rem; font-weight: 700; }
+    .cs-bullet-list { list-style: none; padding: 0; margin: 0; }
+    .cs-bullet-list li {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      line-height: 1.6;
+    }
+    .cs-bullet-list li:last-child { border-bottom: none; }
+    .cs-bullet-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.2);
+    }
+    .cs-split__col--solution .cs-bullet-list li::before { color: rgba(0,210,255,0.4); }
+
+    /* Takeaways */
+    .cs-takeaway {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: start;
+    }
+    .cs-takeaway:last-child { border-bottom: none; }
+    .cs-takeaway__num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.12);
+      line-height: 1;
+    }
+    .cs-takeaway h4 { margin-bottom: 0.75rem; font-size: 1rem; font-weight: 700; }
+    .cs-takeaway p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+    /* Single Form Funnel */
+    .funnel-section {
+      padding: 8rem 0;
+      background: linear-gradient(to bottom, #0c0c0c, #080808);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+    }
+    .beta-form {
+      max-width: 500px;
+      margin: 3rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .beta-form input {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem 1.5rem;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+    .beta-form input:focus { border-color: var(--color-accent); outline: none; }
+    .beta-form button {
+      background: var(--color-accent);
+      color: #000;
+      border: none;
+      padding: 1rem 2rem;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .beta-form button:hover { background: #fff; transform: translateY(-2px); }
+    .beta-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    
+    .form-success-message {
+        display: none;
+        background: rgba(0, 210, 255, 0.05);
+        border: 1px solid rgba(0, 210, 255, 0.2);
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+        text-align: center;
+        animation: fadeIn 0.5s ease forwards;
+    }
+    .form-success-message h4 { color: var(--color-accent); margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: 800; }
+    .form-success-message p { color: var(--color-text-muted); font-size: 0.9rem; margin: 0; line-height: 1.5; }
+
+    @media (max-width: 768px) {
+      .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-split { grid-template-columns: 1fr; }
+      .cs-bench-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body data-page-type="project">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2F3CX5Z"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="../../../">
+        <img loading="lazy" alt="DualCore Games Logo" src="../../../assets/images/dualcore-logo.svg"
+          style="height: 48px; width: auto; display: block;" />
+      </a>
+      <nav>
+        <button type="button" aria-label="Toggle navigation" class="nav-toggle">☰</button>
+        <ul class="nav-menu">
+          <li class="nav-close-item"><button type="button" aria-label="Close navigation" class="nav-close">✕</button></li>
+          <li class="nav-item"><a class="nav-link" href="../../../">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/reclairos/">Reclairos</a></li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="../../../services/">Services <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-link" href="../../../services/game-development/">Game Development</a></li>
+              <li><a class="dropdown-link" href="../../../services/game-art/">Game Art</a></li>
+              <li><a class="dropdown-link" href="../../../services/vr-xr-simulation/">VR/XR Simulation</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle active" href="../../../portfolio/">Portfolio <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Game Development</li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-development/paapi-gudia/">Paapi Gudia</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-development/crazy-planet/">Crazy Planet</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-development/never-open-the-door/">Never Open The Door</a></li>
+              <li><a class="dropdown-link category-link" href="../../../portfolio/game-development/">View All Game Dev →</a></li>
+              
+              <li class="dropdown-divider"></li>
+              
+              <li class="dropdown-header">VR / XR</li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/room-raider/">Room Raider</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/shemarooverse/">Shemarooverse</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/mayaaverse/">Mayaaverse</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/educational-simulations/">Educational Simulations</a></li>
+              <li><a class="dropdown-link category-link" href="../../../portfolio/vr-xr/">View All VR/XR →</a></li>
+              
+              <li class="dropdown-divider"></li>
+              
+              <li class="dropdown-header">Game Art</li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/concept-art/">Concept Art</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/character-art/">Character Art</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/environment-art/">Environment Art</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/animation/">Animation</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/technical-art-benchmarks/">Technical Art Benchmarks</a></li>
+              <li><a class="dropdown-link category-link" href="../../../portfolio/game-art/">View All Game Art →</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../../../about/">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../contact/">Contact</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../contact/" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Mega Tab Navigation ── -->
+  <div class="mega-tabs-container">
+    <div class="mega-tabs-inner">
+      <div class="mega-tabs">
+        <button class="mega-tab active" id="tab-btn-overview" onclick="window.switchTab('overview')">Project Overview</button>
+        <button class="mega-tab" id="tab-btn-casestudy" onclick="window.switchTab('casestudy')">Engineering Deep Dive</button>
+      </div>
+    </div>
+  </div>
+
+<div id="tab-overview" class="mega-tab-content active">
+<!-- ═══ HERO ═══ -->
+    <section class="hero-cinematic">
+      <img src="assets/never-open-the-door-hero-bg.webp" alt="Never Open The Door Environment" class="hero-cinematic__bg" />
+      <div class="container hero-cinematic__content">
+        <a href="../../../portfolio/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content; margin-left: auto; margin-right: auto;">
+          <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Portfolio
+        </a>
+        <span class="hero-label">Flagship Project — PC Horror</span>
+        <h1 class="hero-title">Never Open The Door</h1>
+        <p style="font-size: 1.15rem; color: rgba(255,255,255,0.7); max-width: 650px; line-height: 1.7; margin: 0 auto 2.5rem auto;">
+          A first-person psychological horror experience centered around environmental storytelling, slow-burn tension, and a narrative-driven mystery that blurs the boundary between reality and the supernatural.
+        </p>
+        <div style="display: flex; gap: 1.5rem; align-items: center; justify-content: center; flex-wrap: wrap;">
+          <a href="../../../contact/" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700;">Start Your Project</a>
+        </div>
+      </div>
+    </section>
+
+  
+
+    <!-- ═══ PROJECT STRIP ═══ -->
+    <section style="background: #080808; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Platform</span><strong style="font-size: 0.95rem;">PC (Windows)</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Engine</span><strong style="font-size: 0.95rem;">Unity (HDRP)</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Genre</span><strong style="font-size: 0.95rem;">Psychological Horror</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Perspective</span><strong style="font-size: 0.95rem;">First-Person</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Theme</span><strong style="font-size: 0.95rem;">Supernatural Mystery</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STORY & MYSTERY ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="color: var(--color-accent); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">The Premise</span>
+            <h2>A new home.<br>A tragic past.</h2>
+            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              You play as Sam, a man attempting to start fresh in an isolated mansion far away from civilization. Excited to prepare the house for his future wife Ayat, Sam begins to uncover the unsettling truth of the previous owner.
+            </p>
+            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+              Mysterious candles appear out of nowhere. Strange dolls materialize in empty rooms. As night falls, Sam discovers a hidden diary that reveals a terrifying history of ritual sacrifices and a cursed entity searching for its seventh soul.
+            </p>
+            <div style="padding-left: 1.5rem; border-left: 2px solid #8B2FC9;">
+              <p style="font-style: italic; color: #fff; font-size: 1.05rem; line-height: 1.6; margin: 0;">
+                "What initially feels like exploration slowly becomes a psychological descent into a cycle of unfinished rituals and trapped spirits."
+              </p>
+            </div>
+          </div>
+          <div>
+            <img loading="lazy" src="assets/notd-screenshot-01.webp" alt="Mansion Exploration" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CORE LOOP ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div class="narrative-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h2>The Anatomy of Fear</h2>
+          <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">Never Open The Door abandons cheap jump scares in favor of a creeping, systemic dread. The environment itself acts as the primary antagonist, distorting and reacting as you uncover fragments of the cursed diary.</p>
+        </div>
+        
+        <div class="pipeline-wrapper">
+          <div class="pipeline-step">
+            <h3 class="pipeline-step__title">Explore</h3>
+            <p class="pipeline-step__desc">Navigate an isolated mansion, investigating rooms, hidden spaces, and environmental clues.</p>
+          </div>
+          <div class="pipeline-step">
+            <h3 class="pipeline-step__title">Discover</h3>
+            <p class="pipeline-step__desc">Uncover diary entries revealing a tragic history of love, obsession, and occult rituals.</p>
+          </div>
+          <div class="pipeline-step">
+            <h3 class="pipeline-step__title">Trigger</h3>
+            <p class="pipeline-step__desc">Each discovery unlocks dynamic paranormal sequences that rewrite the mansion's reality.</p>
+          </div>
+          <div class="pipeline-step">
+            <h3 class="pipeline-step__title">Survive</h3>
+            <p class="pipeline-step__desc">Endure increasingly disturbing psychological encounters as the supernatural blurs with reality.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ATMOSPHERE ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid" style="grid-template-columns: 1.2fr 1fr;">
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <img loading="lazy" src="assets/notd-screenshot-02.webp" alt="Mansion Hallway" style="width: 100%; object-fit: cover; border-radius: 8px;" />
+            <img loading="lazy" src="assets/notd-screenshot-03.webp" alt="Candlelit Ritual Room" style="width: 100%; object-fit: cover; border-radius: 8px;" />
+          </div>
+          <div class="narrative-content">
+            <span style="color: var(--color-accent); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">Environmental Storytelling</span>
+            <h2>A house that watches, learns, and changes.</h2>
+            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+              The game relies heavily on creating fear through atmosphere and suspense. The visual presentation focuses on low-light environments, shadow-heavy composition, and sudden, eerie silence.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Layered Horror Feedback:</strong> Intense sound design, subtle environmental motion, and visual distortion create sustained tension.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Distorted Environments:</strong> The mansion's layout subtly alters, trapping you in a maze of psychological illusions.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Ritualistic Themes:</strong> Unsettling candle-lit hallways and supernatural dolls add to the psychological terror.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GAMEPLAY VIDEO ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 4rem;">
+          <span style="color: #8B2FC9; font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">Live Gameplay</span>
+          <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem;">Experience the Terror</h2>
+          <p class="text-muted" style="font-size: 1.05rem; line-height: 1.7;">Watch players react to the unpredictable, systemic horror of Never Open The Door.</p>
+        </div>
+        
+        <div style="max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.05); position: relative; padding-bottom: 56.25%; height: 0;">
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/GRXJ9MycbJI?si=qcdV03TRmaIksr_h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GAMEPLAY GALLERY ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+          <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem;">Mansion Environment</h2>
+          <p class="text-muted" style="font-size: 1.05rem; line-height: 1.7;">A psychological nightmare where every hallway, room, and shadow hides another disturbing truth.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-card gallery-large">
+            <img loading="lazy" src="assets/notd-screenshot-08.webp" alt="Gameplay Screenshot 1" />
+          </div>
+          <div class="gallery-card">
+            <img loading="lazy" src="assets/notd-screenshot-09.webp" alt="Gameplay Screenshot 2" />
+          </div>
+          <div class="gallery-card">
+            <img loading="lazy" src="assets/notd-screenshot-10.webp" alt="Gameplay Screenshot 3" />
+          </div>
+          <div class="gallery-card">
+            <img loading="lazy" src="assets/notd-screenshot-11.webp" alt="Gameplay Screenshot 4" />
+          </div>
+          <div class="gallery-card">
+            <img loading="lazy" src="assets/notd-screenshot-12.webp" alt="Gameplay Screenshot 5" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURES GRID ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+          <span style="color: #00D1FF; font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">Under The Hood</span>
+          <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; margin-bottom: 1.5rem;">Core Technical Systems</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-card__num">01</span>
+            <h3>Event-Driven Narrative</h3>
+            <p>Diary entries act as narrative triggers, ensuring environmental changes occur only after the player has discovered key story elements, maintaining optimal pacing.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">02</span>
+            <h3>Dynamic State Controller</h3>
+            <p>A centralized state system controls objects, lighting, and audio layers, allowing the house to gradually shift and reinforce the feeling of a living supernatural presence.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">03</span>
+            <h3>Controlled Encounters</h3>
+            <p>Supernatural events are triggered through carefully timed sequences tied to exploration progress, making paranormal encounters feel unpredictable rather than scripted.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ AUDIO ENGINEERING ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid">
+          <div>
+            <img loading="lazy" src="assets/notd-screenshot-13.webp" alt="Audio Atmosphere" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);" />
+          </div>
+          <div class="narrative-content">
+            <span style="color: var(--color-accent); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">Immersive Soundscape</span>
+            <h2>Silence is the loudest enemy.</h2>
+            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              The horror in Never Open The Door isn't just visual. We implemented a fully dynamic binaural audio system that tracks the supernatural entity's position relative to the player, even through walls.
+            </p>
+            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+              Floorboards creak dynamically based on weight distribution, distant whispers utilize 3D spatial panning, and the ambient room tone subtly drops in pitch when a paranormal event is about to trigger—subconsciously alerting the player before they even see a threat.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ROADMAP ═══ -->
+    <section class="narrative-section narrative-section--alt" style="border-bottom: none;">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 4rem;">
+          <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; margin-bottom: 1.5rem;">Development Roadmap</h2>
+          <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">Track our progress from alpha testing to the full Steam launch.</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+          <div style="padding: 2.5rem 2rem; border-left: 2px solid #8B2FC9; background: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Phase 1: Alpha Core</h4>
+            <p style="font-size: 0.8rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Complete</p>
+            <p style="font-size: 0.95rem; color: #ccc; line-height: 1.6; margin: 0;">Finalized the State-Discovery Engine, basic mansion layout, and initial diary trigger loops.</p>
+          </div>
+          <div style="padding: 2.5rem 2rem; border-left: 2px solid #00D1FF; background: rgba(0, 209, 255, 0.05); box-shadow: 0 0 20px rgba(0, 209, 255, 0.05);">
+            <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; color: #fff;">Phase 2: Private Beta</h4>
+            <p style="font-size: 0.8rem; color: #00D1FF; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Current Stage</p>
+            <p style="font-size: 0.95rem; color: #ccc; line-height: 1.6; margin: 0;">Inviting community testers to optimize the pacing, fix bugs, and refine the scare mechanics.</p>
+          </div>
+          <div style="padding: 2.5rem 2rem; border-left: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.01);">
+            <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; color: #777;">Phase 3: Launch</h4>
+            <p style="font-size: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Upcoming</p>
+            <p style="font-size: 0.95rem; color: #666; line-height: 1.6; margin: 0;">Full public release featuring the complete story campaign, Steam achievements, and VR support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CLOSING BANNER ═══ -->
+    <section style="position: relative; padding: 12rem 0; background: #000; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05);">
+      <img loading="lazy" src="assets/notd-screenshot-16.webp" alt="Final Encounter" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; filter: contrast(1.2);" />
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, #050505 5%, transparent 50%, #080808 95%);"></div>
+      <div class="container" style="position: relative; z-index: 10; text-align: center;">
+        <h2 style="font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 1.5rem; text-transform: uppercase; line-height: 1;">Will you survive<br>the night?</h2>
+        <p style="font-size: 1.2rem; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">The diary is waiting. The candles are lit. The 7th soul is yet to be claimed.</p>
+      </div>
+    </section>
+
+    <!-- ═══ B2B PORTFOLIO CTA ═══ -->
+    <section class="narrative-section" id="contact">
+      <div class="container">
+        <div style="max-width: 650px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--color-accent); padding: 4rem; border-radius: 4px; text-align: center;">
+          <span class="hero-label">Want to Build a Game Like This?</span>
+          <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; margin-top: 1rem;">Let's Design Your Project</h2>
+          <p class="text-muted" style="max-width: 500px; margin: 0 auto 3rem;">We engineer modular, production-ready interactive systems and robust game loops. Reach out to our engineering team to bring your vision to life.</p>
+          <a class="btn btn-primary" href="../../../contact/" style="padding: 1.2rem 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;">Start Your Project</a>
+        </div>
+      </div>
+    </section>
+    <!-- ═══ DISCOVERY: Other Projects ═══ -->
+    <section class="section-padding" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle); padding: 8rem 0;">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;">
+          <div>
+            <span class="label-accent" style="color: var(--color-accent); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">Discovery</span>
+            <h2 class="display-2" style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em;">Explore Other Projects</h2>
+          </div>
+          <a href="../../../portfolio/" class="text-accent" style="font-weight: 600; font-size: 0.9rem; text-decoration: none; color: var(--color-accent);">View All Work &rarr;</a>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+          <!-- Reclairos -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <img loading="lazy" alt="Reclairos" src="../../../reclairos/assets/reclairos-thumbnail.webp" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Tactical RPG</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Reclairos</h3>
+              <a href="../../../reclairos/" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+            </div>
+          </div>
+          <!-- Room Raider -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <img loading="lazy" alt="Room Raider" src="../../vr-xr/room-raider/assets/room-raider-screenshot-1.webp" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Mixed Reality / Action</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Room Raider</h3>
+              <a href="../../vr-xr/room-raider/" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div><!-- /tab-overview -->
+<div id="tab-casestudy" class="mega-tab-content"><!-- ═══ HERO ═══ -->
+    <section class="cs-hero">
+      <div class="cs-hero__bg"></div>
+      <div class="container">
+        <span class="cs-label">Technical Case Study — Project NOTD</span>
+        <p class="cs-hero__meta">PC &nbsp;/&nbsp; Systemic Psychological Horror</p>
+        <h2>Never Open<br><span style="color: var(--color-text-muted); font-weight: 400; font-size: 0.55em; letter-spacing: 0;">The Door Engineering Case Study</span></h2>
+        <p>A technical breakdown of a modular event-driven architecture where narrative triggers control environmental behavior, spatial distortion, and systemic tension.</p>
+
+        <!-- Project Meta -->
+        <div class="cs-meta-grid">
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Platform</span>
+            <p class="cs-meta-card__value">PC (Windows)</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Engine</span>
+            <p class="cs-meta-card__value">Unity (HDRP)</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">State Logic</span>
+            <p class="cs-meta-card__value">Event-Driven Diary Manger</p>
+          </div>
+          <div class="cs-meta-card" style="border-top: 2px solid rgba(0,210,255,0.4); background: rgba(0,210,255,0.03);">
+            <span class="cs-meta-card__label">Target V-Sync</span>
+            <p class="cs-meta-card__value">120 Hz Uncapped</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ HARD BENCHMARKS ═══ -->
+    <section class="cs-benchmarks">
+      <div class="container">
+        <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); display: block; text-align: center; margin-bottom: 3rem;">Technical Performance Benchmarks</span>
+        <div class="cs-bench-grid">
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">&lt; 1ms</span>
+            <p class="cs-bench-card__title">Event Trigger Latency</p>
+            <p class="cs-bench-card__sub">Decoupled state events resolve with near-zero overhead, ensuring immediate environmental reaction upon narrative discovery.</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">100%</span>
+            <p class="cs-bench-card__title">State Consistency</p>
+            <p class="cs-bench-card__sub">Centralized Environmental State Controller prevents contradictory lighting or object states during complex overlapping hallucinations.</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">5+ Layers</span>
+            <p class="cs-bench-card__title">Audio Spatialization</p>
+            <p class="cs-bench-card__sub">Simultaneous real-time DSP layers including whispers, environmental tension, and direct UI narrative feedback.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 01 SYSTEM ARCHITECTURE ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">01 &nbsp;/&nbsp; System Architecture</span>
+        <h2>Modular Event-Driven Architecture</h2>
+        <p style="color: var(--color-text-muted); max-width: 700px; font-size: 1rem; line-height: 1.75; margin-bottom: 4rem;">The game is built around an event-driven architecture that connects player exploration with narrative progression and dynamic environmental reactions. This pipeline ensures that horror events unfold naturally.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 5rem; text-align: center;">
+          <div style="padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase;">1. Player Exploration</h4>
+          </div>
+          <div style="padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase;">2. Diary Event Manager</h4>
+          </div>
+          <div style="padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase;">3. Env State Controller</h4>
+          </div>
+          <div style="padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase;">4. A/V Horror Effects</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 CHALLENGES & SOLUTIONS ═══ -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <span class="cs-section-num">02 &nbsp;/&nbsp; Challenges &amp; Solutions</span>
+        <h2>Engineering Psychological Tension</h2>
+
+        <!-- Challenge 1 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">01</span>
+            <h3>Narrative Driven Event Sequencing</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Linear Expectations in Open Environments</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Because paranormal events are directly tied to diary discoveries, the system needed to support dynamic story triggers that activate environmental changes in a controlled narrative order, even when players navigate non-linearly.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Event-Driven Narrative System</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Diary entries act as narrative triggers broadcasted across a decoupled event bus. This system ensures that environmental changes occur only after the player has discovered key story elements, maintaining narrative pacing seamlessly.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">02</span>
+            <h3>Environmental Consistency During Distortions</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Visual Continuity Breakdowns</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">As supernatural events begin to alter the house, maintaining visual continuity while introducing subtle environmental distortions becomes critical for preserving immersion. Traditional toggling of objects caused jarring pop-ins.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Dynamic Environmental State System</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Environmental objects, lighting, and audio layers are controlled through a centralized state system. This allows the house to gradually change as the story progresses, creating subtle, interpolated shifts that reinforce the supernatural influence smoothly.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Challenge 3 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">03</span>
+            <h3>Managing Player Expectations</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Predictable "Scripted Event" Fatigue</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Players exploring horror environments often anticipate scripted events or jump scares. The challenge was designing systems that make paranormal encounters feel unpredictable and psychologically unsettling rather than repetitive.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Controlled Encounters & Layered Feedback</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Supernatural events are triggered through carefully timed sequences tied to exploration progress. Instead of relying solely on jump scares, the game uses layered horror cues—sound design, environmental motion, shadow behavior, and visual distortion—to create sustained tension.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 03 TAKEAWAYS ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">03 &nbsp;/&nbsp; Engineering Takeaways</span>
+        <h2>Validation in Production</h2>
+        
+        <div style="margin-top: 3rem;">
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">1</span>
+            <div>
+              <h4>Narrative-Driven Systems Enhance Horror Immersion</h4>
+              <p>Connecting paranormal encounters directly to story progression ensures that each supernatural event feels meaningful and reinforces the narrative experience, rather than feeling like a random sequence of events.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">2</span>
+            <div>
+              <h4>Environmental Storytelling Strengthens Player Engagement</h4>
+              <p>Allowing players to uncover the story through exploration encourages curiosity and deepens immersion within the haunted environment.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">3</span>
+            <div>
+              <h4>Psychological Horror Requires Controlled Pacing</h4>
+              <p>Gradual escalation of supernatural events allows tension to build naturally, making each encounter more impactful than a barrage of immediate threats.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">4</span>
+            <div>
+              <h4>Dynamic Environment Systems Support Immersive Horror</h4>
+              <p>By allowing environmental elements to subtly change over time through the centralized state controller, the game creates a living space where the house itself feels like an active participant in the horror experience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cs-cta" id="audit-form">
+      <div class="container" style="text-align: center;">
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem;">Ready for a Technical Architecture Audit?</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">We audit rendering performance, frame-rate bottlenecks, memory leaks, and backend scaling. Request a free evaluation from our engineering team.</p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="../../../contact?intent=audit" class="btn btn-primary" style="display: inline-block; padding: 1rem 2.5rem; font-weight: 700; letter-spacing: 0.1em;">Request Technical Audit</a>
+        </div>
+      </div>
+    </section>
+</div><!-- /tab-casestudy -->
+
+</main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+        <div class="footer-brand">
+          <img alt="DualCore Games Logo" loading="lazy" src="../../../assets/images/dualcore-logo.svg"
+            style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" />
+          <p>Game development studio building original IP and production-ready interactive systems.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="../../../">Home</a></li>
+            <li><a href="../../../services/">Services</a></li>
+            <li><a href="../../../portfolio/">Portfolio</a></li>
+            <li><a href="../../../about/">About</a></li>
+            <li><a href="../../../blog/">Blog</a></li>
+            <li><a href="../../../contact/">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <ul class="footer-links social-links">
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank" aria-label="DualCore Games on LinkedIn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <span>LinkedIn</span>
+            </a></li>
+            <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank" aria-label="DualCore Games on X (Twitter)">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.633zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X (Twitter)</span>
+            </a></li>
+            <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank" aria-label="DualCore Games on Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span>Instagram</span>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center; opacity: 0.75; font-size: 0.7rem; padding-top: 2rem;">
+        <p>© 2026 DualCore Games | <a href="../../../privacy-policy">Privacy Policy</a> | <a href="../../../terms">Terms of Service</a></p>
+        <p style="max-width: 600px; line-height: 1.6;">Unity is a trademark of Unity Technologies. DualCore Games is not affiliated with or endorsed by Unity Technologies. Android is a trademark of Google LLC. Unreal Engine is a trademark of Epic Games, Inc. Meta, Photon, and other marks are the property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script defer="" src="../../../assets/js/main.js"></script>
+
+  <script>
+    window.switchTab = function(tabName) {
+      document.querySelectorAll('.mega-tab-content').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.mega-tab').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      var targetContent = document.getElementById('tab-' + tabName);
+      var targetBtn = document.getElementById('tab-btn-' + tabName);
+      if (targetContent) targetContent.classList.add('active');
+      if (targetBtn) targetBtn.classList.add('active');
+      var url = new URL(window.location.href);
+      if (tabName === 'overview') {
+        url.searchParams.delete('tab');
+      } else {
+        url.searchParams.set('tab', tabName);
+      }
+      history.replaceState(null, '', url.toString());
+    };
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var tab = params.get('tab');
+      if (tab) { window.switchTab(tab); }
+    })();
+  </script>
+
+</body>
+</html>

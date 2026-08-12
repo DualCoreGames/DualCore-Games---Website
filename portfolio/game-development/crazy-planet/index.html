@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="view-transition" content="same-origin" />
+  <meta charset="utf-8"/>
+    <!-- Google Tag Manager -->
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Open Graph -->
+  <meta content="Crazy Planet | Retro Action Platformer | DualCore Games" property="og:title"/>
+  <meta content="A vibrant retro action platformer featuring dynamic combat and precision mechanics." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://dualcoregames.com/work/game-development/crazy-planet/" property="og:url"/>
+  <meta content="https://dualcoregames.com/work/game-development/crazy-planet/assets/crazy-planet-og.webp" property="og:image" />
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Crazy Planet | Retro Action Platformer | DualCore Games" name="twitter:title"/>
+  <meta content="A vibrant retro action platformer featuring dynamic combat and precision mechanics." name="twitter:description"/>
+  <meta name="theme-color" content="#00d2ff">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Crazy Planet | Mobile Puzzle Game | DualCore Games</title>
+<link href="https://dualcoregames.com/portfolio/game-development/crazy-planet/" rel="canonical"/>
+  <meta content="Experience the vibrant retro chaos in Crazy Planet. High-performance platformer gameplay built with modular enemy systems by DualCore Games." name="description"/>
+  <link href="../../../assets/css/style.css" rel="stylesheet"/>
+  <link href="../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+
+  <!-- VideoGame JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Crazy Planet",
+    "description": "A vibrant retro action platformer featuring dynamic combat and precision mechanics.",
+    "genre": ["Platformer", "Action", "Adventure"],
+    "gamePlatform": ["PC", "Mobile"],
+    "applicationCategory": "Game",
+    "author": {
+      "@type": "Organization",
+      "name": "DualCore Games",
+      "url": "https://dualcoregames.com"
+    },
+    "image": "https://dualcoregames.com/assets/images/social-preview.webp"
+  }
+  </script>
+
+  <style>
+    /* ── DualCore Signature Styles ── */
+    .hero-cinematic {
+      position: relative;
+      min-height: calc(100svh - 125px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 0 3rem;
+      background: #080a08;
+      overflow: hidden;
+    }
+    .hero-cinematic::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-cinematic__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      filter: none;
+    }
+    .hero-cinematic__content { 
+      position: relative; 
+      z-index: 10; 
+      text-align: center;
+    }
+    
+    .breadcrumbs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 2.5rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .breadcrumbs a { color: var(--color-accent); text-decoration: none; }
+    .breadcrumbs span { opacity: 0.3; }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    /* Cards & Interactivity */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-top: 3px solid #00D1FF;
+      padding: 2.5rem;
+      transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), background 0.4s ease;
+    }
+    .feature-card:hover {
+      transform: scale(1.03);
+      background: rgba(0,210,255,0.04);
+    }
+    .feature-card__num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+      letter-spacing: 0.2em;
+    }
+    .feature-card h3 { font-size: 1.25rem; margin-bottom: 1rem; font-weight: 800; }
+    .feature-card p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+    /* Narrative Sections */
+    .narrative-section { padding: 10rem 0; position: relative; }
+    .narrative-section--alt { background: #0c0c0c; }
+    .narrative-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .narrative-content h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 2rem; letter-spacing: -0.02em; }
+    .narrative-content p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-muted); margin-bottom: 2rem; }
+    
+    .image-frame {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+    .image-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .image-frame__overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+    }
+
+    .beta-form-container {
+      max-width: 650px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top: 3px solid var(--color-accent);
+      padding: 4rem;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 1000px) {
+      .narrative-grid { grid-template-columns: 1fr; gap: 4rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+  
+    @media (max-width: 480px) {
+      /* Responsive grid collapse overrides */
+      .rc-squad__grid, .squad__grid, .grid, [style*="grid-template-columns: repeat(5, 1fr)"], [style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+      .rc-snapshot__grid, .snapshot__grid, [style*="grid-template-columns: repeat(2, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      .rc-gameplay__row, .gameplay__row {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      .rc-flow, .flow {
+        grid-template-columns: 1fr !important;
+      }
+      .rc-roster__grid, .roster__grid {
+        grid-template-columns: 1fr !important;
+      }
+      .rc-hero__tagline, .hero__tagline {
+        font-size: 1.25rem !important;
+      }
+      .rc-section__title, .section__title {
+        font-size: 1.6rem !important;
+      }
+      /* Ensure absolute overlay or flagship elements fit */
+      .flagship-logo-overlay {
+        max-width: 75% !important;
+      }
+    }
+
+    /* ── Mega Tab System ── */
+    .mega-tabs-container {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,7,10,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mega-tabs-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.65rem;
+    }
+    .mega-tabs {
+      display: flex; justify-content: center;
+      gap: 0;
+    }
+    .mega-tab {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.55);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 1.1rem 2rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .mega-tab:hover { color: rgba(255,255,255,0.85); }
+    .mega-tab.active {
+      color: #00d2ff;
+      border-bottom-color: #00d2ff;
+    }
+    .mega-tab-content { display: none; }
+    .mega-tab-content.active { display: block; }
+
+  </style>
+  <style>
+/* ── Case Study Whitepaper Styles ── */
+    .cs-hero {
+      position: relative;
+      background: #080808;
+      min-height: calc(100svh - 125px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .cs-hero__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('assets/cp-hero-bg.webp');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.25;
+      filter: saturate(1.1) brightness(0.65) blur(1.5px);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .cs-hero .container { position: relative; z-index: 2; }
+    .cs-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+    .cs-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .cs-hero__meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .cs-hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* Project meta grid */
+    .cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    .cs-meta-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .cs-meta-card__label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-meta-card__value { font-size: 0.95rem; font-weight: 700; margin: 0; }
+
+    /* Benchmark strip */
+    .cs-benchmarks {
+      background: linear-gradient(135deg, rgba(0,210,255,0.06) 0%, rgba(0,0,0,0) 60%);
+      border-top: 1px solid rgba(0,210,255,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 5rem 0;
+    }
+    .cs-bench-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .cs-bench-card {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(0,210,255,0.15);
+      border-top: 3px solid var(--color-accent);
+      border-radius: 14px;
+      background: rgba(0,210,255,0.03);
+    }
+    .cs-bench-card__stat {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .cs-bench-card__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .cs-bench-card__sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin: 0;
+    }
+
+    /* Sections */
+    .cs-section { padding: 8rem 0; }
+    .cs-section--alt { background: #0c0c0c; }
+    .cs-section-num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cs-section h2 { margin-bottom: 3rem; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+
+    /* Problem/Solution split */
+    .cs-challenge { margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .cs-challenge:last-child { border-bottom: none; margin-bottom: 0; }
+    .cs-challenge__header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .cs-challenge__num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.1);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .cs-challenge__header h3 { font-size: 1.4rem; margin: 0; }
+    .cs-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .cs-split__col--problem {
+      background: rgba(255,60,60,0.04);
+      border: 1px solid rgba(255,60,60,0.12);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__col--solution {
+      background: rgba(0,210,255,0.04);
+      border: 1px solid rgba(0,210,255,0.15);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__tag {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      display: block;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .cs-split__tag--problem { color: rgba(255,100,100,0.9); background: rgba(255,60,60,0.08); }
+    .cs-split__tag--solution { color: var(--color-accent); background: rgba(0,210,255,0.08); }
+    .cs-split__col h4 { font-size: 1rem; margin-bottom: 1.25rem; font-weight: 700; }
+    .cs-bullet-list { list-style: none; padding: 0; margin: 0; }
+    .cs-bullet-list li {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      line-height: 1.6;
+    }
+    .cs-bullet-list li:last-child { border-bottom: none; }
+    .cs-bullet-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.2);
+    }
+    .cs-split__col--solution .cs-bullet-list li::before { color: rgba(0,210,255,0.4); }
+
+    /* Takeaways */
+    .cs-takeaway {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: start;
+    }
+    .cs-takeaway:last-child { border-bottom: none; }
+    .cs-takeaway__num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.12);
+      line-height: 1;
+    }
+    .cs-takeaway h4 { margin-bottom: 0.75rem; font-size: 1rem; font-weight: 700; }
+    .cs-takeaway p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+    /* CTA */
+    .cs-cta {
+      background: linear-gradient(to bottom, #0c0c0c, #080808);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 10rem 0;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-split { grid-template-columns: 1fr; }
+      .cs-bench-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body data-page-type="project">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2F3CX5Z"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="../../../">
+        <img loading="lazy" alt="DualCore Games Logo" src="../../../assets/images/dualcore-logo.svg"
+          style="height: 48px; width: auto; display: block;" />
+      </a>
+      <nav>
+        <button type="button" aria-label="Toggle navigation" class="nav-toggle">☰</button>
+        <ul class="nav-menu">
+          <li class="nav-close-item"><button type="button" aria-label="Close navigation" class="nav-close">✕</button></li>
+          <li class="nav-item"><a class="nav-link" href="../../../">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/reclairos/">Reclairos</a></li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="../../../services/">Services <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-link" href="../../../services/game-development/">Game Development</a></li>
+              <li><a class="dropdown-link" href="../../../services/game-art/">Game Art</a></li>
+              <li><a class="dropdown-link" href="../../../services/vr-xr-simulation/">VR/XR Simulation</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle active" href="../../../portfolio/">Portfolio <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Game Development</li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-development/paapi-gudia/">Paapi Gudia</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-development/crazy-planet/">Crazy Planet</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-development/never-open-the-door/">Never Open The Door</a></li>
+              <li><a class="dropdown-link category-link" href="../../../portfolio/game-development/">View All Game Dev →</a></li>
+              
+              <li class="dropdown-divider"></li>
+              
+              <li class="dropdown-header">VR / XR</li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/room-raider/">Room Raider</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/shemarooverse/">Shemarooverse</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/mayaaverse/">Mayaaverse</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/educational-simulations/">Educational Simulations</a></li>
+              <li><a class="dropdown-link category-link" href="../../../portfolio/vr-xr/">View All VR/XR →</a></li>
+              
+              <li class="dropdown-divider"></li>
+              
+              <li class="dropdown-header">Game Art</li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/concept-art/">Concept Art</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/character-art/">Character Art</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/environment-art/">Environment Art</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/animation/">Animation</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/technical-art-benchmarks/">Technical Art Benchmarks</a></li>
+              <li><a class="dropdown-link category-link" href="../../../portfolio/game-art/">View All Game Art →</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../../../about/">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../contact/">Contact</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../contact/" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Mega Tab Navigation ── -->
+  <div class="mega-tabs-container">
+    <div class="mega-tabs-inner">
+      <div class="mega-tabs">
+        <button class="mega-tab active" id="tab-btn-overview" onclick="window.switchTab('overview')">Project Overview</button>
+        <button class="mega-tab" id="tab-btn-casestudy" onclick="window.switchTab('casestudy')">Engineering Deep Dive</button>
+      </div>
+    </div>
+  </div>
+
+<div id="tab-overview" class="mega-tab-content active">
+
+<!-- ═══ CINEMATIC HERO ═══ -->
+    <section class="hero-cinematic">
+      <img src="assets/cp-hero-bg.webp" class="hero-cinematic__bg" alt="Crazy Planet Vibrant Environment">
+      <div class="container hero-cinematic__content">
+        <a href="../../../portfolio/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content; margin-left: auto; margin-right: auto;">
+          <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Portfolio
+        </a>
+        <span class="hero-label">Retro Action Platformer</span>
+        <h1 class="hero-title">Crazy Planet</h1>
+        <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 700px; margin: 0 auto 3.5rem auto;">A vibrant 2D side-scrolling adventure that combines the ruthless challenge of classic arcade platformers with smooth, modern mechanics.</p>
+        
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+          <a href="../../../contact/" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Start Your Project</a>
+        </div>
+
+      </div>
+    </section>
+
+  
+
+    <!-- ═══ PROJECT STRIP ═══ -->
+    <section style="background: #080808; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Platform</span><strong style="font-size: 0.95rem;">PC & Mobile</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Engine</span><strong style="font-size: 0.95rem;">Unity (2D URP)</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Genre</span><strong style="font-size: 0.95rem;">Action Platformer</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Perspective</span><strong style="font-size: 0.95rem;">2D Side-Scrolling</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Theme</span><strong style="font-size: 0.95rem;">Retro Arcade</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Pillars -->
+    <section style="padding: 4rem 0;">
+      <div class="container">
+        <div class="feature-grid" style="margin-top: 0;">
+          <div class="feature-card">
+            <span class="feature-card__num">01</span>
+            <h3>Precision Platforming</h3>
+            <p>Skill-based movement mechanics demanding pixel-perfect timing to overcome spinning blades and environmental hazards.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">02</span>
+            <h3>Retro Aesthetic</h3>
+            <p>Handcrafted pixel-art environments that capture the vibrant, colorful charm of legendary classic titles.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">03</span>
+            <h3>Dynamic Combat</h3>
+            <p>Six unique enemy types featuring distinct attack patterns and behaviors designed to test your combat strategy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 01 PROJECT OVERVIEW ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">01 / The Arcade Revival</span>
+            <h2>Nostalgia Engineered.</h2>
+            <p>Drawing direct inspiration from timeless classics like Contra, Super Mario, and Prince of Persia, <strong>Crazy Planet</strong> is designed to recreate the visceral thrill of 90s arcade gaming. The game spans 7 progressively difficult levels, each introducing new gameplay elements to continuously test the player's reflexes.</p>
+            <p>We engineered the movement physics to feel immediate and predictable, ensuring that every missed jump or trap collision feels like a learning opportunity rather than a technical flaw.</p>
+          </div>
+          <div class="image-frame">
+            <img loading="lazy" src="assets/cp-screenshot-01.webp" alt="Retro Platforming Environment">
+            <div class="image-frame__overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 SYSTEMIC DESIGN ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="image-frame" style="order: 2;">
+            <img loading="lazy" src="assets/cp-screenshot-02.webp" alt="Dynamic Enemy Encounters">
+            <div class="image-frame__overlay"></div>
+          </div>
+          <div class="narrative-content" style="order: 1;">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">02 / Precision & Combat</span>
+            <h2>Adapt to Survive.</h2>
+            <p>The world is filled with hostile creatures, wild animals, and complex mechanical traps. Rather than relying on simple hitpoint attrition, we built encounters where players must analyze specific enemy behaviors and strike at the perfect moment.</p>
+            <p>The progression system is strictly built on the classic design philosophy: <strong>Teach → Test → Reward</strong>. New mechanics are introduced safely before being combined into punishing challenge sequences.</p>
+            <ul class="bullet-list text-muted" style="font-size: 1rem; margin-top: 2rem;">
+              <li>Hostile Animal Behaviors</li>
+              <li>Momentum-Based Puzzles</li>
+              <li>Hidden Challenge Areas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GAMEPLAY VIDEO ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+          <span style="color: var(--color-accent); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: block;">Live Action</span>
+          <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem;">Raw Gameplay</h2>
+          <p class="text-muted" style="font-size: 1.05rem; line-height: 1.7;">See the fluid animations and fast-paced platforming in action.</p>
+        </div>
+        
+        <div style="max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.05); position: relative; background: #000; aspect-ratio: 16/9;">
+          <div class="video-facade" data-video="cp" style="position: absolute; inset: 0; cursor: pointer; background-image: url('assets/cp-hero-bg.webp'); background-size: cover; background-position: center; display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; justify-content: center;">
+            <div class="play-button" style="width: 80px; height: 80px; background: rgba(0,210,255,0.9); border-radius: 50%; display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; justify-content: center; font-size: 2rem; color: #05070a; box-shadow: 0 0 30px rgba(0,210,255,0.4); transition: transform 0.2s ease, background 0.2s ease;">▶</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GAMEPLAY GALLERY ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+          <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem;">Vibrant Worlds</h2>
+          <p class="text-muted" style="font-size: 1.05rem; line-height: 1.7;">Explore hand-crafted stages full of secrets, traps, and dynamic encounters.</p>
+        </div>
+
+        <style>
+          .cp-gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
+          .cp-gallery-item { position: relative; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+          .cp-gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+          .cp-gallery-item:hover img { transform: scale(1.05); }
+          .cp-item-1 { grid-column: span 8; aspect-ratio: 16/9; }
+          .cp-item-2 { grid-column: span 4; aspect-ratio: 4/3; }
+          .cp-item-3 { grid-column: span 4; aspect-ratio: 4/3; }
+          .cp-item-4 { grid-column: span 8; aspect-ratio: 16/9; }
+          .cp-item-5 { grid-column: span 12; aspect-ratio: 21/9; }
+          @media (max-width: 768px) {
+            .cp-gallery-item { grid-column: span 12 !important; aspect-ratio: 16/9 !important; }
+          }
+        </style>
+
+        <div class="cp-gallery">
+          <div class="cp-gallery-item cp-item-1"><img loading="lazy" src="assets/cp-screenshot-03.webp" alt="Level Screenshot 1"></div>
+          <div class="cp-gallery-item cp-item-2"><img loading="lazy" src="assets/cp-screenshot-04.webp" alt="Level Screenshot 2"></div>
+          <div class="cp-gallery-item cp-item-3"><img loading="lazy" src="assets/cp-screenshot-05.webp" alt="Level Screenshot 3"></div>
+          <div class="cp-gallery-item cp-item-4"><img loading="lazy" src="assets/cp-screenshot-06.webp" alt="Level Screenshot 4"></div>
+          <div class="cp-gallery-item cp-item-5"><img loading="lazy" src="assets/cp-screenshot-07.webp" alt="Level Screenshot 5"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 04 ROADMAP & FUTURE ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">Road to Launch</span>
+            <h2>Expanding the Chaos.</h2>
+            <p>Crazy Planet is continuously evolving. Our modular architecture allows us to rapidly inject new environments, enemy types, and mechanics directly into the game's core loop without compromising performance.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem;">
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Upcoming Levels:</strong> The Neon Factory and Glacial Peaks are currently in greybox testing.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Boss Encounters:</strong> Multi-phase boss battles designed to push player mastery to the absolute limit.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Speedrun Integration:</strong> Built-in timers and ghosts for competitive community events.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="image-frame">
+            <img loading="lazy" src="assets/cp-screenshot-04.webp" alt="Development Testing" style="filter: grayscale(80%) sepia(20%) hue-rotate(180deg);">
+            <div class="image-frame__overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cinematic Banner -->
+    <section style="position: relative; height: 50vh; display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; justify-content: center; overflow: hidden; background: #000;">
+      <img src="assets/cp-hero-bg.webp" alt="Crazy Planet Background" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: saturate(1.5);">
+      <div style="position: relative; z-index: 10; text-align: center;">
+        <h2 style="font-size: clamp(2rem, 5vw, 4rem); font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.02em;">Ready to Build Your Vision?</h2>
+        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto;">Partner with our studio to design and develop your custom interactive experience.</p>
+      </div>
+    </section>
+
+    <!-- ═══ B2B PORTFOLIO CTA ═══ -->
+    <section class="narrative-section" id="contact">
+      <div class="container">
+        <div style="max-width: 650px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--color-accent); padding: 4rem; border-radius: 4px; text-align: center;">
+          <span class="hero-label">Want to Build a Game Like This?</span>
+          <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; margin-top: 1rem;">Let's Design Your Project</h2>
+          <p class="text-muted" style="max-width: 500px; margin: 0 auto 3rem;">We engineer modular, production-ready interactive systems and robust game loops. Reach out to our engineering team to bring your vision to life.</p>
+          <a class="btn btn-primary" href="../../../contact/" style="padding: 1.2rem 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;">Start Your Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ DISCOVERY: Other Projects ═══ -->
+    <section class="section-padding" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle); padding: 8rem 0;">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;">
+          <div>
+            <span class="label-accent" style="color: var(--color-accent); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">Discovery</span>
+            <h2 class="display-2" style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em;">Explore Other Projects</h2>
+          </div>
+          <a href="../../../portfolio/" class="text-accent" style="font-weight: 600; font-size: 0.9rem; text-decoration: none; color: var(--color-accent);">View All Work &rarr;</a>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+          <!-- Room Raider -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <img loading="lazy" alt="Room Raider" src="../../vr-xr/room-raider/assets/room-raider-screenshot-1.webp" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Mixed Reality / Action</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Room Raider</h3>
+              <a href="../../vr-xr/room-raider/" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+            </div>
+          </div>
+          <!-- Paapi Gudia -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <img alt="Paapi Gudia" src="../paapi-gudia/assets/paapi-hero-bg.webp" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">PC + VR Horror</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Paapi Gudia</h3>
+              <a href="../paapi-gudia/" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /tab-overview -->
+<div id="tab-casestudy" class="mega-tab-content"><!-- ═══ HERO ═══ -->
+    <section class="cs-hero">
+      <div class="cs-hero__bg"></div>
+      <div class="container">
+        <span class="cs-label">Technical Case Study — Project Crazy Planet</span>
+        <p class="cs-hero__meta">iOS &nbsp;/&nbsp; Android &nbsp;/&nbsp; Mobile Arcade</p>
+        <h2>Crazy Planet<br><span style="color: var(--color-text-muted); font-weight: 400; font-size: 0.55em; letter-spacing: 0;">Modular Architecture &amp; Lightweight Design</span></h2>
+        <p>A technical breakdown of building a scalable, high-performance platformer engine designed for modular enemy behavior, broad accessibility, and smooth progression.</p>
+
+        <!-- Project Meta -->
+        <div class="cs-meta-grid">
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Platform</span>
+            <p class="cs-meta-card__value">PC &amp; Mobile</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Type</span>
+            <p class="cs-meta-card__value">Client Prototype</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Architecture</span>
+            <p class="cs-meta-card__value">Modular Component</p>
+          </div>
+          <div class="cs-meta-card" style="border-top: 2px solid rgba(0,210,255,0.4); background: rgba(0,210,255,0.03);">
+            <span class="cs-meta-card__label">Scale</span>
+            <p class="cs-meta-card__value">7 Handcrafted Levels</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ HARD BENCHMARKS ═══ -->
+    <section class="cs-benchmarks">
+      <div class="container">
+        <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); display: block; text-align: center; margin-bottom: 3rem;">Technical Performance Benchmarks</span>
+        <div class="cs-bench-grid">
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">Modular</span>
+            <p class="cs-bench-card__title">Enemy Behaviors</p>
+            <p class="cs-bench-card__sub">Independent logic controllers allowing rapid addition of new enemy types without core system changes.</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">High</span>
+            <p class="cs-bench-card__title">Asset Reusability</p>
+            <p class="cs-bench-card__sub">Strategic environment asset caching to minimize memory usage and drastically reduce build size.</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">Stable</span>
+            <p class="cs-bench-card__title">Performance Target</p>
+            <p class="cs-bench-card__sub">Efficient sprite animation and physics layers ensuring smooth gameplay across modest mobile and PC hardware.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 01 SYSTEM ARCHITECTURE ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">01 &nbsp;/&nbsp; System Architecture</span>
+        <h2>Modular Platformer Framework</h2>
+        <p style="color: var(--color-text-muted); max-width: 700px; font-size: 1rem; line-height: 1.75; margin-bottom: 4rem;">We engineered a <strong>Modular Systems Architecture</strong> where player movement, enemy behavior, and level progression are entirely decoupled. This allows designers to introduce new enemy types and level mechanics without risking stability in the core platforming foundation.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem;">
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Enemy Behavior Module</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Enemies (Rhino Chargers, Goblin Shooters, Krabby Patrols) operate on independent behavioral rulesets rather than hard-coded logic.</p>
+          </div>
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Progression Manager</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Centralized manager that handles collectible tracking, key-based path unblocking, and seamless level transitions.</p>
+          </div>
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Lightweight Animation</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Efficient sprite animation systems designed to minimize processing overhead while keeping character movement visually responsive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 CHALLENGES & SOLUTIONS ═══ -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <span class="cs-section-num">02 &nbsp;/&nbsp; Challenges &amp; Solutions</span>
+        <h2>Balancing Accessibility &amp; Performance</h2>
+
+        <!-- Challenge 1 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">01</span>
+            <h3>Designing for Younger Audiences</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Complexity Limits Engagement</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Targeting a younger, casual audience meant that highly complex mechanics or unreadable visual cues would immediately cause friction and drop-off.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Intuitive Mechanics &amp; Predictable AI</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">We enforced a strict visual-clarity rule and implemented predictable, behavior-based AI. By keeping mechanics simple, we relied on clever level design and enemy combinations to provide the challenge.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">02</span>
+            <h3>Performance Constraints</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Vibrant Visuals vs. Hardware Limits</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">The game needed to look visually rich and highly saturated, yet run flawlessly on low-end hardware and older mobile devices to ensure maximum distribution.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Aggressive Asset Reusability</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">We architected the environment to heavily reuse core assets. Combined with lightweight sprite animation layers, this kept memory overhead extremely low without sacrificing visual quality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 03 TAKEAWAYS ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">03 &nbsp;/&nbsp; Engineering Takeaways</span>
+        <h2>Validation &amp; Results</h2>
+        
+        <div style="margin-top: 3rem;">
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">1</span>
+            <div>
+              <h4>Simplicity Strengthens Accessibility</h4>
+              <p>Designing mechanics that are immediately understandable allows players to engage quickly, while offering a high skill ceiling through timing and level layout.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">2</span>
+            <div>
+              <h4>Enemy Variety Over Complex Systems</h4>
+              <p>Introducing diverse enemy behaviors (Chargers, Shooters, Patrols) creates massive gameplay variety without the need to over-engineer complex core mechanics.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">3</span>
+            <div>
+              <h4>Level Design Drives Engagement</h4>
+              <p>Following the "Teach → Test → Reward" philosophy ensures that the progression curve feels fair, keeping player motivation high through all 7 stages.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cs-cta">
+      <div class="container">
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem;">Ready to Build at This Level?</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">DualCore engineers high-performance mobile systems that scale. If you're building a project that demands technical excellence—let's talk.</p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center;">
+          <a href="#contactForm" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700;">Start a Project</a>
+        </div>
+      </div>
+    </section>
+</div><!-- /tab-casestudy -->
+
+</main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+        <div class="footer-brand">
+          <img alt="DualCore Games Logo" loading="lazy" src="../../../assets/images/dualcore-logo.svg"
+            style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" />
+          <p>Game development studio building original IP and production-ready interactive systems.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="../../../">Home</a></li>
+            <li><a href="../../../services/">Services</a></li>
+            <li><a href="../../../portfolio/">Portfolio</a></li>
+            <li><a href="../../../about/">About</a></li>
+            <li><a href="../../../blog/">Blog</a></li>
+            <li><a href="../../../contact/">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <ul class="footer-links social-links">
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank" aria-label="DualCore Games on LinkedIn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <span>LinkedIn</span>
+            </a></li>
+            <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank" aria-label="DualCore Games on X (Twitter)">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.633zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X (Twitter)</span>
+            </a></li>
+            <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank" aria-label="DualCore Games on Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span>Instagram</span>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center; opacity: 0.75; font-size: 0.7rem; padding-top: 2rem;">
+        <p>© 2026 DualCore Games | <a href="../../../privacy-policy">Privacy Policy</a> | <a href="../../../terms">Terms of Service</a></p>
+        <p style="max-width: 600px; line-height: 1.6;">Unity is a trademark of Unity Technologies. DualCore Games is not affiliated with or endorsed by Unity Technologies. Android is a trademark of Google LLC. Unreal Engine is a trademark of Epic Games, Inc. Meta, Photon, and other marks are the property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  
+  <script defer="" src="../../../assets/js/main.js"></script>
+
+  <script>
+    window.switchTab = function(tabName) {
+      document.querySelectorAll('.mega-tab-content').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.mega-tab').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      var targetContent = document.getElementById('tab-' + tabName);
+      var targetBtn = document.getElementById('tab-btn-' + tabName);
+      if (targetContent) targetContent.classList.add('active');
+      if (targetBtn) targetBtn.classList.add('active');
+      var url = new URL(window.location.href);
+      if (tabName === 'overview') {
+        url.searchParams.delete('tab');
+      } else {
+        url.searchParams.set('tab', tabName);
+      }
+      history.replaceState(null, '', url.toString());
+    };
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var tab = params.get('tab');
+      if (tab) { window.switchTab(tab); }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="view-transition" content="same-origin" />
+  <meta charset="utf-8"/>
+    <!-- Google Tag Manager -->
+  <script>
+    (function() {
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2F3CX5Z');
+      }
+      
+      // Delay GTM loading to avoid blocking initial render
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 2000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 2000);
+        });
+      }
+      ['scroll', 'keydown', 'touchstart', 'mousemove'].forEach(function(event) {
+        window.addEventListener(event, loadGTM, { passive: true, once: true });
+      });
+    })();
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Open Graph -->
+  <meta content="Paapi Gudia | Cross-Platform Horror Shooter | DualCore Games" property="og:title"/>
+  <meta content="A technical deep-dive into the cross-platform horror architecture behind Paapi Gudia — built for PC and Meta Quest parity." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://dualcoregames.com/work/game-development/paapi-gudia/" property="og:url"/>
+  <meta content="https://dualcoregames.com/work/game-development/paapi-gudia/assets/paapi-hero-bg.webp" property="og:image"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Paapi Gudia | Cross-Platform Horror Shooter | DualCore Games" name="twitter:title"/>
+  <meta content="A technical deep-dive into the cross-platform horror architecture behind Paapi Gudia." name="twitter:description"/>
+  <meta name="theme-color" content="#00d2ff">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Paapi Gudia | Horror Card Game | DualCore Games</title>
+<link href="https://dualcoregames.com/portfolio/game-development/paapi-gudia/" rel="canonical"/>
+  <meta content="Engineering case study: Delivering atmospheric horror across PC and Meta Quest with a unified Unity URP codebase and OpenXR." name="description"/>
+  <link href="../../../assets/css/style.css" rel="stylesheet"/>
+  <link href="../../../assets/images/dualcore-icon.svg" rel="icon" type="image/svg+xml"/>
+
+  <!-- VideoGame JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Paapi Gudia",
+    "description": "Cross-platform first-person horror shooter inspired by the iconic Bollywood horror film.",
+    "genre": ["Horror Shooter", "Action", "Adventure"],
+    "gamePlatform": ["PC", "Meta Quest 2", "Meta Quest 3", "Meta Quest 3S"],
+    "applicationCategory": "Game",
+    "author": {
+      "@type": "Organization",
+      "name": "DualCore Games",
+      "url": "https://dualcoregames.com"
+    }
+  }
+  </script>
+
+  <style>
+    /* ── DualCore Signature Styles ── */
+    .hero-cinematic {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 0 3rem;
+      background: #080a08;
+      overflow: hidden;
+    }
+    .hero-cinematic::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-cinematic__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      filter: none;
+    }
+    .hero-cinematic__content { 
+      position: relative; 
+      z-index: 10; 
+      text-align: center;
+    }
+    
+    .breadcrumbs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 2.5rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .breadcrumbs a { color: var(--color-accent); text-decoration: none; }
+    .breadcrumbs span { opacity: 0.3; }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    /* Cards & Interactivity */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-top: 3px solid #00D1FF;
+      padding: 2.5rem;
+      transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), background 0.4s ease;
+    }
+    .feature-card:hover {
+      transform: scale(1.03);
+      background: rgba(0,210,255,0.04);
+    }
+    .feature-card__num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+      letter-spacing: 0.2em;
+    }
+    .feature-card h3 { font-size: 1.25rem; margin-bottom: 1rem; font-weight: 800; }
+    .feature-card p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+    /* Narrative Sections */
+    .narrative-section { padding: 10rem 0; position: relative; }
+    .narrative-section--alt { background: #0c0c0c; }
+    .narrative-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .narrative-content h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; margin-bottom: 2rem; letter-spacing: -0.02em; line-height: 1.1; }
+    .narrative-content p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text-muted); margin-bottom: 2rem; }
+    
+    .image-frame {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+    .image-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .image-frame__overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+    }
+
+    /* Video Section */
+    .video-section { padding: 10rem 0; background: #000; text-align: center; }
+    .video-container { max-width: 1200px; margin: 4rem auto 0; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .video-container video { width: 100%; display: block; }
+
+    /* Gallery Grid */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+    .gallery-item { aspect-ratio: 16/9; overflow: hidden; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* Table Design */
+    .tech-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.95rem; }
+    .tech-table th { text-align: left; padding: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.1); color: var(--color-accent); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.1em; }
+    .tech-table td { padding: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--color-text-muted); }
+    .tech-table strong { color: #fff; }
+
+    @media (max-width: 1000px) {
+      .narrative-grid { grid-template-columns: 1fr; gap: 4rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+    }
+  
+    @media (max-width: 480px) {
+      /* Responsive grid collapse overrides */
+      .rc-squad__grid, .squad__grid, .grid, [style*="grid-template-columns: repeat(5, 1fr)"], [style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+      .rc-snapshot__grid, .snapshot__grid, [style*="grid-template-columns: repeat(2, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      .rc-gameplay__row, .gameplay__row {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      .rc-flow, .flow {
+        grid-template-columns: 1fr !important;
+      }
+      .rc-roster__grid, .roster__grid {
+        grid-template-columns: 1fr !important;
+      }
+      .rc-hero__tagline, .hero__tagline {
+        font-size: 1.25rem !important;
+      }
+      .rc-section__title, .section__title {
+        font-size: 1.6rem !important;
+      }
+      /* Ensure absolute overlay or flagship elements fit */
+      .flagship-logo-overlay {
+        max-width: 75% !important;
+      }
+    }
+
+    /* ── Mega Tab System ── */
+    .mega-tabs-container {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,7,10,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mega-tabs-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.65rem;
+    }
+    .mega-tabs {
+      display: flex; justify-content: center;
+      gap: 0;
+    }
+    .mega-tab {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.55);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 1.1rem 2rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .mega-tab:hover { color: rgba(255,255,255,0.85); }
+    .mega-tab.active {
+      color: #00d2ff;
+      border-bottom-color: #00d2ff;
+    }
+    .mega-tab-content { display: none; }
+    .mega-tab-content.active { display: block; }
+
+  </style>
+  <style>
+/* ── Case Study Whitepaper Styles ── */
+    .cs-hero {
+      position: relative;
+      background: #080808;
+      min-height: calc(100svh - 125px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .cs-hero__bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('assets/paapi-hero-bg-clean.webp');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.25;
+      filter: saturate(1.1) brightness(0.65) blur(1.5px);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .cs-hero .container { position: relative; z-index: 2; }
+    .cs-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid rgba(0,210,255,0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      background: rgba(0,210,255,0.04);
+      margin-bottom: 2rem;
+    }
+    .cs-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .cs-hero__meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .cs-hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* Project meta grid */
+    .cs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 4rem;
+    }
+    .cs-meta-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .cs-meta-card__label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cs-meta-card__value { font-size: 0.95rem; font-weight: 700; margin: 0; }
+
+    /* Benchmark strip */
+    .cs-benchmarks {
+      background: linear-gradient(135deg, rgba(0,210,255,0.06) 0%, rgba(0,0,0,0) 60%);
+      border-top: 1px solid rgba(0,210,255,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 5rem 0;
+    }
+    .cs-bench-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .cs-bench-card {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(0,210,255,0.15);
+      border-top: 3px solid var(--color-accent);
+      border-radius: 14px;
+      background: rgba(0,210,255,0.03);
+    }
+    .cs-bench-card__stat {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .cs-bench-card__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .cs-bench-card__sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin: 0;
+    }
+
+    /* Sections */
+    .cs-section { padding: 8rem 0; }
+    .cs-section--alt { background: #0c0c0c; }
+    .cs-section-num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cs-section h2 { margin-bottom: 3rem; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+
+    /* Problem/Solution split */
+    .cs-challenge { margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .cs-challenge:last-child { border-bottom: none; margin-bottom: 0; }
+    .cs-challenge__header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .cs-challenge__num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.1);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .cs-challenge__header h3 { font-size: 1.4rem; margin: 0; }
+    .cs-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .cs-split__col--problem {
+      background: rgba(255,60,60,0.04);
+      border: 1px solid rgba(255,60,60,0.12);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__col--solution {
+      background: rgba(0,210,255,0.04);
+      border: 1px solid rgba(0,210,255,0.15);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+    .cs-split__tag {
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      display: block;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .cs-split__tag--problem { color: rgba(255,100,100,0.9); background: rgba(255,60,60,0.08); }
+    .cs-split__tag--solution { color: var(--color-accent); background: rgba(0,210,255,0.08); }
+    .cs-split__col h4 { font-size: 1rem; margin-bottom: 1.25rem; font-weight: 700; }
+    .cs-bullet-list { list-style: none; padding: 0; margin: 0; }
+    .cs-bullet-list li {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      line-height: 1.6;
+    }
+    .cs-bullet-list li:last-child { border-bottom: none; }
+    .cs-bullet-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.2);
+    }
+    .cs-split__col--solution .cs-bullet-list li::before { color: rgba(0,210,255,0.4); }
+
+    /* Takeaways */
+    .cs-takeaway {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: start;
+    }
+    .cs-takeaway:last-child { border-bottom: none; }
+    .cs-takeaway__num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(0,210,255,0.12);
+      line-height: 1;
+    }
+    .cs-takeaway h4 { margin-bottom: 0.75rem; font-size: 1rem; font-weight: 700; }
+    .cs-takeaway p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+    /* CTA */
+    .cs-cta {
+      background: linear-gradient(to bottom, #0c0c0c, #080808);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 10rem 0;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .cs-meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-split { grid-template-columns: 1fr; }
+      .cs-bench-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body data-page-type="project">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2F3CX5Z"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="container header-inner">
+      <a class="logo" href="../../../">
+        <img loading="lazy" alt="DualCore Games Logo" src="../../../assets/images/dualcore-logo.svg"
+          style="height: 48px; width: auto; display: block;" />
+      </a>
+      <nav>
+        <button type="button" aria-label="Toggle navigation" class="nav-toggle">☰</button>
+        <ul class="nav-menu">
+          <li class="nav-close-item"><button type="button" aria-label="Close navigation" class="nav-close">✕</button></li>
+          <li class="nav-item"><a class="nav-link" href="../../../">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/reclairos/">Reclairos</a></li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle" href="../../../services/">Services <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-link" href="../../../services/game-development/">Game Development</a></li>
+              <li><a class="dropdown-link" href="../../../services/game-art/">Game Art</a></li>
+              <li><a class="dropdown-link" href="../../../services/vr-xr-simulation/">VR/XR Simulation</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link dropdown-toggle active" href="../../../portfolio/">Portfolio <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Game Development</li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-development/paapi-gudia/">Paapi Gudia</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-development/crazy-planet/">Crazy Planet</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-development/never-open-the-door/">Never Open The Door</a></li>
+              <li><a class="dropdown-link category-link" href="../../../portfolio/game-development/">View All Game Dev →</a></li>
+              
+              <li class="dropdown-divider"></li>
+              
+              <li class="dropdown-header">VR / XR</li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/room-raider/">Room Raider</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/shemarooverse/">Shemarooverse</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/mayaaverse/">Mayaaverse</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/vr-xr/educational-simulations/">Educational Simulations</a></li>
+              <li><a class="dropdown-link category-link" href="../../../portfolio/vr-xr/">View All VR/XR →</a></li>
+              
+              <li class="dropdown-divider"></li>
+              
+              <li class="dropdown-header">Game Art</li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/concept-art/">Concept Art</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/character-art/">Character Art</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/environment-art/">Environment Art</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/animation/">Animation</a></li>
+              <li><a class="dropdown-link sub-link" href="../../../portfolio/game-art/technical-art-benchmarks/">Technical Art Benchmarks</a></li>
+              <li><a class="dropdown-link category-link" href="../../../portfolio/game-art/">View All Game Art →</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../../../about/">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../../contact/">Contact</a></li>
+          <li class="nav-item"><a class="btn btn-primary" href="../../../contact/" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Start a Project</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Mega Tab Navigation ── -->
+  <div class="mega-tabs-container">
+    <div class="mega-tabs-inner">
+      <div class="mega-tabs">
+        <button class="mega-tab active" id="tab-btn-overview" onclick="window.switchTab('overview')">Project Overview</button>
+        <button class="mega-tab" id="tab-btn-casestudy" onclick="window.switchTab('casestudy')">Engineering Deep Dive</button>
+      </div>
+    </div>
+  </div>
+
+<div id="tab-overview" class="mega-tab-content active">
+
+<!-- ═══ CINEMATIC HERO ═══ -->
+    <section class="hero-cinematic">
+      <img src="assets/paapi-hero-bg-clean.webp" class="hero-cinematic__bg" alt="Paapi Gudia Cinematic Horror Background">
+      <div class="container hero-cinematic__content">
+        <a href="../../../portfolio/" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #00D1FF; text-decoration: none; transition: transform 0.2s, color 0.2s; background: rgba(8,8,8,0.75); border: 1px solid rgba(0,209,255,0.2); border-radius: 30px; padding: 0.5rem 1.25rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 15px rgba(0,0,0,0.35); margin-bottom: 2rem; width: fit-content; margin-left: auto; margin-right: auto;">
+          <span style="font-size: 0.85rem; line-height: 1;">←</span> Back to Portfolio
+        </a>
+        <span class="hero-label">Cross-Platform Horror Shooter</span>
+        <h1 class="hero-title">Paapi Gudia</h1>
+        <p style="font-size: 1.25rem; line-height: 1.6; color: var(--color-text-muted); max-width: 800px; margin: 0 auto 3.5rem auto;">
+          An immersive horror adventure engineered for parity across PC and Meta Quest hardware. Built with Unity URP and OpenXR for production-ready cross-platform deployment.
+        </p>
+        
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+          <a href="../../../contact/" class="btn btn-primary" style="padding: 1.1rem 2.8rem; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Start Your Project</a>
+        </div>
+      </div>
+    </section>
+
+  
+
+    <!-- ═══ PROJECT STRIP ═══ -->
+    <section style="background: #080808; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Platform</span><strong style="font-size: 0.95rem;">PC & Meta Quest 2 / 3 / 3S</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Engine</span><strong style="font-size: 0.95rem;">Unity (URP)</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Genre</span><strong style="font-size: 0.95rem;">Immersive Horror Shooter</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">Perspective</span><strong style="font-size: 0.95rem;">First-Person (VR & PC)</strong></div>
+          <div><span style="font-size: 0.6rem; color: var(--color-accent); text-transform: uppercase; font-weight: 800; letter-spacing: 0.2em; display: block; margin-bottom: 0.3rem;">XR Framework</span><strong style="font-size: 0.95rem;">OpenXR / XRIT</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 01 PROJECT OVERVIEW ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">01 / Hybrid Development</span>
+            <h2>One Engine. Two Realities.</h2>
+            <p>Paapi Gudia is a cross-platform first-person horror shooter inspired by the iconic Bollywood horror film. The game delivers an immersive supernatural experience across two distinct hardware targets — Windows PC and Meta Quest standalone — from a single unified Unity codebase.</p>
+            <p>The central engineering challenge was delivering a genuinely immersive, atmospheric horror experience across platforms with vastly different rendering budgets — from a high-end PC GPU down to the Snapdragon XR2 mobile processor.</p>
+            <table class="tech-table">
+              <tr><th>Target</th><th>Profile</th></tr>
+              <tr><td><strong>PC (Windows)</strong></td><td>High-end GPU, full URP feature set, mouse/KB & Gamepad support.</td></tr>
+              <tr><td><strong>Meta Quest 3</strong></td><td>Snapdragon XR2 Gen 2, Standalone VR, Mixed Reality passthrough.</td></tr>
+              <tr><td><strong>Meta Quest 2</strong></td><td>Snapdragon XR2 Gen 1, Aggressive performance optimization.</td></tr>
+            </table>
+          </div>
+          <div class="image-frame">
+            <img loading="lazy" src="assets/Gameplayscreenshot1.webp" alt="Paapi Gudia Atmospheric Environment">
+            <div class="image-frame__overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Pillars -->
+    <section style="padding: 4rem 0; background: #0a0a0a;">
+      <div class="container">
+        <div class="feature-grid" style="margin-top: 0;">
+          <div class="feature-card">
+            <span class="feature-card__num">01</span>
+            <h3>Film-Authentic</h3>
+            <p>Visual identity and enemy design faithful to the source Bollywood IP, delivering a visceral interactive encounter.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">02</span>
+            <h3>Cross-Platform Parity</h3>
+            <p>PC and Quest players experience the same core gameplay and story beats — differentiated only by rendering fidelity.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card__num">03</span>
+            <h3>Atmospheric Dread</h3>
+            <p>Every environment and audio cue is designed to build dread, rewarding environmental awareness over rushing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 CORE GAMEPLAY LOOP ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="image-frame" style="order: 2;">
+            <img loading="lazy" src="assets/Gameplayscreenshot2.webp" alt="Combat Encounter with Supernatural Entities">
+            <div class="image-frame__overlay"></div>
+          </div>
+          <div class="narrative-content" style="order: 1;">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">02 / The Loop</span>
+            <h2>Atmospheric Pacing & Tension.</h2>
+            <p>The experience structures its loop as a slow atmospheric exploration phase punctuated by high-intensity combat waves and direct boss confrontations with the cursed doll.</p>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;">
+              <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-left: 3px solid var(--color-accent);">
+                <strong style="display: block; color: #fff; margin-bottom: 0.5rem; font-size: 0.9rem;">1. Exploration & Dread</strong>
+                <p style="font-size: 0.85rem; margin: 0;">Audio cues and lighting shifts build dread as players uncover story fragments.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-left: 3px solid var(--color-accent);">
+                <strong style="display: block; color: #fff; margin-bottom: 0.5rem; font-size: 0.9rem;">2. Wave Combat</strong>
+                <p style="font-size: 0.85rem; margin: 0;">Supernatural enemies emerge in waves, demanding fast shooting reflexes.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-left: 3px solid var(--color-accent);">
+                <strong style="display: block; color: #fff; margin-bottom: 0.5rem; font-size: 0.9rem;">3. Doll Confrontation</strong>
+                <p style="font-size: 0.85rem; margin: 0;">Direct encounters with the Paapi Gudia doll featuring erratic, unpredictable behavior.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ VIDEO TRAILER SECTION ═══ -->
+    <section class="video-section">
+      <div class="container">
+        <span class="hero-label">Gameplay Walkthrough</span>
+        <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">Witness the Terror</h2>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto;">A look at the cross-platform rendering and immersive VR combat mechanics.</p>
+        <div class="video-container" style="position: relative;">
+          <div class="video-facade" data-video="pg" style="position: absolute; inset: 0; cursor: pointer; background-image: url('assets/Gameplayscrenshot3.webp'); background-size: cover; background-position: center; display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; justify-content: center;">
+            <div class="play-button" style="width: 80px; height: 80px; background: rgba(0,210,255,0.9); border-radius: 50%; display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; justify-content: center; font-size: 2rem; color: #05070a; box-shadow: 0 0 30px rgba(0,210,255,0.4); transition: transform 0.2s ease, background 0.2s ease;">▶</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 03 SYSTEM ARCHITECTURE ═══ -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">03 / System Architecture</span>
+            <h2>Platform-Agnostic Core.</h2>
+            <p>Built on a modular architecture where core gameplay is platform-independent. Specific behavior — rendering quality, input handling, locomotion — is injected at runtime through abstraction layers.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <li><strong style="color: #fff; display: block;">Unified Input</strong>Routed through a single InputActionAsset with XR, PC, and Gamepad schemes.</li>
+              <li><strong style="color: #fff; display: block;">Runtime URP Switching</strong>Detects hardware and selects optimized PC or Quest render profiles.</li>
+              <li><strong style="color: #fff; display: block;">Hybrid AI</strong>Standard NavMesh for minions, custom teleport graphs for the boss.</li>
+              <li><strong style="color: #fff; display: block;">Tension Scalar</strong>A persistent scene manager updating dread levels based on real-time state.</li>
+            </ul>
+          </div>
+          <div class="image-frame">
+            <img loading="lazy" src="assets/Gameplayscreenshot4.webp" alt="Technical System Overview Visualization">
+            <div class="image-frame__overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GALLERY SECTION ═══ -->
+    <section style="padding: 10rem 0; background: #080a08;">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 4rem;">
+          <span class="hero-label">Media Gallery</span>
+          <h2>Production Screenshots</h2>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img loading="lazy" src="assets/Gameplayscreenshot1.webp" alt="Paapi Gudia Environment 1"></div>
+          <div class="gallery-item"><img loading="lazy" src="assets/Gameplayscreenshot2.webp" alt="Paapi Gudia Combat 1"></div>
+          <div class="gallery-item"><img loading="lazy" src="assets/Gameplayscrenshot3.webp" alt="Paapi Gudia Boss Encounter"></div>
+          <div class="gallery-item"><img loading="lazy" src="assets/Gameplayscreenshot4.webp" alt="Paapi Gudia Environment 2"></div>
+          <div class="gallery-item"><img loading="lazy" src="assets/Gameplayscreenshot5.webp" alt="Paapi Gudia Combat 2"></div>
+          <div class="gallery-item" style="background: rgba(255,255,255,0.02); display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.1);"><span style="color: rgba(255,255,255,0.2); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">More coming soon</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 04 ROADMAP & FUTURE ═══ -->
+    <section class="narrative-section narrative-section--alt">
+      <div class="container">
+        <div class="narrative-grid">
+          <div class="narrative-content">
+            <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 1rem;">Future Expansion</span>
+            <h2>The Road Ahead.</h2>
+            <p>Our hybrid framework allows for rapid content scaling across both branches simultaneously. We are currently engineering new systems to push the boundaries of cross-platform immersion.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem;">
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Asynchronous Co-Op:</strong> Enabling PC and VR players to survive the nightmare together.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Haptic Suit Integration:</strong> Full bHaptics support for immersive physical feedback.</p>
+              </li>
+              <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--color-accent); font-weight: 900; font-size: 1.2rem;">✓</span>
+                <p style="font-size: 0.95rem; color: #e0e0e0; margin: 0; line-height: 1.5;"><strong>Dynamic World Shifting:</strong> Environment geometries that react to player heartbeat in real-time.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="image-frame">
+            <img loading="lazy" src="assets/Gameplayscreenshot5.webp" alt="Development Testing and Haptics Calibration">
+            <div class="image-frame__overlay" style="background: radial-gradient(circle at 30% 50%, rgba(0, 210, 255, 0.2) 0%, transparent 60%);"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cinematic Banner -->
+    <section style="position: relative; height: 50vh; display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; justify-content: center; overflow: hidden; background: #000;">
+      <img src="assets/paapi-hero-bg.webp" alt="Paapi Gudia Background" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(0.5);">
+      <div style="position: relative; z-index: 10; text-align: center;">
+        <h2 style="font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.04em;">Scale Your Vision.</h2>
+        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto;">Partner with our studio to engineer custom interactive systems and robust game loops.</p>
+      </div>
+    </section>
+
+    <!-- ═══ B2B PORTFOLIO CTA ═══ -->
+    <section class="narrative-section" id="contact">
+      <div class="container">
+        <div style="max-width: 650px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--color-accent); padding: 4rem; border-radius: 4px; text-align: center;">
+          <span class="hero-label">Want to Build a Game Like This?</span>
+          <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; margin-top: 1rem;">Let's Design Your Project</h2>
+          <p class="text-muted" style="max-width: 500px; margin: 0 auto 3rem;">We engineer modular, production-ready interactive systems and robust game loops. Reach out to our engineering team to bring your vision to life.</p>
+          <a class="btn btn-primary" href="../../../contact/" style="padding: 1.2rem 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;">Start Your Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ DISCOVERY: Other Projects ═══ -->
+    <section class="section-padding" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle); padding: 8rem 0;">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;">
+          <div>
+            <span class="label-accent" style="color: var(--color-accent); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem;">Discovery</span>
+            <h2 class="display-2" style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em;">Explore Other Projects</h2>
+          </div>
+          <a href="../../../portfolio/" class="text-accent" style="font-weight: 600; font-size: 0.9rem; text-decoration: none; color: var(--color-accent);">View All Work &rarr;</a>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+          <!-- Crazy Planet -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <img alt="Crazy Planet" src="../crazy-planet/assets/cp-hero-bg.webp" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Mobile / Action</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Crazy Planet</h3>
+              <a href="../crazy-planet/" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+            </div>
+          </div>
+          <!-- Reclairos -->
+          <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px;">
+            <div style="aspect-ratio: 16/9; width: 100%; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <img loading="lazy" alt="Reclairos" src="../../../reclairos/assets/reclairos-thumbnail.webp" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div style="padding: 2rem; flex-grow: 1;">
+              <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 0.5rem;">Tactical RPG</span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 700;">Reclairos</h3>
+              <a href="../../../reclairos/" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem;">View Overview &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /tab-overview -->
+<div id="tab-casestudy" class="mega-tab-content"><!-- ═══ HERO ═══ -->
+    <section class="cs-hero">
+      <div class="cs-hero__bg"></div>
+      <div class="container">
+        <span class="cs-label">Technical Case Study — Project Paapi Gudia</span>
+        <p class="cs-hero__meta">PC &nbsp;/&nbsp; Standalone VR (Quest) &nbsp;/&nbsp; Cross-Platform Shooter</p>
+        <h2>Paapi Gudia<br><span style="color: var(--color-text-muted); font-weight: 400; font-size: 0.55em; letter-spacing: 0;">Cross-Platform VR Optimization</span></h2>
+        <p>A technical deep-dive into building a hardware-aware rendering framework and unified input abstraction layer for high-fidelity horror combat on mobile chipsets.</p>
+
+        <!-- Project Meta -->
+        <div class="cs-meta-grid">
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Target</span>
+            <p class="cs-meta-card__value">Meta Quest 2/3 / PC</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Pipeline</span>
+            <p class="cs-meta-card__value">Unity URP (Scalable)</p>
+          </div>
+          <div class="cs-meta-card">
+            <span class="cs-meta-card__label">Input</span>
+            <p class="cs-meta-card__value">Unified OpenXR Layer</p>
+          </div>
+          <div class="cs-meta-card" style="border-top: 2px solid rgba(0,210,255,0.4); background: rgba(0,210,255,0.03);">
+            <span class="cs-meta-card__label">AI Logic</span>
+            <p class="cs-meta-card__value">Erratic Distortion</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ HARD BENCHMARKS ═══ -->
+    <section class="cs-benchmarks">
+      <div class="container">
+        <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); display: block; text-align: center; margin-bottom: 3rem;">Technical Performance Benchmarks</span>
+        <div class="cs-bench-grid">
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">72 FPS</span>
+            <p class="cs-bench-card__title">Locked Quest 2 Performance</p>
+            <p class="cs-bench-card__sub">Maintained stable refresh rates on standalone hardware through vertex-lit shader optimizations and aggressive object pooling.</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">&lt; 15ms</span>
+            <p class="cs-bench-card__title">Input Translation Latency</p>
+            <p class="cs-bench-card__sub">Ultra-low latency abstraction layer ensuring parity between motion controllers and mouse/keyboard inputs.</p>
+          </div>
+          <div class="cs-bench-card">
+            <span class="cs-bench-card__stat">150+</span>
+            <p class="cs-bench-card__title">Draw Calls (Max)</p>
+            <p class="cs-bench-card__sub">Strict budget management for mobile chipsets using SRP batching and manual light-probing optimization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 01 SYSTEM ARCHITECTURE ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">01 &nbsp;/&nbsp; System Architecture</span>
+        <h2>Unified Cross-Platform Framework</h2>
+        <p style="color: var(--color-text-muted); max-width: 700px; font-size: 1rem; line-height: 1.75; margin-bottom: 4rem;">To avoid maintainability issues with separate codebases, we developed a <strong>Hardware-Aware Profile System</strong>. The engine detects the target platform at runtime and swaps core logic modules without rebuilding the scene.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem;">
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Input Abstraction Layer</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">A centralized middleware that maps OpenXR motion events and traditional HID inputs to the same gameplay 'Action Registry'.</p>
+          </div>
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Scalable Render Profile</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Dynamic adjustment of FFR (Fixed Foveated Rendering), post-processing stacks, and texture resolution based on thermal headroom.</p>
+          </div>
+          <div style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h4 style="color: var(--color-accent); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Physics Proxy System</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">Swaps heavy mesh-colliders for simplified primitive sets on mobile chipsets while maintaining identical gameplay collision logic.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 CHALLENGES & SOLUTIONS ═══ -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <span class="cs-section-num">02 &nbsp;/&nbsp; Challenges &amp; Solutions</span>
+        <h2>Engineering Mobile VR Parity</h2>
+
+        <!-- Challenge 1 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">01</span>
+            <h3>Standalone VR CPU Bottlenecks</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>High Draw Calls in Dense Horror Environments</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">Rendering detailed horror environments with complex lighting on the Quest 2's XR2 chipset often exceeded the 100-draw-call budget, causing severe frame drops and motion sickness.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>SRP Batching &amp; Custom Lightprobe Interpolators</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">We implemented aggressive SRP batching and replaced real-time point lights with a custom lightprobe interpolator. This allowed us to simulate dynamic lighting for 50+ objects in a single draw call.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="cs-challenge">
+          <div class="cs-challenge__header">
+            <span class="cs-challenge__num">02</span>
+            <h3>Input Feeling Disparity</h3>
+          </div>
+          <div class="cs-split">
+            <div class="cs-split__col--problem">
+              <span class="cs-split__tag cs-split__tag--problem">Problem</span>
+              <h4>Flat Feeling on Mouse/Keyboard vs VR</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">The 'tactile' nature of VR combat (manual reloading, physical aiming) felt lost when translated to traditional inputs, making the PC version feel like a generic shooter.</p>
+            </div>
+            <div class="cs-split__col--solution">
+              <span class="cs-split__tag cs-split__tag--solution">Solution</span>
+              <h4>Simulated Inertia &amp; Micro-Action Mapping</h4>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">We added simulated weapon inertia to mouse movement and mapped 'Micro-Actions' (like pulling a slide) to specific key combinations. This preserved the 'mechanical' feel of the VR version for PC players.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 03 TAKEAWAYS ═══ -->
+    <section class="cs-section">
+      <div class="container">
+        <span class="cs-section-num">03 &nbsp;/&nbsp; Engineering Takeaways</span>
+        <h2>Validation &amp; Results</h2>
+        
+        <div style="margin-top: 3rem;">
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">1</span>
+            <div>
+              <h4>Hardware-Aware Optimization is Mandatory</h4>
+              <p>Designing for the most constrained platform (Quest 2) first, and then scaling up for PC, resulted in a much cleaner architecture than attempting to 'port down' later in development.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">2</span>
+            <div>
+              <h4>Unified Codebase for Faster Iteration</h4>
+              <p>By using an abstraction layer for input and rendering, we were able to fix bugs once and deploy to all platforms simultaneously, reducing QA cycles by nearly 35%.</p>
+            </div>
+          </div>
+          <div class="cs-takeaway">
+            <span class="cs-takeaway__num">3</span>
+            <div>
+              <h4>Immersion is a Performance Metric</h4>
+              <p>In horror, frame stability is as important as visual fidelity. A locked 72 FPS with slightly lower detail is always superior to a stuttering 90 FPS with high-end assets.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cs-cta">
+      <div class="container">
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem;">Ready to Build at This Level?</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">DualCore specializes in high-performance cross-platform development. If your project demands technical excellence across VR and Desktop—let's talk.</p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center;">
+          <a href="#contactForm" class="btn btn-primary" style="padding: 1rem 2.5rem; font-weight: 700;">Start a Project</a>
+        </div>
+      </div>
+    </section>
+</div><!-- /tab-casestudy -->
+
+</main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+        <div class="footer-brand">
+          <img alt="DualCore Games Logo" loading="lazy" src="../../../assets/images/dualcore-logo.svg"
+            style="height: 40px; width: auto; display: block; margin-bottom: 1.5rem;" />
+          <p>DualCore Games is a systems-first game development studio building immersive IP and production-ready interactive frameworks.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="../../../">Home</a></li>
+            <li><a href="../../../services/">Services</a></li>
+            <li><a href="../../../portfolio/">Portfolio</a></li>
+            <li><a href="../../../contact/">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <ul class="footer-links social-links">
+            <li><a href="https://www.linkedin.com/company/dual-core-games/" rel="noopener" target="_blank" aria-label="DualCore Games on LinkedIn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <span>LinkedIn</span>
+            </a></li>
+            <li><a href="https://x.com/DualCore53111" rel="noopener" target="_blank" aria-label="DualCore Games on X (Twitter)">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.633zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X (Twitter)</span>
+            </a></li>
+            <li><a href="https://www.instagram.com/dualcoregames/" rel="noopener" target="_blank" aria-label="DualCore Games on Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span>Instagram</span>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center; opacity: 0.75; font-size: 0.7rem; padding-top: 2rem;">
+        <p>© 2026 DualCore Games | <a href="../../../privacy-policy">Privacy Policy</a></p>
+        <p style="max-width: 600px; line-height: 1.6;">Unity and Meta Quest are trademarks of their respective owners. DualCore Games is an independent studio.</p>
+      </div>
+    </div>
+  </footer>
+
+  
+  <script defer="" src="../../../assets/js/main.js"></script>
+
+  <script>
+    window.switchTab = function(tabName) {
+      document.querySelectorAll('.mega-tab-content').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.mega-tab').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      var targetContent = document.getElementById('tab-' + tabName);
+      var targetBtn = document.getElementById('tab-btn-' + tabName);
+      if (targetContent) targetContent.classList.add('active');
+      if (targetBtn) targetBtn.classList.add('active');
+      var url = new URL(window.location.href);
+      if (tabName === 'overview') {
+        url.searchParams.delete('tab');
+      } else {
+        url.searchParams.set('tab', tabName);
+      }
+      history.replaceState(null, '', url.toString());
+    };
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var tab = params.get('tab');
+      if (tab) { window.switchTab(tab); }
+    })();
+  </script>
+
+</body>
+</html>
