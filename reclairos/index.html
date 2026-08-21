@@ -1447,6 +1447,10 @@
         min-height: 100svh;
         height: auto;
       }
+      .rc-hero__inner {
+        padding-bottom: 0 !important;
+        margin-bottom: 15vh !important;
+      }
       .rc-hero__bg {
         /* Portrait image — anchor top of image (sky/castle) to top of section */
         object-position: center top;
@@ -2972,7 +2976,7 @@
         </div>
         <div id="reclairosSuccessMessage" class="rc-success-message">
           <h3>Submission Successful</h3>
-          <p>Technical Request Received. Our engineering team will review and respond within 24-48 hours.</p>
+          <p>You're in. Check your inbox — we've sent your beta access details and Discord invite.</p>
         </div>
         <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="reclairosBetaForm">
           <!-- Honeypot Field for Anti-Spam -->
@@ -3028,8 +3032,19 @@
             mode: 'no-cors'
           })
           .then(() => {
+            // Fire GTM beta_signup event
+            if (window.dataLayer) {
+              window.dataLayer.push({
+                'event': 'beta_signup',
+                'form_id': form.id,
+                'form_type': 'B2C',
+                'source_page': window.location.pathname
+              });
+            }
+            // On success (or redirection ignored by no-cors)
             form.style.display = 'none';
             successMessage.style.display = 'block';
+            // Ensure we scroll to the message if it's out of view
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
           })
           .catch(error => {
@@ -4094,7 +4109,7 @@
         </div>
         <div id="csReclairosSuccessMessage" class="rc-success-message">
           <h3>Submission Successful</h3>
-          <p>Technical Request Received. Our engineering team will review and respond within 24-48 hours.</p>
+          <p>You're in. Check your inbox — we've sent your beta access details and Discord invite.</p>
         </div>
         <form action="https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec" method="POST" class="contact-form" id="csReclairosBetaForm">
           <!-- Honeypot Field for Anti-Spam -->
