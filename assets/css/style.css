@@ -83,3 +83,11 @@
     padding: 3.5rem 0 !important;
   }
 }
+
+/* ═══ Header Sticky Overlap Fix ═══ */
+/* Ensure header scales down to 70px on mobile to perfectly align with sticky mega tabs and main padding */
+@media (max-width: 1024px) {
+  header {
+    height: 70px !important;
+  }
+}
