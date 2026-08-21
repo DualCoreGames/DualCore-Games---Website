@@ -490,10 +490,6 @@
       .rc-threat__grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
-      .rc-hero__inner {
-        padding-bottom: 0 !important;
-        margin-bottom: 15vh !important; /* Move text and CTA up */
-      }
 
       .rc-hero__logo { height: 60px; }
       .rc-section { padding: 6rem 0; }
@@ -1465,26 +1461,6 @@
           rgba(8,8,8,0.95) 78%,
           rgba(8,8,8,1) 88%
         );
-      }
-      /* ── KEY FIX: drop badges OUT of the image area on mobile ── */
-      /* Pull rc-hero__top out of absolute positioning so it joins
-         the flex flow at the bottom, sitting above the title text  */
-      .rc-hero__top {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        width: 100%;
-        padding: 0 1.5rem;
-        gap: 0.5rem;
-        /* Take the auto-margin so it and rc-hero__inner both sit at bottom */
-        margin-top: 15vh;
-        margin-bottom: 0.75rem;
-      }
-      /* Remove the auto-margin from inner since rc-hero__top now owns it */
-      .rc-hero__inner {
-        padding: 0 1.5rem 3rem;
-        margin-top: 0;
       }
       .rc-hero__inner h1 {
         font-size: clamp(1.15rem, 5.5vw, 1.5rem) !important;
