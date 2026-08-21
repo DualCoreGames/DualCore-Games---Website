@@ -76,3 +76,10 @@
   white-space: nowrap !important;
   border: 0 !important;
 }
+
+/* Additional padding tweaks for extra small devices */
+@media (max-width: 480px) {
+  #services.section-padding, .core-capabilities-section, .why-choose-section, .cta-premium, .philosophy-narrative, .featured-project-section {
+    padding: 3.5rem 0 !important;
+  }
+}

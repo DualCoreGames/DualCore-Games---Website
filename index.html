@@ -154,27 +154,36 @@
          ======================== -->
     <section class="hero" id="home">
       <div class="hero-video-bg">
-        <video autoplay muted loop playsinline class="hero-video" id="hero-video" preload="none">
-          <!-- Non-reflowing responsive source injection based on userAgent to prevent double downloads and autoplay blocks -->
-          <script>
-            (function() {
-              var video = document.getElementById('hero-video');
-              var container = video.parentElement;
-              var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-              if (isMobile) {
-                video.remove();
-                container.style.backgroundImage = "url('assets/images/hero_mobile_poster.webp')";
-                container.style.backgroundSize = "cover";
-                container.style.backgroundPosition = "center center";
-                container.style.opacity = "0.85";
-              } else {
-                video.src = 'assets/video/dualcore-scalable-game-systems-engineering.mp4';
-                video.poster = 'assets/images/hero_desktop_poster.webp';
-                video.preload = 'auto';
-              }
-            })();
-          </script>
+        <video autoplay muted loop playsinline class="hero-video" id="hero-video" preload="auto">
+          <!-- Fallback sources if JS fails -->
         </video>
+        
+        <script>
+          (function() {
+            var video = document.getElementById('hero-video');
+            function setVideoSource() {
+              var isMobile = window.innerWidth <= 768;
+              var newSrc = isMobile ? 'assets/video/hero-mobile.mp4' : 'assets/video/dualcore-scalable-game-systems-engineering.mp4';
+              var newPoster = isMobile ? 'assets/images/hero_mobile_poster.webp' : 'assets/images/hero_desktop_poster.webp';
+              
+              if (video.getAttribute('src') !== newSrc) {
+                video.src = newSrc;
+                video.poster = newPoster;
+                video.load(); // Required to load the new source
+              }
+            }
+            
+            // Set initially
+            setVideoSource();
+            
+            // Update on resize
+            var resizeTimer;
+            window.addEventListener('resize', function() {
+              clearTimeout(resizeTimer);
+              resizeTimer = setTimeout(setVideoSource, 250);
+            });
+          })();
+        </script>
       </div>
       
       <div class="hero-overlay" style="background: linear-gradient(to bottom, rgba(5,7,10,0.3) 0%, rgba(5,7,10,0.85) 100%);"></div>

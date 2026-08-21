@@ -490,6 +490,11 @@
       .rc-threat__grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
+      .rc-hero__inner {
+        padding-bottom: 0 !important;
+        margin-bottom: 15vh !important; /* Move text and CTA up */
+      }
+
       .rc-hero__logo { height: 60px; }
       .rc-section { padding: 6rem 0; }
       .rc-squad__grid { grid-template-columns: 1fr 1fr; }
@@ -1443,9 +1448,8 @@
     }
     @media (max-width: 768px) {
       .rc-hero {
-        /* Lock section to viewport — prevent content overflow gap */
-        height: 100svh;
-        min-height: unset;
+        min-height: 100svh;
+        height: auto;
       }
       .rc-hero__bg {
         /* Portrait image — anchor top of image (sky/castle) to top of section */
@@ -1474,7 +1478,7 @@
         padding: 0 1.5rem;
         gap: 0.5rem;
         /* Take the auto-margin so it and rc-hero__inner both sit at bottom */
-        margin-top: auto;
+        margin-top: 15vh;
         margin-bottom: 0.75rem;
       }
       /* Remove the auto-margin from inner since rc-hero__top now owns it */
@@ -1565,6 +1569,20 @@
       pointer-events: none;
       z-index: 1;
     }
+    @media (max-width: 768px) {
+      .cs-hero {
+        min-height: 100svh !important;
+        height: auto !important;
+      }
+      .cs-hero__bg {
+        background-image: url('assets/reclairos-hero-mobile.webp') !important;
+        background-position: center top !important;
+        height: 100svh !important;
+      }
+    }
+
+    
+
     .cs-hero .container {
       position: relative;
       z-index: 2;
