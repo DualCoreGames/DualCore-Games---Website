@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "crypto", "forex", "trading signals", "whatsapp +", "telegram: @",
                 "jackpot", "$27,000,000", "http://", "https://", "mega.nz", "telegra.ph",
                 "psychophysical", "satellite weapons", "gru report",
-                "writing about price", "writing about your price", "about the price",
+                "writing about price", "writing about your price",
                 "about your the price", "reseller", "prys ken", "i wou jou",
                 "wou jou prys", "jeg ville vite", "ik wilde je prijs",
                 "egjnjmfne", "fkmdkdwd", "duwfeu", "wfhuwijdw"
