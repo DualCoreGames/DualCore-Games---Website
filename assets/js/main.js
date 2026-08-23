@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 4. Form Submission & AJAX Redirect
-    const forms = document.querySelectorAll('form.contact-form, form.beta-form, #contactForm, #contactFormTwo, #reclairosBetaForm, #paapiContactForm, #roomRaiderForm, #audit-form-element, #notd-form, #newsletterForm');
+    const forms = document.querySelectorAll('form.contact-form:not(#reclairosBetaForm):not(#csReclairosBetaForm), #contactForm, #contactFormTwo, #paapiContactForm, #roomRaiderForm, #audit-form-element, #notd-form, #newsletterForm');
     forms.forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
