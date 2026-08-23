@@ -98,10 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const honeypot = form.querySelector('input[name="honeypot_field"]');
             
             const spamKeywords = [
-                "seo ranking", "seo agency", "backlinks", "guest post", "buy traffic", 
-                "crypto", "forex", "trading signals", "whatsapp +", "telegram: @", 
+                "seo ranking", "seo agency", "backlinks", "guest post", "buy traffic",
+                "crypto", "forex", "trading signals", "whatsapp +", "telegram: @",
                 "jackpot", "$27,000,000", "http://", "https://", "mega.nz", "telegra.ph",
-                "psychophysical", "satellite weapons", "gru report"
+                "psychophysical", "satellite weapons", "gru report",
+                "writing about price", "writing about your price", "about the price",
+                "about your the price", "reseller", "prys ken", "i wou jou",
+                "wou jou prys", "jeg ville vite", "ik wilde je prijs",
+                "egjnjmfne", "fkmdkdwd", "duwfeu", "wfhuwijdw"
             ];
             const messageField = form.querySelector('textarea[name="message"]');
             const nameField = form.querySelector('input[name="name"]');
@@ -145,9 +149,12 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(() => {
                 // Fire GTM generate_lead event for legitimate submissions
                 if (window.dataLayer) {
+                    const formType = (form.id && (form.id.includes('newsletter') || form.id.includes('Newsletter')))
+                        ? 'Newsletter' : 'B2B';
                     window.dataLayer.push({
                         'event': 'generate_lead',
                         'form_id': form.id || 'unknown',
+                        'form_type': formType,
                         'source_page': window.location.pathname
                     });
                 }
