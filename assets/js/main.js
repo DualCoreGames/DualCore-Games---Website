@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const formData = new FormData(form);
-            const defaultAction = 'https://script.google.com/macros/s/AKfycbzoije_tJBOEAofZS25gWx2Ge65ky5n0d8Uh-rWZN3tjtRHkTxYLnid8UUOKouhmm8/exec';
+            const defaultAction = 'https://script.google.com/macros/s/AKfycbybEJuXq4r6ZNUhRjDEUKY5150NhFX0Tq5zqGLMJe33vQoqoygkLECrH3ucOVvb2lk/exec';
             const submissionUrl = form.action && form.action !== window.location.href ? form.action : defaultAction;
 
             fetch(submissionUrl, {
